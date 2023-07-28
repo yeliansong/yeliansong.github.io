@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>三： 运行于Kubernetes中的容器 - LIANSONG&#39;S Blog</title><meta name="Description" content="LIANSONG&#39;S Blog"><meta property="og:title" content="三： 运行于Kubernetes中的容器" />
+<meta property="og:description" content="1. 为啥要搞出POD 我们知道，POD是Kubernetes管理的最小单位，为啥Kubernetes不直接管理container，要管理POD呢" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/" /><meta property="og:image" content="https://zz2summer.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-09-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-10T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zz2summer.github.io/logo.png"/>
+
+<meta name="twitter:title" content="三： 运行于Kubernetes中的容器"/>
+<meta name="twitter:description" content="1. 为啥要搞出POD 我们知道，POD是Kubernetes管理的最小单位，为啥Kubernetes不直接管理container，要管理POD呢"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/" /><link rel="prev" href="https://zz2summer.github.io/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/" /><link rel="next" href="https://zz2summer.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "三： 运行于Kubernetes中的容器",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zz2summer.github.io\/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8\/"
+        },"image": ["https:\/\/zz2summer.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "读书笔记, tech, k8s, docker","wordcount":  1113 ,
+        "url": "https:\/\/zz2summer.github.io\/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8\/","datePublished": "2019-09-10T00:00:00+00:00","dateModified": "2019-09-10T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/zz2summer.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": ""
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">三： 运行于Kubernetes中的容器</h1><h2 class="single-subtitle">Kubernetes in action 读书笔记</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2019-09-10 00:00:00">2019-09-10 00:00:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1113 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-为啥要搞出pod">1. 为啥要搞出POD</a></li>
+        <li><a href="#2-怎么规划pod中的容器">2. 怎么规划POD中的容器</a></li>
+        <li><a href="#3-yaml文件分析及创建pod">3. YAML文件分析及创建POD</a></li>
+        <li><a href="#4-pod的标签">4. POD的标签</a></li>
+        <li><a href="#5-namespace">5. Namespace</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="1-为啥要搞出pod">1. 为啥要搞出POD</h3>
+<p>我们知道，POD是Kubernetes管理的最小单位，为啥Kubernetes不直接管理container，要管理POD呢？这是有原因的，我们知道，container是单一进程的，啥意思呢，就是container的设计思想就是每个container只运行一个进程， 如果用枯bernetes直接去管理这些container，肯定是错综复杂，所以就搞出了POD这个东西，来实现容器间的资源和网络隔离，在同一个POD下的所有容器共享网络和系统资源，但是呢，一个POD内的所有容器肯定是逻辑业务密切结合的一个整体，他们肯定是有很强的联系。每一个container可以用端口来进行区分。</p>
+<h3 id="2-怎么规划pod中的容器">2. 怎么规划POD中的容器</h3>
+<p>刚说到，POD中放的是一组容器，怎么来规划这些容器呢，把项目中所有容器都放到一个POD中可以吗？因为POD比较轻量，所以鼓励是尽可能多的用POD，而规划POD中的容器，需要考虑的是，你的这一组容器的业务逻辑是否紧密相连，还有你是否要scale你的容器，这些是你的判断条件。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9w2djtj30fc087n06.jpg"
+        data-srcset="https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9w2djtj30fc087n06.jpg, https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9w2djtj30fc087n06.jpg 1.5x, https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9w2djtj30fc087n06.jpg 2x"
+        data-sizes="auto"
+        alt="https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9w2djtj30fc087n06.jpg"
+        title="1568022964845" /></p>
+<p>很好的一个例子，前端和后端分为两个POD来进行部署。</p>
+<h3 id="3-yaml文件分析及创建pod">3. YAML文件分析及创建POD</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9wxdumj30by06p75b.jpg"
+        data-srcset="https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9wxdumj30by06p75b.jpg, https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9wxdumj30by06p75b.jpg 1.5x, https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9wxdumj30by06p75b.jpg 2x"
+        data-sizes="auto"
+        alt="https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9wxdumj30by06p75b.jpg"
+        title="1568023748851" /></p>
+<p>非常的EASY， 其实一个YAML文件就包含：kind, metadata, spe这些东西。metadata 是用来定义POD的数据，spec是用来定义这个POD下的所有容器数据。</p>
+<p>有几个命令需要学习下：Kubectl create -f a.yaml， 这个是通过yaml文件来创建需要的POD。获取POD中指定容器的日志信息，可以用kubectl logs kula -c kubia。获取运行的POD的yaml或json格式文件，可以用kubectl get po kubia -o yaml 或kubectl get po kubia -o json。kubectl port-forward kubela 8888:8080 用来搞端口映射。</p>
+<h3 id="4-pod的标签">4. POD的标签</h3>
+<p>标签的作用毋庸置疑，就是用来区分POD。所以加入标签这个就是为了能更好的管理你的POD。一个POD可以设置多个标签，然后利用标签来统一的调度POD。标签的一些命令可以通过手册查看，包括修改标签，设置标签，增加标签等等。</p>
+<h3 id="5-namespace">5. Namespace</h3>
+<p>先搞清楚，搞出Namespace的目的，我们知道，已经有了标签的概念了，标签也是可以用来分组，但是为啥还是要搞出Namespace呢？标签的分组还是不太彻底，一个POD可以有多个标签，所以我觉得标签还是更多的给运维人员用，搞出Namespace就不一样了，每一个POD只有唯一的一个Namespace，使资源的分组更加的彻底。</p>
+<p>来看看怎么玩Namespace。 kubectl get ns: 列出所有的命名空间，kubectl get po &ndash;namespace kube-system:列出指定Namespace的所有POD。kubectl create namespace custom-namespace,创建一个Namespace。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2019-09-10 00:00:00</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/" data-title="三： 运行于Kubernetes中的容器" data-hashtags="读书笔记,tech,k8s,docker"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/" data-hashtag="读书笔记"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/" data-title="三： 运行于Kubernetes中的容器"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/" data-title="三： 运行于Kubernetes中的容器" data-ralateuid="index"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/" data-title="三： 运行于Kubernetes中的容器"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>,&nbsp;<a href="/tags/tech/">tech</a>,&nbsp;<a href="/tags/k8s/">K8S</a>,&nbsp;<a href="/tags/docker/">docker</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/" class="prev" rel="prev" title="四：副本机制部署托管POD"><i class="fas fa-angle-left fa-fw"></i>四：副本机制部署托管POD</a>
+            <a href="/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/" class="next" rel="next" title="二：Kubernetes 和 Docker的使用">二：Kubernetes 和 Docker的使用<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">LIANSONG&#39;S Blog</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
