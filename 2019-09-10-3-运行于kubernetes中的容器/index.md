@@ -1,4 +1,4 @@
-# 三： 运行于Kubernetes中的容器
+# 三、运行于Kubernetes中的容器
 
 
 ### 1. 为啥要搞出POD
@@ -11,7 +11,7 @@
 
 刚说到，POD中放的是一组容器，怎么来规划这些容器呢，把项目中所有容器都放到一个POD中可以吗？因为POD比较轻量，所以鼓励是尽可能多的用POD，而规划POD中的容器，需要考虑的是，你的这一组容器的业务逻辑是否紧密相连，还有你是否要scale你的容器，这些是你的判断条件。
 
-![1568022964845](https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9w2djtj30fc087n06.jpg)
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g6ur9w2djtj30fc087n06.jpg" style="zoom:200%;" />
 
 
 
@@ -21,7 +21,7 @@
 
 ### 3. YAML文件分析及创建POD
 
-![1568023748851](https://tva1.sinaimg.cn/large/006y8mN6gy1g6ur9wxdumj30by06p75b.jpg)
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g6ur9wxdumj30by06p75b.jpg" style="zoom:200%;" />
 
 非常的EASY， 其实一个YAML文件就包含：kind, metadata, spe这些东西。metadata 是用来定义POD的数据，spec是用来定义这个POD下的所有容器数据。      
 

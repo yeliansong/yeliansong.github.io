@@ -1,4 +1,4 @@
-# 一：Kubernetes的介绍
+# 一、Kubernetes的介绍
 
 
 ### 1. 单体应用和微服务的比较   

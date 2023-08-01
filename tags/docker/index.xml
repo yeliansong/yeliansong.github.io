@@ -1,22 +1,22 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>docker - 标签 - LIANSONG&#39;S Blog</title>
-        <link>https://zz2summer.github.io/tags/docker/</link>
+        <link>https://yeliansong.github.io/tags/docker/</link>
         <description>docker - 标签 - LIANSONG&#39;S Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
-            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Sep 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zz2summer.github.io/tags/docker/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Sep 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yeliansong.github.io/tags/docker/" rel="self" type="application/rss+xml" /><item>
     <title>三： 运行于Kubernetes中的容器</title>
-    <link>https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</link>
+    <link>https://yeliansong.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</link>
     <pubDate>Tue, 10 Sep 2019 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</guid>
+    <guid>https://yeliansong.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</guid>
     <description><![CDATA[1. 为啥要搞出POD 我们知道，POD是Kubernetes管理的最小单位，为啥Kubernetes不直接管理container，要管理POD呢]]></description>
 </item><item>
     <title>二：Kubernetes 和 Docker的使用</title>
-    <link>https://zz2summer.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+    <link>https://yeliansong.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
     <pubDate>Tue, 10 Sep 2019 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://zz2summer.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+    <guid>https://yeliansong.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
     <description><![CDATA[1. 理解Docker镜像,文件系统和容器 容器的镜像就是打包编译容器后的一个文件，打包镜像是依赖Dockerfile文件，From行定义了镜像的]]></description>
 </item></channel>
 </rss>

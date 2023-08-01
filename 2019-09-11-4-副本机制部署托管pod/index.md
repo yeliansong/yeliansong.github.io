@@ -1,7 +1,4 @@
-# 四：副本机制部署托管POD
-
-
-
+# 四、副本机制部署托管POD
 
 ### 1. 存活探针
 
@@ -23,7 +20,7 @@ RC 有三个部分：label selector,标签选择器，用来确定RC作用域有
 
 是用kubectl edit rc kubia 玩玩，你会发现，你可以修改当前的RC，然后修改当前的RC对现在运行的POD是没有任何影响的，只会对后面的POD有影响。
 
-![1568110592799](https://tva1.sinaimg.cn/large/006y8mN6gy1g6vz9qkq36j30h90ab76n.jpg)
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g6vz9qkq36j30h90ab76n.jpg" style="zoom:200%;" />
 
 有点意思，三个POD，删除RC后，这3个POD不受影响，脱离了RC的束缚。
 
@@ -35,11 +32,11 @@ but， 不要用RC了，用ReplicaSet, 这哥们的功能和RC一样，但是功
 
 这个又是用来干啥的呢，是用来控制POD的部署，意思就是按照自己的定义来部署POD。
 
-![1568167128027](https://tva1.sinaimg.cn/large/006y8mN6gy1g6vz9rj59cj30mc0d4jxi.jpg)
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g6vz9rj59cj30mc0d4jxi.jpg" style="zoom:200%;" />
 
 来来来，看这货，左边是用的ReplicaSet，部署的POD在每个节点上是杂乱无章的，我现在要求每个节点只部署一个POD，这种情况怎么处理？这就要用到DaemonSet了。
 
-![1568167302439](https://tva1.sinaimg.cn/large/006y8mN6gy1g6vz9shyq4j30jr0acdhl.jpg)
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g6vz9shyq4j30jr0acdhl.jpg" style="zoom:200%;" />
 
 这个时DaemonSet的YAML 文件，nodeSelector 节点调度器。
 

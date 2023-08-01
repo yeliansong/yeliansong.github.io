@@ -1,4 +1,4 @@
-# 九：Deployment声明式升级应用
+# 九、Deployment声明式升级应用
 
 
 
@@ -6,13 +6,13 @@
 
 先来看一个案例，这种情况怎么处理：
 
-![1568612886034](https://tva1.sinaimg.cn/large/006y8mN6gy1g71nmdt0vuj30g608h3ze.jpg)
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g71nmdt0vuj30g608h3ze.jpg" style="zoom:200%;" />
 
 POD现在用的是V1版本，现在有一个V2版本，怎么把V2版本替换到V1版本？有三种方式：
 
 - [ ]  删除旧版本POD，是用新版本POD替换
 
-	> ![1568613200012](https://tva1.sinaimg.cn/large/006y8mN6gy1g71nmgk8eaj30le0c10yd.jpg)
+	> <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g71nmgk8eaj30le0c10yd.jpg" style="zoom:150%;" />
 	>
 	> 这种方法比较暴力，就是直接修改V1的配置模板为V2，然后删除V1的POD，这个时候V2的模板会检测，没有POD，会重新启动V2 版本的POD。这种方法会有一个问题，删除V1时整个服务会停止。
 
@@ -20,7 +20,7 @@ POD现在用的是V1版本，现在有一个V2版本，怎么把V2版本替换�
 
 - [ ]  蓝绿部署
 
-	> ![1568613427566](https://tva1.sinaimg.cn/large/006y8mN6gy1g71nmiqr20j30ls0a1gqg.jpg)
+	> <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g71nmiqr20j30ls0a1gqg.jpg" style="zoom:200%;" />
 	>
 	> 这个是这样的，就是你的程序同时支持V1，V2 版本，同时你的环境资源充分，可以同时运行这两个， 怎么做呢？ 就是在你的环境里把V2的POD启动起来，待所有的完全都没问题后，可以删除掉V1的POD，把服务的流量切换到V2。 这种方式的问题就是资源开销较大。
 
@@ -28,7 +28,7 @@ POD现在用的是V1版本，现在有一个V2版本，怎么把V2版本替换�
 
 - [ ]  滚动升级
 
-	> ![1568613815414](https://tva1.sinaimg.cn/large/006y8mN6gy1g71nmlksedj30m90ao7a3.jpg)
+	> ![222](https://p.ipic.vip/40bi67.jpg)
 	>
 	> 这个就比较厉害了，它是利用扩容和缩容来实现动态替换升级。 啥意思呢，就是在你的部署文件中定义新旧版本的POD，然后依次删除V1的POD， 使V2 的POD动态扩容。但是这种方式，如果用命令来操作比较繁琐。
 
@@ -40,9 +40,9 @@ POD现在用的是V1版本，现在有一个V2版本，怎么把V2版本替换�
 
 这个命令到底干了啥呢，来看看。
 
-![1568615814724](https://tva1.sinaimg.cn/large/006y8mN6gy1g71nmmv5gvj30j506ojt3.jpg)
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g71nmmv5gvj30j506ojt3.jpg" style="zoom:200%;" />
 
-![1568615843841](https://tva1.sinaimg.cn/large/006y8mN6gy1g71nmplt7oj30km07tdio.jpg)
+<img src="https://p.ipic.vip/lpzdzr.jpg" alt="444" style="zoom:200%;" />
 
 可以看看这个图，是通过修改Replicas的数量来慢慢替换V1 的POD为V2。 但是这种方式有个问题，因为是用的Kubectl方式来完成这些，相当于是客户端方式，所以，如果没有网络时，可能会导致升级停止。
 
@@ -52,17 +52,17 @@ POD现在用的是V1版本，现在有一个V2版本，怎么把V2版本替换�
 
 Deployment 是一种更加高级的升级方式，它是属于上层的一种升级方式，而另外几种是属于底层的。
 
-![1568617462767](https://tva1.sinaimg.cn/large/006y8mN6gy1g71nmqdl59j30hu03k0ta.jpg)
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g71nmqdl59j30hu03k0ta.jpg" style="zoom:200%;" />
 
 使用Deployment时，实际是用的ReplicaSet来管理POD。所以到底是怎么做到滚动升级的呢。
 
 Deployment 就是一个部署文件，可以在里面定义你要部署的信息，然后进行部署。
 
-![1568617908023](https://tva1.sinaimg.cn/large/006y8mN6gy1g71nms17isj30jf08jac2.jpg)
+![](https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g71nms17isj30jf08jac2.jpg)
 
 定义了一个部署，现在来看看如何来实现滚动升级。首先要触发升级，怎么触发呢，通过修改Deployment 文件的方式来触发。可以用Kubectl set image deployment kubia nodejs=luksa/kubia:v2 来重新指定镜像，POD就会重新去下载镜像。
 
-![1568618181124](https://tva1.sinaimg.cn/large/006y8mN6gy1g71nmtibo8j30ll08agoq.jpg)
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g71nmtibo8j30ll08agoq.jpg" style="zoom:200%;" />
 
 然后在内部，它会依次去删除掉V1 的POD，然后再启动V2的POD。 它也可以自己定义升级的策略，RollinUpdate和Recreate两种，默认是第一种。 	
 
@@ -80,7 +80,7 @@ Deployment 就是一个部署文件，可以在里面定义你要部署的信息
 
 	> 用两个参数来定义：maxSurge 和 maxUnavailable ， 具体怎么计算的我不太想搞清楚了，可以看看作用。
 	>
-	> ![1568619581291](https://tva1.sinaimg.cn/large/006y8mN6gy1g71nmum3dkj30ll08agoq.jpg)
+	> <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g71nmum3dkj30ll08agoq.jpg" style="zoom:200%;" />
 
 
 
@@ -95,7 +95,6 @@ Deployment 就是一个部署文件，可以在里面定义你要部署的信息
 - [ ]  阻止出错版本的滚动升级
 
 	> 还有一个比较好的方式，就是可以设置一个时间段，和设置探针，在这个时间段呢，如果新的POD没有问题，则就支持滚动升级。这个相当于设置了一个保险，可以将风险降到最低。
-	> ![1568620656178](../pwa/1568620656178.png)
 
 
 

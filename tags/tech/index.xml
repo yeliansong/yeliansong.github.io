@@ -1,64 +1,64 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>tech - 标签 - LIANSONG&#39;S Blog</title>
-        <link>https://zz2summer.github.io/tags/tech/</link>
+        <link>https://yeliansong.github.io/tags/tech/</link>
         <description>tech - 标签 - LIANSONG&#39;S Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
-            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Sep 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zz2summer.github.io/tags/tech/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Sep 2019 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://yeliansong.github.io/tags/tech/" rel="self" type="application/rss+xml" /><item>
     <title>九：Deployment声明式升级应用</title>
-    <link>https://zz2summer.github.io/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/</link>
+    <link>https://yeliansong.github.io/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/</link>
     <pubDate>Mon, 16 Sep 2019 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://zz2summer.github.io/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/</guid>
+    <guid>https://yeliansong.github.io/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/</guid>
     <description><![CDATA[1. 升级的几种方式 先来看一个案例，这种情况怎么处理： POD现在用的是V1版本，现在有一个V2版本，怎么把V2版本替换到V1版本？有三种方式： 删]]></description>
 </item><item>
     <title>八：从应用访问POD元数据及其他资源</title>
-    <link>https://zz2summer.github.io/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/</link>
+    <link>https://yeliansong.github.io/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/</link>
     <pubDate>Mon, 16 Sep 2019 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://zz2summer.github.io/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/</guid>
+    <guid>https://yeliansong.github.io/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/</guid>
     <description><![CDATA[1. Downward API传递元数据 说实话，这章看的也是云里雾里的，感觉和环境变量配置差不多。我的理解是，Downward API 是用来给POD或容器的元数据进行]]></description>
 </item><item>
     <title>七：ConfigMap 和 Secret配置应用程序</title>
-    <link>https://zz2summer.github.io/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</link>
+    <link>https://yeliansong.github.io/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</link>
     <pubDate>Fri, 13 Sep 2019 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://zz2summer.github.io/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</guid>
+    <guid>https://yeliansong.github.io/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</guid>
     <description><![CDATA[1. 容器命令行参数的配置 Docker 使用命令行参数是通过在Dockerfile 中定义Entrypoint 和CMD来实现，但是有个问题啊，这个是打包到镜像]]></description>
 </item><item>
     <title>六：卷-将磁盘挂载到容器</title>
-    <link>https://zz2summer.github.io/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/</link>
+    <link>https://yeliansong.github.io/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/</link>
     <pubDate>Thu, 12 Sep 2019 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://zz2summer.github.io/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/</guid>
+    <guid>https://yeliansong.github.io/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/</guid>
     <description><![CDATA[1. 卷（volume） 终于等到你了，卷，volume。 也是kubernetes很重要的一个组件啊。不对，应该不能说是k8s的一个组件，应该说是]]></description>
 </item><item>
     <title>五：POD的服务与通信</title>
-    <link>https://zz2summer.github.io/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/</link>
+    <link>https://yeliansong.github.io/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/</link>
     <pubDate>Wed, 11 Sep 2019 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://zz2summer.github.io/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/</guid>
+    <guid>https://yeliansong.github.io/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/</guid>
     <description><![CDATA[1. 服务与端口 服务其实很好理解了，你想想看，一组相同的POD，你怎么管理，你需要知道他们的所有IP吗，然后再去一一进行手动配置连接？显然不需要]]></description>
 </item><item>
     <title>三： 运行于Kubernetes中的容器</title>
-    <link>https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</link>
+    <link>https://yeliansong.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</link>
     <pubDate>Tue, 10 Sep 2019 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://zz2summer.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</guid>
+    <guid>https://yeliansong.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</guid>
     <description><![CDATA[1. 为啥要搞出POD 我们知道，POD是Kubernetes管理的最小单位，为啥Kubernetes不直接管理container，要管理POD呢]]></description>
 </item><item>
     <title>二：Kubernetes 和 Docker的使用</title>
-    <link>https://zz2summer.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+    <link>https://yeliansong.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
     <pubDate>Tue, 10 Sep 2019 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://zz2summer.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+    <guid>https://yeliansong.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
     <description><![CDATA[1. 理解Docker镜像,文件系统和容器 容器的镜像就是打包编译容器后的一个文件，打包镜像是依赖Dockerfile文件，From行定义了镜像的]]></description>
 </item><item>
     <title>四：副本机制部署托管POD</title>
-    <link>https://zz2summer.github.io/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/</link>
+    <link>https://yeliansong.github.io/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/</link>
     <pubDate>Tue, 10 Sep 2019 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://zz2summer.github.io/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/</guid>
+    <guid>https://yeliansong.github.io/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/</guid>
     <description><![CDATA[1. 存活探针 为啥要搞出这么一个高深的词？我们知道POD里如果有容器程序崩溃了，kubenetes 会重新启动程序，但是问题来了，如果不是崩溃的情]]></description>
 </item></channel>
 </rss>
