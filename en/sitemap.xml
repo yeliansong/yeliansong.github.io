@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://yeliansong.github.io/en/categories/</loc><lastmod>2019-11-01T15:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://yeliansong.github.io/en/categories/</loc><lastmod>2020-01-25T09:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://yeliansong.github.io/categories/"
@@ -11,7 +11,7 @@
                     hreflang="en"
                     href="https://yeliansong.github.io/en/categories/"
                     /></url><url>
-            <loc>https://yeliansong.github.io/en/tags/k8s/</loc><lastmod>2019-11-01T15:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://yeliansong.github.io/en/tags/k8s/</loc><lastmod>2020-01-25T09:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://yeliansong.github.io/tags/k8s/"
@@ -20,8 +20,8 @@
                     hreflang="en"
                     href="https://yeliansong.github.io/en/tags/k8s/"
                     /></url><url>
-            <loc>https://yeliansong.github.io/en/categories/k8s-study-notes/</loc><lastmod>2019-11-01T15:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yeliansong.github.io/en/</loc><lastmod>2019-11-01T15:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://yeliansong.github.io/en/categories/k8s-study-notes/</loc><lastmod>2020-01-25T09:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://yeliansong.github.io/en/</loc><lastmod>2020-01-25T09:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://yeliansong.github.io/"
@@ -30,8 +30,8 @@
                     hreflang="en"
                     href="https://yeliansong.github.io/en/"
                     /></url><url>
-            <loc>https://yeliansong.github.io/en/tags/microservice/</loc><lastmod>2019-11-01T15:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yeliansong.github.io/en/posts/</loc><lastmod>2019-11-01T15:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://yeliansong.github.io/en/tags/microservice/</loc><lastmod>2020-01-25T09:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://yeliansong.github.io/en/posts/</loc><lastmod>2020-01-25T09:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://yeliansong.github.io/posts/"
@@ -40,7 +40,7 @@
                     hreflang="en"
                     href="https://yeliansong.github.io/en/posts/"
                     /></url><url>
-            <loc>https://yeliansong.github.io/en/tags/</loc><lastmod>2019-11-01T15:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://yeliansong.github.io/en/tags/</loc><lastmod>2020-01-25T09:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://yeliansong.github.io/tags/"
@@ -48,6 +48,42 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://yeliansong.github.io/en/tags/"
+                    /></url><url>
+            <loc>https://yeliansong.github.io/en/2020-4-14-volume/</loc><lastmod>2020-01-25T09:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://yeliansong.github.io/2020-4-14-volume/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://yeliansong.github.io/en/2020-4-14-volume/"
+                    /></url><url>
+            <loc>https://yeliansong.github.io/en/2020-4-11-health-check/</loc><lastmod>2020-01-20T09:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://yeliansong.github.io/2020-4-11-health-check/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://yeliansong.github.io/en/2020-4-11-health-check/"
+                    /></url><url>
+            <loc>https://yeliansong.github.io/en/2020-04-08-how-to-write-the-yaml/</loc><lastmod>2020-01-10T10:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://yeliansong.github.io/2020-04-08-how-to-write-the-yaml/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://yeliansong.github.io/en/2020-04-08-how-to-write-the-yaml/"
+                    /></url><url>
+            <loc>https://yeliansong.github.io/en/2020-3-22-understand-the-k8s-architecture/</loc><lastmod>2020-01-04T09:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://yeliansong.github.io/2020-3-22-understand-the-k8s-architecture/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://yeliansong.github.io/en/2020-3-22-understand-the-k8s-architecture/"
                     /></url><url>
             <loc>https://yeliansong.github.io/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/</loc><lastmod>2019-11-01T15:11:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"

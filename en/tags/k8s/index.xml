@@ -4,7 +4,37 @@
         <link>https://yeliansong.github.io/en/tags/k8s/</link>
         <description>K8S - Tag - LIANSONG&#39;S Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
-            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 01 Nov 2019 15:11:51 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/tags/k8s/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Jan 2020 09:11:51 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/tags/k8s/" rel="self" type="application/rss+xml" /><item>
+    <title>Volume</title>
+    <link>https://yeliansong.github.io/en/2020-4-14-volume/</link>
+    <pubDate>Sat, 25 Jan 2020 09:11:51 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-4-14-volume/</guid>
+    <description><![CDATA[1. emptyDir It&rsquo;s the basis of Volume. The life cycle depends on the Pod. The volume will be removed when the related Pod was removed. So we can think of it as the path of the Pod. All the containers of the pod share this voiume. Let&rsquo;s show how to setup the volume configure.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 apiVersion: v1 kind: Pod metadata: name: producer-consumer spec: containers: - image: busybox name: producer volumeMounts: - mountPath: /producer_dir name: shared-volume args: - /bin/sh - -c - echo &#34;hello world&#34; &gt; /producer_dir/hello; sleep 30000 - image: busybox name: consumer volumeMounts: - mountPath: /consumer_dir name: shared-volume args: - /bin/sh - -c - cat /consumer_dir/hello; sleep 30000 volumes: - name: shared-volume emptyDir: {} The above file is about configure the volume practice.]]></description>
+</item><item>
+    <title>Health Check</title>
+    <link>https://yeliansong.github.io/en/2020-4-11-health-check/</link>
+    <pubDate>Mon, 20 Jan 2020 09:11:51 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-4-11-health-check/</guid>
+    <description><![CDATA[1. About K8S health check Health check is the important feature of the k8s orchestrating. K8s can monitor those containers and automatically restart them if they fail. If the container&rsquo;s main process crashes, the k8s will restart the container. Also if your application has a bug that causes it to crash every once in a while, k8s will restart it automatically.There are two kinds of ways for health check. Liveness and Readiness.]]></description>
+</item><item>
+    <title>How to write YAML</title>
+    <link>https://yeliansong.github.io/en/2020-04-08-how-to-write-the-yaml/</link>
+    <pubDate>Fri, 10 Jan 2020 10:11:51 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-04-08-how-to-write-the-yaml/</guid>
+    <description><![CDATA[1. How to write the YAML 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 apiVersion: apps/v1 kind: Deployment metadata: name: nginx-deploymnet spec: replicas: 3 selector: matchLabels: app: web_server template: metadata: labels: app: web_server spec: containers: - name: nginx image: nginx:1.7.9 Okay, Let us analysis this YAML sample. It used the indentation to represent the layer. Every layer was dependent and called each other.]]></description>
+</item><item>
+    <title>Understand The K8S Architecture</title>
+    <link>https://yeliansong.github.io/en/2020-3-22-understand-the-k8s-architecture/</link>
+    <pubDate>Sat, 04 Jan 2020 09:11:51 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-3-22-understand-the-k8s-architecture/</guid>
+    <description><![CDATA[1. k8s components architecture. Okay, it&rsquo;s very easy to understand. Like above, master node is the most important. It controls the other nodes to join the cluster. Also API server is exposed outside. Through the master node, then can arrange the other nodes.
+2. Practice Target: Create the k8s cluster, then deploy the application to these 2 nodes. Steps. Use kubeadm init to create the master k8s cluster, then join node1 and node2 to the cluster.]]></description>
+</item><item>
     <title>九、Deployment declarative upgrade application</title>
     <link>https://yeliansong.github.io/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/</link>
     <pubDate>Fri, 01 Nov 2019 15:11:51 &#43;0800</pubDate>
@@ -55,27 +85,5 @@ Look at this, there are 3 PODs on the front end, and a Backend, how to make the 
     <author>Author</author>
     <guid>https://yeliansong.github.io/en/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/</guid>
     <description><![CDATA[1. Survival Probe Why come up with such a profound word? We know that if a container program in the POD crashes, kubenetes will restart the program, but the problem is, if it is not a crash, such as a deadlock, or throwing an exception, etc., what to do at this time, kubenetes does not know Whether your container is normal or not, you need to use a probe at this time.]]></description>
-</item><item>
-    <title>三、Containers running in Kubernetes</title>
-    <link>https://yeliansong.github.io/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</link>
-    <pubDate>Sun, 15 Sep 2019 11:16:51 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://yeliansong.github.io/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</guid>
-    <description><![CDATA[1. Why create a POD We know that POD is the smallest unit managed by Kubernetes. Why does Kubernetes not directly manage containers, but manage PODs? There is a reason for this. We know that a container is a single process. What does it mean? The design idea of a container is that each container only runs one process. If you use dry bernetes to directly manage these containers, it must be complicated, so I will do it The POD is introduced to realize resource and network isolation between containers.]]></description>
-</item><item>
-    <title>二、The use of Kubernetes and Docker</title>
-    <link>https://yeliansong.github.io/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
-    <pubDate>Wed, 11 Sep 2019 19:16:51 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://yeliansong.github.io/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
-    <description><![CDATA[1. Understanding Docker images, file systems and containers The image of the container is a file after packaging and compiling the container. The packaging image depends on the Dockerfile file. The From line defines the starting content of the image, which is the basic image for construction. The process of building the image is to upload the entire directory of files to the Docker guardian During the process, Docker will first pull the basic image from the basic image warehouse, and then the packaging of the image is a layered structure, with the basic image as a layer, and then each command will be used as a new layer, layer by layer , the whole is a joint file system.]]></description>
-</item><item>
-    <title>一、Introduction to Kubernetes</title>
-    <link>https://yeliansong.github.io/en/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/</link>
-    <pubDate>Tue, 10 Sep 2019 21:56:51 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://yeliansong.github.io/en/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/</guid>
-    <description><![CDATA[1. Comparison between monolithic applications and microservices Disadvantages of monolithic applications: run on several servers in the form of a single process or several processes, the deployment cycle is long, and the operation and maintenance and development are disconnected. After the developers complete the development, they are packaged into a whole for operation and maintenance deployment.
-There is no decoupling between modules. To modify a module, the whole package needs to be deployed.]]></description>
 </item></channel>
 </rss>

@@ -4,7 +4,35 @@
         <link>https://yeliansong.github.io/tags/k8s/</link>
         <description>K8S - 标签 - LIANSONG&#39;S Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
-            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 01 Nov 2019 15:11:51 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/tags/k8s/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Jan 2020 09:11:51 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/tags/k8s/" rel="self" type="application/rss+xml" /><item>
+    <title>Volume</title>
+    <link>https://yeliansong.github.io/2020-4-14-volume/</link>
+    <pubDate>Sat, 25 Jan 2020 09:11:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-4-14-volume/</guid>
+    <description><![CDATA[1.emptyDir 这是卷的基础。 生命周期取决于Pod。 当相关 Pod 被删除时，该卷也会被删除。 所以我们可以将其视为Pod的路径。 Pod 的所有容器共享这个 voiume。]]></description>
+</item><item>
+    <title>健康检查</title>
+    <link>https://yeliansong.github.io/2020-4-11-health-check/</link>
+    <pubDate>Mon, 20 Jan 2020 09:11:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-4-11-health-check/</guid>
+    <description><![CDATA[1.关于K8S健康检查 健康检查是k8s编排的重要功能。 K8s 可以监控这些容器，并在发生故障时自动重新启动它们。 如果容器的主进程崩溃，k8s将重新]]></description>
+</item><item>
+    <title>如何编写 YAML</title>
+    <link>https://yeliansong.github.io/2020-04-08-how-to-write-the-yaml/</link>
+    <pubDate>Fri, 10 Jan 2020 10:11:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-04-08-how-to-write-the-yaml/</guid>
+    <description><![CDATA[1.如何编写YAML 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 api版本：apps/v1 种类：部署 元数据： 名称：nginx-deploymnet 规格]]></description>
+</item><item>
+    <title>了解K8S架构</title>
+    <link>https://yeliansong.github.io/2020-3-22-understand-the-k8s-architecture/</link>
+    <pubDate>Sat, 04 Jan 2020 09:11:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-3-22-understand-the-k8s-architecture/</guid>
+    <description><![CDATA[1.k8s组件架构。 好吧，这很容易理解。 如上所述，主节点是最重要的。 它控制其他节点加入集群。 API服务器也暴露在外。 通过主节点，即可安排其他]]></description>
+</item><item>
     <title>九、Deployment声明式升级应用</title>
     <link>https://yeliansong.github.io/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/</link>
     <pubDate>Fri, 01 Nov 2019 15:11:51 &#43;0800</pubDate>
@@ -46,26 +74,5 @@
     <author>作者</author>
     <guid>https://yeliansong.github.io/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/</guid>
     <description><![CDATA[1. 存活探针 为啥要搞出这么一个高深的词？我们知道POD里如果有容器程序崩溃了，kubenetes 会重新启动程序，但是问题来了，如果不是崩溃的情]]></description>
-</item><item>
-    <title>三、运行于Kubernetes中的容器</title>
-    <link>https://yeliansong.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</link>
-    <pubDate>Sun, 15 Sep 2019 11:16:51 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yeliansong.github.io/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/</guid>
-    <description><![CDATA[1. 为啥要搞出POD 我们知道，POD是Kubernetes管理的最小单位，为啥Kubernetes不直接管理container，要管理POD呢]]></description>
-</item><item>
-    <title>二、Kubernetes 和 Docker的使用</title>
-    <link>https://yeliansong.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
-    <pubDate>Wed, 11 Sep 2019 19:16:51 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yeliansong.github.io/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
-    <description><![CDATA[1. 理解Docker镜像,文件系统和容器 容器的镜像就是打包编译容器后的一个文件，打包镜像是依赖Dockerfile文件，From行定义了镜像的]]></description>
-</item><item>
-    <title>一、Kubernetes的介绍</title>
-    <link>https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/</link>
-    <pubDate>Tue, 10 Sep 2019 21:56:51 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yeliansong.github.io/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/</guid>
-    <description><![CDATA[1. 单体应用和微服务的比较 单体应用的弊端：以单进程或几个进程的方式运行于几台服务器，部署的周期长，运维和开发脱节，开发人员完成开发后打包成一个]]></description>
 </item></channel>
 </rss>
