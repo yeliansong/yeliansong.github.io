@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Operation and maintenance automation - Tag - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/en/tags/operation-and-maintenance-automation/</link>
+        <description>Operation and maintenance automation - Tag - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 27 Nov 2021 15:14:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/tags/operation-and-maintenance-automation/" rel="self" type="application/rss+xml" /><item>
+    <title>Operation and maintenance automation -- Ansible</title>
+    <link>https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/</link>
+    <pubDate>Sat, 27 Nov 2021 15:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/</guid>
+    <description><![CDATA[1. Operation and maintenance automation application scenarios OS preparation automation
+Batch OS deployment to hosts. PXE
+Configuration automation
+Perform batch configuration on hosts or batch configuration on host applications. Ansible, saltstack, puppet.
+Ansible, using the ssh protocol, works out of the box.
+Saltstack requires the cooperation of the agent side, and the configuration and deployment are fast.
+Puppet, an old-fashioned configuration automation tool, requires the cooperation of agents.
+Improve configuration efficiency and reduce manual involvement.]]></description>
+</item></channel>
+</rss>

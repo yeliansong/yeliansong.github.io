@@ -1,0 +1,36 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>运维、网络 - 标签 - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/tags/%E8%BF%90%E7%BB%B4%E7%BD%91%E7%BB%9C/</link>
+        <description>运维、网络 - 标签 - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 29 Jul 2021 11:14:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/tags/%E8%BF%90%E7%BB%B4%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>Prometheus &#43; Grafana</title>
+    <link>https://yeliansong.github.io/2020-11-07-prometheus--grafana/</link>
+    <pubDate>Thu, 29 Jul 2021 11:14:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-11-07-prometheus--grafana/</guid>
+    <description><![CDATA[1. 背景介绍 1.1 Prometheus 中文是普罗米修斯，光听名字就感觉很有范，是很厉害的东西。让我来说说普罗米修斯的故事，他是雅典神话中的人物，传说就是他捏造了人形]]></description>
+</item><item>
+    <title>Nginx Practice</title>
+    <link>https://yeliansong.github.io/2020-11-13-nginx-practice/</link>
+    <pubDate>Thu, 13 May 2021 11:14:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-11-13-nginx-practice/</guid>
+    <description><![CDATA[1. 目的 这篇总结是来回顾加实操Nginx的相关操作。包括Nginx三大特性：负载均衡，反向代理和动静分离。最后利用Nginx来模拟一个高可用场]]></description>
+</item><item>
+    <title>HTTP详解</title>
+    <link>https://yeliansong.github.io/2020-5-30-http-%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Mon, 19 Apr 2021 15:14:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-5-30-http-%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[这份总结可能不是覆盖所有的HTTP知识点，只是按照我自己理解的，然后结合网上资料，进行总结。 1. 什么是HTTP HTTP(hypertext transport protocol), 就是超文本传输协议，文本可]]></description>
+</item><item>
+    <title>Nginx</title>
+    <link>https://yeliansong.github.io/2020-05-25-nginx/</link>
+    <pubDate>Sun, 28 Mar 2021 11:14:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-05-25-nginx/</guid>
+    <description><![CDATA[1.Nginx是什么？ 从Google搜索结果来看，Nginx是一个免费、开源、高性能的HTTP服务器和反向代理，同时也是一个IMAP/POP]]></description>
+</item></channel>
+</rss>

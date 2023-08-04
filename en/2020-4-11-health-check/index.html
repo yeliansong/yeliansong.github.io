@@ -9,8 +9,8 @@
 <meta property="og:description" content="K8S study notes" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yeliansong.github.io/en/2020-4-11-health-check/" /><meta property="og:image" content="https://yeliansong.github.io/en/2020-4-11-health-check/featured-image.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-01-20T09:11:51+08:00" />
-<meta property="article:modified_time" content="2020-01-20T09:11:51+08:00" />
+<meta property="article:published_time" content="2020-02-28T09:11:51+08:00" />
+<meta property="article:modified_time" content="2020-02-28T09:11:51+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yeliansong.github.io/en/2020-4-11-health-check/featured-image.png"/>
 <meta name="twitter:title" content="Health Check"/>
@@ -18,7 +18,7 @@
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/en/2020-4-11-health-check/" /><link rel="prev" href="https://yeliansong.github.io/en/2020-04-08-how-to-write-the-yaml/" /><link rel="next" href="https://yeliansong.github.io/en/2020-4-14-volume/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/en/2020-4-11-health-check/" /><link rel="prev" href="https://yeliansong.github.io/en/2020-04-08-how-to-write-the-yaml/" /><link rel="next" href="https://yeliansong.github.io/en/2020-4-23-k8s-network/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -33,7 +33,7 @@
                             "width":  2048 ,
                             "height":  1280 
                         }],"genre": "posts","keywords": "K8S, microservice","wordcount":  736 ,
-        "url": "https:\/\/yeliansong.github.io\/en\/2020-4-11-health-check\/","datePublished": "2020-01-20T09:11:51+08:00","dateModified": "2020-01-20T09:11:51+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        "url": "https:\/\/yeliansong.github.io\/en\/2020-4-11-health-check\/","datePublished": "2020-02-28T09:11:51+08:00","dateModified": "2020-02-28T09:11:51+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -122,7 +122,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Health Check</h1><h2 class="single-subtitle">K8S study notes</h2><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-01-20 09:11:51">2020-01-20 09:11:51</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;736 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-02-28 09:11:51">2020-02-28 09:11:51</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;736 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;<span id="busuanzi_container_page_pv">
                     <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
                 </span>
@@ -441,7 +441,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2020-01-20 09:11:51</span>
+                <span>Updated on 2020-02-28 09:11:51</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -461,7 +461,7 @@
     </div>
 
     <div class="post-nav"><a href="/en/2020-04-08-how-to-write-the-yaml/" class="prev" rel="prev" title="How to write YAML"><i class="fas fa-angle-left fa-fw"></i>How to write YAML</a>
-            <a href="/en/2020-4-14-volume/" class="next" rel="next" title="Volume">Volume<i class="fas fa-angle-right fa-fw"></i></a></div>
+            <a href="/en/2020-4-23-k8s-network/" class="next" rel="next" title="K8S Network">K8S Network<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.

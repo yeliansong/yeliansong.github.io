@@ -114,95 +114,96 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/xxxx" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/xxxx" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://www.instagram.com/xxxx" title="Instagram" target="_blank" rel="noopener noreffer me"><i class="fab fa-instagram fa-fw"></i></a><a href="https://facebook.com/xxxx" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/xxxx" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://www.youtube.com/user/xxxx" title="YouTube" target="_blank" rel="noopener noreffer me"><i class="fab fa-youtube fa-fw"></i></a><a href="https://mastodon.technology/@xxxx" title="Mastodon" target="_blank" rel="noopener noreffer me"><i class="fab fa-mastodon fa-fw"></i></a><a href="mailto:xxxx@xxxx.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/en/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2020-4-14-volume/"><img
+            <a href="/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2020-4-14-volume/featured-image.png"
-        data-srcset="/en/2020-4-14-volume/featured-image.png, /en/2020-4-14-volume/featured-image.png 1.5x, /en/2020-4-14-volume/featured-image.png 2x"
+        data-src="/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/featured-image.png"
+        data-srcset="/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/featured-image.png, /en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/featured-image.png 1.5x, /en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2020-4-14-volume/featured-image.png"
-        title="K8S study notes" /></a>
+        alt="/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/featured-image.png"
+        title="Operation and maintenance experience" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2020-4-14-volume/">Volume</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-01-25 09:11:51">2020-01-25 09:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. emptyDir It&rsquo;s the basis of Volume. The life cycle depends on the Pod. The volume will be removed when the related Pod was removed. So we can think of it as the path of the Pod. All the containers of the pod share this voiume. Let&rsquo;s show how to setup the volume configure.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 apiVersion: v1 kind: Pod metadata: name: producer-consumer spec: containers: - image: busybox name: producer volumeMounts: - mountPath: /producer_dir name: shared-volume args: - /bin/sh - -c - echo &#34;hello world&#34; &gt; /producer_dir/hello; sleep 30000 - image: busybox name: consumer volumeMounts: - mountPath: /consumer_dir name: shared-volume args: - /bin/sh - -c - cat /consumer_dir/hello; sleep 30000 volumes: - name: shared-volume emptyDir: {} The above file is about configure the volume practice.</div><div class="post-footer">
-        <a href="/en/2020-4-14-volume/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/">Talking about some uses of lsof</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-02-04 09:14:00">2023-02-04 09:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/operation-related-knowledge/"><i class="far fa-folder fa-fw"></i>Operation Related Knowledge</a></span></div><div class="content">1 Linux everything is a file In a Linux system, everything is a file. Files provides access not only to file data stored to disk, but also to network connections and hardware. The problem is that everything is a file, so how to view and manage these open files through commands. You can use the lsof command. Not only can you view the files and directories opened by the process, but you can also view the socket information such as the port the process listens to.</div><div class="post-footer">
+        <a href="/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/operation-and-maintenance/">Operation and Maintenance</a>,&nbsp;<a href="/en/tags/operating-system/">Operating System</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2020-4-11-health-check/"><img
+            <a href="/en/2022-07-17-%E4%B8%89%E4%BD%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2020-4-11-health-check/featured-image.png"
-        data-srcset="/en/2020-4-11-health-check/featured-image.png, /en/2020-4-11-health-check/featured-image.png 1.5x, /en/2020-4-11-health-check/featured-image.png 2x"
+        data-src="/en/2022-07-17-%E4%B8%89%E4%BD%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/featured-image.png"
+        data-srcset="/en/2022-07-17-%E4%B8%89%E4%BD%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/featured-image.png, /en/2022-07-17-%E4%B8%89%E4%BD%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/featured-image.png 1.5x, /en/2022-07-17-%E4%B8%89%E4%BD%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2020-4-11-health-check/featured-image.png"
-        title="K8S study notes" /></a>
+        alt="/en/2022-07-17-%E4%B8%89%E4%BD%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/featured-image.png"
+        title="reading comprehension" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2020-4-11-health-check/">Health Check</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-01-20 09:11:51">2020-01-20 09:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. About K8S health check Health check is the important feature of the k8s orchestrating. K8s can monitor those containers and automatically restart them if they fail. If the container&rsquo;s main process crashes, the k8s will restart the container. Also if your application has a bug that causes it to crash every once in a while, k8s will restart it automatically.There are two kinds of ways for health check. Liveness and Readiness.</div><div class="post-footer">
-        <a href="/en/2020-4-11-health-check/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2022-07-17-%E4%B8%89%E4%BD%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《The Three-Body Problem》 Reading Notes</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-11-13 19:14:00">2022-11-13 19:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/life-perception/"><i class="far fa-folder fa-fw"></i>Life Perception</a></span></div><div class="content">1 Introduction Recently, I finished watching &ldquo;The Three-Body Problem&rdquo; by Liu Cixin. It took me more than 40 hours, half a month, and I have been immersed in the world of the Three-Body Problem until today. I seldom watch science fiction books and movies, mainly because I feel that they are too unrealistic, and my imagination is too unconstrained, and I can’t keep up with the rhythm of the plot, but I really fell in love with The Three-Body Problem.</div><div class="post-footer">
+        <a href="/en/2022-07-17-%E4%B8%89%E4%BD%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/reading-arrangement-life-perception/">Reading Arrangement、 Life Perception</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2020-04-08-how-to-write-the-yaml/"><img
+            <a href="/en/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2020-04-08-how-to-write-the-yaml/featured-image.png"
-        data-srcset="/en/2020-04-08-how-to-write-the-yaml/featured-image.png, /en/2020-04-08-how-to-write-the-yaml/featured-image.png 1.5x, /en/2020-04-08-how-to-write-the-yaml/featured-image.png 2x"
+        data-src="/en/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/featured-image.png"
+        data-srcset="/en/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/featured-image.png, /en/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/featured-image.png 1.5x, /en/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2020-04-08-how-to-write-the-yaml/featured-image.png"
-        title="K8S study notes" /></a>
+        alt="/en/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/featured-image.png"
+        title="reading comprehension" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2020-04-08-how-to-write-the-yaml/">How to write YAML</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-01-10 10:11:51">2020-01-10 10:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. How to write the YAML 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 apiVersion: apps/v1 kind: Deployment metadata: name: nginx-deploymnet spec: replicas: 3 selector: matchLabels: app: web_server template: metadata: labels: app: web_server spec: containers: - name: nginx image: nginx:1.7.9 Okay, Let us analysis this YAML sample. It used the indentation to represent the layer. Every layer was dependent and called each other.</div><div class="post-footer">
-        <a href="/en/2020-04-08-how-to-write-the-yaml/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/">How can programmers stay healthy? After reading 《饮食术》 recommended by Fan Deng, I understand</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-09-27 19:14:00">2022-09-27 19:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/life-perception/"><i class="far fa-folder fa-fw"></i>Life Perception</a></span></div><div class="content">Cutting Edge I have always been interested in the issue of eating, but now there are too many fake science popularizations on the Internet. Sometimes it is said to control the intake of carbohydrates and lipids every day, and it is said that it is enough to eat normally, which once made it difficult for me to choose. I accidentally listened to Fan Deng reading and explaining the book &ldquo;Diet Technique&rdquo;, and I trusted Teacher Fan Deng more.</div><div class="post-footer">
+        <a href="/en/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/reading-arrangement-life-perception/">Reading Arrangement、 Life Perception</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2020-3-22-understand-the-k8s-architecture/"><img
+            <a href="/en/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2020-3-22-understand-the-k8s-architecture/featured-image.png"
-        data-srcset="/en/2020-3-22-understand-the-k8s-architecture/featured-image.png, /en/2020-3-22-understand-the-k8s-architecture/featured-image.png 1.5x, /en/2020-3-22-understand-the-k8s-architecture/featured-image.png 2x"
+        data-src="/en/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png"
+        data-srcset="/en/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png, /en/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png 1.5x, /en/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2020-3-22-understand-the-k8s-architecture/featured-image.png"
-        title="K8S study notes" /></a>
+        alt="/en/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png"
+        title="Daily operation and maintenance experience" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2020-3-22-understand-the-k8s-architecture/">Understand The K8S Architecture</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-01-04 09:11:51">2020-01-04 09:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. k8s components architecture. Okay, it&rsquo;s very easy to understand. Like above, master node is the most important. It controls the other nodes to join the cluster. Also API server is exposed outside. Through the master node, then can arrange the other nodes.
-2. Practice Target: Create the k8s cluster, then deploy the application to these 2 nodes. Steps. Use kubeadm init to create the master k8s cluster, then join node1 and node2 to the cluster.</div><div class="post-footer">
-        <a href="/en/2020-3-22-understand-the-k8s-architecture/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/">A tragedy caused by iNode, I finally understood iNode for four hours.</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-05-23 19:14:00">2022-05-23 19:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/operation-and-maintenance-related-knowledge/"><i class="far fa-folder fa-fw"></i>Operation and maintenance related knowledge</a></span></div><div class="content">1 background Once when changing the program package, the program package has been updated to the latest version, and the process needs to be restarted, but the restart has been unsuccessful. Checking the startup error log, it was found that the creation of the file had been unsuccessful. At that time, the thought was that the machine disk might be full. After checking the disk usage, it was found to be normal, and I was stunned instantly.</div><div class="post-footer">
+        <a href="/en/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/operation-and-maintenance/">Operation and Maintenance</a>,&nbsp;<a href="/en/tags/experience-combing/">experience combing</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/"><img
+            <a href="/en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/featured-image.png"
-        data-srcset="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/featured-image.png, /en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/featured-image.png 1.5x, /en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/featured-image.png 2x"
+        data-src="/en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png"
+        data-srcset="/en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png, /en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png 1.5x, /en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/featured-image.png"
-        title="Reading Notes for K8S Learning" /></a>
+        alt="/en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png"
+        title="python widget" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/">九、Deployment declarative upgrade application</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-11-01 15:11:51">2019-11-01 15:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. Several ways to upgrade Let&rsquo;s look at a case first, how to deal with this situation:
-The POD is currently using the V1 version, and now there is a V2 version, how to replace the V2 version with the V1 version? There are three ways:
-Delete the old version POD and replace it with the new version POD
-This method is more violent. It is to directly modify the configuration template of V1 to V2, and then delete the POD of V1.</div><div class="post-footer">
-        <a href="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/">wxpy&#43;Turing robot WeChat chat robot -- with source code</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-03-28 19:14:00">2022-03-28 19:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/technology-classification/"><i class="far fa-folder fa-fw"></i>Technology Classification</a></span></div><div class="content">1 Background I saw a lot of friends using WeChat to play chatbots, and they can reply automatically. They look pretty decent, and I feel itchy. I also want to make a chatbot by myself. The initial idea is to be able to send &ldquo;Good morning&rdquo; to my girlfriend on a regular basis every day &ldquo;News, push the weather of the day, introduce a Turing robot that can automatically reply to your girlfriend&rsquo;s message, and try to answer as level as possible.</div><div class="post-footer">
+        <a href="/en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/technologytools/">Technology、Tools</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/"><img
+            <a href="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/featured-image.png"
-        data-srcset="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/featured-image.png, /en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/featured-image.png 1.5x, /en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/featured-image.png 2x"
+        data-src="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png"
+        data-srcset="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png, /en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png 1.5x, /en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/featured-image.png"
-        title="Reading Notes for K8S Learning" /></a>
+        alt="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png"
+        title="Operation and maintenance related knowledge" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/">八、Access POD metadata and other resources from applications</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-10-12 15:11:51">2019-10-12 15:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. Downward API passing metadata To be honest, this chapter is also in the clouds, and it feels similar to the environment variable configuration. My understanding is that the Downward API is used to configure the metadata of the POD or container, and the environment variables are used to define some regular variable parameters. Downward API supports environment variables and files, which is more flexible.
-2. Kubernetes API server interaction In fact, this section mainly talks about how to use the Kubernetes API.</div><div class="post-footer">
-        <a href="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/">Operation and maintenance automation -- Ansible</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-11-27 15:14:00">2021-11-27 15:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/operation-related-knowledge/"><i class="far fa-folder fa-fw"></i>Operation Related Knowledge</a></span></div><div class="content">1. Operation and maintenance automation application scenarios OS preparation automation
+Batch OS deployment to hosts. PXE
+Configuration automation
+Perform batch configuration on hosts or batch configuration on host applications. Ansible, saltstack, puppet.
+Ansible, using the ssh protocol, works out of the box.
+Saltstack requires the cooperation of the agent side, and the configuration and deployment are fast.
+Puppet, an old-fashioned configuration automation tool, requires the cooperation of agents.
+Improve configuration efficiency and reduce manual involvement.</div><div class="post-footer">
+        <a href="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/operation-and-maintenance/">Operation and Maintenance</a>,&nbsp;<a href="/en/tags/operation-and-maintenance-automation/">Operation and maintenance automation</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/en/">1</a>
@@ -214,6 +215,12 @@ This method is more violent. It is to directly modify the configuration template
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/en/page/3/">3</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/en/page/7/">7</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

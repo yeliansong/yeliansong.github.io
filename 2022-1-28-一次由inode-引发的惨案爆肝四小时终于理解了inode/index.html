@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>一次由iNode 引发的惨案，爆肝四小时终于理解了iNode - LIANSONG&#39;S Blog</title><meta name="Description" content="日常运维经验"><meta property="og:title" content="一次由iNode 引发的惨案，爆肝四小时终于理解了iNode" />
+<meta property="og:description" content="日常运维经验" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/" /><meta property="og:image" content="https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-23T19:14:00+08:00" />
+<meta property="article:modified_time" content="2022-05-23T19:14:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png"/>
+<meta name="twitter:title" content="一次由iNode 引发的惨案，爆肝四小时终于理解了iNode"/>
+<meta name="twitter:description" content="日常运维经验"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/" /><link rel="prev" href="https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" /><link rel="next" href="https://yeliansong.github.io/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "一次由iNode 引发的惨案，爆肝四小时终于理解了iNode",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yeliansong.github.io\/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/yeliansong.github.io\/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode\/featured-image.png",
+                            "width":  900 ,
+                            "height":  500 
+                        }],"genre": "posts","keywords": "运维、经验梳理","wordcount":  2211 ,
+        "url": "https:\/\/yeliansong.github.io\/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode\/","datePublished": "2022-05-23T19:14:00+08:00","dateModified": "2022-05-23T19:14:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": "日常运维经验"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/en/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/">English</option><option value="/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/en/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/">English</option><option value="/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">一次由iNode 引发的惨案，爆肝四小时终于理解了iNode</h1><h2 class="single-subtitle">日常运维经验</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%BF%90%E7%BB%B4%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"><i class="far fa-folder fa-fw"></i>运维相关知识</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-23 19:14:00">2022-05-23 19:14:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2211 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png"
+        data-srcset="/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png, /2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png 1.5x, /2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/featured-image.png"
+        title="日常运维经验" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#21-磁盘存储">2.1 磁盘存储</a></li>
+    <li><a href="#22-inode-的内容">2.2 iNode 的内容</a></li>
+    <li><a href="#22-inode-大小">2.2 iNode 大小</a></li>
+    <li><a href="#24-inode-含义小结">2.4 iNode 含义小结</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#31-目录文件权限">3.1 目录文件权限</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="1-背景">1 背景</h1>
+<p>一次在做程序包变更时，程序包已经更新到最新版本，需要重启进程，就一直重启不成功。查看启动的错误日志，发现是一直在创建文件时不成功，当时想法是机器磁盘可能满了，查看磁盘使用，发现正常，瞬时就懵逼了，一直想不到是啥问题。突然想到之前有了解过Linux 系统有inode 一说，中文译名是：索引节点。创建的每一个文件都有一个inode，这个inode是用来记录文件的基础信息，这个节点资源也是有限的，马上去查了下，发现inode占用已经100% 了，这完犊子了，马上清理，问题解决。这篇就来说说这个吧。</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/5c8980c1815a4eb0ae95789acf79f895~tplv-k3u1fbpfcp-zoom-1.image" style="zoom:200%;" />
+<h1 id="2-inode-的理解">2 iNode 的理解</h1>
+<h2 id="21-磁盘存储">2.1 磁盘存储</h2>
+<p>要想理解iNode，首先得需要知道Linux 的磁盘存储的一些知识。Linux 磁盘的最小的存储单位是片区，就是sector,一般一个扇区的大小是512 bytes，操作系统读取数据时候不是以扇区为单位来读，这样就太慢了，而是以块来读取，也就是block，一个block 会有多个sector，一般一个block 是4KB，8个sector。这8个sector 是连续的。操作磁盘命令是 fdisk。</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/008i3skNgy1gytdh0f62xj30hr08zdgs.jpg" style="zoom:200%;" />
+<p>可以看到磁盘的分区、分区大小、sector、block 等相关的信息。okay，说了这么多，其实需要知道的一个信息是文件存储的最小单位是 block，那这个和iNode 有什么关系呢？</p>
+<h2 id="22-inode-的内容">2.2 iNode 的内容</h2>
+<p>先来看看iNode 中存的信息有哪些？
+我随便开一个文件，看看这个文件的iNode 信息：
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/008i3skNgy1gytdpo2nvlj30kr03t3yt.jpg" style="zoom:200%;" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">- File: 文件
+</span></span><span class="line"><span class="cl">- Size: 文件的大小
+</span></span><span class="line"><span class="cl">- Block: 所属的块 编号
+</span></span><span class="line"><span class="cl">- Gid: 文件的Group ID
+</span></span><span class="line"><span class="cl">- A M C: 文件的时间戳，分别上次访问、文件修改、iNode 修改的时间戳
+</span></span><span class="line"><span class="cl">- Inode: 文件的Inode 值
+</span></span><span class="line"><span class="cl">- Links: 文件的链接数
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>看这个iNode 内容，就不难理解iNode 的作用了。可以理解为操作系统给创建的每一个文件一个iNode 节点，也就每个文件和iNode 号是一个map关系，存储时候这个iNode 号才是关键。当需要对该文件操作时，分为三步：<strong>1）通过文件名找到iNode 节点号。 2） 通过iNode 节点号获取整个iNode 信息。3）根据iNode 信息找到文件所属的Block，读出数据。</strong> 可以通过ls -i 来看文件的iNode 号。
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/008i3skNgy1gyte6aho91j30nr00zt8k.jpg" style="zoom:200%;" /></p>
+<h2 id="22-inode-大小">2.2 iNode 大小</h2>
+<p>iNode 也是会消耗硬盘空间的，硬盘格式化后会分为两个区，一个是数据区，存放文件数据；另一个是iNode 区，用来存放iNode 所包含的信息。每个iNode 大小一般是128字节或256字节，可以用dumpe2fs 命令来查看iNode 大小。
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/008i3skNgy1gytfxo5fuwj30j502vaa4.jpg" style="zoom:200%;" /></p>
+<p>同时系统分配的iNode 节点个数是有限的，所以很有可能发生iNode 节点用完的情况，用完后，就无法在硬盘上创建新的文件了。所以就发生了文章开头的事情。关于iNode 写完后怎么清理，看下面文章描述。</p>
+<h2 id="24-inode-含义小结">2.4 iNode 含义小结</h2>
+<p>通过介绍，可以看出iNode 的Linux 设计哲学，Linux 是一切皆文件，而文件的标识就是iNode，所以文件名对于Linux 系统来说就不重要了，重要的是独一无二的iNode，有了iNode 节点号，就能准确的找到Linux 里的所有文件。</p>
+<h1 id="3-inode-的延伸">3 iNode 的延伸</h1>
+<h2 id="31-目录文件权限">3.1 目录文件权限</h2>
+<p>文件都是在目录中，在Linux系统中，目录也是一种文件，打开目录实际上就是打开目录下的文件。目录文件就是目录下文件名和iNode 节点信息的集合。
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/008i3skNgy1gytg3y7g6rj30js01s0so.jpg" style="zoom:200%;" />
+读取文件的iNode 节点是需要执行权限，通过这个就很容易理解目录权限和文件权限的关系了。
+如果目录没有执行权限，基本啥都干不了，不能读取目录下文件的一些信息，执行权限对于目录权限来说是至关重要的。
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/008i3skNgy1gytgax9egoj30mw02l0ss.jpg" style="zoom:200%;" /></p>
+<p>root 权限除外哈，root 权限基本就是超人，内裤外穿，不受任何影响。</p>
+<h1 id="32-硬链接">3.2 硬链接</h1>
+<p>有了iNode 的理解，对Linux 里的一些链接的理解和使用也就比较容易了。
+上面说过，一般情况下一个文件名和一个iNode 号是一一对应关系，但是也可以多个相同的文件名对应一个iNode 号。这样就可以用不同的文件名来访问同样的内容，对文件内容修改会影响到所有指向这个iNode 的文件；但是删除一个文件吗文件，不会影响另一个文件对这个iNode 的访问。这就是用的很多的硬链接。
+掌握了iNode，对硬链接也比较容易理解，文件的实际内容只和iNode 节点有关，和文件名没关系。
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/008i3skNgy1gytgpa2wwaj30lx04daah.jpg" style="zoom:200%;" /></p>
+<p>我创建了一个test.txt 的一个硬链接，可以看到这两个文件的iNode 值是一样的。也可以看到链接数是2，如果删除其中一个文件，链接数会减1，只到为0 后就会回收这个iNode 号码。</p>
+<p>这里说明下目录的iNode，创建目录后，默认会生成两个目录：‘.&rsquo; 和 ‘..’。前者的iNode 号码就是当前目录的iNode 号码，后者的iNode 号码是当前目录的父目录的iNode 号码。</p>
+<h1 id="33-软链接">3.3 软链接</h1>
+<p>还有一种是软链接，也叫符号链接，它是两个文件A 和 B的iNode 不一样，但是文件A 的内容是文件B 的路径，系统会自动将访问指向B，所以无论打开哪个文件，都是操作的的文件B。
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/008i3skNgy1gyth6y084wj30js028glq.jpg" style="zoom:200%;" /></p>
+<p>所以文件A 是依赖于文件B，如果删除了文件B，文件A 也就打不开了。这个和硬连接的区别是，文件A 指向的是文件B 的文件名，而不是文件B 的iNode 号码。</p>
+<h1 id="4-inode-资源耗尽的解决">4 iNode 资源耗尽的解决</h1>
+<p>回到文章开头的问题，通过df -i 看，我的iNode 使用已经是100% 了，怎么解决呢？
+基本思路就是找文件句柄在哪个路径下，一般iNode 耗尽肯定是有进程或任务一直在创建文件，导致耗尽。</p>
+<p>1） 查看文件最多的目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="k">for</span> i in /*<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="nv">$i</span><span class="p">;</span> find <span class="nv">$i</span> <span class="p">|</span> wc -l<span class="p">;</span> <span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果确定哪个目录，可以吧/* 写的具体点。</p>
+<p>2） 删除大量文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ls <span class="p">|</span> xargs -n <span class="m">1000</span> rm -rf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>删除就可以了，用xargs 命令。</p>
+<p>找到问题后要避免这种大量创建文件的问题。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-05-23 19:14:00</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/" data-title="一次由iNode 引发的惨案，爆肝四小时终于理解了iNode" data-hashtags="运维、经验梳理"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/" data-hashtag="运维、经验梳理"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/" data-title="一次由iNode 引发的惨案，爆肝四小时终于理解了iNode"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/" data-title="一次由iNode 引发的惨案，爆肝四小时终于理解了iNode" data-ralateuid="index"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/" data-title="一次由iNode 引发的惨案，爆肝四小时终于理解了iNode"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%BF%90%E7%BB%B4%E7%BB%8F%E9%AA%8C%E6%A2%B3%E7%90%86/">运维、经验梳理</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" class="prev" rel="prev" title="wxpy&#43;图灵机器人微信聊天机器人--附源代码"><i class="fas fa-angle-left fa-fw"></i>wxpy&#43;图灵机器人微信聊天机器人--附源代码</a>
+            <a href="/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/" class="next" rel="next" title="程序员要怎么保持健康？读完樊登推荐的《饮食术》我懂了">程序员要怎么保持健康？读完樊登推荐的《饮食术》我懂了<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">LIANSONG&#39;S Blog</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

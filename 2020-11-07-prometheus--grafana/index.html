@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Prometheus &#43; Grafana - LIANSONG&#39;S Blog</title><meta name="Description" content="运维相关知识"><meta property="og:title" content="Prometheus &#43; Grafana" />
+<meta property="og:description" content="运维相关知识" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yeliansong.github.io/2020-11-07-prometheus--grafana/" /><meta property="og:image" content="https://yeliansong.github.io/2020-11-07-prometheus--grafana/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-29T11:14:00+08:00" />
+<meta property="article:modified_time" content="2021-07-29T11:14:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yeliansong.github.io/2020-11-07-prometheus--grafana/featured-image.png"/>
+<meta name="twitter:title" content="Prometheus &#43; Grafana"/>
+<meta name="twitter:description" content="运维相关知识"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/2020-11-07-prometheus--grafana/" /><link rel="prev" href="https://yeliansong.github.io/2020-11-13-nginx-practice/" /><link rel="next" href="https://yeliansong.github.io/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Prometheus + Grafana",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yeliansong.github.io\/2020-11-07-prometheus--grafana\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/yeliansong.github.io\/2020-11-07-prometheus--grafana\/featured-image.png",
+                            "width":  2048 ,
+                            "height":  1362 
+                        }],"genre": "posts","keywords": "运维、网络","wordcount":  1522 ,
+        "url": "https:\/\/yeliansong.github.io\/2020-11-07-prometheus--grafana\/","datePublished": "2021-07-29T11:14:00+08:00","dateModified": "2021-07-29T11:14:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": "运维相关知识"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/en/2020-11-07-prometheus--grafana/">English</option><option value="/2020-11-07-prometheus--grafana/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/en/2020-11-07-prometheus--grafana/">English</option><option value="/2020-11-07-prometheus--grafana/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Prometheus &#43; Grafana</h1><h2 class="single-subtitle">运维相关知识</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%BF%90%E7%BB%B4%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"><i class="far fa-folder fa-fw"></i>运维相关知识</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-29 11:14:00">2021-07-29 11:14:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1522 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2020-11-07-prometheus--grafana/featured-image.png"
+        data-srcset="/2020-11-07-prometheus--grafana/featured-image.png, /2020-11-07-prometheus--grafana/featured-image.png 1.5x, /2020-11-07-prometheus--grafana/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/2020-11-07-prometheus--grafana/featured-image.png"
+        title="运维相关知识" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-背景介绍">1. 背景介绍</a>
+          <ul>
+            <li><a href="#11-prometheus">1.1 Prometheus</a></li>
+            <li><a href="#12-grafana">1.2 Grafana</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-实战操练">2. 实战操练</a></li>
+        <li><a href="#3-k8s-和-prometheus-granfan结合的实战">3. k8s 和 prometheus， Granfan结合的实战</a></li>
+        <li><a href="#4-prometheus-常见的问题">4. Prometheus 常见的问题</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="1-背景介绍">1. 背景介绍</h3>
+<h4 id="11-prometheus">1.1 Prometheus</h4>
+<p>中文是普罗米修斯，光听名字就感觉很有范，是很厉害的东西。让我来说说普罗米修斯的故事，他是雅典神话中的人物，传说就是他捏造了人形，雅典娜给每个人形赋予了灵魂。宙斯是禁止人类用火，这哥们看到人类处于困苦中，就从阿波罗手里盗取了火，因此触犯了宙斯，之后宙斯就将他关在高加索山的悬崖上，并且每天放出一只恶鹰去啄他的肝，又让他的肝每天都能长出来，让他承受各种痛苦。这神话还挺有意思，所以可以看到普罗米修斯是人类守护神，他来承受各种苦难 ，守护人类。所以今天说的这个东西也是这个功能，是一个性能监控工具，他是基于时间序列的一套开源的监控&amp;报警用 Go语言写的一套系统。</p>
+<p>它是基于HTTP协议抓取被监控点的状态信息，所以支持面就比较广，任何支持HTTP协议的组件都可以用它来作为被监控点，所以也广泛被用于docker，k8s和mesos环境的监控。输出被监控组件信息的HTTP接口是exporter，目前很多互联网公司常用的组件都可以直接使用exporter。</p>
+<h4 id="12-grafana">1.2 Grafana</h4>
+<p>用于可视化大型测量数据的开源程序，提供了强大，优雅的方式去创建、共享、浏览 数据。Grafana和Prometheus配合使用，用图形化界面的方式去展示服务的运行情况。</p>
+<h3 id="2-实战操练">2. 实战操练</h3>
+<p>我是用的vagrant + virtual Box的方式起了三个instance，中间的过程也是一波三折，主要开始是对vagrant不太熟悉，其实vagrant是对开发环境的隔离，和docker有点像，通过box镜像的方式来隔离不同的开发环境。在使用vagrant的时候把网络配置复习了一下，主要是NAT，桥接，host-only，交换机和路由器的区别。</p>
+<p>先来说说交换机和路由器的区别吧，这个应该是经常遇到，首先这两个在OSI七层模型中所处的层级是不一样，交换机是处于第二层，数据链路层，而路由器是处于第三层，网络层。交换机是通过物理地址的方式去确定数据的目的地址，路由器是通过网络ID号来寻址。两者的不同方式注定了功能的不同。交换机可以理解为多了更多的LAN 口，每个LAN口的网络互不干扰，路由器恰好相反，是多个LAN口共用一个总的网络端口，所以是共用网络带宽。</p>
+<p>NAT： 网络地址转换，是虚拟机通过NAT的功能，通过宿主机所在的网络来访问公网。NAT模式下 ，局域网的其他主机不能访问虚拟机 ，虚拟机可以访问局域网的所有主机。</p>
+<p>桥接： 是本地的物理网卡和虚拟网卡通过虚拟交换机进行桥接，虚拟交换机相当于现实网络中的交换机。</p>
+<p>host-only： 虚拟网络是在一个全封闭的网络，唯一能访问的就是主机。</p>
+<p>总共是起了三个instance，一个是安装prometheus，一个安装granfan，一个是安装node_exporter.</p>
+<ul>
+<li>
+<p>安装和启动prometheus</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">wget </span><span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">prometheus</span><span class="p">/</span><span class="n">prometheus</span><span class="p">/</span><span class="n">releases</span><span class="p">/</span><span class="n">download</span><span class="p">/</span><span class="n">v2</span><span class="p">.</span><span class="py">7</span><span class="p">.</span><span class="mf">1</span><span class="p">/</span><span class="n">prometheus</span><span class="p">-</span><span class="mf">2.7</span><span class="p">.</span><span class="py">1</span><span class="p">.</span><span class="nb">linux-amd64</span><span class="p">.</span><span class="py">tar</span><span class="p">.</span><span class="py">gz</span>
+</span></span><span class="line"><span class="cl"><span class="n">tar</span> <span class="n">-xvzf</span> <span class="n">prometheus</span><span class="p">-</span><span class="mf">2.7</span><span class="p">.</span><span class="py">1</span><span class="p">.</span><span class="nb">linux-amd64</span><span class="p">.</span><span class="py">tar</span><span class="p">.</span><span class="py">gz</span> <span class="n">-C</span> <span class="p">/</span><span class="n">usr</span><span class="p">/</span><span class="n">local</span><span class="p">/</span>
+</span></span><span class="line"><span class="cl"><span class="nb">mv </span><span class="n">prometheus</span><span class="p">-</span><span class="mf">2.7</span><span class="p">.</span><span class="py">1</span><span class="p">.</span><span class="nb">linux-amd64</span> <span class="n">prometheus</span>
+</span></span><span class="line"><span class="cl"><span class="p">./</span><span class="n">prometheus</span> <span class="p">-</span><span class="n">-config</span><span class="p">.</span><span class="n">file</span><span class="p">=</span><span class="s2">&#34;prometheus.yml&#34;</span> <span class="p">&amp;</span>  <span class="p">(</span><span class="err">后台运行</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">lsof</span> <span class="n">-i:</span><span class="mf">9090</span> <span class="err">（列出端口进程）</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>弄完后，就启动了prometheus， 占用的端口是9090端口，也就开始了性能的监控。</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gkgeu2fkzyj31se0u0gr4.jpg" style="zoom:67%;" />
+<p>设置target就是监控的目标，默认情况下监控目标是自己，也可以设置其他的node节点进行监控。</p>
+<ul>
+<li>
+<p>安装和启动node_exporter节点</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">curl </span><span class="n">-OL</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">prometheus</span><span class="p">/</span><span class="n">node_exporter</span><span class="p">/</span><span class="n">releases</span><span class="p">/</span><span class="n">download</span><span class="p">/</span><span class="n">v0</span><span class="p">.</span><span class="py">15</span><span class="p">.</span><span class="mf">2</span><span class="p">/</span><span class="n">node_exporter</span><span class="p">-</span><span class="mf">0.15</span><span class="p">.</span><span class="py">2</span><span class="p">.</span><span class="nb">darwin-amd64</span><span class="p">.</span><span class="py">tar</span><span class="p">.</span><span class="py">gz</span>
+</span></span><span class="line"><span class="cl"><span class="n">tar</span> <span class="n">-xzf</span> <span class="n">node_exporter</span><span class="p">-</span><span class="mf">0.15</span><span class="p">.</span><span class="py">2</span><span class="p">.</span><span class="nb">darwin-amd64</span><span class="p">.</span><span class="py">tar</span><span class="p">.</span><span class="py">gz</span>
+</span></span><span class="line"><span class="cl"><span class="n">nohup</span> <span class="p">/</span><span class="n">usr</span><span class="p">/</span><span class="n">local</span><span class="p">/</span><span class="n">node_exporter</span><span class="p">/</span><span class="n">node_exporter</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>这个就启动了node_exporter，进去后也是可以看到，实际上就是一堆下图这种日志。</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gkgf2ksptuj31lo0sawna.jpg" style="zoom:150%;" />
+<p>这些日志是可以被prometheus 调用和展示的。</p>
+<ul>
+<li>Granfan 安装和启动</li>
+</ul>
+<p>这个是一个图形化界面的性能监控工具，安装和启动也是非常简单。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="nb">apt-get</span> <span class="n">install</span> <span class="n">grafana</span>
+</span></span><span class="line"><span class="cl"><span class="n">service</span> <span class="nb">grafana-server</span> <span class="nb">start
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过Grafana可以用dashboard把普罗米修斯添加到监控中。</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gkgf8xgklmj31mr0u0qay.jpg" style="zoom:150%;" />
+<p>总体来说，还是比较简单。</p>
+<h3 id="3-k8s-和-prometheus-granfan结合的实战">3. k8s 和 prometheus， Granfan结合的实战</h3>
+<p><a href="https://www.qikqiak.com/post/kubernetes-monitor-prometheus-grafana/" target="_blank" rel="noopener noreffer">https://www.qikqiak.com/post/kubernetes-monitor-prometheus-grafana/</a></p>
+<p>这篇博文也是一个很好的k8s和prometheus Granfan相结合 的例子。</p>
+<h3 id="4-prometheus-常见的问题">4. Prometheus 常见的问题</h3>
+<p><a href="https://www.ershicimi.com/p/b27a4437ff01832f1832c563a8a00437" target="_blank" rel="noopener noreffer">https://www.ershicimi.com/p/b27a4437ff01832f1832c563a8a00437</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-07-29 11:14:00</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://yeliansong.github.io/2020-11-07-prometheus--grafana/" data-title="Prometheus &#43; Grafana" data-hashtags="运维、网络"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://yeliansong.github.io/2020-11-07-prometheus--grafana/" data-hashtag="运维、网络"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://yeliansong.github.io/2020-11-07-prometheus--grafana/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://yeliansong.github.io/2020-11-07-prometheus--grafana/" data-title="Prometheus &#43; Grafana"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yeliansong.github.io/2020-11-07-prometheus--grafana/" data-title="Prometheus &#43; Grafana" data-ralateuid="index"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://yeliansong.github.io/2020-11-07-prometheus--grafana/" data-title="Prometheus &#43; Grafana"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%BF%90%E7%BB%B4%E7%BD%91%E7%BB%9C/">运维、网络</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-11-13-nginx-practice/" class="prev" rel="prev" title="Nginx Practice"><i class="fas fa-angle-left fa-fw"></i>Nginx Practice</a>
+            <a href="/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="next" rel="next" title="Linux 问题定位及性能优化">Linux 问题定位及性能优化<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">LIANSONG&#39;S Blog</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

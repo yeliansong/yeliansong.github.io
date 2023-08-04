@@ -4,77 +4,77 @@
         <link>https://yeliansong.github.io/</link>
         <description>LIANSONG&#39;S Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
-            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Jan 2020 09:11:51 &#43;0800</lastBuildDate>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</lastBuildDate>
             <atom:link href="https://yeliansong.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Volume</title>
-    <link>https://yeliansong.github.io/2020-4-14-volume/</link>
-    <pubDate>Sat, 25 Jan 2020 09:11:51 &#43;0800</pubDate>
+    <title>浅谈 lsof 的一些使用</title>
+    <link>https://yeliansong.github.io/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/</link>
+    <pubDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://yeliansong.github.io/2020-4-14-volume/</guid>
-    <description><![CDATA[1.emptyDir 这是卷的基础。 生命周期取决于Pod。 当相关 Pod 被删除时，该卷也会被删除。 所以我们可以将其视为Pod的路径。 Pod 的所有容器共享这个 voiume。]]></description>
+    <guid>https://yeliansong.github.io/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/</guid>
+    <description><![CDATA[1 Linux 一切皆文件 在Linux 系统中，一切皆文件。通过文件不仅可以查看存储到磁盘中的文件数据，还可以访问网络连接和硬件。问题来了，竟然一切皆是文]]></description>
 </item><item>
-    <title>健康检查</title>
-    <link>https://yeliansong.github.io/2020-4-11-health-check/</link>
-    <pubDate>Mon, 20 Jan 2020 09:11:51 &#43;0800</pubDate>
+    <title>《三体》读书笔记</title>
+    <link>https://yeliansong.github.io/2022-07-17-%E4%B8%89%E4%BD%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Sun, 13 Nov 2022 19:14:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://yeliansong.github.io/2020-4-11-health-check/</guid>
-    <description><![CDATA[1.关于K8S健康检查 健康检查是k8s编排的重要功能。 K8s 可以监控这些容器，并在发生故障时自动重新启动它们。 如果容器的主进程崩溃，k8s将重新]]></description>
+    <guid>https://yeliansong.github.io/2022-07-17-%E4%B8%89%E4%BD%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[1 引言 最近看完了刘慈欣老师的《三体》，零零总总花了四十几个小时，前前后后大半个月时间，直到今天看完还一直沉浸中三体的世界里，除了震撼还是震撼]]></description>
 </item><item>
-    <title>如何编写 YAML</title>
-    <link>https://yeliansong.github.io/2020-04-08-how-to-write-the-yaml/</link>
-    <pubDate>Fri, 10 Jan 2020 10:11:51 &#43;0800</pubDate>
+    <title>程序员要怎么保持健康？读完樊登推荐的《饮食术》我懂了</title>
+    <link>https://yeliansong.github.io/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/</link>
+    <pubDate>Tue, 27 Sep 2022 19:14:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://yeliansong.github.io/2020-04-08-how-to-write-the-yaml/</guid>
-    <description><![CDATA[1.如何编写YAML 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 api版本：apps/v1 种类：部署 元数据： 名称：nginx-deploymnet 规格]]></description>
+    <guid>https://yeliansong.github.io/2022-2-14-%E7%A8%8B%E5%BA%8F%E5%91%98%E8%A6%81%E6%80%8E%E4%B9%88%E4%BF%9D%E6%8C%81%E5%81%A5%E5%BA%B7%E8%AF%BB%E5%AE%8C%E6%A8%8A%E7%99%BB%E6%8E%A8%E8%8D%90%E7%9A%84%E9%A5%AE%E9%A3%9F%E6%9C%AF/</guid>
+    <description><![CDATA[前沿 关于吃的问题我一直都挺感兴趣，但是现在网上各种fake 科普太多了，一时说要每天控制碳水、脂质摄入，又有说是正常吃就可以，一度让我很难选择]]></description>
 </item><item>
-    <title>了解K8S架构</title>
-    <link>https://yeliansong.github.io/2020-3-22-understand-the-k8s-architecture/</link>
-    <pubDate>Sat, 04 Jan 2020 09:11:51 &#43;0800</pubDate>
+    <title>一次由iNode 引发的惨案，爆肝四小时终于理解了iNode</title>
+    <link>https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/</link>
+    <pubDate>Mon, 23 May 2022 19:14:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://yeliansong.github.io/2020-3-22-understand-the-k8s-architecture/</guid>
-    <description><![CDATA[1.k8s组件架构。 好吧，这很容易理解。 如上所述，主节点是最重要的。 它控制其他节点加入集群。 API服务器也暴露在外。 通过主节点，即可安排其他]]></description>
+    <guid>https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/</guid>
+    <description><![CDATA[1 背景 一次在做程序包变更时，程序包已经更新到最新版本，需要重启进程，就一直重启不成功。查看启动的错误日志，发现是一直在创建文件时不成功，当时]]></description>
 </item><item>
-    <title>九、Deployment声明式升级应用</title>
-    <link>https://yeliansong.github.io/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/</link>
-    <pubDate>Fri, 01 Nov 2019 15:11:51 &#43;0800</pubDate>
+    <title>wxpy&#43;图灵机器人微信聊天机器人--附源代码</title>
+    <link>https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/</link>
+    <pubDate>Mon, 28 Mar 2022 19:14:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://yeliansong.github.io/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/</guid>
-    <description><![CDATA[1. 升级的几种方式 先来看一个案例，这种情况怎么处理： POD现在用的是V1版本，现在有一个V2版本，怎么把V2版本替换到V1版本？有三种方式： 删]]></description>
+    <guid>https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/</guid>
+    <description><![CDATA[1 背景 看到很多小伙伴用微信玩聊天机器人，能自动回复，看着还挺像模像样的，心里痒痒，也想着自己做个聊天机器人玩玩，初步想法是能每天定时给女朋友]]></description>
 </item><item>
-    <title>八、从应用访问POD元数据及其他资源</title>
-    <link>https://yeliansong.github.io/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/</link>
-    <pubDate>Sat, 12 Oct 2019 15:11:51 &#43;0800</pubDate>
+    <title>运维自动化 -- Ansible</title>
+    <link>https://yeliansong.github.io/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/</link>
+    <pubDate>Sat, 27 Nov 2021 15:14:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://yeliansong.github.io/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/</guid>
-    <description><![CDATA[1. Downward API传递元数据 说实话，这章看的也是云里雾里的，感觉和环境变量配置差不多。我的理解是，Downward API 是用来给POD或容器的元数据进行]]></description>
+    <guid>https://yeliansong.github.io/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/</guid>
+    <description><![CDATA[1. 运维自动化应用场景 操作系统预备自动化 对主机进行批量操作系统部署。PXE 配置自动化 对主机进行批量配置或对主机的应用程序进行批量配置。 Ansi]]></description>
 </item><item>
-    <title>七、ConfigMap 和 Secret配置应用程序</title>
-    <link>https://yeliansong.github.io/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</link>
-    <pubDate>Thu, 10 Oct 2019 14:11:51 &#43;0800</pubDate>
+    <title>Linux 问题定位及性能优化</title>
+    <link>https://yeliansong.github.io/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+    <pubDate>Tue, 28 Sep 2021 11:14:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://yeliansong.github.io/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</guid>
-    <description><![CDATA[1. 容器命令行参数的配置 Docker 使用命令行参数是通过在Dockerfile 中定义Entrypoint 和CMD来实现，但是有个问题啊，这个是打包到镜像]]></description>
+    <guid>https://yeliansong.github.io/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+    <description><![CDATA[1.1 平均负载和CPU利用率 这两个通常是衡量系统当前性能的关键指标，但是不能只究一个而放弃另外一个，要两者一起来查看分析。 平均负载：是指单位时间]]></description>
 </item><item>
-    <title>六、卷-将磁盘挂载到容器</title>
-    <link>https://yeliansong.github.io/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/</link>
-    <pubDate>Thu, 03 Oct 2019 14:11:51 &#43;0800</pubDate>
+    <title>Prometheus &#43; Grafana</title>
+    <link>https://yeliansong.github.io/2020-11-07-prometheus--grafana/</link>
+    <pubDate>Thu, 29 Jul 2021 11:14:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://yeliansong.github.io/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/</guid>
-    <description><![CDATA[1. 卷（volume） 终于等到你了，卷，volume。 也是kubernetes很重要的一个组件啊。不对，应该不能说是k8s的一个组件，应该说是]]></description>
+    <guid>https://yeliansong.github.io/2020-11-07-prometheus--grafana/</guid>
+    <description><![CDATA[1. 背景介绍 1.1 Prometheus 中文是普罗米修斯，光听名字就感觉很有范，是很厉害的东西。让我来说说普罗米修斯的故事，他是雅典神话中的人物，传说就是他捏造了人形]]></description>
 </item><item>
-    <title>五、POD的服务与通信</title>
-    <link>https://yeliansong.github.io/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/</link>
-    <pubDate>Tue, 01 Oct 2019 11:11:51 &#43;0800</pubDate>
+    <title>Nginx Practice</title>
+    <link>https://yeliansong.github.io/2020-11-13-nginx-practice/</link>
+    <pubDate>Thu, 13 May 2021 11:14:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://yeliansong.github.io/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/</guid>
-    <description><![CDATA[1. 服务与端口 服务其实很好理解了，你想想看，一组相同的POD，你怎么管理，你需要知道他们的所有IP吗，然后再去一一进行手动配置连接？显然不需要]]></description>
+    <guid>https://yeliansong.github.io/2020-11-13-nginx-practice/</guid>
+    <description><![CDATA[1. 目的 这篇总结是来回顾加实操Nginx的相关操作。包括Nginx三大特性：负载均衡，反向代理和动静分离。最后利用Nginx来模拟一个高可用场]]></description>
 </item><item>
-    <title>四、副本机制部署托管POD</title>
-    <link>https://yeliansong.github.io/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/</link>
-    <pubDate>Tue, 17 Sep 2019 11:11:51 &#43;0800</pubDate>
+    <title>HTTP详解</title>
+    <link>https://yeliansong.github.io/2020-5-30-http-%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Mon, 19 Apr 2021 15:14:00 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://yeliansong.github.io/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/</guid>
-    <description><![CDATA[1. 存活探针 为啥要搞出这么一个高深的词？我们知道POD里如果有容器程序崩溃了，kubenetes 会重新启动程序，但是问题来了，如果不是崩溃的情]]></description>
+    <guid>https://yeliansong.github.io/2020-5-30-http-%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[这份总结可能不是覆盖所有的HTTP知识点，只是按照我自己理解的，然后结合网上资料，进行总结。 1. 什么是HTTP HTTP(hypertext transport protocol), 就是超文本传输协议，文本可]]></description>
 </item></channel>
 </rss>

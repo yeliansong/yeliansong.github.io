@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>技术归类 - 分类 - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/categories/%E6%8A%80%E6%9C%AF%E5%BD%92%E7%B1%BB/</link>
+        <description>技术归类 - 分类 - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 28 Mar 2022 19:14:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/categories/%E6%8A%80%E6%9C%AF%E5%BD%92%E7%B1%BB/" rel="self" type="application/rss+xml" /><item>
+    <title>wxpy&#43;图灵机器人微信聊天机器人--附源代码</title>
+    <link>https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/</link>
+    <pubDate>Mon, 28 Mar 2022 19:14:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/</guid>
+    <description><![CDATA[1 背景 看到很多小伙伴用微信玩聊天机器人，能自动回复，看着还挺像模像样的，心里痒痒，也想着自己做个聊天机器人玩玩，初步想法是能每天定时给女朋友]]></description>
+</item></channel>
+</rss>

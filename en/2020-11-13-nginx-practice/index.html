@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Nginx Practice - LIANSONG&#39;S Blog</title><meta name="Description" content="运维相关知识"><meta property="og:title" content="Nginx Practice" />
+<meta property="og:description" content="运维相关知识" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yeliansong.github.io/en/2020-11-13-nginx-practice/" /><meta property="og:image" content="https://yeliansong.github.io/en/2020-11-13-nginx-practice/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-13T11:14:00+08:00" />
+<meta property="article:modified_time" content="2021-05-13T11:14:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yeliansong.github.io/en/2020-11-13-nginx-practice/featured-image.png"/>
+<meta name="twitter:title" content="Nginx Practice"/>
+<meta name="twitter:description" content="运维相关知识"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/en/2020-11-13-nginx-practice/" /><link rel="prev" href="https://yeliansong.github.io/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/" /><link rel="next" href="https://yeliansong.github.io/en/2020-11-07-prometheus--grafana/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Nginx Practice",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yeliansong.github.io\/en\/2020-11-13-nginx-practice\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/yeliansong.github.io\/en\/2020-11-13-nginx-practice\/featured-image.png",
+                            "width":  2048 ,
+                            "height":  1582 
+                        }],"genre": "posts","keywords": "运维、网络","wordcount":  2277 ,
+        "url": "https:\/\/yeliansong.github.io\/en\/2020-11-13-nginx-practice\/","datePublished": "2021-05-13T11:14:00+08:00","dateModified": "2021-05-13T11:14:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": "运维相关知识"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/categories/documentation/"> Docs </a><a class="menu-item" href="/en/about/"> About </a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/en/2020-11-13-nginx-practice/" selected>English</option><option value="/2020-11-13-nginx-practice/">简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/categories/documentation/" title="">Docs</a><a class="menu-item" href="/en/about/" title="">About</a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/en/2020-11-13-nginx-practice/" selected>English</option><option value="/2020-11-13-nginx-practice/">简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Nginx Practice</h1><h2 class="single-subtitle">运维相关知识</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/%E8%BF%90%E7%BB%B4%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"><i class="far fa-folder fa-fw"></i>运维相关知识</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-05-13 11:14:00">2021-05-13 11:14:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2277 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;11 minutes&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2020-11-13-nginx-practice/featured-image.png"
+        data-srcset="/en/2020-11-13-nginx-practice/featured-image.png, /en/2020-11-13-nginx-practice/featured-image.png 1.5x, /en/2020-11-13-nginx-practice/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2020-11-13-nginx-practice/featured-image.png"
+        title="运维相关知识" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-purpose">1. Purpose</a></li>
+        <li><a href="#2-basic-concepts">2. Basic concepts</a>
+          <ul>
+            <li><a href="#21-nginx-description">2.1 Nginx description</a></li>
+            <li><a href="#22-reverse-proxy-and-forward-proxy">2.2 Reverse Proxy and Forward Proxy</a></li>
+            <li><a href="#23-load-balancing">2.3 Load Balancing</a></li>
+            <li><a href="#24-dynamic-and-static-separation">2.4 Dynamic and Static Separation</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-environment-installation">3. Environment installation</a>
+          <ul>
+            <li><a href="#31-nginx-installation">3.1 Nginx installation</a></li>
+            <li><a href="#32-tomcat-installation">3.2 tomcat installation</a></li>
+            <li><a href="#33-keepalived-installation">3.3 keepalived installation</a></li>
+          </ul>
+        </li>
+        <li><a href="#4-reverse-proxy-practice">4. Reverse Proxy Practice</a></li>
+        <li><a href="#5-load-balancing">5. Load balancing</a></li>
+        <li><a href="#6-separation-of-static-and-dynamic">6. Separation of static and dynamic</a></li>
+        <li><a href="#7-high-availability-simulation">7. High availability simulation</a></li>
+        <li><a href="#8-basic-principles-of-nginx">8. Basic principles of Nginx</a></li>
+        <li><a href="#9-accessories">9. Accessories</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="1-purpose">1. Purpose</h3>
+<p>This summary is to review the related operations of adding practical Nginx. Including three major features of Nginx: load balancing, reverse proxy and dynamic and static separation. Finally, use Nginx to simulate a high-availability scenario to deepen your understanding of Nginx.</p>
+<h3 id="2-basic-concepts">2. Basic concepts</h3>
+<h4 id="21-nginx-description">2.1 Nginx description</h4>
+<p>Nginx is a reverse proxy web server for http, which performs well in concurrency and can withstand up to 50,000 concurrency. So it is also favored by many companies. Including Baidu, JD.com, Sina, Tencent, Taobao, etc.</p>
+<h4 id="22-reverse-proxy-and-forward-proxy">2.2 Reverse Proxy and Forward Proxy</h4>
+<p>A forward proxy is a proxy client, and the server is insensitive to requests from different clients. A better example is the use of VPN. For example, when we use Google over the wall, it is actually a forward proxy. The user is equivalent to visiting the Google website, but it is actually sent to the VPN server, and the VPN server communicates with Google. Interactive communication, and then return the content to the client. Forward proxying requires client browsers to be configured.</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknn87dbqqj31f00fual0.jpg" style="zoom:200%;" />
+<p>A reverse proxy is just the opposite and is used to proxy the server. The client is indifferent to the server. For example, if a user wants to access multiple tomcat servers on the server, he can access the reverse proxy server, and then the reverse proxy server communicates with tomcat to return the content to the client. So the reverse proxy is the configuration server.</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknnbeva0zj31gy0d2k2c.jpg" style="zoom:200%;" />
+<h4 id="23-load-balancing">2.3 Load Balancing</h4>
+<p>Load balancing is equivalent to using the load balancing server to distribute the client&rsquo;s request to each server according to the load balancing configuration.</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknne980uwj31s00q2jza.jpg" style="zoom:150%;" />
+<h4 id="24-dynamic-and-static-separation">2.4 Dynamic and Static Separation</h4>
+<p>Dynamic and static separation is equivalent to separating the dynamic resources of the server from the static resources, and using nginx to point to different servers.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknnhfh59pj31ls0nun1r.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknnhfh59pj31ls0nun1r.jpg, https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknnhfh59pj31ls0nun1r.jpg 1.5x, https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknnhfh59pj31ls0nun1r.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknnhfh59pj31ls0nun1r.jpg"
+        title="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknnhfh59pj31ls0nun1r.jpg" /></p>
+<h3 id="3-environment-installation">3. Environment installation</h3>
+<h4 id="31-nginx-installation">3.1 Nginx installation</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">apt-get</span> <span class="n">install</span> <span class="n">nginx</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">root</span><span class="nv">@agent</span><span class="err">:</span><span class="p">/</span><span class="n">tmp</span><span class="p">/</span><span class="mf">8081</span><span class="p">/</span><span class="nb">apache-tomcat</span><span class="p">-</span><span class="mf">9.0</span><span class="p">.</span><span class="mf">39</span><span class="p">/</span><span class="n">webapps</span><span class="c"># nginx -t</span>
+</span></span><span class="line"><span class="cl"><span class="n">nginx</span><span class="err">:</span> <span class="p">[</span><span class="no">warn</span><span class="p">]</span> <span class="n">conflicting</span> <span class="n">server</span> <span class="n">name</span> <span class="s2">&#34;192.168.2.5&#34;</span> <span class="n">on</span> <span class="mf">0.0</span><span class="p">.</span><span class="py">0</span><span class="p">.</span><span class="mf">0</span><span class="err">:</span><span class="mf">80</span><span class="p">,</span> <span class="n">ignored</span>
+</span></span><span class="line"><span class="cl"><span class="n">nginx</span><span class="err">:</span> <span class="n">the</span> <span class="kd">configuration</span><span class="w"> </span><span class="nb">file </span><span class="p">/</span><span class="n">etc</span><span class="p">/</span><span class="n">nginx</span><span class="p">/</span><span class="n">nginx</span><span class="p">.</span><span class="py">conf</span> <span class="n">syntax</span> <span class="n">is</span> <span class="n">ok</span>
+</span></span><span class="line"><span class="cl"><span class="n">nginx</span><span class="err">:</span> <span class="kd">configuration</span><span class="w"> </span><span class="nb">file </span><span class="p">/</span><span class="n">etc</span><span class="p">/</span><span class="n">nginx</span><span class="p">/</span><span class="n">nginx</span><span class="p">.</span><span class="py">conf</span> <span class="n">test</span> <span class="n">is</span> <span class="n">successful</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Mainly configure the nginx.conf file. The default running port of nginx is port 80.</p>
+<h4 id="32-tomcat-installation">3.2 tomcat installation</h4>
+<p>Download the tomcat compressed file directly, put it in the specified path, and decompress it directly. JDK needs to be installed to run. The operation of tomcat is under the bin path, and the sh file is executed. The default running port of tomcat is port 8080.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">sudo</span> <span class="nb">add-apt</span><span class="n">-repository</span> <span class="n">ppa</span><span class="err">:</span><span class="nb">openjdk-r</span><span class="p">/</span><span class="n">ppa</span>
+</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="nb">apt-get</span> <span class="n">update</span>
+</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">openjdk</span><span class="p">-</span><span class="mf">11</span><span class="n">-jdk</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="33-keepalived-installation">3.3 keepalived installation</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">apt-get install keepalived
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-reverse-proxy-practice">4. Reverse Proxy Practice</h3>
+<p>Use Nginx to proxy the tomcat server. My virtual machine ip is 192.168.2.5, and listen to port 9001 in the Nginx configuration file. At the same time, Nginx acts as a proxy for two ports 8080 and 8081 of tomcat. Create edu files and html files in 8080, create vod folders and html files in 8081, and access the two via 192.168.2.5:9001:/edu/a.html and 192.168.2.5:9001:/vod/a.html A tomcat server.</p>
+<img src="/Users/yeliansong/Library/Application Support/typora-user-images/image-20201113174157372.png" alt="image-20201113174157372" style="zoom:50%;" />
+<p>Mainly the configuration of nginx.conf, the following is the configuration instructions. There is also tomcat&rsquo;s 8081 server configuration file to modify the default listening port 8080 to 8081.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl">  <span class="n">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">listen</span> <span class="mf">9001</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                 <span class="n">server_name</span> <span class="mf">192.168</span><span class="p">.</span><span class="py">2</span><span class="p">.</span><span class="mf">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                 <span class="n">location</span> <span class="p">~</span> <span class="p">/</span><span class="n">edu</span><span class="p">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                         <span class="n">proxy_pass</span> <span class="n">http</span><span class="err">:</span><span class="p">//</span><span class="mf">127.0</span><span class="p">.</span><span class="py">0</span><span class="p">.</span><span class="mf">1</span><span class="err">:</span><span class="mf">8080</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                 <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                 <span class="n">location</span> <span class="p">~</span> <span class="p">/</span><span class="n">vod</span><span class="p">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                         <span class="n">proxy_pass</span> <span class="n">http</span><span class="err">:</span><span class="p">//</span><span class="mf">127.0</span><span class="p">.</span><span class="py">0</span><span class="p">.</span><span class="mf">1</span><span class="err">:</span><span class="mf">8081</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                 <span class="p">}</span>
+</span></span><span class="line"><span class="cl">         <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Location ~ is used to determine whether it exists, and proxy_pass is used to point to the tomcat server. This block is configured in the http block of nginx.conf. Through this experiment, you can see the reverse proxy of Nginx. Nginx acts as a proxy for two tomcat servers, and users can access different servers only by accessing port 9001.</p>
+<h3 id="5-load-balancing">5. Load balancing</h3>
+<p>There are three configuration methods for load balancing, try each of them. This time, create an edu folder and a.html file for the server under 8081, and enter 192.168.2.5:80/edu/a.html in the browser to access different tomcat servers according to load balancing.</p>
+<ul>
+<li>
+<p>Polling</p>
+<p>Each request is assigned to a different tomcat server one by one. Equivalent to equal opportunity. The configuration is as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> upstream myserver <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                server 192.168.2.5:8080<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                server 192.168.2.5:8081<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        server <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                listen 80<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                server_name 192.168.2.5<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                location / <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        proxy_pass http://myserver<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>In this way, when a request comes, it will patrol to access the two tomcat servers.</p>
+</li>
+<li>
+<p>weight method</p>
+<p>Weights can be assigned to each tomcat server, and requests will dynamically fall to different servers with more weight.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> upstream myserver <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                server 192.168.2.5:8080 <span class="nv">weight</span><span class="o">=</span>5<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                server 192.168.2.5:8081 <span class="nv">weight</span><span class="o">=</span>10<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        server <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                listen 80<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                server_name 192.168.2.5<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                location / <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        proxy_pass http://myserver<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After this configuration, the request will probabilistically fall to the two servers according to the weight.</p>
+</li>
+<li>
+<p>Ip_hash method</p>
+<p>This means that the request will only fall to the server accessed for the first time, and will not be changed to other servers. This can solve the session problem.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">upstream myserver {
+</span></span><span class="line"><span class="cl">ip_hash;
+</span></span><span class="line"><span class="cl">                server 192.168.2.5:8080 weight=5;
+</span></span><span class="line"><span class="cl">                server 192.168.2.5:8081 weight=10;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        server {
+</span></span><span class="line"><span class="cl">                listen 80;
+</span></span><span class="line"><span class="cl">                server_name 192.168.2.5;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                location / {
+</span></span><span class="line"><span class="cl">                        proxy_pass http://myserver;
+</span></span><span class="line"><span class="cl">                }
+</span></span><span class="line"><span class="cl">        }
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="6-separation-of-static-and-dynamic">6. Separation of static and dynamic</h3>
+<p>This refers to distinguishing dynamic resources from static resources and placing them in different locations, such as database search, which belongs to dynamic resources and can be placed in tomcat, while static pages can be placed in nginx and accessed according to different directions these resources. It doesn&rsquo;t work anymore.</p>
+<h3 id="7-high-availability-simulation">7. High availability simulation</h3>
+<p>The high availability of Nginx means that two nginx servers are used as master-slave services. When the master server goes down, it can automatically switch to the slave server. The switching and monitoring of Nginx is realized by keepalived. A script will be defined in keepalived to monitor the status of nginx threads all the time. Once the status changes, it will switch to another slave server.</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknpxhrp39j31oa0k6k2a.jpg" style="zoom:200%;" />
+<p>The above is the whole flowchart. The virtual ip 192.168.2.50 is a virtual ip set by keepalived. There is a nginx_check.sh script, which will run this script every 2s. This script is used to detect nginx threads. If there is no nginx The thread will kill the keepalive, and the service will be directed to the slave server. The slave server also needs the same configuration, just change the state to MASTER.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vrrp_script chk_http_port <span class="o">{</span>
+</span></span><span class="line"><span class="cl">         script <span class="s2">&#34;/etc/keepalived/nginx_check.sh&#34;</span>
+</span></span><span class="line"><span class="cl">         interval <span class="m">2</span>
+</span></span><span class="line"><span class="cl">         weight <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vrrp_instance inside_VI_1 <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    state BACKUP <span class="c1">#指定那个为master，那个为backup，如果设置了nopreempt这个值不起作用，主备考priority决定</span>
+</span></span><span class="line"><span class="cl">    interface eth1 <span class="c1">#设置实例绑定的网卡</span>
+</span></span><span class="line"><span class="cl">    virtual_router_id <span class="m">50</span> <span class="c1">#VPID标记</span>
+</span></span><span class="line"><span class="cl">    priority <span class="m">90</span> <span class="c1">#优先级，高优先级竞选为master</span>
+</span></span><span class="line"><span class="cl">    advert_int <span class="m">1</span> <span class="c1">#检查间隔，默认1秒</span>
+</span></span><span class="line"><span class="cl">    authentication <span class="o">{</span> <span class="c1">#设置认证</span>
+</span></span><span class="line"><span class="cl">        auth_type PASS <span class="c1">#认证方式</span>
+</span></span><span class="line"><span class="cl">        auth_pass <span class="m">111111</span> <span class="c1">#认证密码</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    virtual_ipaddress <span class="o">{</span> <span class="c1">#设置vip</span>
+</span></span><span class="line"><span class="cl">        192.168.2.50
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># !/bin/bash
+</span></span><span class="line"><span class="cl">A= &#39;ps -C nginx -no-header | wc -l&#39;
+</span></span><span class="line"><span class="cl">if [ $A -eq 0 ];then
+</span></span><span class="line"><span class="cl">        /usr/sbin/nginx
+</span></span><span class="line"><span class="cl">        sleep 2
+</span></span><span class="line"><span class="cl">        if [ &#39;ps -C nginx --no-header | wc -l&#39; -eq 0 ];then
+</span></span><span class="line"><span class="cl">                killall keepalived
+</span></span><span class="line"><span class="cl">        fi
+</span></span><span class="line"><span class="cl">fi
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">upstream myserverkeepalived <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                server 192.168.2.50:8080<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                server 192.168.2.50:8081<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        server <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                listen 80<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                server_name 192.168.2.50<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                location / <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        proxy_pass http://myserverkeepalived<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Access through 192.168.2.50:/edu/a.html, by default, the nginx of the master is used. We can shut down the master&rsquo;s nginx, and the service can still be accessed. At this time, the slave&rsquo;s nginx is used.</p>
+<h3 id="8-basic-principles-of-nginx">8. Basic principles of Nginx</h3>
+<p>The architecture of Nginx is that the main process of a master starts as a daemon process, and multiple work processes are attached to the master process, as shown in the figure below. Each work process is equivalent to a reverse proxy server. Each work process competes to grab requests.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr4jsap0j31f40sgwmz.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr4jsap0j31f40sgwmz.jpg, https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr4jsap0j31f40sgwmz.jpg 1.5x, https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr4jsap0j31f40sgwmz.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr4jsap0j31f40sgwmz.jpg"
+        title="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr4jsap0j31f40sgwmz.jpg" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr5m8ykmj31a20qc18i.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr5m8ykmj31a20qc18i.jpg, https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr5m8ykmj31a20qc18i.jpg 1.5x, https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr5m8ykmj31a20qc18i.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr5m8ykmj31a20qc18i.jpg"
+        title="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gknr5m8ykmj31a20qc18i.jpg" /></p>
+<p>The benefits of this approach:</p>
+<ul>
+<li>Support hot deployment. When nginx.conf is changed, even if there are work processes processing transactions, it will not be affected. The config file will be synchronized to the work process that has not performed the transaction, and will be synchronized after the task is completed.</li>
+<li>Each work process can run independently without locking, saving the cost of locking.</li>
+</ul>
+<p>The maximum number of connections supported by each work is 4, and it is best to keep the optimum number of workers consistent with the number of CPU cores.</p>
+<h3 id="9-accessories">9. Accessories</h3>
+<p>1）nginx.conf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">user www-data<span class="p">;</span>
+</span></span><span class="line"><span class="cl">worker_processes 4<span class="p">;</span>
+</span></span><span class="line"><span class="cl">pid /run/nginx.pid<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">events <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        worker_connections 768<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># multi_accept on;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">http <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">##</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Basic Settings</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">##</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        sendfile on<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        tcp_nopush on<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        tcp_nodelay on<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        keepalive_timeout 65<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        types_hash_max_size 2048<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># server_tokens off;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># server_names_hash_bucket_size 64;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># server_name_in_redirect off;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        include /etc/nginx/mime.types<span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        default_type application/octet-stream<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        <span class="c1">##</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Logging Settings</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">##</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">        access_log /var/log/nginx/access.log<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        error_log /var/log/nginx/error.log<span class="p">;</span>
+</span></span><span class="line"><span class="cl">root@monitor:/etc/nginx# 
+</span></span><span class="line"><span class="cl">root@monitor:/etc/nginx# 
+</span></span><span class="line"><span class="cl">root@monitor:/etc/nginx# cat nginx.conf 
+</span></span><span class="line"><span class="cl">user www-data<span class="p">;</span>
+</span></span><span class="line"><span class="cl">worker_processes 4<span class="p">;</span>
+</span></span><span class="line"><span class="cl">pid /run/nginx.pid<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">events <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	worker_connections 768<span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># multi_accept on;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">http <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># Basic Settings</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	sendfile on<span class="p">;</span>
+</span></span><span class="line"><span class="cl">	tcp_nopush on<span class="p">;</span>
+</span></span><span class="line"><span class="cl">	tcp_nodelay on<span class="p">;</span>
+</span></span><span class="line"><span class="cl">	keepalive_timeout 65<span class="p">;</span>
+</span></span><span class="line"><span class="cl">	types_hash_max_size 2048<span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># server_tokens off;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1"># server_names_hash_bucket_size 64;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># server_name_in_redirect off;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	include /etc/nginx/mime.types<span class="p">;</span>
+</span></span><span class="line"><span class="cl">	default_type application/octet-stream<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># Logging Settings</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	access_log /var/log/nginx/access.log<span class="p">;</span>
+</span></span><span class="line"><span class="cl">	error_log /var/log/nginx/error.log<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># Gzip Settings</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	gzip on<span class="p">;</span>
+</span></span><span class="line"><span class="cl">	gzip_disable <span class="s2">&#34;msie6&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">       
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	 upstream myserverkeepalived <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                server 192.168.2.50:8080<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                server 192.168.2.50:8081<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        server <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                listen 80<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                server_name 192.168.2.50<span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                location / <span class="o">{</span>
+</span></span><span class="line"><span class="cl">                        proxy_pass http://myserverkeepalived<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	upstream myserver <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		server 192.168.2.6:8080<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                server 192.168.2.6:8081<span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        server <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		listen 80<span class="p">;</span>
+</span></span><span class="line"><span class="cl">		server_name 192.168.2.6<span class="p">;</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">		location / <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			proxy_pass http://myserver<span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span> 	
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">        server <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		listen 80<span class="p">;</span>
+</span></span><span class="line"><span class="cl">		server_name 192.168.2.6<span class="p">;</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">		location / <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			root html<span class="p">;</span>
+</span></span><span class="line"><span class="cl">			proxy_pass http://127.0.0.1:8080<span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 			index index.html index.html<span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        server <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		listen 9001<span class="p">;</span>
+</span></span><span class="line"><span class="cl">		server_name 192.168.2.6<span class="p">;</span>
+</span></span><span class="line"><span class="cl"> 		
+</span></span><span class="line"><span class="cl">		location ~ /edu/ <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			proxy_pass http://127.0.0.1:8080<span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">		location ~ /vod/ <span class="o">{</span>
+</span></span><span class="line"><span class="cl">			proxy_pass http://127.0.0.1:8081<span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1"># gzip_vary on;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># gzip_proxied any;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># gzip_comp_level 6;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># gzip_buffers 16 8k;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># gzip_http_version 1.1;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># nginx-naxsi config</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># Uncomment it if you installed nginx-naxsi</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">#include /etc/nginx/naxsi_core.rules;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># nginx-passenger config</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># Uncomment it if you installed nginx-passenger</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">#passenger_root /usr;</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">#passenger_ruby /usr/bin/ruby;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">	<span class="c1"># Virtual Host Configs</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">##</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	include /etc/nginx/conf.d/*.conf<span class="p">;</span>
+</span></span><span class="line"><span class="cl">	include /etc/nginx/sites-enabled/*<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#mail {</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#	# See sample authentication script at:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#	# http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># </span>
+</span></span><span class="line"><span class="cl"><span class="c1">#	# auth_http localhost/auth.php;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#	# pop3_capabilities &#34;TOP&#34; &#34;USER&#34;;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#	# imap_capabilities &#34;IMAP4rev1&#34; &#34;UIDPLUS&#34;;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># </span>
+</span></span><span class="line"><span class="cl"><span class="c1">#	server {</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#		listen     localhost:110;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#		protocol   pop3;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#		proxy      on;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#	}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># </span>
+</span></span><span class="line"><span class="cl"><span class="c1">#	server {</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#		listen     localhost:143;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#		protocol   imap;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#		proxy      on;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#	}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>keepalived.conf</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">global_defs <span class="o">{</span>
+</span></span><span class="line"><span class="cl">   notification_email <span class="o">{</span>  <span class="c1">#指定keepalived在发生切换时需要发送email到的对象，一行一个</span>
+</span></span><span class="line"><span class="cl">		monitor@3evip.cn
+</span></span><span class="line"><span class="cl">   <span class="o">}</span>
+</span></span><span class="line"><span class="cl">   notification_email_from monitor@3evip.cn <span class="c1">#指定发件人</span>
+</span></span><span class="line"><span class="cl">   smtp_server stmp.3evip.cn <span class="c1">#指定smtp服务器地址</span>
+</span></span><span class="line"><span class="cl">   smtp_connect_timeout <span class="m">30</span> <span class="c1">#指定smtp连接超时时间</span>
+</span></span><span class="line"><span class="cl">   router_id LVS_DEVEL <span class="c1">#运行keepalived机器的一个标识</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vrrp_sync_group VG_1<span class="o">{</span> <span class="c1">#监控多个网段的实例</span>
+</span></span><span class="line"><span class="cl">	group <span class="o">{</span>
+</span></span><span class="line"><span class="cl">		inside_network <span class="c1">#实例名</span>
+</span></span><span class="line"><span class="cl">		outside_network
+</span></span><span class="line"><span class="cl">	<span class="o">}</span>
+</span></span><span class="line"><span class="cl">	notify_master /path/xx.sh <span class="c1">#指定当切换到master时，执行的脚本</span>
+</span></span><span class="line"><span class="cl">	netify_backup /path/xx.sh <span class="c1">#指定当切换到backup时，执行的脚本</span>
+</span></span><span class="line"><span class="cl">	notify_fault <span class="s2">&#34;path/xx.sh VG_1&#34;</span> <span class="c1">#故障时执行的脚本</span>
+</span></span><span class="line"><span class="cl">	notify /path/xx.sh 
+</span></span><span class="line"><span class="cl">	smtp_alert <span class="c1">#使用global_defs中提供的邮件地址和smtp服务器发送邮件通知</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vrrp_script chk_http_port <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	script <span class="s2">&#34;/etc/keepalived/nginx_check.sh&#34;</span>
+</span></span><span class="line"><span class="cl">	interval <span class="m">2</span>
+</span></span><span class="line"><span class="cl">	weight <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vrrp_instance inside_VI_1 <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    state BACKUP <span class="c1">#指定那个为master，那个为backup，如果设置了nopreempt这个值不起作用，主备考priority决定</span>
+</span></span><span class="line"><span class="cl">    interface eth1 <span class="c1">#设置实例绑定的网卡</span>
+</span></span><span class="line"><span class="cl">    virtual_router_id <span class="m">50</span> <span class="c1">#VPID标记</span>
+</span></span><span class="line"><span class="cl">    priority <span class="m">90</span> <span class="c1">#优先级，高优先级竞选为master</span>
+</span></span><span class="line"><span class="cl">    advert_int <span class="m">1</span> <span class="c1">#检查间隔，默认1秒</span>
+</span></span><span class="line"><span class="cl">    authentication <span class="o">{</span> <span class="c1">#设置认证</span>
+</span></span><span class="line"><span class="cl">        auth_type PASS <span class="c1">#认证方式</span>
+</span></span><span class="line"><span class="cl">        auth_pass <span class="m">111111</span> <span class="c1">#认证密码</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    virtual_ipaddress <span class="o">{</span> <span class="c1">#设置vip</span>
+</span></span><span class="line"><span class="cl">        192.168.2.50
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">virtual_server 192.168.36.99 <span class="m">80</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    delay_loop <span class="m">6</span> <span class="c1">#健康检查时间间隔</span>
+</span></span><span class="line"><span class="cl">    lb_algo rr  <span class="c1">#lvs调度算法rr|wrr|lc|wlc|lblc|sh|dh</span>
+</span></span><span class="line"><span class="cl">    lb_kind DR  <span class="c1">#负载均衡转发规则NAT|DR|RUN</span>
+</span></span><span class="line"><span class="cl">    persistence_timeout <span class="m">5</span> <span class="c1">#会话保持时间</span>
+</span></span><span class="line"><span class="cl">    protocol TCP <span class="c1">#使用的协议</span>
+</span></span><span class="line"><span class="cl">    persistence_granularity &lt;NETMASK&gt; <span class="c1">#lvs会话保持粒度</span>
+</span></span><span class="line"><span class="cl">    virtualhost &lt;string&gt; <span class="c1">#检查的web服务器的虚拟主机（host：头）    </span>
+</span></span><span class="line"><span class="cl">    sorry_server&lt;IPADDR&gt; &lt;port&gt; <span class="c1">#备用机，所有realserver失效后启用</span>
+</span></span><span class="line"><span class="cl">	real_server 192.168.200.5 <span class="m">23</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            weight <span class="m">1</span> <span class="c1">#默认为1,0为失效</span>
+</span></span><span class="line"><span class="cl">            inhibit_on_failure <span class="c1">#在服务器健康检查失效时，将其设为0，而不是直接从ipvs中删除 </span>
+</span></span><span class="line"><span class="cl">            notify_up &lt;string&gt; <span class="p">|</span> &lt;quoted-string&gt; <span class="c1">#在检测到server up后执行脚本</span>
+</span></span><span class="line"><span class="cl">            notify_down &lt;string&gt; <span class="p">|</span> &lt;quoted-string&gt; <span class="c1">#在检测到server down后执行脚本</span>
+</span></span><span class="line"><span class="cl">			TCP_CHECK <span class="o">{</span>
+</span></span><span class="line"><span class="cl">				connect_timeout <span class="m">3</span> <span class="c1">#连接超时时间</span>
+</span></span><span class="line"><span class="cl">				nb_get_retry <span class="m">3</span> <span class="c1">#重连次数</span>
+</span></span><span class="line"><span class="cl">				delay_before_retry <span class="m">3</span> <span class="c1">#重连间隔时间</span>
+</span></span><span class="line"><span class="cl">				connect_port <span class="m">23</span>  健康检查的端口的端口
+</span></span><span class="line"><span class="cl">				bindto &lt;ip&gt;   
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">			HTTP_GET <span class="p">|</span> SSL_GET<span class="o">{</span>
+</span></span><span class="line"><span class="cl">				url<span class="o">{</span> <span class="c1">#检查url，可以指定多个</span>
+</span></span><span class="line"><span class="cl">						path /
+</span></span><span class="line"><span class="cl">						digest &lt;string&gt; <span class="c1">#检查后的摘要信息</span>
+</span></span><span class="line"><span class="cl">						status_code <span class="m">200</span> <span class="c1">#检查的返回状态码</span>
+</span></span><span class="line"><span class="cl">				<span class="o">}</span>
+</span></span><span class="line"><span class="cl">				connect_port &lt;port&gt; 
+</span></span><span class="line"><span class="cl">				bindto &lt;IPADD&gt;
+</span></span><span class="line"><span class="cl">				connect_timeout <span class="m">5</span>
+</span></span><span class="line"><span class="cl">				nb_get_retry <span class="m">3</span>
+</span></span><span class="line"><span class="cl">				delay_before_retry <span class="m">2</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			SMTP_CHECK<span class="o">{</span>
+</span></span><span class="line"><span class="cl">					host<span class="o">{</span>
+</span></span><span class="line"><span class="cl">						connect_ip &lt;IP ADDRESS&gt;
+</span></span><span class="line"><span class="cl">						connect_port &lt;port&gt; <span class="c1">#默认检查25端口</span>
+</span></span><span class="line"><span class="cl">						bindto &lt;IP ADDRESS&gt;
+</span></span><span class="line"><span class="cl">					<span class="o">}</span>
+</span></span><span class="line"><span class="cl">					connect_timeout <span class="m">5</span>
+</span></span><span class="line"><span class="cl">					retry <span class="m">3</span>
+</span></span><span class="line"><span class="cl">					delay_before_retry <span class="m">2</span>
+</span></span><span class="line"><span class="cl">					helo_name &lt;string&gt; <span class="p">|</span> &lt;quoted-string&gt; <span class="c1">#smtp helo请求命令参数，可选</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">			MISC_CHECK<span class="o">{</span>
+</span></span><span class="line"><span class="cl">					misc_path &lt;string&gt; <span class="p">|</span> &lt;quoted-string&gt; <span class="c1">#外部脚本路径</span>
+</span></span><span class="line"><span class="cl">					misc_timeout <span class="c1">#脚本执行超时时间</span>
+</span></span><span class="line"><span class="cl">					misc_dynamic <span class="c1">#如设置该项，则退出状态码会用来动态调整服务器的权重，返回0 正常，不修改；返回1，检查失败，权重改为0；返回2-255，正常，权重设置为：返回状态码-2</span>
+</span></span><span class="line"><span class="cl">			<span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>3 ) nginx_check.sh</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># !/bin/bash</span>
+</span></span><span class="line"><span class="cl"><span class="nv">A</span><span class="o">=</span> <span class="s1">&#39;ps -C nginx -no-header | wc -l&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$A</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+</span></span><span class="line"><span class="cl">	/usr/sbin/nginx
+</span></span><span class="line"><span class="cl">	sleep <span class="m">2</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="o">[</span> <span class="s1">&#39;ps -C nginx --no-header | wc -l&#39;</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span><span class="k">then</span>
+</span></span><span class="line"><span class="cl">		killall keepalived
+</span></span><span class="line"><span class="cl">	<span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-05-13 11:14:00</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://yeliansong.github.io/en/2020-11-13-nginx-practice/" data-title="Nginx Practice" data-via="xxxx" data-hashtags="运维、网络"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://yeliansong.github.io/en/2020-11-13-nginx-practice/" data-hashtag="运维、网络"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://yeliansong.github.io/en/2020-11-13-nginx-practice/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://yeliansong.github.io/en/2020-11-13-nginx-practice/" data-title="Nginx Practice"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://yeliansong.github.io/en/2020-11-13-nginx-practice/" data-title="Nginx Practice"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="Share on 百度" data-sharer="baidu" data-url="https://yeliansong.github.io/en/2020-11-13-nginx-practice/" data-title="Nginx Practice"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/%E8%BF%90%E7%BB%B4%E7%BD%91%E7%BB%9C/">运维、网络</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/" class="prev" rel="prev" title="Detailed explanation of HTTP"><i class="fas fa-angle-left fa-fw"></i>Detailed explanation of HTTP</a>
+            <a href="/en/2020-11-07-prometheus--grafana/" class="next" rel="next" title="Prometheus &#43; Grafana">Prometheus &#43; Grafana<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/" target="_blank">LIANSONG&#39;S Blog</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

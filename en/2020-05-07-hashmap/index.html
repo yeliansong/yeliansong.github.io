@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>HashMap - LIANSONG&#39;S Blog</title><meta name="Description" content="Data Structures - Algorithms"><meta property="og:title" content="HashMap" />
+<meta property="og:description" content="Data Structures - Algorithms" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yeliansong.github.io/en/2020-05-07-hashmap/" /><meta property="og:image" content="https://yeliansong.github.io/en/2020-05-07-hashmap/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-12-03T10:14:00+08:00" />
+<meta property="article:modified_time" content="2020-12-03T10:14:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yeliansong.github.io/en/2020-05-07-hashmap/featured-image.png"/>
+<meta name="twitter:title" content="HashMap"/>
+<meta name="twitter:description" content="Data Structures - Algorithms"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/en/2020-05-07-hashmap/" /><link rel="prev" href="https://yeliansong.github.io/en/2021-3-14-%E6%96%B0%E5%8A%A0%E5%9D%A1%E4%BD%8F%E6%88%BF%E4%BB%8B%E7%BB%8D/" /><link rel="next" href="https://yeliansong.github.io/en/2020-11-02-%E6%A0%91/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "HashMap",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yeliansong.github.io\/en\/2020-05-07-hashmap\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/yeliansong.github.io\/en\/2020-05-07-hashmap\/featured-image.png",
+                            "width":  2048 ,
+                            "height":  1362 
+                        }],"genre": "posts","keywords": "Data Structures, Algorithms","wordcount":  1062 ,
+        "url": "https:\/\/yeliansong.github.io\/en\/2020-05-07-hashmap\/","datePublished": "2020-12-03T10:14:00+08:00","dateModified": "2020-12-03T10:14:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": "Data Structures - Algorithms"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/categories/documentation/"> Docs </a><a class="menu-item" href="/en/about/"> About </a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/en/2020-05-07-hashmap/" selected>English</option><option value="/2020-05-07-hashmap/">简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/categories/documentation/" title="">Docs</a><a class="menu-item" href="/en/about/" title="">About</a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/en/2020-05-07-hashmap/" selected>English</option><option value="/2020-05-07-hashmap/">简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">HashMap</h1><h2 class="single-subtitle">Data Structures, Algorithms</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/algorithms-data-structures/"><i class="far fa-folder fa-fw"></i>Algorithms-Data Structures</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-03 10:14:00">2020-12-03 10:14:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1062 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2020-05-07-hashmap/featured-image.png"
+        data-srcset="/en/2020-05-07-hashmap/featured-image.png, /en/2020-05-07-hashmap/featured-image.png 1.5x, /en/2020-05-07-hashmap/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2020-05-07-hashmap/featured-image.png"
+        title="Data Structures - Algorithms" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-the-background-of-hashmap">1. The background of HashMap</a>
+          <ul>
+            <li><a href="#11-advantages-and-disadvantages-of-arrays">1.1 Advantages and disadvantages of arrays</a></li>
+            <li><a href="#12-advantages-and-disadvantages-of-linked-list">1.2 Advantages and disadvantages of linked list</a></li>
+            <li><a href="#13-hash-tables-and-hashes">1.3 Hash tables and hashes</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-hashmap-principle">2. HashMap principle</a>
+          <ul>
+            <li><a href="#21-physical-structure-of-hashmap">2.1 Physical structure of HashMap</a></li>
+            <li><a href="#21-hashmap-insert-data-process">2.1 HashMap insert data process</a></li>
+            <li><a href="#22-hash-collision">2.2 Hash collision</a></li>
+            <li><a href="#23-hash-expansion">2.3 Hash Expansion</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-hashmap-source-code-analysis">3. HashMap source code analysis</a>
+          <ul>
+            <li><a href="#31-c-key-value-container">3.1 C++ Key-Value container</a></li>
+            <li><a href="#32-hashmap-source-code">3.2 HashMap source code</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="1-the-background-of-hashmap">1. The background of HashMap</h3>
+<p>In this part, we first introduce hash tables and hashes from the advantages and disadvantages of arrays and linked lists. Take a look at the characteristics of hash tables and hashes compared to the first two.</p>
+<h4 id="11-advantages-and-disadvantages-of-arrays">1.1 Advantages and disadvantages of arrays</h4>
+<p>First look at the memory structure diagram of the array.</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejqznb6jsj31b6066dil.jpg" style="zoom:200%;" />
+<p>Looking at this picture, you should clearly see the characteristics, advantages and disadvantages of the array.</p>
+<ul>
+<li>Arrays are characterized by sequential storage and a fixed length of length</li>
+<li>It is very convenient to find data in the array, you can directly read the data at a fixed position according to the index (advantage)</li>
+<li>It is very troublesome to add and delete data in the array, you need to expand the array first, and then reassign the array (disadvantage)</li>
+</ul>
+<h4 id="12-advantages-and-disadvantages-of-linked-list">1.2 Advantages and disadvantages of linked list</h4>
+<p>Let&rsquo;s take a look at the memory structure diagram of the linked list. There are also many kinds of linked lists, one-way, two-way, circular, etc. Let&rsquo;s take a single linked list as an example.</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejr5frlrzj31us08g44u.jpg" style="zoom:200%;" />
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejr78ihzcj31uu0li1a3.jpg" style="zoom:200%;" />
+<p>In the above two pictures, the first one is the memory structure diagram of the linked list. It can be seen that the structure of the linked list has a data area and an address area, and the address area points to the next element in turn. The insertion and deletion operations of the linked list are also very convenient, just point the address of the previous one to the element to be inserted. So from the linked list we can also get the following characteristics.</p>
+<ul>
+<li>The length of the linked list is not fixed and can be dynamically adjusted as needed</li>
+<li>The search of the linked list will be very troublesome, it cannot be searched according to the index, and it needs to be traversed from beginning to end one by one (disadvantage)</li>
+<li>The insertion and deletion operations of the linked list are very convenient (advantage)</li>
+</ul>
+<h4 id="13-hash-tables-and-hashes">1.3 Hash tables and hashes</h4>
+<p>Having said so much, I have listed the advantages and disadvantages of the first two data structures. Is there a data structure that can combine the advantages of the above two at the same time? This is about the hash table.</p>
+<p>Let&rsquo;s take a look at the structure of the hash table.</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejrjqf8mbj30se0lsmzn.jpg" style="zoom:200%;" />
+<p>This is the memory structure diagram of the hash table. You can take a look, it is divided into two parts, the purple part on the left is an array structure, each array has a head pointer of a linked list, and the green part on the right is a linked list structure, which is used to resolve conflicts. The hash table is a feature that integrates the two data structures of arrays and linked lists.</p>
+<p>Hash is an algorithm whose principle is to convert an input of any length into a fixed-length output. The method of this mapping is the Hash algorithm. The Hash algorithm has the following characteristics:</p>
+<ul>
+<li>No reverse derivation is possible. It means that the original data cannot be deduced from the results</li>
+<li>Any minor change to the original data will result in a different result</li>
+<li>The execution efficiency of the Hash algorithm is very high</li>
+<li>Hash algorithm has collision probability. Because the input space is much larger than the output space, there may be different input to get the same output problem</li>
+</ul>
+<h3 id="2-hashmap-principle">2. HashMap principle</h3>
+<h4 id="21-physical-structure-of-hashmap">2.1 Physical structure of HashMap</h4>
+<p>Having said so much earlier, HashMap can be easily understood, which is a hash table implemented by the Hash algorithm. See the picture below.</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejrxy8u0hj31960r6wjh.jpg" style="zoom:200%;" />
+<p>It is <strong>array + linked list + red-black tree structure</strong>.</p>
+<p>The linked list is a linked list added to the array structure when there are conflicting elements.</p>
+<p>When the number of linked list nodes is greater than or equal to 8, and the number of all elements in the hash table is greater than 64, the linked list structure will be upgraded to a red-black tree structure.</p>
+<h4 id="21-hashmap-insert-data-process">2.1 HashMap insert data process</h4>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejsgamnwcj31o40u07kp.jpg" style="zoom:200%;" />
+<p>You can look at this picture, this process is the process of inserting data into HashMap.</p>
+<p>First of all, the inserted key is converted into a hash value through the hash algorithm, and then the hash value is passed through the disturbance function to make the hash value more hashed, and then the node node of the hash is constructed, and then according to the routing algorithm, it is calculated that the node node should be inserted into which location.</p>
+<p>You can look at this routing formula, table length is the length of the hash array, generally the power of 2, and then element with the hash value to get the insertion position, and insert this node into the node of the hashmap.</p>
+<h4 id="22-hash-collision">2.2 Hash collision</h4>
+<p>As mentioned earlier, when two different inputs get the same hash value, or when there is a conflict in the calculated node position according to the routing formula, a Hash collision will also occur. After a Hash collision occurs, a linked list will be formed at the array nodes.</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejt1nsakfj30ww0ki3zu.jpg" style="zoom:200%;" />
+<h4 id="23-hash-expansion">2.3 Hash Expansion</h4>
+<p>It can be seen that if the size of the Hash array is limited, Hash collisions will easily occur. After a Hash collision occurs, the length of the linked list will become longer and longer. As a result, the advantages of HashMap cannot be used, and the linked list will be relied on. So in order to solve this problem, it is necessary to expand the Hash. After expansion, collisions can be effectively reduced.</p>
+<h3 id="3-hashmap-source-code-analysis">3. HashMap source code analysis</h3>
+<h4 id="31-c-key-value-container">3.1 C++ Key-Value container</h4>
+<p>JAVA&rsquo;s HashMap uses JDK. C++ has many key-value containers, map / hash_map / unordered_map / vector_map.</p>
+<p>Map is implemented with a red-black tree, and it takes a long time to build a map.</p>
+<p>vector_map is not implemented in c++. The basic idea is to use vector to save data, sort after insertion, and then use binary search.</p>
+<p>The implementation of hash_map and STL is called unordered_map, which are all implemented based on hash_table. First, a large area of memory is allocated to form many buckets, and the keys are mapped to different buckets using the hash function.</p>
+<p>The search speed of hash_map is faster than that of map, and its search speed has nothing to do with the size of the data, which belongs to the constant level. The search speed of map is log(n) level.</p>
+<h4 id="32-hashmap-source-code">3.2 HashMap source code</h4>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-12-03 10:14:00</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://yeliansong.github.io/en/2020-05-07-hashmap/" data-title="HashMap" data-via="xxxx" data-hashtags="Data Structures,Algorithms"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://yeliansong.github.io/en/2020-05-07-hashmap/" data-hashtag="Data Structures"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://yeliansong.github.io/en/2020-05-07-hashmap/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://yeliansong.github.io/en/2020-05-07-hashmap/" data-title="HashMap"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://yeliansong.github.io/en/2020-05-07-hashmap/" data-title="HashMap"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="Share on 百度" data-sharer="baidu" data-url="https://yeliansong.github.io/en/2020-05-07-hashmap/" data-title="HashMap"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/data-structures/">Data Structures</a>,&nbsp;<a href="/en/tags/algorithms/">Algorithms</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/2021-3-14-%E6%96%B0%E5%8A%A0%E5%9D%A1%E4%BD%8F%E6%88%BF%E4%BB%8B%E7%BB%8D/" class="prev" rel="prev" title="Singapore Housing Introduction"><i class="fas fa-angle-left fa-fw"></i>Singapore Housing Introduction</a>
+            <a href="/en/2020-11-02-%E6%A0%91/" class="next" rel="next" title="tree">tree<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/" target="_blank">LIANSONG&#39;S Blog</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

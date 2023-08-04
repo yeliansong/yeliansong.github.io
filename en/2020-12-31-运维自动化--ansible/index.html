@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Operation and maintenance automation -- Ansible - LIANSONG&#39;S Blog</title><meta name="Description" content="Operation and maintenance related knowledge"><meta property="og:title" content="Operation and maintenance automation -- Ansible" />
+<meta property="og:description" content="Operation and maintenance related knowledge" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" /><meta property="og:image" content="https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-27T15:14:00+08:00" />
+<meta property="article:modified_time" content="2021-11-27T15:14:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png"/>
+<meta name="twitter:title" content="Operation and maintenance automation -- Ansible"/>
+<meta name="twitter:description" content="Operation and maintenance related knowledge"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" /><link rel="prev" href="https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" /><link rel="next" href="https://yeliansong.github.io/en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Operation and maintenance automation -- Ansible",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yeliansong.github.io\/en\/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/yeliansong.github.io\/en\/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible\/featured-image.png",
+                            "width":  2048 ,
+                            "height":  1365 
+                        }],"genre": "posts","keywords": "Operation and Maintenance, Operation and maintenance automation","wordcount":  701 ,
+        "url": "https:\/\/yeliansong.github.io\/en\/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible\/","datePublished": "2021-11-27T15:14:00+08:00","dateModified": "2021-11-27T15:14:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": "Operation and maintenance related knowledge"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/categories/documentation/"> Docs </a><a class="menu-item" href="/en/about/"> About </a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" selected>English</option><option value="/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/">简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/categories/documentation/" title="">Docs</a><a class="menu-item" href="/en/about/" title="">About</a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" selected>English</option><option value="/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/">简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Operation and maintenance automation -- Ansible</h1><h2 class="single-subtitle">Operation and maintenance related knowledge</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/operation-related-knowledge/"><i class="far fa-folder fa-fw"></i>Operation Related Knowledge</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-11-27 15:14:00">2021-11-27 15:14:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;701 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png"
+        data-srcset="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png, /en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png 1.5x, /en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/featured-image.png"
+        title="Operation and maintenance related knowledge" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-operation-and-maintenance-automation-application-scenarios">1. Operation and maintenance automation application scenarios</a></li>
+        <li><a href="#2-how-ansible-works">2. How Ansible works</a></li>
+        <li><a href="#3-ansible-host-list">3. Ansible host list</a></li>
+        <li><a href="#4-ansible-ping-module-usage">4. Ansible ping module usage</a></li>
+        <li><a href="#5-ansible-cron-realizes-the-clock-synchronization-of-the-host">5. Ansible Cron realizes the clock synchronization of the host</a></li>
+        <li><a href="#6-ansible-copy-realizes-file-copy">6. Ansible copy realizes file copy</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="1-operation-and-maintenance-automation-application-scenarios">1. Operation and maintenance automation application scenarios</h3>
+<ul>
+<li>
+<p>OS preparation automation</p>
+<p>Batch OS deployment to hosts. PXE</p>
+</li>
+<li>
+<p>Configuration automation</p>
+<p>Perform batch configuration on hosts or batch configuration on host applications. Ansible, saltstack, puppet.</p>
+<p>Ansible, using the ssh protocol, works out of the box.</p>
+<p>Saltstack requires the cooperation of the agent side, and the configuration and deployment are fast.</p>
+<p>Puppet, an old-fashioned configuration automation tool, requires the cooperation of agents.</p>
+<p>Improve configuration efficiency and reduce manual involvement.</p>
+</li>
+<li>
+<p>Monitoring automation</p>
+<p>Monitoring of server applications and performance.</p>
+<p>1&gt; System and application monitoring. Prometheus</p>
+<p>2&gt; Log monitoring. ELK</p>
+</li>
+<li>
+<p>Code continuous integration and code continuous release automation</p>
+</li>
+</ul>
+<h3 id="2-how-ansible-works">2. How Ansible works</h3>
+<p>Out-of-the-box, no master-slave structure. The batch management of hosts is completed through the ssh protocol. Each internal functional module of Ansible is independent, and the functional management is performed through each functional module. Ansible has a host list, which can be managed in batches by setting the information of batch hosts in the host list.</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1glm4o7ici2j31h40u0x59.jpg" style="zoom:200%;" />
+<h3 id="3-ansible-host-list">3. Ansible host list</h3>
+<p>Ansible operates the host through the host list; at the same time, the host list can also group the hosts to facilitate the operation of the group.</p>
+<p>There are two ways to set the host list, one is to add IP or host name directly after the list. The other is to add a group of hosts, and add the IP or host name of the host in the group.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="mf">192.168</span><span class="p">.</span><span class="py">2</span><span class="p">.</span><span class="py">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">monitor</span>
+</span></span><span class="line"><span class="cl"><span class="n">or</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="no">webgroup</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">monitor</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4-ansible-ping-module-usage">4. Ansible ping module usage</h3>
+<p>Scenario analysis: Use Ansible&rsquo;s ping module to test the connectivity of other hosts.</p>
+<p>Problem analysis and solution:</p>
+<p>The first is to copy the ssh key to the target host to enable it to log in without secrets. Here to mention the process of ssh logging in to other hosts.</p>
+<p>The ssh password login is encrypted with RSA, which is asymmetric encryption. The source host first generates a pair of public-private key pairs and stores them in the path of the source host. Then, when connecting via ssh, the target host reads the source host key pair, encrypts the password with the source host’s public key, and sends it to the source host. Host, the source host uses the private key to decipher, and sends the deciphered password to the target host, and the target host judges whether the password is correct.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">The</span> <span class="n">source</span> <span class="n">host</span> <span class="n">generates</span> <span class="n">the</span> <span class="n">password</span> <span class="n">pair</span>
+</span></span><span class="line"><span class="cl"><span class="n">root</span><span class="nv">@agent</span><span class="err">:</span><span class="p">/</span><span class="n">etc</span><span class="c"># ssh-keygen -t rsa -f /root/.ssh/id_rsa -N &#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">key</span> <span class="n">pair</span> <span class="n">synchronization</span>
+</span></span><span class="line"><span class="cl"><span class="n">root</span><span class="nv">@agent</span><span class="err">:</span><span class="p">/</span><span class="n">etc</span><span class="c"># ssh-copy-id vagrant@192.168.2.7</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The second step is to modify the ansible configuration file and add the host IP to be configured in the host list.</p>
+<p>Add the host IP to be connected to the host list.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">root</span><span class="nv">@agent</span><span class="err">:</span><span class="p">/</span><span class="n">etc</span><span class="c"># ansible 192.168.2.7 -m ping</span>
+</span></span><span class="line"><span class="cl"><span class="mf">192.168</span><span class="p">.</span><span class="py">2</span><span class="p">.</span><span class="py">7</span> <span class="p">|</span> <span class="n">SUCCESS</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="s2">&#34;ansible_facts&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="s2">&#34;discovered_interpreter_python&#34;</span><span class="err">:</span> <span class="s2">&#34;/usr/bin/python&#34;</span>
+</span></span><span class="line"><span class="cl">     <span class="p">},</span>
+</span></span><span class="line"><span class="cl">     <span class="s2">&#34;changed&#34;</span><span class="err">:</span> <span class="n">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="s2">&#34;ping&#34;</span><span class="err">:</span> <span class="s2">&#34;pong&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Proof that it has been debugged.</p>
+<h3 id="5-ansible-cron-realizes-the-clock-synchronization-of-the-host">5. Ansible Cron realizes the clock synchronization of the host</h3>
+<p>Scenario analysis: The periodic clock synchronization between the remote host and the Alibaba Cloud server is realized through the cron module.</p>
+<p>Use the cron command directly to achieve periodic synchronization.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">root</span><span class="nv">@agent</span><span class="err">:</span><span class="p">/</span><span class="n">etc</span><span class="c"># ansible 192.168.2.6 -m cron -a &#39;name=&#34;test cron1&#34; \</span>
+</span></span><span class="line"><span class="cl"><span class="p">&gt;</span> <span class="n">job</span><span class="p">=</span><span class="s2">&#34;ntpdate time1.aliyun.com&#34;</span> <span class="n">minute</span><span class="p">=</span><span class="mf">0</span> <span class="n">hour</span><span class="p">=*/</span><span class="mf">1</span><span class="err">&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then check the cron periodic task list in the remote host.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">vagrant</span><span class="nv">@monitor</span><span class="err">:</span><span class="p">~$</span> <span class="n">crontab</span> <span class="n">-l</span>
+</span></span><span class="line"><span class="cl"><span class="c">#Ansible: test cron1</span>
+</span></span><span class="line"><span class="cl"><span class="mf">0</span> <span class="p">*/</span><span class="mf">1</span> <span class="p">*</span> <span class="p">*</span> <span class="p">*</span> <span class="n">ntpdate</span> <span class="n">time1</span><span class="p">.</span><span class="py">aliyun</span><span class="p">.</span><span class="py">com</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="6-ansible-copy-realizes-file-copy">6. Ansible copy realizes file copy</h3>
+<p>Scenario analysis: Ansible copy is now used to synchronize files between different hosts. The way to use hostname.</p>
+<p>If you want to use hostname for ssh connection, you need to declare the correspondence between the host&rsquo;s IP and hostname in the /etc/host file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">root</span><span class="nv">@agent</span><span class="err">:</span><span class="p">/</span><span class="n">tmp</span><span class="c"># cat /etc/hosts</span>
+</span></span><span class="line"><span class="cl"><span class="mf">127.0</span><span class="p">.</span><span class="py">1</span><span class="p">.</span><span class="py">1</span> <span class="n">agent</span> <span class="n">agent</span>
+</span></span><span class="line"><span class="cl"><span class="mf">127.0</span><span class="p">.</span><span class="py">0</span><span class="p">.</span><span class="py">1</span> <span class="n">localhost</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mf">192.168</span><span class="p">.</span><span class="py">2</span><span class="p">.</span><span class="py">6</span> <span class="n">monitor</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># The following lines are desirable for IPv6 capable hosts</span>
+</span></span><span class="line"><span class="cl"><span class="p">::</span><span class="mf">1</span> <span class="nb">ip6-localhost</span> <span class="nb">ip6-loopback</span>
+</span></span><span class="line"><span class="cl"><span class="n">fe00</span><span class="p">::</span><span class="mf">0</span> <span class="nb">ip6-localnet</span>
+</span></span><span class="line"><span class="cl"><span class="n">ff00</span><span class="p">::</span><span class="mf">0</span> <span class="nb">ip6-mcastprefix</span>
+</span></span><span class="line"><span class="cl"><span class="n">ff02</span><span class="p">::</span><span class="mf">1</span> <span class="nb">ip6-allnodes</span>
+</span></span><span class="line"><span class="cl"><span class="n">ff02</span><span class="p">::</span><span class="mf">2</span> <span class="nb">ip6-allrouters</span>
+</span></span><span class="line"><span class="cl"><span class="n">ff02</span><span class="p">::</span><span class="mf">3</span> <span class="nb">ip6-allhosts</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Match 192.168.2.6 with the host name of monitor. Then add the monitor host to the host list in the ansible configuration file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">root</span><span class="nv">@agent</span><span class="err">:</span><span class="p">/</span><span class="n">tmp</span><span class="c"># ansible monitor -m copy -a &#34;src=/tmp/4.sh dest=/tmp/4.sh&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Through this command, the copy between hosts is realized.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-11-27 15:14:00</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" data-title="Operation and maintenance automation -- Ansible" data-via="xxxx" data-hashtags="Operation and Maintenance,Operation and maintenance automation"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" data-hashtag="Operation and Maintenance"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" data-title="Operation and maintenance automation -- Ansible"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" data-title="Operation and maintenance automation -- Ansible"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="Share on 百度" data-sharer="baidu" data-url="https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" data-title="Operation and maintenance automation -- Ansible"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/operation-and-maintenance/">Operation and Maintenance</a>,&nbsp;<a href="/en/tags/operation-and-maintenance-automation/">Operation and maintenance automation</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="prev" rel="prev" title="Linux problem location and performance optimization"><i class="fas fa-angle-left fa-fw"></i>Linux problem location and performance optimization</a>
+            <a href="/en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" class="next" rel="next" title="wxpy&#43;Turing robot WeChat chat robot -- with source code">wxpy&#43;Turing robot WeChat chat robot -- with source code<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/" target="_blank">LIANSONG&#39;S Blog</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

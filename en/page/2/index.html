@@ -114,94 +114,96 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/xxxx" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/xxxx" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://www.instagram.com/xxxx" title="Instagram" target="_blank" rel="noopener noreffer me"><i class="fab fa-instagram fa-fw"></i></a><a href="https://facebook.com/xxxx" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/xxxx" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://www.youtube.com/user/xxxx" title="YouTube" target="_blank" rel="noopener noreffer me"><i class="fab fa-youtube fa-fw"></i></a><a href="https://mastodon.technology/@xxxx" title="Mastodon" target="_blank" rel="noopener noreffer me"><i class="fab fa-mastodon fa-fw"></i></a><a href="mailto:xxxx@xxxx.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/en/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/"><img
+            <a href="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/featured-image.png"
-        data-srcset="/en/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/featured-image.png, /en/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/featured-image.png 1.5x, /en/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/featured-image.png 2x"
+        data-src="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png"
+        data-srcset="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png, /en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png 1.5x, /en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/featured-image.png"
-        title="Reading Notes for K8S Learning" /></a>
+        alt="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png"
+        title="Operation and maintenance related knowledge" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/">七、ConfigMap and Secret configuration application</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-10-10 14:11:51">2019-10-10 14:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. Configuration of container command line parameters Docker uses command line parameters by defining Entrypoint and CMD in Dockerfile, but there is a problem, this is packaged into the image. Let’s take a look at the difference between the two first.
-Entrypoint: Defines the executable program that is invoked when the container starts.
-CMD: Specifies the parameters passed to Entrypoint.
-So the usual practice is to define these two. When starting with the command line, you can use the argu of the command line to override the definition of CMD in the file.</div><div class="post-footer">
-        <a href="/en/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">Linux problem location and performance optimization</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-09-28 11:14:00">2021-09-28 11:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/operation-related-knowledge/"><i class="far fa-folder fa-fw"></i>Operation Related Knowledge</a></span></div><div class="content">1.1 Average Load and CPU Utilization These two are usually key indicators to measure the current performance of the system, but you can&rsquo;t just study one and give up the other, you need to view and analyze the two together.
+Average load: Refers to the operating status of the system and the number of processes in the uninterruptible status per unit time.
+***CPU usage: It refers to the usage of CPU, which is also our common understanding.</div><div class="post-footer">
+        <a href="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/operation-and-maintenance/">Operation and Maintenance</a>,&nbsp;<a href="/en/tags/operating-system/">Operating System</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/"><img
+            <a href="/en/2020-11-07-prometheus--grafana/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/featured-image.png"
-        data-srcset="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/featured-image.png, /en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/featured-image.png 1.5x, /en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/featured-image.png 2x"
+        data-src="/en/2020-11-07-prometheus--grafana/featured-image.png"
+        data-srcset="/en/2020-11-07-prometheus--grafana/featured-image.png, /en/2020-11-07-prometheus--grafana/featured-image.png 1.5x, /en/2020-11-07-prometheus--grafana/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/featured-image.png"
-        title="Reading Notes for K8S Learning" /></a>
+        alt="/en/2020-11-07-prometheus--grafana/featured-image.png"
+        title="Operation and maintenance related knowledge" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/">六、Volume - mount the disk to the container</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-10-03 14:11:51">2019-10-03 14:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. volume Finally waiting for you, volume, volume. It is also a very important component of kubernetes. No, it should not be said to be a component of k8s, it should be said to be a part of POD.
-What problem is the volume used to solve? POD is actually equivalent to a logical host, and each POD may have multiple containers. We know that these containers are actually processes equivalent to logical hosts.</div><div class="post-footer">
-        <a href="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2020-11-07-prometheus--grafana/">Prometheus &#43; Grafana</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-07-29 11:14:00">2021-07-29 11:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/operation-related-knowledge/"><i class="far fa-folder fa-fw"></i>Operation Related Knowledge</a></span></div><div class="content">1. Background introduction 1.1 Prometheus The Chinese is Prometheus, just by hearing the name, I feel very fanciful, and it is a very powerful thing. Let me talk about the story of Prometheus, he is a figure in the myth of Athens, the legend is that he fabricated the human form, and Athena gave each human form a soul. Zeus forbids humans to use fire. Seeing that humans are in distress, this buddy stole fire from Apollo, so he offended Zeus.</div><div class="post-footer">
+        <a href="/en/2020-11-07-prometheus--grafana/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/operation-and-maintenance/">Operation and Maintenance</a>,&nbsp;<a href="/en/tags/network/">Network</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/"><img
+            <a href="/en/2020-11-13-nginx-practice/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/featured-image.png"
-        data-srcset="/en/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/featured-image.png, /en/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/featured-image.png 1.5x, /en/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/featured-image.png 2x"
+        data-src="/en/2020-11-13-nginx-practice/featured-image.png"
+        data-srcset="/en/2020-11-13-nginx-practice/featured-image.png, /en/2020-11-13-nginx-practice/featured-image.png 1.5x, /en/2020-11-13-nginx-practice/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/featured-image.png"
-        title="Reading Notes for K8S Learning" /></a>
+        alt="/en/2020-11-13-nginx-practice/featured-image.png"
+        title="运维相关知识" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/">五、POD service and communication</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-10-01 11:11:51">2019-10-01 11:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. Service and port The service is actually easy to understand. Think about it, how do you manage a group of the same POD? Do you need to know all their IPs, and then manually configure and connect them one by one? Obviously not needed, how to solve this problem, use services, services are actually equivalent to a routing function.
-Look at this, there are 3 PODs on the front end, and a Backend, how to make the whole system run normally, using services.</div><div class="post-footer">
-        <a href="/en/2019-09-11-5-pod%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%80%9A%E4%BF%A1/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2020-11-13-nginx-practice/">Nginx Practice</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-05-13 11:14:00">2021-05-13 11:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/%E8%BF%90%E7%BB%B4%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"><i class="far fa-folder fa-fw"></i>运维相关知识</a></span></div><div class="content">1. Purpose This summary is to review the related operations of adding practical Nginx. Including three major features of Nginx: load balancing, reverse proxy and dynamic and static separation. Finally, use Nginx to simulate a high-availability scenario to deepen your understanding of Nginx.
+2. Basic concepts 2.1 Nginx description Nginx is a reverse proxy web server for http, which performs well in concurrency and can withstand up to 50,000 concurrency. So it is also favored by many companies.</div><div class="post-footer">
+        <a href="/en/2020-11-13-nginx-practice/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/%E8%BF%90%E7%BB%B4%E7%BD%91%E7%BB%9C/">运维、网络</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/"><img
+            <a href="/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/featured-image.png"
-        data-srcset="/en/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/featured-image.png, /en/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/featured-image.png 1.5x, /en/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/featured-image.png 2x"
+        data-src="/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/featured-image.png"
+        data-srcset="/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/featured-image.png, /en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/featured-image.png 1.5x, /en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/featured-image.png"
-        title="Reading Notes for K8S Learning" /></a>
+        alt="/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/featured-image.png"
+        title="Operation and maintenance related knowledge" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/">四、Deploy managed POD by copy mechanism</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-09-17 11:11:51">2019-09-17 11:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. Survival Probe Why come up with such a profound word? We know that if a container program in the POD crashes, kubenetes will restart the program, but the problem is, if it is not a crash, such as a deadlock, or throwing an exception, etc., what to do at this time, kubenetes does not know Whether your container is normal or not, you need to use a probe at this time.</div><div class="post-footer">
-        <a href="/en/2019-09-11-4-%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6%E9%83%A8%E7%BD%B2%E6%89%98%E7%AE%A1pod/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/">Detailed explanation of HTTP</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-04-19 15:14:00">2021-04-19 15:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/operation-related-knowledge/"><i class="far fa-folder fa-fw"></i>Operation Related Knowledge</a></span></div><div class="content">This summary may not cover all HTTP knowledge points, but it is just based on my own understanding, and then combined with online information to summarize.
+1. What is HTTP HTTP (hypertext transport protocol), is the hypertext transfer protocol, text can be understood as characters, text, audio and video, etc. Hypertext is not a simple text file, but a more complex mixture of various files.
+In fact, it is very easy to understand.</div><div class="post-footer">
+        <a href="/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/operation-and-maintenance/">Operation and Maintenance</a>,&nbsp;<a href="/en/tags/network/">Network</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/"><img
+            <a href="/en/2020-05-25-nginx/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/featured-image.png"
-        data-srcset="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/featured-image.png, /en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/featured-image.png 1.5x, /en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/featured-image.png 2x"
+        data-src="/en/2020-05-25-nginx/featured-image.png"
+        data-srcset="/en/2020-05-25-nginx/featured-image.png, /en/2020-05-25-nginx/featured-image.png 1.5x, /en/2020-05-25-nginx/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/featured-image.png"
-        title="Reading Notes for K8S Learning" /></a>
+        alt="/en/2020-05-25-nginx/featured-image.png"
+        title="Operation and maintenance related knowledge" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/">三、Containers running in Kubernetes</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-09-15 11:16:51">2019-09-15 11:16:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. Why create a POD We know that POD is the smallest unit managed by Kubernetes. Why does Kubernetes not directly manage containers, but manage PODs? There is a reason for this. We know that a container is a single process. What does it mean? The design idea of a container is that each container only runs one process. If you use dry bernetes to directly manage these containers, it must be complicated, so I will do it The POD is introduced to realize resource and network isolation between containers.</div><div class="post-footer">
-        <a href="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2020-05-25-nginx/">Nginx</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-03-28 11:14:00">2021-03-28 11:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/operation-related-knowledge/"><i class="far fa-folder fa-fw"></i>Operation Related Knowledge</a></span></div><div class="content">1. What is Nginx? From Google result, Nginx is a free, open-source, high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server. Nginx is known for its high performance, stability, rich feature set, simple configuration, and low resource consumption. Nginx supports up to 50000 concurrent applications.
+2. Forward And Reverse Proxy The forward proxy is a proxy server between the client and the target server. In order to obtain content from the original server, the client sends a request to the proxy server, and specifies the target server, after which the proxy transfers to the target server and returns the obtained content to the client.</div><div class="post-footer">
+        <a href="/en/2020-05-25-nginx/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/operation-and-maintenance/">Operation and Maintenance</a>,&nbsp;<a href="/en/tags/network/">Network</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/"><img
+            <a href="/en/2020-11-02-%E6%A0%91/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/featured-image.png"
-        data-srcset="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/featured-image.png, /en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/featured-image.png 1.5x, /en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/featured-image.png 2x"
+        data-src="/en/2020-11-02-%E6%A0%91/featured-image.png"
+        data-srcset="/en/2020-11-02-%E6%A0%91/featured-image.png, /en/2020-11-02-%E6%A0%91/featured-image.png 1.5x, /en/2020-11-02-%E6%A0%91/featured-image.png 2x"
         data-sizes="auto"
-        alt="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/featured-image.png"
-        title="Reading Notes for K8S Learning" /></a>
+        alt="/en/2020-11-02-%E6%A0%91/featured-image.png"
+        title="Data Structures - Algorithms" /></a>
         </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/">二、The use of Kubernetes and Docker</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-09-11 19:16:51">2019-09-11 19:16:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. Understanding Docker images, file systems and containers The image of the container is a file after packaging and compiling the container. The packaging image depends on the Dockerfile file. The From line defines the starting content of the image, which is the basic image for construction. The process of building the image is to upload the entire directory of files to the Docker guardian During the process, Docker will first pull the basic image from the basic image warehouse, and then the packaging of the image is a layered structure, with the basic image as a layer, and then each command will be used as a new layer, layer by layer , the whole is a joint file system.</div><div class="post-footer">
-        <a href="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+        <a href="/en/2020-11-02-%E6%A0%91/">tree</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-02-14 11:19:00">2021-02-14 11:19:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/algorithms-data-structures/"><i class="far fa-folder fa-fw"></i>Algorithms-Data Structures</a></span></div><div class="content">1. Concept When it comes to trees, we must first talk about linear structures and nonlinear structures. The meaning of the data structure is to construct a set of interrelated data models, and then cooperate with the algorithm to solve some time-consuming operations in the computer. Linear and nonlinear are two very important data models.
+Linear structure: The relationship between data elements is one-to-one, and the data elements echo each other stack queue linear table array string Non-linear structure: the relationship between elements is not one-to-one, and each element may have a relationship with zero or more other data Two-dimensional array Multidimensional Arrays generalized table Tree picture So the concept of a tree is very clear.</div><div class="post-footer">
+        <a href="/en/2020-11-02-%E6%A0%91/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/data-structures/">Data Structures</a>,&nbsp;<a href="/en/tags/algorithms/">Algorithms</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/en/">1</a>
@@ -213,6 +215,16 @@ Look at this, there are 3 PODs on the front end, and a Backend, how to make the 
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/en/page/3/">3</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/en/page/4/">4</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/en/page/7/">7</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

@@ -1,0 +1,36 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>CKA考试 - 标签 - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/tags/cka%E8%80%83%E8%AF%95/</link>
+        <description>CKA考试 - 标签 - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 Jul 2020 09:31:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/tags/cka%E8%80%83%E8%AF%95/" rel="self" type="application/rss+xml" /><item>
+    <title>CKA 证书</title>
+    <link>https://yeliansong.github.io/2020-5-25-cka/</link>
+    <pubDate>Wed, 01 Jul 2020 09:31:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-5-25-cka/</guid>
+    <description><![CDATA[1. Certified Kubernetes Administrator 2. The Exam Info 3. Certification Verification Tool You can access this link to verify the certification. Certification Verification Tool]]></description>
+</item><item>
+    <title>K8S 常用命令</title>
+    <link>https://yeliansong.github.io/2020-05-11-k8s-command/</link>
+    <pubDate>Mon, 04 May 2020 09:31:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-05-11-k8s-command/</guid>
+    <description><![CDATA[1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70]]></description>
+</item><item>
+    <title>CKA 考试资料</title>
+    <link>https://yeliansong.github.io/2019-10-19-cka-%E8%80%83%E5%89%8D%E8%B5%84%E6%96%99/</link>
+    <pubDate>Sat, 02 May 2020 11:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2019-10-19-cka-%E8%80%83%E5%89%8D%E8%B5%84%E6%96%99/</guid>
+    <description><![CDATA[1. 考点分布 CKA: Certified Kubernetes Administrator. CNCF: Cloud Native Computing Foundation. 知识点划分： 5%: scheduling 5%: Logging/Monitoring 8%: Application Lifecycle Management 11%: Cluster 12%: Security 7%: Storage 10%: Troubleshooting 19%:Core Concepts 11%:Networking s12%:Installation, Configuration &amp; Validation]]></description>
+</item><item>
+    <title>kubeadm 概念与实践</title>
+    <link>https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/</link>
+    <pubDate>Fri, 01 May 2020 19:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/</guid>
+    <description><![CDATA[1.kubeadm知识图谱 Kubeadm是一个快速实现k8s环境的工具。 另外，您不需要关心配置环境，只需知道如何引导它即可。 掌握使用 kubeadm 的基本]]></description>
+</item></channel>
+</rss>

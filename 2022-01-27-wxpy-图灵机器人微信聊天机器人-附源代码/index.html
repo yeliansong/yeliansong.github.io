@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>wxpy&#43;图灵机器人微信聊天机器人--附源代码 - LIANSONG&#39;S Blog</title><meta name="Description" content="python小工具"><meta property="og:title" content="wxpy&#43;图灵机器人微信聊天机器人--附源代码" />
+<meta property="og:description" content="python小工具" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" /><meta property="og:image" content="https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-28T19:14:00+08:00" />
+<meta property="article:modified_time" content="2022-03-28T19:14:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png"/>
+<meta name="twitter:title" content="wxpy&#43;图灵机器人微信聊天机器人--附源代码"/>
+<meta name="twitter:description" content="python小工具"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" /><link rel="prev" href="https://yeliansong.github.io/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" /><link rel="next" href="https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "wxpy+图灵机器人微信聊天机器人--附源代码",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yeliansong.github.io\/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/yeliansong.github.io\/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81\/featured-image.png",
+                            "width":  1280 ,
+                            "height":  720 
+                        }],"genre": "posts","keywords": "技术、小工具","wordcount":  2062 ,
+        "url": "https:\/\/yeliansong.github.io\/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81\/","datePublished": "2022-03-28T19:14:00+08:00","dateModified": "2022-03-28T19:14:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": "python小工具"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/">English</option><option value="/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/en/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/">English</option><option value="/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">wxpy&#43;图灵机器人微信聊天机器人--附源代码</h1><h2 class="single-subtitle">python小工具</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BD%92%E7%B1%BB/"><i class="far fa-folder fa-fw"></i>技术归类</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-28 19:14:00">2022-03-28 19:14:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2062 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png"
+        data-srcset="/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png, /2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png 1.5x, /2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/featured-image.png"
+        title="python小工具" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#21-工具">2.1 工具</a></li>
+    <li><a href="#22-整个原理">2.2 整个原理</a></li>
+    <li><a href="#23-实现步骤">2.3 实现步骤</a></li>
+    <li><a href="#24-改良版本">2.4 改良版本</a></li>
+    <li><a href="#25-项目源代码">2.5 项目源代码</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="1-背景">1 背景</h1>
+<p>看到很多小伙伴用微信玩聊天机器人，能自动回复，看着还挺像模像样的，心里痒痒，也想着自己做个聊天机器人玩玩，初步想法是能每天定时给女朋友“早安”消息，推送当天的天气，引入图灵机器人能自动回复女朋友的消息，尽量回答的有水平点。</p>
+<h1 id="2-方案实现">2 方案实现</h1>
+<h2 id="21-工具">2.1 工具</h2>
+<ul>
+<li>微信号两个，用来做测试</li>
+<li>调用wxpy pthon库</li>
+<li>python3.5 及以上版本</li>
+<li>注册图灵机器人</li>
+</ul>
+<h2 id="22-整个原理">2.2 整个原理</h2>
+<p>原理是非常简单的，wxpy 是在itchat 基础上，对一些接口进行了优化，并提升了模块调用的易用性，同时对部分功能也进行了扩充。itchat 大家都知道是一个开源的微信个人号接口，这里列下wxpy 可以做的一些事：</p>
+<ul>
+<li>
+<p>控制路由器、智能家居等具有开放接口的玩意儿</p>
+</li>
+<li>
+<p>运行脚本时自动把日志发送到你的微信</p>
+</li>
+<li>
+<p>加群主为好友，自动拉进群中</p>
+</li>
+<li>
+<p>跨号或跨群转发消息</p>
+</li>
+<li>
+<p>自动陪人聊天</p>
+</li>
+<li>
+<p>逗人玩</p>
+</li>
+<li>
+<p>&hellip;</p>
+<p>附上wxpy 的github： <a href="https://github.com/youfou/wxpy" target="_blank" rel="noopener noreffer">https://github.com/youfou/wxpy</a></p>
+</li>
+</ul>
+<p>原理也是非常简单，wxpy 是利用网页版微信API来实现微信里的联系人搜索和消息发送，同时wxpy 是支持图灵机器人接口，所以可以将机器人的自动回复发送。<strong>这里要注意，如果你的微信不支持网页版登陆，整个也是跑不通的。</strong></p>
+<h2 id="23-实现步骤">2.3 实现步骤</h2>
+<blockquote>
+<p><strong>安装wxpy</strong></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo pip3 install -U wxpy
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>图灵机器人注册</strong></p>
+</blockquote>
+<p>可参照这个链接，购买一个月体验版玩玩：<a href="https://www.turingapi.com/" target="_blank" rel="noopener noreffer">https://www.turingapi.com/</a></p>
+<blockquote>
+<p><strong>代码</strong></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: UTF-8 -*-    # 防止搜的用户名是中文</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">wxpy</span> <span class="kn">import</span> <span class="o">*</span>         <span class="c1"># 调用wxpy 包</span>
+</span></span><span class="line"><span class="cl"><span class="n">bot</span> <span class="o">=</span> <span class="n">Bot</span><span class="p">()</span>                <span class="c1"># 初始化机器人，网页扫码登陆</span>
+</span></span><span class="line"><span class="cl"><span class="n">friend</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">friends</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;we_test&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>          <span class="c1">#搜索昵称为 test 的好友</span>
+</span></span><span class="line"><span class="cl"><span class="n">friend1</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">friends</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;大聪明&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>           <span class="c1">#搜索昵称为 大聪明 的好友</span>
+</span></span><span class="line"><span class="cl"><span class="n">group</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>               <span class="c1">#搜索为 test 的群组</span>
+</span></span><span class="line"><span class="cl"><span class="n">tuling</span> <span class="o">=</span> <span class="n">Tuling</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;58e4c4c..........&#39;</span><span class="p">)</span>         <span class="c1">#调用图灵机器人API</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#主动发送消息</span>
+</span></span><span class="line"><span class="cl"><span class="n">friend</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>         <span class="c1">#向 test 好友主动发送 ‘hello world’</span>
+</span></span><span class="line"><span class="cl"><span class="n">group</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;for test&#39;</span><span class="p">)</span>             <span class="c1">#向test群组发送消息</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#自动回复</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@bot.register</span><span class="p">(</span><span class="n">friend</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">reply_my_friend</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tuling</span><span class="o">.</span><span class="n">do_reply</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>      <span class="c1">#图灵机器人自动回复</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@bot.register</span><span class="p">(</span><span class="n">friend1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">reply_my_friend1</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tuling</span><span class="o">.</span><span class="n">do_reply</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>     <span class="c1">#图灵机器人自动回复</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="nd">@bot.register</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">reply_my_group</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">chat</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">msg</span><span class="o">.</span><span class="n">is_at</span><span class="p">:</span>  <span class="c1">#msg.chat 和 msg.is_at 可参考文档类型说明。@ 我才回复                                              </span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tuling</span><span class="o">.</span><span class="n">do_reply</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">bot</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>              <span class="c1">#保持登陆状态</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="24-改良版本">2.4 改良版本</h2>
+<p>只是玩一些自动回复还是没啥意思，改良版本加上每天早上和晚上的定点发送“早安”、“晚安”，每隔一小时提醒喝水、走动，同时推送天气信息。
+思路就是加一个定时线程，一直跑，然后到固定时间了就调wxpy 的接口去发送通知消息。推送天气信息，我用的是goole 的天气API 接口，也是拉取后解析出需要的信息发送消息。我来贴下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#定时推送早安和晚安</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">run_thread</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">]</span>  <span class="c1">#这些时间点发送喝水的通知</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">minute</span> <span class="o">==</span> <span class="mi">00</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">second</span> <span class="o">==</span> <span class="mi">00</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">friend</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;早上好呀&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 获取当天的天气</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span><span class="p">,</span><span class="n">sky</span> <span class="o">=</span> <span class="n">get_weather</span><span class="p">()</span>        <span class="c1">#封装了一份函数，调取</span>
+</span></span><span class="line"><span class="cl">            <span class="n">friend</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;今天天气:&#39;</span><span class="o">+</span> <span class="n">temp</span> <span class="o">+</span> <span class="s1">&#39;   &#39;</span> <span class="o">+</span> <span class="n">sky</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">minute</span> <span class="o">==</span> <span class="mi">00</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">second</span> <span class="o">==</span> <span class="mi">00</span><span class="p">:</span>   
+</span></span><span class="line"><span class="cl">            <span class="n">friend</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;喝点水，走动下吧&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="o">==</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">minute</span> <span class="o">==</span> <span class="mi">30</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">second</span> <span class="o">==</span> <span class="mi">00</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">friend</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;工作了一天幸苦了&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="o">==</span> <span class="mi">23</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">minute</span> <span class="o">==</span> <span class="mi">00</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">second</span> <span class="o">==</span> <span class="mi">00</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">friend</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;太晚了，早点休息吧&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>获取天气的接口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#调google 天气API，获取天气信息</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_weather</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">city</span> <span class="o">=</span> <span class="s2">&#34;hubei&#34;</span>    <span class="c1">#可修改城市</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;https://www.google.com/search?q=&#34;</span><span class="o">+</span><span class="s2">&#34;weather&#34;</span><span class="o">+</span><span class="n">city</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+</span></span><span class="line"><span class="cl">    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># get the temperature</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temp</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;BNeawe iBp4i AP7Wnd&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># this contains time and sky description</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">str</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;BNeawe tAd8D AP7Wnd&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># format the data</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sky</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># list having all div tags having particular clas sname</span>
+</span></span><span class="line"><span class="cl">    <span class="n">listdiv</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;BNeawe s3v9rd AP7Wnd&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># particular list with required data</span>
+</span></span><span class="line"><span class="cl">    <span class="n">strd</span> <span class="o">=</span> <span class="n">listdiv</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># formatting the string</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pos</span> <span class="o">=</span> <span class="n">strd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Wind&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">other_data</span> <span class="o">=</span> <span class="n">strd</span><span class="p">[</span><span class="n">pos</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># printing all the data</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Temperature is&#34;</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#print(&#34;Time: &#34;, time)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#print(&#34;Sky Description: &#34;, sky)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#print(other_data)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">temp</span><span class="p">,</span><span class="n">sky</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>简简单单，整个功能就做完了。</p>
+<h2 id="25-项目源代码">2.5 项目源代码</h2>
+<p>运行过程中需要安装的一些库，可以直接pip3 直接安装。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># -*- coding: UTF-8 -*-</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">wxpy</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">threading</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_weather</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">city</span> <span class="o">=</span> <span class="s2">&#34;hubei&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;https://www.google.com/search?q=&#34;</span><span class="o">+</span><span class="s2">&#34;weather&#34;</span><span class="o">+</span><span class="n">city</span>
+</span></span><span class="line"><span class="cl">    <span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+</span></span><span class="line"><span class="cl">    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># get the temperature</span>
+</span></span><span class="line"><span class="cl">    <span class="n">temp</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;BNeawe iBp4i AP7Wnd&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># this contains time and sky description</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">str</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;BNeawe tAd8D AP7Wnd&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># format the data</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sky</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># list having all div tags having particular clas sname</span>
+</span></span><span class="line"><span class="cl">    <span class="n">listdiv</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;BNeawe s3v9rd AP7Wnd&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># particular list with required data</span>
+</span></span><span class="line"><span class="cl">    <span class="n">strd</span> <span class="o">=</span> <span class="n">listdiv</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># formatting the string</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pos</span> <span class="o">=</span> <span class="n">strd</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Wind&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">other_data</span> <span class="o">=</span> <span class="n">strd</span><span class="p">[</span><span class="n">pos</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># printing all the data</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Temperature is&#34;</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#print(&#34;Time: &#34;, time)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#print(&#34;Sky Description: &#34;, sky)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#print(other_data)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">temp</span><span class="p">,</span><span class="n">sky</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#定时推送早安和晚安</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">run_thread</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">]</span>  <span class="c1">#这些时间点发送喝水的通知</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">minute</span> <span class="o">==</span> <span class="mi">00</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">second</span> <span class="o">==</span> <span class="mi">00</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">friend</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;早上好呀&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 获取当天的天气</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span><span class="p">,</span><span class="n">sky</span> <span class="o">=</span> <span class="n">get_weather</span><span class="p">()</span>  <span class="c1">#封装了一份函数，调取</span>
+</span></span><span class="line"><span class="cl">            <span class="n">friend</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;今天天气:&#39;</span><span class="o">+</span> <span class="n">temp</span> <span class="o">+</span> <span class="s1">&#39;   &#39;</span> <span class="o">+</span> <span class="n">sky</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">minute</span> <span class="o">==</span> <span class="mi">00</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">second</span> <span class="o">==</span> <span class="mi">00</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">friend</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;喝点水，走动下吧&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="o">==</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">minute</span> <span class="o">==</span> <span class="mi">30</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">second</span> <span class="o">==</span> <span class="mi">00</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">friend</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;工作了一天幸苦了&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="o">==</span> <span class="mi">23</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">minute</span> <span class="o">==</span> <span class="mi">00</span> <span class="ow">and</span> <span class="n">now</span><span class="o">.</span><span class="n">second</span> <span class="o">==</span> <span class="mi">00</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">friend</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;太晚了，早点休息吧&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#起一个线程去跑定时任务</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bot</span> <span class="o">=</span> <span class="n">Bot</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">friend</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">friends</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;we_test&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">friend1</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">friends</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;大聪明&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">group</span> <span class="o">=</span> <span class="n">bot</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tuling</span> <span class="o">=</span> <span class="n">Tuling</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;58e4c4c..................&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@bot.register</span><span class="p">(</span><span class="n">friend</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">reply_my_friend</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tuling</span><span class="o">.</span><span class="n">do_reply</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>     <span class="c1">#图灵机器人自动回复</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@bot.register</span><span class="p">(</span><span class="n">friend1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">reply_my_friend1</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tuling</span><span class="o">.</span><span class="n">do_reply</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>     <span class="c1">#图灵机器人自动回复</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nd">@bot.register</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">reply_my_group</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">chat</span><span class="p">,</span> <span class="n">Group</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">msg</span><span class="o">.</span><span class="n">is_at</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">tuling</span><span class="o">.</span><span class="n">do_reply</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">    <span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run_thread</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;push_msg&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">bot</span><span class="o">.</span><span class="n">join</span><span class="p">()</span> <span class="c1">#保持登陆状态</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-03-28 19:14:00</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" data-title="wxpy&#43;图灵机器人微信聊天机器人--附源代码" data-hashtags="技术、小工具"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" data-hashtag="技术、小工具"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" data-title="wxpy&#43;图灵机器人微信聊天机器人--附源代码"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" data-title="wxpy&#43;图灵机器人微信聊天机器人--附源代码" data-ralateuid="index"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/" data-title="wxpy&#43;图灵机器人微信聊天机器人--附源代码"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E6%8A%80%E6%9C%AF%E5%B0%8F%E5%B7%A5%E5%85%B7/">技术、小工具</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" class="prev" rel="prev" title="运维自动化 -- Ansible"><i class="fas fa-angle-left fa-fw"></i>运维自动化 -- Ansible</a>
+            <a href="/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/" class="next" rel="next" title="一次由iNode 引发的惨案，爆肝四小时终于理解了iNode">一次由iNode 引发的惨案，爆肝四小时终于理解了iNode<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">LIANSONG&#39;S Blog</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

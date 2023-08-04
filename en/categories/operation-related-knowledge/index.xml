@@ -1,0 +1,62 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Operation Related Knowledge - Category - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/en/categories/operation-related-knowledge/</link>
+        <description>Operation Related Knowledge - Category - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/categories/operation-related-knowledge/" rel="self" type="application/rss+xml" /><item>
+    <title>Talking about some uses of lsof</title>
+    <link>https://yeliansong.github.io/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/</link>
+    <pubDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/</guid>
+    <description><![CDATA[1 Linux everything is a file In a Linux system, everything is a file. Files provides access not only to file data stored to disk, but also to network connections and hardware. The problem is that everything is a file, so how to view and manage these open files through commands. You can use the lsof command. Not only can you view the files and directories opened by the process, but you can also view the socket information such as the port the process listens to.]]></description>
+</item><item>
+    <title>Operation and maintenance automation -- Ansible</title>
+    <link>https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/</link>
+    <pubDate>Sat, 27 Nov 2021 15:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/</guid>
+    <description><![CDATA[1. Operation and maintenance automation application scenarios OS preparation automation
+Batch OS deployment to hosts. PXE
+Configuration automation
+Perform batch configuration on hosts or batch configuration on host applications. Ansible, saltstack, puppet.
+Ansible, using the ssh protocol, works out of the box.
+Saltstack requires the cooperation of the agent side, and the configuration and deployment are fast.
+Puppet, an old-fashioned configuration automation tool, requires the cooperation of agents.
+Improve configuration efficiency and reduce manual involvement.]]></description>
+</item><item>
+    <title>Linux problem location and performance optimization</title>
+    <link>https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+    <pubDate>Tue, 28 Sep 2021 11:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+    <description><![CDATA[1.1 Average Load and CPU Utilization These two are usually key indicators to measure the current performance of the system, but you can&rsquo;t just study one and give up the other, you need to view and analyze the two together.
+Average load: Refers to the operating status of the system and the number of processes in the uninterruptible status per unit time.
+***CPU usage: It refers to the usage of CPU, which is also our common understanding.]]></description>
+</item><item>
+    <title>Prometheus &#43; Grafana</title>
+    <link>https://yeliansong.github.io/en/2020-11-07-prometheus--grafana/</link>
+    <pubDate>Thu, 29 Jul 2021 11:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-11-07-prometheus--grafana/</guid>
+    <description><![CDATA[1. Background introduction 1.1 Prometheus The Chinese is Prometheus, just by hearing the name, I feel very fanciful, and it is a very powerful thing. Let me talk about the story of Prometheus, he is a figure in the myth of Athens, the legend is that he fabricated the human form, and Athena gave each human form a soul. Zeus forbids humans to use fire. Seeing that humans are in distress, this buddy stole fire from Apollo, so he offended Zeus.]]></description>
+</item><item>
+    <title>Detailed explanation of HTTP</title>
+    <link>https://yeliansong.github.io/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Mon, 19 Apr 2021 15:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[This summary may not cover all HTTP knowledge points, but it is just based on my own understanding, and then combined with online information to summarize.
+1. What is HTTP HTTP (hypertext transport protocol), is the hypertext transfer protocol, text can be understood as characters, text, audio and video, etc. Hypertext is not a simple text file, but a more complex mixture of various files.
+In fact, it is very easy to understand.]]></description>
+</item><item>
+    <title>Nginx</title>
+    <link>https://yeliansong.github.io/en/2020-05-25-nginx/</link>
+    <pubDate>Sun, 28 Mar 2021 11:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-05-25-nginx/</guid>
+    <description><![CDATA[1. What is Nginx? From Google result, Nginx is a free, open-source, high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server. Nginx is known for its high performance, stability, rich feature set, simple configuration, and low resource consumption. Nginx supports up to 50000 concurrent applications.
+2. Forward And Reverse Proxy The forward proxy is a proxy server between the client and the target server. In order to obtain content from the original server, the client sends a request to the proxy server, and specifies the target server, after which the proxy transfers to the target server and returns the obtained content to the client.]]></description>
+</item></channel>
+</rss>

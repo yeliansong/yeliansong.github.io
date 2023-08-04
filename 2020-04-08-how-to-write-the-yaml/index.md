@@ -4,23 +4,23 @@
 ### 1.如何编写YAML
 
 >```yaml
->api版本：apps/v1
->种类：部署
->元数据：
->名称：nginx-deploymnet
->规格：
->副本：3
->选择器：
->匹配标签：
->应用程序：网络服务器
->模板：
->元数据：
->标签：
->应用程序：网络服务器
->规格：
->容器：
->- 名称：nginx
->图片：nginx:1.7.9
+>apiVersion: apps/v1
+>kind: Deployment
+>metadata: 
+>name: nginx-deploymnet
+>spec: 
+>replicas: 3
+>selector:
+>matchLabels:
+> app: web_server
+>template: 
+>metadata: 
+> labels: 
+>   app: web_server
+>spec: 
+> containers:
+>     - name: nginx
+>       image: nginx:1.7.9
 >```
 
 好的，让我们分析一下这个 YAML 示例。
@@ -47,21 +47,21 @@ Kind：创建的资源类型。
 首先，我们需要确定工作的目标。 容器可以分为两种，一种是为服务器持久化运行，另一种是只运行一项作业，一次运行。 这就是工作。 如何定义作业配置文件。
 
 >```yaml
->api版本：batch/v1
->种类：工作
->元数据：
->姓名：我的工作
->规格：
->并行度：3
->模板：
->元数据：
->姓名：我的工作
->规格：
->容器：
->- 姓名：你好
->图片：busybox
->命令：[“echo”，“你好 k8s 工作”]
->重启策略：OnFailure
+>apiVersion: batch/v1
+>kind: Job
+>metadata:
+>name: myjob
+>spec:
+>parallelism: 3
+>template:
+>metadata:
+> name: myJob 
+>spec: 
+> containers:
+>     - name: hello 
+>       image: busybox
+>       command: ["echo", "hello k8s job" ]
+>     restartPolicy: OnFailure
 >```
 
 实际上作业配置有很多种，包括常规作业、并行作业和定时作业。 还需要灵活使用restartPolicy参数。 OnFailure 表示失败时，将重新启动 pod。 您也可以设置“never”，这意味着将重新启动 pod，直到成功为止。

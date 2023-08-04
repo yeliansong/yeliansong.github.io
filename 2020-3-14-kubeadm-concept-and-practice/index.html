@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>kubeadm 概念与实践 - LIANSONG&#39;S Blog</title><meta name="Description" content="K8S学习的读书笔记"><meta property="og:title" content="kubeadm 概念与实践" />
+<meta property="og:description" content="K8S学习的读书笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/" /><meta property="og:image" content="https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-05-01T19:00:00+08:00" />
+<meta property="article:modified_time" content="2020-05-01T19:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/featured-image.png"/>
+<meta name="twitter:title" content="kubeadm 概念与实践"/>
+<meta name="twitter:description" content="K8S学习的读书笔记"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/" /><link rel="prev" href="https://yeliansong.github.io/2020-4-24-sharing/" /><link rel="next" href="https://yeliansong.github.io/2019-10-19-cka-%E8%80%83%E5%89%8D%E8%B5%84%E6%96%99/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "kubeadm 概念与实践",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yeliansong.github.io\/2020-3-14-kubeadm-concept-and-practice\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/yeliansong.github.io\/2020-3-14-kubeadm-concept-and-practice\/featured-image.png",
+                            "width":  2048 ,
+                            "height":  1280 
+                        }],"genre": "posts","keywords": "CKA考试, 微服务","wordcount":  1459 ,
+        "url": "https:\/\/yeliansong.github.io\/2020-3-14-kubeadm-concept-and-practice\/","datePublished": "2020-05-01T19:00:00+08:00","dateModified": "2020-05-01T19:00:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": "K8S学习的读书笔记"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/en/2020-3-14-kubeadm-concept-and-practice/">English</option><option value="/2020-3-14-kubeadm-concept-and-practice/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/en/2020-3-14-kubeadm-concept-and-practice/">English</option><option value="/2020-3-14-kubeadm-concept-and-practice/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">kubeadm 概念与实践</h1><h2 class="single-subtitle">CKA考试</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/cka%E8%80%83%E8%AF%95/"><i class="far fa-folder fa-fw"></i>CKA考试</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-05-01 19:00:00">2020-05-01 19:00:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1459 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2020-3-14-kubeadm-concept-and-practice/featured-image.png"
+        data-srcset="/2020-3-14-kubeadm-concept-and-practice/featured-image.png, /2020-3-14-kubeadm-concept-and-practice/featured-image.png 1.5x, /2020-3-14-kubeadm-concept-and-practice/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/2020-3-14-kubeadm-concept-and-practice/featured-image.png"
+        title="K8S学习的读书笔记" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1kubeadm知识图谱">1.kubeadm知识图谱</a></li>
+        <li><a href="#2kubeadm实践">2.Kubeadm实践</a>
+          <ul>
+            <li><a href="#21-练习环境">2.1 练习环境</a></li>
+            <li><a href="#22-环境配置">2.2 环境配置</a></li>
+            <li><a href="#23-kubeadm-实践">2.3 kubeadm 实践</a></li>
+          </ul>
+        </li>
+        <li><a href="#3附加">3.附加</a></li>
+        <li><a href="#4参考链接">4.参考链接</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="1kubeadm知识图谱">1.kubeadm知识图谱</h3>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/00831rSTgy1gctptvfodzj318m0min0y.jpg" style="zoom:200%;" />
+<p>Kubeadm是一个快速实现k8s环境的工具。 另外，您不需要关心配置环境，只需知道如何引导它即可。 掌握使用 kubeadm 的基本命令。</p>
+<h3 id="2kubeadm实践">2.Kubeadm实践</h3>
+<h4 id="21-练习环境">2.1 练习环境</h4>
+<p>谷歌云实例
+Linux系统。</p>
+<h4 id="22-环境配置">2.2 环境配置</h4>
+<ul>
+<li>
+<p>安装容器（Docker）</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 安装 Docker CE
+</span></span><span class="line"><span class="cl">## 设置仓库
+</span></span><span class="line"><span class="cl">### 安装软件包以允许 apt 通过 HTTPS 使用存储库
+</span></span><span class="line"><span class="cl">apt-get update &amp;&amp; apt-get install \
+</span></span><span class="line"><span class="cl">apt-transport-https ca-certificates curl software-properties-common
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 新增 Docker 的 官方 GPG 秘钥
+</span></span><span class="line"><span class="cl">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">### 添加 Docker apt 仓库
+</span></span><span class="line"><span class="cl">add-apt-repository \
+</span></span><span class="line"><span class="cl"> &#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu \                             
+</span></span><span class="line"><span class="cl">     $(lsb_release -cs) \                                                                 
+</span></span><span class="line"><span class="cl">     stable&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## 安装 Docker CE
+</span></span><span class="line"><span class="cl">apt-get update &amp;&amp; apt-get install docker-ce=18.06.2~ce~3-0~ubuntu
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 设置 daemon
+</span></span><span class="line"><span class="cl">cat &gt; /etc/docker/daemon.json &lt;&lt;EOF
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">&#34;exec-opts&#34;: [&#34;native.cgroupdriver=systemd&#34;],
+</span></span><span class="line"><span class="cl">&#34;log-driver&#34;: &#34;json-file&#34;,
+</span></span><span class="line"><span class="cl">&#34;log-opts&#34;: {
+</span></span><span class="line"><span class="cl">&#34;max-size&#34;: &#34;100m&#34;   
+</span></span><span class="line"><span class="cl">},
+</span></span><span class="line"><span class="cl">&#34;storage-driver&#34;: &#34;overlay2&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">EOF
+</span></span><span class="line"><span class="cl">mkdir -p /etc/systemd/system/docker.service.d
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 重启 docker.
+</span></span><span class="line"><span class="cl">systemctl daemon-reload
+</span></span><span class="line"><span class="cl">systemctl restart docker
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+<li>
+<p>安装 kubeadm、kubectl 和 kubelet</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">apt-get update &amp;&amp; apt-get install -y apt-transport-https curl
+</span></span><span class="line"><span class="cl">curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cat &lt;&lt;EOF &gt;
+</span></span><span class="line"><span class="cl">/etc/apt/sources.list.d/kubernetes.list
+</span></span><span class="line"><span class="cl">deb https://apt.kubernetes.io/ kubernetes-xenial main
+</span></span><span class="line"><span class="cl">EOF
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apt-get update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">apt-get install -y kubelet kubeadm kubectl
+</span></span><span class="line"><span class="cl">apt-mark hold kubelet kubeadm kubectl
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<h4 id="23-kubeadm-实践">2.3 kubeadm 实践</h4>
+<p>背景：使用kubeadm创建k8s主节点，然后将其他节点循环到该主节点。</p>
+<ul>
+<li>
+<p>初始化主节点。</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubeadm init --pod-network-cidr<span class="o">=</span>10.244.0.0/16 --ignore-preflight-errors<span class="o">=</span>all
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>pod-network-cidr，表示识别pod ip范围，我们也使用flannel网络设计方案。
+忽略，表示忽略启动时的错误。 因为在启动kubeadm的时候，可能会碰到硬件不舒服。</p>
+</li>
+<li>
+<p>启动成功后，会生成kubeadm token，该token可以用来加入其他节点。 您可以使用以下命令来查看令牌。</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubeadm token list
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<ul>
+<li>
+<p>配置 kubectl。</p>
+<p>众所周知，kubectl是控制kubernetes集群的命令工具。 当我们切换到master节点时，我们需要配置kubectl。</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p <span class="nv">$HOME</span>/.kube
+</span></span><span class="line"><span class="cl">cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
+</span></span><span class="line"><span class="cl">chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span>~/.kube/config&gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> ~/.bashrc
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+<li>
+<p>安装 Pod 网络插件。 安装 Pod 网络后，Pod 之间可以相互通信。 我们也使用flannel网络模式。</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+<li>
+<p>将其他节点加入集群。</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo kubeadm join 10.128.0.2:6443 --token 5dhzcw.h7aih16mg982ms2o --discovery-token-ca-cert-hash sha256:e9e6843a6ae6fc5fb8acb9f116bc58d1c1e0f30d1da9bfe3bf151319c3788d57 --ignore-preflight-errors=all
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+<li>
+<p>清理环境。
+部署后，您可以清理环境。</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo kubeadm reset
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<h3 id="3附加">3.附加</h3>
+<p>事实上，当你按照步骤去做的时候，会出现很多问题。
+未解决的问题：</p>
+<ul>
+<li>
+<p>执行kubeadm join命令后，终端显示添加成功，但实际上节点列表中并不存在新节点。
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/00831rSTgy1gctpsng90mj326w0t6gx6.jpg" style="zoom:200%;" /></p>
+<p>解决方案：我误解了kubeadm的概念，所以碰到了这个问题。
+实际上，kubeadm 的目的是创建实现 k8s 环境，因此当您执行 kubeadm init 命令时，它会创建 kubenetes 主节点。 然后就可以将其他节点安排到这个主节点上。 所以我的解决方案是这样的。</p>
+<p>首先，创建一个新实例，然后在该实例中配置容器、kubectl、kubelet 和 kubeadm 工具。 之后，执行此命令。</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">kubeadm join --token 5dhzcw.h7aih16mg982ms2o 10.128.0.2:6443 --discovery-token-ca-cert-hash sha256:e9e6843a6ae6fc5fb8acb9f116bc58d1c1e0f30d1da9bfe3bf151319c3788d57 --ignore-preflight-errors=all
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>当然，您必须是 root 角色。 结果如下。</p>
+ <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/00831rSTgy1gcupzi3schj30vc03ymy7.jpg" style="缩放:200%;" />
+</li>
+</ul>
+<ul>
+<li>
+<p>在节点机器中，当您执行命令“kubectl version”或“kubectl getnodes”时，会遇到此问题。</p>
+ <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/00831rSTgy1gd2sn8gkg0j31de032jsa.jpg" style="zoom:200%;" />
+<p>您可以下载主节点“/etc/kubernetes/admin.conf”，然后将此文件复制到节点机器路径“/etc/kubernetes/”。 然后按照前面的步骤配置 kubectl。</p>
+</li>
+</ul>
+<h3 id="4参考链接">4.参考链接</h3>
+<ul>
+<li>
+<p>如何安装泊坞窗。</p>
+<p><a href="https://kubernetes.io/docs/setup/%e7%94%9f%e4%ba%a7%e7%8e%af%e5%a2%83/container-runtimes/#docker" target="_blank" rel="noopener noreffer">https://kubernetes.io/docs/setup/生产环境/container-runtimes/#docker</a></p>
+</li>
+<li>
+<p>如何安装 kubectl、kubeadm、kubelet。</p>
+<p>[https://kubernetes.io/docs/setup/product-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl](<a href="https://kubernetes.io/docs/setup/" target="_blank" rel="noopener noreffer">https://kubernetes.io/docs/setup/</a> 生产环境/工具/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)</p>
+</li>
+<li>
+<p>练习指导。</p>
+<p>[https://kubernetes.io/docs/setup/生产环境/tools/kubeadm/create-cluster-kubeadm/](<a href="https://kubernetes.io/docs/setup/" target="_blank" rel="noopener noreffer">https://kubernetes.io/docs/setup/</a>生产环境/tools/kubeadm/ 创建集群-kubeadm/)</p>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-05-01 19:00:00</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/" data-title="kubeadm 概念与实践" data-hashtags="CKA考试,微服务"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/" data-hashtag="CKA考试"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/" data-title="kubeadm 概念与实践"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/" data-title="kubeadm 概念与实践" data-ralateuid="index"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/" data-title="kubeadm 概念与实践"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/cka%E8%80%83%E8%AF%95/">CKA考试</a>,&nbsp;<a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020-4-24-sharing/" class="prev" rel="prev" title="云技术、容器及K8S 分享"><i class="fas fa-angle-left fa-fw"></i>云技术、容器及K8S 分享</a>
+            <a href="/2019-10-19-cka-%E8%80%83%E5%89%8D%E8%B5%84%E6%96%99/" class="next" rel="next" title="CKA 考试资料">CKA 考试资料<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">LIANSONG&#39;S Blog</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

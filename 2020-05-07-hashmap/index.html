@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>HashMap - LIANSONG&#39;S Blog</title><meta name="Description" content="数据结构-算法"><meta property="og:title" content="HashMap" />
+<meta property="og:description" content="数据结构-算法" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yeliansong.github.io/2020-05-07-hashmap/" /><meta property="og:image" content="https://yeliansong.github.io/2020-05-07-hashmap/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-12-03T10:14:00+08:00" />
+<meta property="article:modified_time" content="2020-12-03T10:14:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yeliansong.github.io/2020-05-07-hashmap/featured-image.png"/>
+<meta name="twitter:title" content="HashMap"/>
+<meta name="twitter:description" content="数据结构-算法"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/2020-05-07-hashmap/" /><link rel="prev" href="https://yeliansong.github.io/2021-3-14-%E6%96%B0%E5%8A%A0%E5%9D%A1%E4%BD%8F%E6%88%BF%E4%BB%8B%E7%BB%8D/" /><link rel="next" href="https://yeliansong.github.io/2020-11-02-%E6%A0%91/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "HashMap",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yeliansong.github.io\/2020-05-07-hashmap\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/yeliansong.github.io\/2020-05-07-hashmap\/featured-image.png",
+                            "width":  2048 ,
+                            "height":  1362 
+                        }],"genre": "posts","keywords": "数据结构, 算法","wordcount":  1689 ,
+        "url": "https:\/\/yeliansong.github.io\/2020-05-07-hashmap\/","datePublished": "2020-12-03T10:14:00+08:00","dateModified": "2020-12-03T10:14:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": "数据结构-算法"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/en/2020-05-07-hashmap/">English</option><option value="/2020-05-07-hashmap/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/zz2summer" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/en/2020-05-07-hashmap/">English</option><option value="/2020-05-07-hashmap/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">HashMap</h1><h2 class="single-subtitle">数据结构、算法</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%AE%97%E6%B3%95-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><i class="far fa-folder fa-fw"></i>算法-数据结构</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-12-03 10:14:00">2020-12-03 10:14:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1689 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/2020-05-07-hashmap/featured-image.png"
+        data-srcset="/2020-05-07-hashmap/featured-image.png, /2020-05-07-hashmap/featured-image.png 1.5x, /2020-05-07-hashmap/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/2020-05-07-hashmap/featured-image.png"
+        title="数据结构-算法" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-hashmap出现的背景">1. HashMap出现的背景</a>
+          <ul>
+            <li><a href="#11-数组的优势劣势">1.1 数组的优势劣势</a></li>
+            <li><a href="#12-链表的优势劣势">1.2 链表的优势劣势</a></li>
+            <li><a href="#13-散列表和哈希">1.3 散列表和哈希</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-hashmap原理">2. HashMap原理</a>
+          <ul>
+            <li><a href="#21-hashmap-的物理结构">2.1 HashMap 的物理结构</a></li>
+            <li><a href="#21-hashmap的插入数据流程">2.1 HashMap的插入数据流程</a></li>
+            <li><a href="#22-hash碰撞">2.2 Hash碰撞</a></li>
+            <li><a href="#23-hash扩容">2.3 Hash扩容</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-hashmap源代码分析">3. HashMap源代码分析</a>
+          <ul>
+            <li><a href="#31-c-key-value-形式的容器">3.1 C++ Key-Value 形式的容器</a></li>
+            <li><a href="#32-hashmap源码">3.2 HashMap源码</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="1-hashmap出现的背景">1. HashMap出现的背景</h3>
+<p>这一部分，先从数组和链表的优劣势，来引出散列表和哈希。看一下散列表和哈希相对于前两种，有哪些特点。</p>
+<h4 id="11-数组的优势劣势">1.1 数组的优势劣势</h4>
+<p>先看看数组的内存结构图。</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejqznb6jsj31b6066dil.jpg" style="zoom:200%;" />
+<p>看这个图，应该很清晰的看到数组的特点和优劣势。</p>
+<ul>
+<li>数组的特点是顺序存储，长度的固定长度</li>
+<li>数组中查找数据非常方便，可以直接根据索引读取到固定位置的数据 （优势）</li>
+<li>数组增加删除数据非常麻烦，需要先对数组进行扩容，然后重新对数组进行赋值 （劣势）</li>
+</ul>
+<h4 id="12-链表的优势劣势">1.2 链表的优势劣势</h4>
+<p>来看看链表的内存结构图。链表也很多种啊，单向，双向，循环等等，我们拿单链表来说。</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejr5frlrzj31us08g44u.jpg" style="zoom:200%;" />
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejr78ihzcj31uu0li1a3.jpg" style="zoom:200%;" />
+<p>上面两张图，第一张是链表的内存结构图，可以看到，链表的结构是有一个数据区和地址区，地址区是依次指向下一个元素。链表的插入和删除操作也非常方便，只用将上一个的地址指向要插入的元素就可以了。所以从链表中我们也可以得到如下的特点。</p>
+<ul>
+<li>链表的长度不是固定的，可以根据需要动态的调整</li>
+<li>链表的查找会非常麻烦，不能根据索引查找，需要一个个从头到尾去遍历 （劣势）</li>
+<li>链表的插入和删除操作非常方便 （优势）</li>
+</ul>
+<h4 id="13-散列表和哈希">1.3 散列表和哈希</h4>
+<p>说了这么多，列举了前面两种数据结构的优劣势，有没有一种数据结构可以同时兼具以上两种的优点呢，这个就要说到散列表了。</p>
+<p>来看看散列表的结构。</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejrjqf8mbj30se0lsmzn.jpg" style="zoom:200%;" />
+<p>这个就是散列表的内存结构图。可以看一下，分为两部分，左边的紫色部分是一个数组结构，每一个数组中都有一个链表的头指针，右边的绿色部分是一个链表结构，用来解决冲突问题。散列表是集成了数组和链表两种数据结构的特点。</p>
+<p>Hash，是一种算法，它的原理是，把任意长度的输入都转算成固定长度的输出。这个映射的方法就是Hash算法。Hash算法有如下的特点：</p>
+<ul>
+<li>不能进行反向的推导。就是指不能根据结果来推导出原始的数据</li>
+<li>任意微小的原数据的改变都会得到一个不同的结果</li>
+<li>Hash算法的执行效率非常高</li>
+<li>Hash算法有冲突概率。因为输入空间要远大于输出空间，所以可能会存在不同的输入得到相同的输出问题</li>
+</ul>
+<h3 id="2-hashmap原理">2. HashMap原理</h3>
+<h4 id="21-hashmap-的物理结构">2.1 HashMap 的物理结构</h4>
+<p>前面讲了这么多，HashMap就可以很容易理解了，就是用Hash算法实现的一个散列表。看下图。</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejrxy8u0hj31960r6wjh.jpg" style="zoom:200%;" />
+<p>就是<strong>数组+链表+红黑树结构</strong>。</p>
+<p>链表是当有冲突元素时会在数组结构中加上链表。</p>
+<p>当链表节点数量大于等于8个，而且哈希表的所有元素个数大于64个时，会把链表结构升级为红黑树结构。</p>
+<h4 id="21-hashmap的插入数据流程">2.1 HashMap的插入数据流程</h4>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejsgamnwcj31o40u07kp.jpg" style="zoom:200%;" />
+<p>可以看下这张图，这个流程就是数据插入到HashMap的流程。</p>
+<p>首先是讲插入的key通过hash算法转成hash值，然后hash值通过扰动函数，使hash值更加的散列，之后在构造出hash的node节点，再根据路由算法，计算这个node节点应该插入到哪个位置。</p>
+<p>可以看下这个路由公式，table length是hash数组的长度，一般是2的次方，然后再和hash值进行与元素，得到插入的位置，将这个node插入到hashmap的节点。</p>
+<h4 id="22-hash碰撞">2.2 Hash碰撞</h4>
+<p>前面也讲过了，当两个不同的输入得到了一个相同的hash值，或者根据路由公式，计算出的node节点位置有冲突时，也会引起Hash碰撞。发生Hash碰撞后，会在数组节点形成一个链式表。</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/007S8ZIlgy1gejt1nsakfj30ww0ki3zu.jpg" style="zoom:200%;" />
+<h4 id="23-hash扩容">2.3 Hash扩容</h4>
+<p>可以看到，如果Hash数组的大小有限时，会很容易造成Hash碰撞。发生Hash碰撞后，链表的长度就会越来越长，导致的结果就是无法发挥出HashMap的优势，就往链表上靠了。所以为了解决这个问题，就要对Hash进行扩容。扩容后，可以有效的减少碰撞。</p>
+<h3 id="3-hashmap源代码分析">3. HashMap源代码分析</h3>
+<h4 id="31-c-key-value-形式的容器">3.1 C++ Key-Value 形式的容器</h4>
+<p>JAVA 的HashMap是用的JDK。 C++ 有很多的key-value形式的容器，map / hash_map / unordered_map / vector_map.</p>
+<p>Map，是用的红黑树实现，构建map花费的时间比较长。</p>
+<p>vector_map 在c++中没有实现，基本思想就是使用vector保存数据，插入完成后进行排序，然后使用二分查找。</p>
+<p>hash_map，STL的实现叫做unordered_map， 都是基于hash_table实现的，首先是分配一大片内存，形成很多桶，利用hash函数将key映射到不同的桶中。</p>
+<p>hash_map的查找速度比map快，它的查找速度与数据量大小无关，属于常数级别。map的查找速度是log(n)级别。</p>
+<h4 id="32-hashmap源码">3.2 HashMap源码</h4>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2020-12-03 10:14:00</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://yeliansong.github.io/2020-05-07-hashmap/" data-title="HashMap" data-hashtags="数据结构,算法"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://yeliansong.github.io/2020-05-07-hashmap/" data-hashtag="数据结构"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://yeliansong.github.io/2020-05-07-hashmap/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://yeliansong.github.io/2020-05-07-hashmap/" data-title="HashMap"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://yeliansong.github.io/2020-05-07-hashmap/" data-title="HashMap" data-ralateuid="index"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 百度" data-sharer="baidu" data-url="https://yeliansong.github.io/2020-05-07-hashmap/" data-title="HashMap"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>,&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021-3-14-%E6%96%B0%E5%8A%A0%E5%9D%A1%E4%BD%8F%E6%88%BF%E4%BB%8B%E7%BB%8D/" class="prev" rel="prev" title="新加坡住房介绍"><i class="fas fa-angle-left fa-fw"></i>新加坡住房介绍</a>
+            <a href="/2020-11-02-%E6%A0%91/" class="next" rel="next" title="树">树<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">LIANSONG&#39;S Blog</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

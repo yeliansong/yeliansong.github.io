@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Linux problem location and performance optimization - LIANSONG&#39;S Blog</title><meta name="Description" content="Operation and maintenance related knowledge"><meta property="og:title" content="Linux problem location and performance optimization" />
+<meta property="og:description" content="Operation and maintenance related knowledge" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" /><meta property="og:image" content="https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-28T11:14:00+08:00" />
+<meta property="article:modified_time" content="2021-09-28T11:14:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png"/>
+<meta name="twitter:title" content="Linux problem location and performance optimization"/>
+<meta name="twitter:description" content="Operation and maintenance related knowledge"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" /><link rel="prev" href="https://yeliansong.github.io/en/2020-11-07-prometheus--grafana/" /><link rel="next" href="https://yeliansong.github.io/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux problem location and performance optimization",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yeliansong.github.io\/en\/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/yeliansong.github.io\/en\/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96\/featured-image.png",
+                            "width":  2048 ,
+                            "height":  1362 
+                        }],"genre": "posts","keywords": "Operation and Maintenance, Operating System","wordcount":  1486 ,
+        "url": "https:\/\/yeliansong.github.io\/en\/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96\/","datePublished": "2021-09-28T11:14:00+08:00","dateModified": "2021-09-28T11:14:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": "Operation and maintenance related knowledge"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/categories/documentation/"> Docs </a><a class="menu-item" href="/en/about/"> About </a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" selected>English</option><option value="/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>LIANSONG&#39;S Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/categories/documentation/" title="">Docs</a><a class="menu-item" href="/en/about/" title="">About</a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" selected>English</option><option value="/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Linux problem location and performance optimization</h1><h2 class="single-subtitle">Operation and maintenance related knowledge</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/operation-related-knowledge/"><i class="far fa-folder fa-fw"></i>Operation Related Knowledge</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-28 11:14:00">2021-09-28 11:14:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1486 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png"
+        data-srcset="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png, /en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png 1.5x, /en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/featured-image.png"
+        title="Operation and maintenance related knowledge" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#11-average-load-and-cpu-utilization">1.1 Average Load and CPU Utilization</a></li>
+        <li><a href="#12-example-analysis">1.2 Example analysis</a></li>
+        <li><a href="#2-cpu-context-switching">2. CPU context switching</a></li>
+        <li><a href="#3-uninterruptible-and-zombie-processes">3. Uninterruptible and zombie processes</a></li>
+        <li><a href="#4-analyze-cpu-performance-indicators">4. Analyze CPU performance indicators</a></li>
+        <li><a href="#5-tools">5. Tools</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h3 id="11-average-load-and-cpu-utilization">1.1 Average Load and CPU Utilization</h3>
+<p>These two are usually key indicators to measure the current performance of the system, but you can&rsquo;t just study one and give up the other, you need to view and analyze the two together.</p>
+<p><em><strong>Average load: Refers to the operating status of the system and the number of processes in the uninterruptible status per unit time</strong></em>.</p>
+<p>***CPU usage: It refers to the usage of CPU, which is also our common understanding. ***</p>
+<p>Well, fine product, you can actually feel some differences between the two. We know that, in fact, a single-core CPU can only run one process at a time point, which is also the most ideal state, so if at a certain point in time, how many A process is grabbing the CPU, which is actually not good, and the average load will increase. The uninterruptible state refers to those IO processes, such as reading and writing hardware in the kernel mode. The system is unwilling to interrupt such processes.</p>
+<p>So it is easy to understand that a high average load does not necessarily mean a high CPU utilization rate. For example, if there are many IO processes, the CPU utilization rate may not be high at this time. While the CPU utilization rate is high, the average load is not necessarily high. For example, if multiple threads are using the CPU in a single process, the CPU utilization rate is also high at this time, but the average load is not high.</p>
+<h3 id="12-example-analysis">1.2 Example analysis</h3>
+<ul>
+<li>
+<p><em><strong>CPU intensive process</strong></em></p>
+<p>Simulate a CPU-intensive process, with a single CPU usage reaching 100%, and then look at the average load usage.</p>
+ <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1glcusv6mvdj30vc01w3zs.jpg" style="zoom:200%;" />
+<p>Start a process, adjust the CPU usage to 100%, and then check the load average.</p>
+<p>Let me first take a look at the usage of the cpu to show the usage of several commands.</p>
+ <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1glcv0cige9j310q0aiwmi.jpg" style="zoom:200%;" />
+<p>This is the pidstat command, you can view the CPU usage of the process, of course you can also use the top command. But this command can view the CPU usage of kernel mode and user mode.</p>
+ <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1glcv1ul6qcj30so03eab8.jpg" style="zoom:200%;" />
+<p>Use the uptime command to view the average load. So it can be seen that the CPU utilization rate is 100% at this time, and the average load is not very outrageous.</p>
+</li>
+<li>
+<p>IO intensive process</p>
+<p>The simulation is that the IO process is running all the time, but in fact the cpu utilization is not terrible, but the average load is very high</p>
+ <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1glcv9jqrnsj30tk03ita3.jpg" style="zoom:200%;" />
+</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1glcva32ho1j310402odht.jpg" style="zoom:100%;" />
+<p>The top command cannot see the system occupancy of the kernel mode and the user mode respectively. You can use pidstat 1 to view the user mode and kernel mode occupancy of the process</p>
+<ul>
+<li>
+<p>Lots of progression scenes</p>
+ <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1glcvctr4avj30uk02gq4c.jpg" style="zoom:200%;" />
+<p>The simulation is the situation that 8 processes are running at the same time. At this time, let&rsquo;s look at the average load and cpu usage.</p>
+ <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1glcvf9zo9nj30ta03wgn4.jpg" style="zoom:200%;" />
+ <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1glcvflkw1rj310o0820zr.jpg" style="zoom:200%;" />
+<p>You can see that the load average is high and so is the cpu usage.</p>
+<p>Understood, to sum up, top is generally used to check the overall usage of cpu, including memory consumption; pidstat can check the cpu consumption of each process in user mode and kernel mode. vmstat to see the waiting time of io, cs, kernel mode and user mode.</p>
+</li>
+</ul>
+<h3 id="2-cpu-context-switching">2. CPU context switching</h3>
+<p>CPU context switching is a very important performance indicator of the Linux system, and frequent context switching will affect the performance of the system. What is context switching? Generally speaking, when the current process or thread exits the CPU, the system will save the CPU register and program counter of the previous process or thread, and then load the CPU register and program counter of the process or thread to run , to run the new task. Switching and saving this time is the key to affecting performance. Context switching is also divided into the following situations.</p>
+<ul>
+<li>
+<p>Process context switching</p>
+<p>The process is divided into user mode and kernel mode. The kernel mode means that the process needs to interact with the Linux kernel, and the user mode does not need to interact with the Linux kernel. Therefore, process context switching is also divided into two situations, one is that the process transfers from user mode to kernel mode, and the other is switching between two processes.</p>
+<p>From user mode to kernel mode, let&rsquo;s take a look at what this does. The operating levels of Linux can be divided into the following figure, Ring 0 is the highest level, the authority is also the largest, and it directly interacts with the kernel. Ring 3 is in user mode, with limited permissions, and can only access kernel resources through system calls.</p>
+ <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1glczklk45tj30m20j477t.jpg" style="zoom: 67%;" />
+<p>For a call from user mode to kernel mode, the CPU actually performs two context switches. The first time is to save the instruction position of the user mode, execute the kernel code, update the kernel instruction, and jump to the kernel for execution; after execution , to restore to the user state, the CPU registers restore the original saved user state, and then switch to the user space. So two context switches happen.</p>
+<p>Compared with system calls, the context switching of the inter-process kernel mode requires more information to be saved. For example, when a CPU process is switched from one to another, not only the CPU registers and program calculator must be saved, but also the virtual memory, stack, etc. . So resource consumption and time will be more.</p>
+ <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1glczr1jr93j30y006m3z9.jpg" style="zoom:200%;" />
+</li>
+<li>
+<p>Thread context switching</p>
+<p>A thread is a task running in a process. If there is only one thread in a process, thread switching can be considered as switching between processes. When there are multiple threads in a process, because multiple threads share the virtual memory and global variables of the process, the CPU only needs to save the private data, registers and unshared resources of the threads when switching between threads. Switching is much more efficient than switching between processes.</p>
+</li>
+<li>
+<p>interrupt context switch</p>
+<p>The priority of the interrupted process is higher than that of the ordinary process, and the interrupted process occurs in the kernel mode, so the interrupted process interrupts the process of the user mode, and there is no need to save and restore user resources such as virtual memory and global variables of this process. The interrupt context actually only includes the state required for the execution of the kernel mode interrupt service program, including CPU registers, kernel stack, hardware interrupt parameters, etc.</p>
+</li>
+</ul>
+<h3 id="3-uninterruptible-and-zombie-processes">3. Uninterruptible and zombie processes</h3>
+<p>Let’s first review the several states of the process, which should be checked frequently during normal analysis and viewing.</p>
+<p><em><strong>R: running state process</strong></em></p>
+<p><em><strong>D: Uninterruptible state process, generally when the process interacts with the hardware, the interactive process is not allowed to be interrupted by other processes or interrupts</strong></em></p>
+<p><em><strong>Z: Zombie state. This is after the child process exits, the parent process does not recycle the child process, resulting in a zombie state. Generally, the parent process has a wait function to recycle the status of the child process</strong></em></p>
+<p><em><strong>S: The status process can be interrupted. Indicates that the process is suspended by the system because it is waiting for an event, and can be awakened into the ready and running state</strong></em></p>
+<p><em><strong>T: Suspended state, for example, when the process is running, after sending a SIGSTOP signal, the process is in a suspended state, and can be resumed by the fg command</strong></em></p>
+<p><em><strong>I: Idle</strong></em></p>
+<p>Therefore, when performing system analysis, if there are a large number of unavailable state processes, that is, D state processes, the IO problem of the system must be considered.</p>
+<p>As for the zombie process, under normal circumstances, it will not affect the performance of the system, but if there are a large number of zombie processes, the PID number of the system may be used up. To clean up the zombie process, you can kill the parent process or wait for the init process to recycle.</p>
+<h3 id="4-analyze-cpu-performance-indicators">4. Analyze CPU performance indicators</h3>
+<p>This is also the most critical part of the practical part, that is, if there is a CPU problem, from what angles can we analyze it? First, it must be the CPU usage rate. The CPU usage rate includes user CPU, kernel CPU, waiting for IO, interrupt, and stealing CPU. Client CPU. The second is context switching. The third is the average load. Fourth, the hit rate of the CPU cache. There is a cache between the CPU and the memory, and hot data is usually written into the cache. The hit rate of the cache can greatly improve the performance of the CPU.</p>
+<p>Let&rsquo;s briefly talk about voluntary and involuntary context switching.</p>
+<p>***Voluntary context switching: refers to the context switching caused by the inability of the process to obtain the required resources. Such as IO, memory and other resources are insufficient. ***</p>
+<p><em><strong>Involuntary context switching: the inter-process time slice has been exhausted, and is forced to be scheduled by the system, and then the context switching occurs</strong></em></p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gld2oxrf6dj31100rmdi9.jpg" style="zoom:200%;" />
+<h3 id="5-tools">5. Tools</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gld2z4enlhj30ul0u0n7x.jpg"
+        data-srcset="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gld2z4enlhj30ul0u0n7x.jpg, https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gld2z4enlhj30ul0u0n7x.jpg 1.5x, https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gld2z4enlhj30ul0u0n7x.jpg 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gld2z4enlhj30ul0u0n7x.jpg"
+        title="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gld2z4enlhj30ul0u0n7x.jpg" /></p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/0081Kckwgy1gld2zqvozqj30rs0yitjx.jpg" style="zoom:200%;" /></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-09-28 11:14:00</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" data-title="Linux problem location and performance optimization" data-via="xxxx" data-hashtags="Operation and Maintenance,Operating System"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" data-hashtag="Operation and Maintenance"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" data-title="Linux problem location and performance optimization"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" data-title="Linux problem location and performance optimization"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="Share on 百度" data-sharer="baidu" data-url="https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" data-title="Linux problem location and performance optimization"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/baidu.svg"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/operation-and-maintenance/">Operation and Maintenance</a>,&nbsp;<a href="/en/tags/operating-system/">Operating System</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/2020-11-07-prometheus--grafana/" class="prev" rel="prev" title="Prometheus &#43; Grafana"><i class="fas fa-angle-left fa-fw"></i>Prometheus &#43; Grafana</a>
+            <a href="/en/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/" class="next" rel="next" title="Operation and maintenance automation -- Ansible">Operation and maintenance automation -- Ansible<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/" target="_blank">LIANSONG&#39;S Blog</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
