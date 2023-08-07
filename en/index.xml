@@ -4,9 +4,23 @@
         <link>https://yeliansong.github.io/en/</link>
         <description>About LoveIt Theme</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
-            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</lastBuildDate>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 May 2023 10:23:00 &#43;0800</lastBuildDate>
             <atom:link href="https://yeliansong.github.io/en/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Tencent Cloud Certificate</title>
+    <link>https://yeliansong.github.io/en/2023-05-13-%E8%85%BE%E8%AE%AF%E4%BA%91%E8%AF%81%E4%B9%A6/</link>
+    <pubDate>Sat, 13 May 2023 10:23:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2023-05-13-%E8%85%BE%E8%AE%AF%E4%BA%91%E8%AF%81%E4%B9%A6/</guid>
+    <description><![CDATA[English Versrion Tencent Cloud Practitioner Tencent Cloud SysOps Engineer Tencent Cloud Architect Engineer 中文版本 腾讯云从业者证书 腾讯云运维工程师证书 腾讯云架构师工程师证书]]></description>
+</item><item>
+    <title>CKA Certification</title>
+    <link>https://yeliansong.github.io/en/2023-2-17-cka%E6%8A%80%E8%83%BD%E8%AF%81%E4%B9%A6/</link>
+    <pubDate>Fri, 17 Feb 2023 09:31:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2023-2-17-cka%E6%8A%80%E8%83%BD%E8%AF%81%E4%B9%A6/</guid>
+    <description><![CDATA[1. Certified Kubernetes Administrator 2. The Exam Info 3. Certification Verification Tool You can access this link to verify the certification. Certification Verification Tool]]></description>
+</item><item>
     <title>Talking about some uses of lsof</title>
     <link>https://yeliansong.github.io/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/</link>
     <pubDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</pubDate>
@@ -71,22 +85,5 @@ Average load: Refers to the operating status of the system and the number of pro
     <author>Author</author>
     <guid>https://yeliansong.github.io/en/2020-11-07-prometheus--grafana/</guid>
     <description><![CDATA[1. Background introduction 1.1 Prometheus The Chinese is Prometheus, just by hearing the name, I feel very fanciful, and it is a very powerful thing. Let me talk about the story of Prometheus, he is a figure in the myth of Athens, the legend is that he fabricated the human form, and Athena gave each human form a soul. Zeus forbids humans to use fire. Seeing that humans are in distress, this buddy stole fire from Apollo, so he offended Zeus.]]></description>
-</item><item>
-    <title>Nginx Practice</title>
-    <link>https://yeliansong.github.io/en/2020-11-13-nginx-practice/</link>
-    <pubDate>Thu, 13 May 2021 11:14:00 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://yeliansong.github.io/en/2020-11-13-nginx-practice/</guid>
-    <description><![CDATA[1. Purpose This summary is to review the related operations of adding practical Nginx. Including three major features of Nginx: load balancing, reverse proxy and dynamic and static separation. Finally, use Nginx to simulate a high-availability scenario to deepen your understanding of Nginx.
-2. Basic concepts 2.1 Nginx description Nginx is a reverse proxy web server for http, which performs well in concurrency and can withstand up to 50,000 concurrency. So it is also favored by many companies.]]></description>
-</item><item>
-    <title>Detailed explanation of HTTP</title>
-    <link>https://yeliansong.github.io/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/</link>
-    <pubDate>Mon, 19 Apr 2021 15:14:00 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://yeliansong.github.io/en/2020-5-30-http-%E8%AF%A6%E8%A7%A3/</guid>
-    <description><![CDATA[This summary may not cover all HTTP knowledge points, but it is just based on my own understanding, and then combined with online information to summarize.
-1. What is HTTP HTTP (hypertext transport protocol), is the hypertext transfer protocol, text can be understood as characters, text, audio and video, etc. Hypertext is not a simple text file, but a more complex mixture of various files.
-In fact, it is very easy to understand.]]></description>
 </item></channel>
 </rss>

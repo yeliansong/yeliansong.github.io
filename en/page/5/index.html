@@ -114,6 +114,35 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/xxxx" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/xxxx" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://www.instagram.com/xxxx" title="Instagram" target="_blank" rel="noopener noreffer me"><i class="fab fa-instagram fa-fw"></i></a><a href="https://facebook.com/xxxx" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/xxxx" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://www.youtube.com/user/xxxx" title="YouTube" target="_blank" rel="noopener noreffer me"><i class="fab fa-youtube fa-fw"></i></a><a href="https://mastodon.technology/@xxxx" title="Mastodon" target="_blank" rel="noopener noreffer me"><i class="fab fa-mastodon fa-fw"></i></a><a href="mailto:xxxx@xxxx.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/en/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/en/2020-4-23-k8s-network/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2020-4-23-k8s-network/featured-image.png"
+        data-srcset="/en/2020-4-23-k8s-network/featured-image.png, /en/2020-4-23-k8s-network/featured-image.png 1.5x, /en/2020-4-23-k8s-network/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2020-4-23-k8s-network/featured-image.png"
+        title="K8S study notes" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/en/2020-4-23-k8s-network/">K8S Network</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-03-13 16:11:51">2020-03-13 16:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">K8S network is divided into 3 levels. From inside to outside, there are 3 types: 1) Container Network. 2) Intra-Cluster Network. 3) External Cluster Network. Below is the details,
+1. Container Network Docker networking is limited within the host itself. By default, it creates a virtual bridge named docker0 and for each container it allocates a virtual ethane which get attached to the bridge docker0. So, in Docker two containers can communicate with each other if they resident on the same host.</div><div class="post-footer">
+        <a href="/en/2020-4-23-k8s-network/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/en/2020-4-11-health-check/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2020-4-11-health-check/featured-image.png"
+        data-srcset="/en/2020-4-11-health-check/featured-image.png, /en/2020-4-11-health-check/featured-image.png 1.5x, /en/2020-4-11-health-check/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2020-4-11-health-check/featured-image.png"
+        title="K8S study notes" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/en/2020-4-11-health-check/">Health Check</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-02-28 09:11:51">2020-02-28 09:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. About K8S health check Health check is the important feature of the k8s orchestrating. K8s can monitor those containers and automatically restart them if they fail. If the container&rsquo;s main process crashes, the k8s will restart the container. Also if your application has a bug that causes it to crash every once in a while, k8s will restart it automatically.There are two kinds of ways for health check. Liveness and Readiness.</div><div class="post-footer">
+        <a href="/en/2020-4-11-health-check/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/2020-04-08-how-to-write-the-yaml/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -173,38 +202,6 @@ First, we create a Deployment.
     </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-01-04 09:11:51">2020-01-04 09:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. k8s components architecture. Okay, it&rsquo;s very easy to understand. Like above, master node is the most important. It controls the other nodes to join the cluster. Also API server is exposed outside. Through the master node, then can arrange the other nodes.
 2. Practice Target: Create the k8s cluster, then deploy the application to these 2 nodes. Steps. Use kubeadm init to create the master k8s cluster, then join node1 and node2 to the cluster.</div><div class="post-footer">
         <a href="/en/2020-3-22-understand-the-k8s-architecture/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/featured-image.png"
-        data-srcset="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/featured-image.png, /en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/featured-image.png 1.5x, /en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/featured-image.png 2x"
-        data-sizes="auto"
-        alt="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/featured-image.png"
-        title="Reading Notes for K8S Learning" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/">九、Deployment declarative upgrade application</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-11-01 15:11:51">2019-11-01 15:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. Several ways to upgrade Let&rsquo;s look at a case first, how to deal with this situation:
-The POD is currently using the V1 version, and now there is a V2 version, how to replace the V2 version with the V1 version? There are three ways:
-Delete the old version POD and replace it with the new version POD
-This method is more violent. It is to directly modify the configuration template of V1 to V2, and then delete the POD of V1.</div><div class="post-footer">
-        <a href="/en/2019-09-16-9-deployment%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%8D%87%E7%BA%A7%E5%BA%94%E7%94%A8/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/featured-image.png"
-        data-srcset="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/featured-image.png, /en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/featured-image.png 1.5x, /en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/featured-image.png 2x"
-        data-sizes="auto"
-        alt="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/featured-image.png"
-        title="Reading Notes for K8S Learning" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/">八、Access POD metadata and other resources from applications</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-10-12 15:11:51">2019-10-12 15:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. Downward API passing metadata To be honest, this chapter is also in the clouds, and it feels similar to the environment variable configuration. My understanding is that the Downward API is used to configure the metadata of the POD or container, and the environment variables are used to define some regular variable parameters. Downward API supports environment variables and files, which is more flexible.
-2. Kubernetes API server interaction In fact, this section mainly talks about how to use the Kubernetes API.</div><div class="post-footer">
-        <a href="/en/2019-09-16-8-%E4%BB%8E%E5%BA%94%E7%94%A8%E8%AE%BF%E9%97%AEpod%E5%85%83%E6%95%B0%E6%8D%AE%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">

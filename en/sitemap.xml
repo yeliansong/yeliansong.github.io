@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://yeliansong.github.io/en/categories/</loc><lastmod>2023-02-04T09:14:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://yeliansong.github.io/en/categories/</loc><lastmod>2023-05-13T10:23:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://yeliansong.github.io/categories/"
@@ -11,7 +11,7 @@
                     hreflang="en"
                     href="https://yeliansong.github.io/en/categories/"
                     /></url><url>
-            <loc>https://yeliansong.github.io/en/</loc><lastmod>2023-02-04T09:14:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://yeliansong.github.io/en/</loc><lastmod>2023-05-13T10:23:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://yeliansong.github.io/"
@@ -20,10 +20,7 @@
                     hreflang="en"
                     href="https://yeliansong.github.io/en/"
                     /></url><url>
-            <loc>https://yeliansong.github.io/en/tags/operating-system/</loc><lastmod>2023-02-04T09:14:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yeliansong.github.io/en/tags/operation-and-maintenance/</loc><lastmod>2023-02-04T09:14:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yeliansong.github.io/en/categories/operation-related-knowledge/</loc><lastmod>2023-02-04T09:14:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://yeliansong.github.io/en/posts/</loc><lastmod>2023-02-04T09:14:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://yeliansong.github.io/en/posts/</loc><lastmod>2023-05-13T10:23:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://yeliansong.github.io/posts/"
@@ -32,7 +29,8 @@
                     hreflang="en"
                     href="https://yeliansong.github.io/en/posts/"
                     /></url><url>
-            <loc>https://yeliansong.github.io/en/tags/</loc><lastmod>2023-02-04T09:14:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+            <loc>https://yeliansong.github.io/en/categories/skills-certificate/</loc><lastmod>2023-05-13T10:23:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://yeliansong.github.io/en/tags/</loc><lastmod>2023-05-13T10:23:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://yeliansong.github.io/tags/"
@@ -41,6 +39,30 @@
                     hreflang="en"
                     href="https://yeliansong.github.io/en/tags/"
                     /></url><url>
+            <loc>https://yeliansong.github.io/en/2023-05-13-%E8%85%BE%E8%AE%AF%E4%BA%91%E8%AF%81%E4%B9%A6/</loc><lastmod>2023-05-13T10:23:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://yeliansong.github.io/2023-05-13-%E8%85%BE%E8%AE%AF%E4%BA%91%E8%AF%81%E4%B9%A6/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://yeliansong.github.io/en/2023-05-13-%E8%85%BE%E8%AE%AF%E4%BA%91%E8%AF%81%E4%B9%A6/"
+                    /></url><url>
+            <loc>https://yeliansong.github.io/en/tags/tencent-cloud-certificateskills-certificate/</loc><lastmod>2023-05-13T10:23:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://yeliansong.github.io/en/2023-2-17-cka%E6%8A%80%E8%83%BD%E8%AF%81%E4%B9%A6/</loc><lastmod>2023-02-17T09:31:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://yeliansong.github.io/2023-2-17-cka%E6%8A%80%E8%83%BD%E8%AF%81%E4%B9%A6/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://yeliansong.github.io/en/2023-2-17-cka%E6%8A%80%E8%83%BD%E8%AF%81%E4%B9%A6/"
+                    /></url><url>
+            <loc>https://yeliansong.github.io/en/tags/cka-examination/</loc><lastmod>2023-02-17T09:31:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://yeliansong.github.io/en/tags/skills-certificate/</loc><lastmod>2023-02-17T09:31:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://yeliansong.github.io/en/tags/operating-system/</loc><lastmod>2023-02-04T09:14:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://yeliansong.github.io/en/tags/operation-and-maintenance/</loc><lastmod>2023-02-04T09:14:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://yeliansong.github.io/en/categories/operation-related-knowledge/</loc><lastmod>2023-02-04T09:14:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yeliansong.github.io/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/</loc><lastmod>2023-02-04T09:14:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
@@ -206,7 +228,6 @@
                     hreflang="en"
                     href="https://yeliansong.github.io/en/2020-5-25-cka/"
                     /></url><url>
-            <loc>https://yeliansong.github.io/en/tags/cka-examination/</loc><lastmod>2020-07-01T09:31:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yeliansong.github.io/en/categories/cka-examination/</loc><lastmod>2020-07-01T09:31:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yeliansong.github.io/en/tags/k8s/</loc><lastmod>2020-07-01T09:31:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"

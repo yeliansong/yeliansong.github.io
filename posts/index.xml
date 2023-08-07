@@ -4,7 +4,21 @@
         <link>https://yeliansong.github.io/posts/</link>
         <description>所有文章 | LIANSONG&#39;S Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
-            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 May 2023 10:23:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>腾讯云证书</title>
+    <link>https://yeliansong.github.io/2023-05-13-%E8%85%BE%E8%AE%AF%E4%BA%91%E8%AF%81%E4%B9%A6/</link>
+    <pubDate>Sat, 13 May 2023 10:23:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2023-05-13-%E8%85%BE%E8%AE%AF%E4%BA%91%E8%AF%81%E4%B9%A6/</guid>
+    <description><![CDATA[中文版本 腾讯云从业者证书 腾讯云运维工程师证书 腾讯云架构师工程师证书 English Version Tencent Cloud Practitioner Tencent Cloud SysOps Engineer Tencent Cloud Architect Engineer]]></description>
+</item><item>
+    <title>K8S 运维证书</title>
+    <link>https://yeliansong.github.io/2023-2-17-cka%E6%8A%80%E8%83%BD%E8%AF%81%E4%B9%A6/</link>
+    <pubDate>Fri, 17 Feb 2023 09:31:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2023-2-17-cka%E6%8A%80%E8%83%BD%E8%AF%81%E4%B9%A6/</guid>
+    <description><![CDATA[1. Certified Kubernetes Administrator 2. The Exam Info 3. Certification Verification Tool You can access this link to verify the certification. Certification Verification Tool]]></description>
+</item><item>
     <title>浅谈 lsof 的一些使用</title>
     <link>https://yeliansong.github.io/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/</link>
     <pubDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</pubDate>
@@ -60,19 +74,5 @@
     <author>作者</author>
     <guid>https://yeliansong.github.io/2020-11-07-prometheus--grafana/</guid>
     <description><![CDATA[1. 背景介绍 1.1 Prometheus 中文是普罗米修斯，光听名字就感觉很有范，是很厉害的东西。让我来说说普罗米修斯的故事，他是雅典神话中的人物，传说就是他捏造了人形]]></description>
-</item><item>
-    <title>Nginx Practice</title>
-    <link>https://yeliansong.github.io/2020-11-13-nginx-practice/</link>
-    <pubDate>Thu, 13 May 2021 11:14:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yeliansong.github.io/2020-11-13-nginx-practice/</guid>
-    <description><![CDATA[1. 目的 这篇总结是来回顾加实操Nginx的相关操作。包括Nginx三大特性：负载均衡，反向代理和动静分离。最后利用Nginx来模拟一个高可用场]]></description>
-</item><item>
-    <title>HTTP详解</title>
-    <link>https://yeliansong.github.io/2020-5-30-http-%E8%AF%A6%E8%A7%A3/</link>
-    <pubDate>Mon, 19 Apr 2021 15:14:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yeliansong.github.io/2020-5-30-http-%E8%AF%A6%E8%A7%A3/</guid>
-    <description><![CDATA[这份总结可能不是覆盖所有的HTTP知识点，只是按照我自己理解的，然后结合网上资料，进行总结。 1. 什么是HTTP HTTP(hypertext transport protocol), 就是超文本传输协议，文本可]]></description>
 </item></channel>
 </rss>

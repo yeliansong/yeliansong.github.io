@@ -114,6 +114,34 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/xxxx" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://twitter.com/xxxx" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter fa-fw"></i></a><a href="https://www.instagram.com/xxxx" title="Instagram" target="_blank" rel="noopener noreffer me"><i class="fab fa-instagram fa-fw"></i></a><a href="https://facebook.com/xxxx" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook fa-fw"></i></a><a href="https://t.me/xxxx" title="Telegram" target="_blank" rel="noopener noreffer me"><i class="fab fa-telegram-plane fa-fw"></i></a><a href="https://www.youtube.com/user/xxxx" title="YouTube" target="_blank" rel="noopener noreffer me"><i class="fab fa-youtube fa-fw"></i></a><a href="https://mastodon.technology/@xxxx" title="Mastodon" target="_blank" rel="noopener noreffer me"><i class="fab fa-mastodon fa-fw"></i></a><a href="mailto:xxxx@xxxx.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/en/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/featured-image.png"
+        data-srcset="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/featured-image.png, /en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/featured-image.png 1.5x, /en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/featured-image.png"
+        title="Reading Notes for K8S Learning" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/">三、Containers running in Kubernetes</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-09-15 11:16:51">2019-09-15 11:16:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. Why create a POD We know that POD is the smallest unit managed by Kubernetes. Why does Kubernetes not directly manage containers, but manage PODs? There is a reason for this. We know that a container is a single process. What does it mean? The design idea of a container is that each container only runs one process. If you use dry bernetes to directly manage these containers, it must be complicated, so I will do it The POD is introduced to realize resource and network isolation between containers.</div><div class="post-footer">
+        <a href="/en/2019-09-10-3-%E8%BF%90%E8%A1%8C%E4%BA%8Ekubernetes%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/featured-image.png"
+        data-srcset="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/featured-image.png, /en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/featured-image.png 1.5x, /en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/featured-image.png"
+        title="Reading Notes for K8S Learning" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/">二、The use of Kubernetes and Docker</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-09-11 19:16:51">2019-09-11 19:16:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. Understanding Docker images, file systems and containers The image of the container is a file after packaging and compiling the container. The packaging image depends on the Dockerfile file. The From line defines the starting content of the image, which is the basic image for construction. The process of building the image is to upload the entire directory of files to the Docker guardian During the process, Docker will first pull the basic image from the basic image warehouse, and then the packaging of the image is a layered structure, with the basic image as a layer, and then each command will be used as a new layer, layer by layer , the whole is a joint file system.</div><div class="post-footer">
+        <a href="/en/2019-09-10-2-kubernetes-%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/2019-09-10-1%E4%B8%80kubernetes%E7%9A%84%E4%BB%8B%E7%BB%8D/"><img
         class="lazyload"
         src="/svg/loading.min.svg"

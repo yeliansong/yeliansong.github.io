@@ -4,7 +4,28 @@
         <link>https://yeliansong.github.io/en/tags/</link>
         <description>Tags - Tag - LIANSONG&#39;S Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
-            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 13 May 2023 10:23:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Tencent Cloud Certificate、Skills Certificate</title>
+    <link>https://yeliansong.github.io/en/tags/tencent-cloud-certificateskills-certificate/</link>
+    <pubDate>Sat, 13 May 2023 10:23:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/tags/tencent-cloud-certificateskills-certificate/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>CKA Examination</title>
+    <link>https://yeliansong.github.io/en/tags/cka-examination/</link>
+    <pubDate>Fri, 17 Feb 2023 09:31:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/tags/cka-examination/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Skills Certificate</title>
+    <link>https://yeliansong.github.io/en/tags/skills-certificate/</link>
+    <pubDate>Fri, 17 Feb 2023 09:31:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/tags/skills-certificate/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Operating System</title>
     <link>https://yeliansong.github.io/en/tags/operating-system/</link>
     <pubDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</pubDate>
@@ -52,27 +73,6 @@
     <pubDate>Thu, 29 Jul 2021 11:14:00 &#43;0800</pubDate>
     <author>Author</author>
     <guid>https://yeliansong.github.io/en/tags/network/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>运维、网络</title>
-    <link>https://yeliansong.github.io/en/tags/%E8%BF%90%E7%BB%B4%E7%BD%91%E7%BB%9C/</link>
-    <pubDate>Thu, 13 May 2021 11:14:00 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://yeliansong.github.io/en/tags/%E8%BF%90%E7%BB%B4%E7%BD%91%E7%BB%9C/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>Algorithms</title>
-    <link>https://yeliansong.github.io/en/tags/algorithms/</link>
-    <pubDate>Sun, 14 Feb 2021 11:19:00 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://yeliansong.github.io/en/tags/algorithms/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>Data Structures</title>
-    <link>https://yeliansong.github.io/en/tags/data-structures/</link>
-    <pubDate>Sun, 14 Feb 2021 11:19:00 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://yeliansong.github.io/en/tags/data-structures/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>
