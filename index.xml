@@ -28,6 +28,13 @@
     <guid>https://yeliansong.github.io/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/</guid>
     <description><![CDATA[1 Linux 一切皆文件 在Linux 系统中，一切皆文件。通过文件不仅可以查看存储到磁盘中的文件数据，还可以访问网络连接和硬件。问题来了，竟然一切皆是文]]></description>
 </item><item>
+    <title>日本旅游计划 (2022.11-6——2022.11-14）</title>
+    <link>https://yeliansong.github.io/2022-12-04-%E6%97%A5%E6%9C%AC%E6%97%85%E6%B8%B8%E8%AE%A1%E5%88%92/</link>
+    <pubDate>Sun, 04 Dec 2022 09:14:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2022-12-04-%E6%97%A5%E6%9C%AC%E6%97%85%E6%B8%B8%E8%AE%A1%E5%88%92/</guid>
+    <description><![CDATA[1 出发前待办事情清单 20寸行李箱购买 登记前查询是否需要做核酸等 查询当地天气温度，备好衣物 出行前相关的日本必备的app 下载好 详细的旅游攻略，每]]></description>
+</item><item>
     <title>《三体》读书笔记</title>
     <link>https://yeliansong.github.io/2022-07-17-%E4%B8%89%E4%BD%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
     <pubDate>Sun, 13 Nov 2022 19:14:00 &#43;0800</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://yeliansong.github.io/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
     <description><![CDATA[1.1 平均负载和CPU利用率 这两个通常是衡量系统当前性能的关键指标，但是不能只究一个而放弃另外一个，要两者一起来查看分析。 平均负载：是指单位时间]]></description>
-</item><item>
-    <title>Prometheus &#43; Grafana</title>
-    <link>https://yeliansong.github.io/2020-11-07-prometheus--grafana/</link>
-    <pubDate>Thu, 29 Jul 2021 11:14:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yeliansong.github.io/2020-11-07-prometheus--grafana/</guid>
-    <description><![CDATA[1. 背景介绍 1.1 Prometheus 中文是普罗米修斯，光听名字就感觉很有范，是很厉害的东西。让我来说说普罗米修斯的故事，他是雅典神话中的人物，传说就是他捏造了人形]]></description>
 </item></channel>
 </rss>
