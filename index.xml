@@ -4,9 +4,16 @@
         <link>https://yeliansong.github.io/</link>
         <description>LIANSONG&#39;S Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
-            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 15 Jul 2023 15:21:00 &#43;0800</lastBuildDate>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 17 Aug 2023 17:32:00 &#43;0800</lastBuildDate>
             <atom:link href="https://yeliansong.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>计算机网络面试题总结</title>
+    <link>https://yeliansong.github.io/2023-8-17-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</link>
+    <pubDate>Thu, 17 Aug 2023 17:32:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2023-8-17-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</guid>
+    <description><![CDATA[分层的概念 问题 1：OSI 有哪几层，会画出来，知道主要几层的各自作用 应用层（数据）：确定进程之间通信的性质以满足用户需要以及提供网络与用户应用]]></description>
+</item><item>
     <title>平凡的世界 -- 微信读书摘录</title>
     <link>https://yeliansong.github.io/2023-7-15-%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C----%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E6%91%98%E5%BD%95/</link>
     <pubDate>Sat, 15 Jul 2023 15:21:00 &#43;0800</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/</guid>
     <description><![CDATA[1 背景 看到很多小伙伴用微信玩聊天机器人，能自动回复，看着还挺像模像样的，心里痒痒，也想着自己做个聊天机器人玩玩，初步想法是能每天定时给女朋友]]></description>
-</item><item>
-    <title>运维自动化 -- Ansible</title>
-    <link>https://yeliansong.github.io/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/</link>
-    <pubDate>Sat, 27 Nov 2021 15:14:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yeliansong.github.io/2020-12-31-%E8%BF%90%E7%BB%B4%E8%87%AA%E5%8A%A8%E5%8C%96--ansible/</guid>
-    <description><![CDATA[1. 运维自动化应用场景 操作系统预备自动化 对主机进行批量操作系统部署。PXE 配置自动化 对主机进行批量配置或对主机的应用程序进行批量配置。 Ansi]]></description>
 </item></channel>
 </rss>

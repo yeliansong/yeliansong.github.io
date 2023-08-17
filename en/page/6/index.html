@@ -114,6 +114,23 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/yeliansong" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-brands fa-github"></i></a><a href="https://www.linkedin.com/in/liansongye" title="LinkedIn" target="_blank" rel="noopener noreffer me"><i class="fab fa-linkedin fa-fw"></i></a><a href="https://www.youtube.com/@xiaoye_SG/featured" title="YouTube" target="_blank" rel="noopener noreffer me"><i class="fab fa-youtube fa-fw"></i></a><a href="https://space.bilibili.com/454920574" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="https://www.ixigua.com/home/63234784387?list_entrance=homepage" title="xigua" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/xigua.min.svg"></i></a><a href="https://www.douyin.com/" title="douyin" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/douyin.min.svg"></i></a><a href="https://www.toutiao.com/c/user/token/MS4wLjABAAAAiQNzwXGZR5Lgz2vkJpiKTn1ntKLBCSmsgnGaaH17X-M/?source=list&amp;log_from=77c2e023ca8f9_1691937728627" title="toutiao" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/toutiao.min.svg"></i></a><a href="https://juejin.cn/user/3659627025959112" title="juejin" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/juejin.min.svg"></i></a><a href="mailto:ylsccnu@hotmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/en/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/en/2020-4-25-deployment/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2020-4-25-deployment/featured-image.png"
+        data-srcset="/en/2020-4-25-deployment/featured-image.png, /en/2020-4-25-deployment/featured-image.png 1.5x, /en/2020-4-25-deployment/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2020-4-25-deployment/featured-image.png"
+        title="K8S study notes" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/en/2020-4-25-deployment/">K8S Deployment</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-02-04 10:11:51">2020-02-04 10:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">A Deployment provides declarative updates for Pods and ReplicaSets. We can make use of many Deployment features.
+This chapter covers Updating a Deployment, rolling back a Deployment, Scalling a Deployment, Pausing and Resuming a Deployment and Deployment Status.
+First, we create a Deployment.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 apiVersion: apps/v1 kind: Deployment metadata: name: nginx-deploymnet spec: replicas: 3 selector: matchLabels: app: web_server template: metadata: labels: app: web_server spec: containers: - name: nginx image: nginx:1.</div><div class="post-footer">
+        <a href="/en/2020-4-25-deployment/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/2020-4-14-volume/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -191,21 +208,6 @@ Entrypoint: Defines the executable program that is invoked when the container st
 CMD: Specifies the parameters passed to Entrypoint.
 So the usual practice is to define these two. When starting with the command line, you can use the argu of the command line to override the definition of CMD in the file.</div><div class="post-footer">
         <a href="/en/2019-09-13-7-configmap-%E5%92%8C-secret%E9%85%8D%E7%BD%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/featured-image.png"
-        data-srcset="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/featured-image.png, /en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/featured-image.png 1.5x, /en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/featured-image.png 2x"
-        data-sizes="auto"
-        alt="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/featured-image.png"
-        title="Reading Notes for K8S Learning" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/">六、Volume - mount the disk to the container</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2019-10-03 14:11:51">2019-10-03 14:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. volume Finally waiting for you, volume, volume. It is also a very important component of kubernetes. No, it should not be said to be a component of k8s, it should be said to be a part of POD.
-What problem is the volume used to solve? POD is actually equivalent to a logical host, and each POD may have multiple containers. We know that these containers are actually processes equivalent to logical hosts.</div><div class="post-footer">
-        <a href="/en/2019-09-12-6-%E5%8D%B7-%E5%B0%86%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E5%AE%B9%E5%99%A8/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">

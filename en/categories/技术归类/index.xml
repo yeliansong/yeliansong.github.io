@@ -1,0 +1,35 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>技术归类 - Category - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/en/categories/%E6%8A%80%E6%9C%AF%E5%BD%92%E7%B1%BB/</link>
+        <description>技术归类 - Category - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 17 Aug 2023 17:32:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/categories/%E6%8A%80%E6%9C%AF%E5%BD%92%E7%B1%BB/" rel="self" type="application/rss+xml" /><item>
+    <title>计算机网络面试题总结</title>
+    <link>https://yeliansong.github.io/en/2023-8-17-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</link>
+    <pubDate>Thu, 17 Aug 2023 17:32:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2023-8-17-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</guid>
+    <description><![CDATA[分层的概念 问题 1：OSI 有哪几层，会画出来，知道主要几层的各自作用 应用层（数据）：确定进程之间通信的性质以满足用户需要以及提供网络与用户应用
+表示层（数据）：主要解决拥护信息的语法表示问题，如加密解密
+会话层（数据）：提供包括访问验证和会话管理在内的建立和维护应用之间通信的机 制，如服务器验证用户登录便是由会话层完成的
+传输层（段）：实现网络不同主机上用户进程之间的数据通信，可靠 与不可靠的传输，传输层的错误检测，流量控制等
+网络层（包）：提供逻辑地址（IP）、选路，数据从源端到目的端的传输
+数据链路层（帧）：将上层数据封装成帧，用 MAC 地址访问媒介，错误检测与修正
+物理层（比特流）：设备之间比特流的传输，物理接口，电气特性等
+问题 2：知道各个层使用的是哪个数据交换设备。（交换机、路由器、网关） 网关：应用层、传输层（网关在传输层上以实现网络互连，是最复杂的网络互连设 备，仅用于两个高层协议不同的网络互连。网关的结构也和路由器类似，不同的是 互连层。网关既可以用于广域网互连，也可以用于局域网互连）
+路由器：网络层（路由选择、存储转发）
+交换机：数据链路层、网络层（识别数据包中的 MAC 地址信息，根据 MAC 地址进 行转发，并将这些 MAC 地址与对应的端口记录在自己内部的一个地址表中）
+网桥：数据链路层（将两个 LAN 连起来，根据 MAC 地址来转发帧）
+集线器（Hub）：物理层（纯硬件设备，主要用来连接计算机等网络终端）
+中继器：物理层（在比特级别对网络信号进行再生和重定时，从而使得它们能够在 网络上传输更长的距离）
+数据链路层 ARP 协议 问题 1：ARP 的作用？ ARP 为 IP地址到对应的硬件地址提供动态映射。
+问题 2：点对点链路使用 ARP 吗？ 不使用
+问题 3：ARP 高效运行的关键是什么？ 关键是每个主机上都有一个 ARP 的高速缓存。
+问题 4：ARP 报文的各个字段以及含义？ 帧类型：ARP：0x0806 （2）
+ARP 首部：
+硬件类型：硬件地址的类型，1 表示以太网地址。（2）
+协议类型：协议地址的类型，0x0800 表示 IP地址。(2)
+硬件地址长度：字节为单位 6 （1）]]></description>
+</item></channel>
+</rss>
