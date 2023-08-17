@@ -168,6 +168,21 @@ This is very clumsy way to update. Destory V1 application then create V2 applica
         <a href="/en/2020-4-22-k8s-deployment-strategies/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/en/2020-3-21-c-learning-notes/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2020-3-21-c-learning-notes/featured-image.png"
+        data-srcset="/en/2020-3-21-c-learning-notes/featured-image.png, /en/2020-3-21-c-learning-notes/featured-image.png 1.5x, /en/2020-3-21-c-learning-notes/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2020-3-21-c-learning-notes/featured-image.png"
+        title="技术笔记" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/en/2020-3-21-c-learning-notes/">C&#43;&#43; Learning Notes</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-03-21 09:14:00">2020-03-21 09:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/%E6%8A%80%E6%9C%AF%E5%BD%92%E7%B1%BB/"><i class="far fa-folder fa-fw"></i>技术归类</a></span></div><div class="content">C++ Learning Notes. 1. Knowledge Map. Architecture Program Language classification.
+Generic Programming</div><div class="post-footer">
+        <a href="/en/2020-3-21-c-learning-notes/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%8A%80%E6%9C%AF%E5%BD%92%E7%B1%BB/">编程语言、技术归类</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/2020-4-23-k8s-network/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -196,20 +211,6 @@ This is very clumsy way to update. Destory V1 application then create V2 applica
     </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-02-28 09:11:51">2020-02-28 09:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. About K8S health check Health check is the important feature of the k8s orchestrating. K8s can monitor those containers and automatically restart them if they fail. If the container&rsquo;s main process crashes, the k8s will restart the container. Also if your application has a bug that causes it to crash every once in a while, k8s will restart it automatically.There are two kinds of ways for health check. Liveness and Readiness.</div><div class="post-footer">
         <a href="/en/2020-4-11-health-check/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2020-04-08-how-to-write-the-yaml/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/en/2020-04-08-how-to-write-the-yaml/featured-image.png"
-        data-srcset="/en/2020-04-08-how-to-write-the-yaml/featured-image.png, /en/2020-04-08-how-to-write-the-yaml/featured-image.png 1.5x, /en/2020-04-08-how-to-write-the-yaml/featured-image.png 2x"
-        data-sizes="auto"
-        alt="/en/2020-04-08-how-to-write-the-yaml/featured-image.png"
-        title="K8S study notes" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2020-04-08-how-to-write-the-yaml/">How to write YAML</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-02-15 10:11:51">2020-02-15 10:11:51</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/k8s-study-notes/"><i class="far fa-folder fa-fw"></i>K8S-Study Notes</a></span></div><div class="content">1. How to write the YAML 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 apiVersion: apps/v1 kind: Deployment metadata: name: nginx-deploymnet spec: replicas: 3 selector: matchLabels: app: web_server template: metadata: labels: app: web_server spec: containers: - name: nginx image: nginx:1.7.9 Okay, Let us analysis this YAML sample. It used the indentation to represent the layer. Every layer was dependent and called each other.</div><div class="post-footer">
-        <a href="/en/2020-04-08-how-to-write-the-yaml/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/en/">1</a>
@@ -235,6 +236,10 @@ This is very clumsy way to update. Destory V1 application then create V2 applica
                 </li><li class="page-item ">
                     <span class="page-link">
                         <a href="/en/page/7/">7</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="/en/page/8/">8</a>
                     </span>
                 </li></ul></div></div>
             </main><footer class="footer">

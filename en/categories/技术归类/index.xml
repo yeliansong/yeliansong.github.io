@@ -31,5 +31,13 @@ ARP 首部：
 硬件类型：硬件地址的类型，1 表示以太网地址。（2）
 协议类型：协议地址的类型，0x0800 表示 IP地址。(2)
 硬件地址长度：字节为单位 6 （1）]]></description>
+</item><item>
+    <title>C&#43;&#43; Learning Notes</title>
+    <link>https://yeliansong.github.io/en/2020-3-21-c-learning-notes/</link>
+    <pubDate>Sat, 21 Mar 2020 09:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-3-21-c-learning-notes/</guid>
+    <description><![CDATA[C++ Learning Notes. 1. Knowledge Map. Architecture Program Language classification.
+Generic Programming]]></description>
 </item></channel>
 </rss>

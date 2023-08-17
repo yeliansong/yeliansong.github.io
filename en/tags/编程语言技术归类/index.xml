@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>编程语言、技术归类 - Tag - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/en/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%8A%80%E6%9C%AF%E5%BD%92%E7%B1%BB/</link>
+        <description>编程语言、技术归类 - Tag - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 21 Mar 2020 09:14:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%8A%80%E6%9C%AF%E5%BD%92%E7%B1%BB/" rel="self" type="application/rss+xml" /><item>
+    <title>C&#43;&#43; Learning Notes</title>
+    <link>https://yeliansong.github.io/en/2020-3-21-c-learning-notes/</link>
+    <pubDate>Sat, 21 Mar 2020 09:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-3-21-c-learning-notes/</guid>
+    <description><![CDATA[C++ Learning Notes. 1. Knowledge Map. Architecture Program Language classification.
+Generic Programming]]></description>
+</item></channel>
+</rss>
