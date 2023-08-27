@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Operating System - Tag - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/en/tags/operating-system/</link>
+        <description>Operating System - Tag - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/tags/operating-system/" rel="self" type="application/rss+xml" /><item>
+    <title>Talking about some uses of lsof</title>
+    <link>https://yeliansong.github.io/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/</link>
+    <pubDate>Sat, 04 Feb 2023 09:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2022-8-10-%E6%B5%85%E8%B0%88lsof-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8/</guid>
+    <description><![CDATA[1 Linux everything is a file In a Linux system, everything is a file. Files provides access not only to file data stored to disk, but also to network connections and hardware. The problem is that everything is a file, so how to view and manage these open files through commands. You can use the lsof command. Not only can you view the files and directories opened by the process, but you can also view the socket information such as the port the process listens to.]]></description>
+</item><item>
+    <title>Linux problem location and performance optimization</title>
+    <link>https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+    <pubDate>Tue, 28 Sep 2021 11:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-12-13-linux-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+    <description><![CDATA[1.1 Average Load and CPU Utilization These two are usually key indicators to measure the current performance of the system, but you can&rsquo;t just study one and give up the other, you need to view and analyze the two together.
+Average load: Refers to the operating status of the system and the number of processes in the uninterruptible status per unit time.
+***CPU usage: It refers to the usage of CPU, which is also our common understanding.]]></description>
+</item></channel>
+</rss>

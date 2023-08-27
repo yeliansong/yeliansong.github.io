@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>运维、网络 - Tag - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/en/tags/%E8%BF%90%E7%BB%B4%E7%BD%91%E7%BB%9C/</link>
+        <description>运维、网络 - Tag - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 13 May 2021 11:14:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/tags/%E8%BF%90%E7%BB%B4%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>Nginx Practice</title>
+    <link>https://yeliansong.github.io/en/2020-11-13-nginx-practice/</link>
+    <pubDate>Thu, 13 May 2021 11:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-11-13-nginx-practice/</guid>
+    <description><![CDATA[1. Purpose This summary is to review the related operations of adding practical Nginx. Including three major features of Nginx: load balancing, reverse proxy and dynamic and static separation. Finally, use Nginx to simulate a high-availability scenario to deepen your understanding of Nginx.
+2. Basic concepts 2.1 Nginx description Nginx is a reverse proxy web server for http, which performs well in concurrency and can withstand up to 50,000 concurrency. So it is also favored by many companies.]]></description>
+</item></channel>
+</rss>

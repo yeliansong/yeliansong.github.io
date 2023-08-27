@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Algorithms - Tag - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/en/tags/algorithms/</link>
+        <description>Algorithms - Tag - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 14 Feb 2021 11:19:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/tags/algorithms/" rel="self" type="application/rss+xml" /><item>
+    <title>tree</title>
+    <link>https://yeliansong.github.io/en/2020-11-02-%E6%A0%91/</link>
+    <pubDate>Sun, 14 Feb 2021 11:19:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-11-02-%E6%A0%91/</guid>
+    <description><![CDATA[1. Concept When it comes to trees, we must first talk about linear structures and nonlinear structures. The meaning of the data structure is to construct a set of interrelated data models, and then cooperate with the algorithm to solve some time-consuming operations in the computer. Linear and nonlinear are two very important data models.
+Linear structure: The relationship between data elements is one-to-one, and the data elements echo each other stack queue linear table array string Non-linear structure: the relationship between elements is not one-to-one, and each element may have a relationship with zero or more other data Two-dimensional array Multidimensional Arrays generalized table Tree picture So the concept of a tree is very clear.]]></description>
+</item><item>
+    <title>HashMap</title>
+    <link>https://yeliansong.github.io/en/2020-05-07-hashmap/</link>
+    <pubDate>Thu, 03 Dec 2020 10:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-05-07-hashmap/</guid>
+    <description><![CDATA[1. The background of HashMap In this part, we first introduce hash tables and hashes from the advantages and disadvantages of arrays and linked lists. Take a look at the characteristics of hash tables and hashes compared to the first two.
+1.1 Advantages and disadvantages of arrays First look at the memory structure diagram of the array.
+Looking at this picture, you should clearly see the characteristics, advantages and disadvantages of the array.]]></description>
+</item></channel>
+</rss>

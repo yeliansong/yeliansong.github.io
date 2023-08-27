@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>面试相关、技术 - 标签 - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/tags/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF/</link>
+        <description>面试相关、技术 - 标签 - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 17 Aug 2023 17:32:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/tags/%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
+    <title>计算机网络面试题总结</title>
+    <link>https://yeliansong.github.io/2023-8-17-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</link>
+    <pubDate>Thu, 17 Aug 2023 17:32:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2023-8-17-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</guid>
+    <description><![CDATA[分层的概念 问题 1：OSI 有哪几层，会画出来，知道主要几层的各自作用 应用层（数据）：确定进程之间通信的性质以满足用户需要以及提供网络与用户应用]]></description>
+</item></channel>
+</rss>

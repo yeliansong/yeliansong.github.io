@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>工具，技术归档 - 标签 - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/tags/%E5%B7%A5%E5%85%B7%E6%8A%80%E6%9C%AF%E5%BD%92%E6%A1%A3/</link>
+        <description>工具，技术归档 - 标签 - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 27 Aug 2023 21:08:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/tags/%E5%B7%A5%E5%85%B7%E6%8A%80%E6%9C%AF%E5%BD%92%E6%A1%A3/" rel="self" type="application/rss+xml" /><item>
+    <title>iTerm2 的常用配置 -- iTerm2&#43;ZSH 最好的终端工具</title>
+    <link>https://yeliansong.github.io/2023-8-27-iterm2/</link>
+    <pubDate>Sun, 27 Aug 2023 21:08:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2023-8-27-iterm2/</guid>
+    <description><![CDATA[1 背景 作为一名程序员，每天用终端工具的机会太多了，一个好的终端工具能很大程度提高开发效率，同时也能改善心情🐶。 可能一些公司是内部有自研的终端]]></description>
+</item></channel>
+</rss>

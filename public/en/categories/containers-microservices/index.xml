@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Containers - Microservices - Category - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/en/categories/containers-microservices/</link>
+        <description>Containers - Microservices - Category - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 20 May 2020 11:14:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/categories/containers-microservices/" rel="self" type="application/rss+xml" /><item>
+    <title>Detailed explanation of Docker network</title>
+    <link>https://yeliansong.github.io/en/2020-6-14-docker-%E7%BD%91%E7%BB%9C%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Wed, 20 May 2020 11:14:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2020-6-14-docker-%E7%BD%91%E7%BB%9C%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[We know that the core of Docker is resource isolation. Docker is equivalent to a process running on the Host, but how do these processes run independently without interfering with each other? This is about Docker&rsquo;s CGroup and Namespace.
+The full name of CGroup is Control Group, which is used to set the limit of CPU, memory and IO resources used by the process. So CGroup is equivalent to resource control.]]></description>
+</item></channel>
+</rss>

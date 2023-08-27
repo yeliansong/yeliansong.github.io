@@ -1,0 +1,78 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>微服务 - 标签 - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+        <description>微服务 - 标签 - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 01 Jul 2020 09:31:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="self" type="application/rss+xml" /><item>
+    <title>CKA 证书</title>
+    <link>https://yeliansong.github.io/2020-5-25-cka/</link>
+    <pubDate>Wed, 01 Jul 2020 09:31:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-5-25-cka/</guid>
+    <description><![CDATA[1. Certified Kubernetes Administrator 2. The Exam Info 3. Certification Verification Tool You can access this link to verify the certification. Certification Verification Tool]]></description>
+</item><item>
+    <title>Docker网络详解</title>
+    <link>https://yeliansong.github.io/2020-6-14-docker-%E7%BD%91%E7%BB%9C%E8%AF%A6%E8%A7%A3/</link>
+    <pubDate>Wed, 20 May 2020 11:14:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-6-14-docker-%E7%BD%91%E7%BB%9C%E8%AF%A6%E8%A7%A3/</guid>
+    <description><![CDATA[我们知道，Docker的核心是资源隔离，Docker相当于是运行在Host 主机上的一个进程，但是这些进程是如何实现彼此的互不干扰，独立运行呢]]></description>
+</item><item>
+    <title>K8S 常用命令</title>
+    <link>https://yeliansong.github.io/2020-05-11-k8s-command/</link>
+    <pubDate>Mon, 04 May 2020 09:31:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-05-11-k8s-command/</guid>
+    <description><![CDATA[1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70]]></description>
+</item><item>
+    <title>CKA 考试资料</title>
+    <link>https://yeliansong.github.io/2019-10-19-cka-%E8%80%83%E5%89%8D%E8%B5%84%E6%96%99/</link>
+    <pubDate>Sat, 02 May 2020 11:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2019-10-19-cka-%E8%80%83%E5%89%8D%E8%B5%84%E6%96%99/</guid>
+    <description><![CDATA[1. 考点分布 CKA: Certified Kubernetes Administrator. CNCF: Cloud Native Computing Foundation. 知识点划分： 5%: scheduling 5%: Logging/Monitoring 8%: Application Lifecycle Management 11%: Cluster 12%: Security 7%: Storage 10%: Troubleshooting 19%:Core Concepts 11%:Networking s12%:Installation, Configuration &amp; Validation]]></description>
+</item><item>
+    <title>kubeadm 概念与实践</title>
+    <link>https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/</link>
+    <pubDate>Fri, 01 May 2020 19:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-3-14-kubeadm-concept-and-practice/</guid>
+    <description><![CDATA[1.kubeadm知识图谱 Kubeadm是一个快速实现k8s环境的工具。 另外，您不需要关心配置环境，只需知道如何引导它即可。 掌握使用 kubeadm 的基本]]></description>
+</item><item>
+    <title>云技术、容器及K8S 分享</title>
+    <link>https://yeliansong.github.io/2020-4-24-sharing/</link>
+    <pubDate>Sun, 26 Apr 2020 19:00:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-4-24-sharing/</guid>
+    <description><![CDATA[第一部分： 这部分内容包括云历史、容器技术、k8s等基础知识。 1. 云技术 1.1 云计算的历史 https://skyao.io/learning-cloudnative/introduction/history.html IaaS：基础设施即服务 PaaS：平台即服务 SaaS：软]]></description>
+</item><item>
+    <title>Secret And ConfigMap</title>
+    <link>https://yeliansong.github.io/2020-05-03-secret-and-configmap/</link>
+    <pubDate>Wed, 01 Apr 2020 10:11:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-05-03-secret-and-configmap/</guid>
+    <description><![CDATA[1. 背景 到目前为止，也许您不必将任何类型的配置数据传递给应用程序。 因为几乎所有应用程序都需要配置，不应将其融入到构建的应用程序本身中。 本文介绍]]></description>
+</item><item>
+    <title>K8S部署策略</title>
+    <link>https://yeliansong.github.io/2020-4-22-k8s-deployment-strategies/</link>
+    <pubDate>Fri, 27 Mar 2020 10:11:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-4-22-k8s-deployment-strategies/</guid>
+    <description><![CDATA[1. 背景 我们总是将最终版本的应用程序部署到生产环境。 有多种方法可以保证发布生产的稳定和安全。 以下部分是 k8s 部署策略。 2. 策略 有 4 种方法可以进行生产]]></description>
+</item><item>
+    <title>K8S网络</title>
+    <link>https://yeliansong.github.io/2020-4-23-k8s-network/</link>
+    <pubDate>Fri, 13 Mar 2020 16:11:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-4-23-k8s-network/</guid>
+    <description><![CDATA[K8S网络分为3级。 从内到外，有3种： 1）容器网络。 2) 集群内网络。 3) 外部集群网络。 以下是详细信息， 1.容器网络 Docker 网络仅限于主机本身。 默认情况]]></description>
+</item><item>
+    <title>健康检查</title>
+    <link>https://yeliansong.github.io/2020-4-11-health-check/</link>
+    <pubDate>Fri, 28 Feb 2020 09:11:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2020-4-11-health-check/</guid>
+    <description><![CDATA[1.关于K8S健康检查 健康检查是k8s编排的重要功能。 K8s 可以监控这些容器，并在发生故障时自动重新启动它们。 如果容器的主进程崩溃，k8s将重新]]></description>
+</item></channel>
+</rss>

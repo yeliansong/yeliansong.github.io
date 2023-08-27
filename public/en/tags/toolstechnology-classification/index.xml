@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tools，Technology Classification - Tag - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/en/tags/toolstechnology-classification/</link>
+        <description>Tools，Technology Classification - Tag - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 27 Aug 2023 21:08:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/en/tags/toolstechnology-classification/" rel="self" type="application/rss+xml" /><item>
+    <title>Common configuration of iTerm2 -- iTerm2&#43;ZSH the best terminal tool</title>
+    <link>https://yeliansong.github.io/en/2023-8-27-iterm2/</link>
+    <pubDate>Sun, 27 Aug 2023 21:08:00 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://yeliansong.github.io/en/2023-8-27-iterm2/</guid>
+    <description><![CDATA[1 background As a programmer, there are too many opportunities to use terminal tools every day. A good terminal tool can greatly improve development efficiency and improve mood🐶.
+Maybe some companies have self-developed terminal tools internally, but for ordinary users, I personally think that iTerm2 + ZSH is the best combined tool. This article summarizes my personal experience when using it, and also refers to the Internet. some documents.
+2 System environment My computer is a MAC, the configuration is as follows:]]></description>
+</item></channel>
+</rss>

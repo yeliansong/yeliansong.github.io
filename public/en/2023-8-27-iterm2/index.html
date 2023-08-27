@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Common configuration of iTerm2 -- iTerm2&#43;ZSH the best terminal tool - LIANSONG&#39;S Blog</title><meta name="Description" content="iTerm2 Tools"><meta property="og:title" content="Common configuration of iTerm2 -- iTerm2&#43;ZSH the best terminal tool" />
+<meta property="og:description" content="iTerm2 Tools" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yeliansong.github.io/en/2023-8-27-iterm2/" /><meta property="og:image" content="https://yeliansong.github.io/en/2023-8-27-iterm2/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-27T21:08:00+08:00" />
+<meta property="article:modified_time" content="2023-08-27T21:08:00+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yeliansong.github.io/en/2023-8-27-iterm2/featured-image.png"/>
+<meta name="twitter:title" content="Common configuration of iTerm2 -- iTerm2&#43;ZSH the best terminal tool"/>
+<meta name="twitter:description" content="iTerm2 Tools"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://yeliansong.github.io/en/2023-8-27-iterm2/" /><link rel="prev" href="https://yeliansong.github.io/en/2023-8-17-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Common configuration of iTerm2 -- iTerm2+ZSH the best terminal tool",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/yeliansong.github.io\/en\/2023-8-27-iterm2\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/yeliansong.github.io\/en\/2023-8-27-iterm2\/featured-image.png",
+                            "width":  1600 ,
+                            "height":  624 
+                        }],"genre": "posts","keywords": "Tools，Technology Classification","wordcount":  1962 ,
+        "url": "https:\/\/yeliansong.github.io\/en\/2023-8-27-iterm2\/","datePublished": "2023-08-27T21:08:00+08:00","dateModified": "2023-08-27T21:08:00+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "LIANSONG'S Blog","logo": "https:\/\/yeliansong.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "Liansong"
+            },"description": "iTerm2 Tools"
+    }
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-193031966-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-193031966-2');
+</script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/en/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='fas fa-user-astronaut'></i></span> LIANSONG&#39;S Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/en/posts/"> Posts </a><a class="menu-item" href="/en/tags/"> Tags </a><a class="menu-item" href="/en/categories/"> Categories </a><a class="menu-item" href="/en/about/"> About </a><a class="menu-item" href="https://www.linkedin.com/in/liansongye" title="Linkedin" rel="noopener noreffer" target="_blank"><i class='fab fa-linkedin-in fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/en/2023-8-27-iterm2/" selected>English</option><option value="/2023-8-27-iterm2/">简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/en/" title="LIANSONG&#39;S Blog"><span class="header-title-pre"><i class='fas fa-user-astronaut'></i></span> LIANSONG&#39;S Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/en/posts/" title="">Posts</a><a class="menu-item" href="/en/tags/" title="">Tags</a><a class="menu-item" href="/en/categories/" title="">Categories</a><a class="menu-item" href="/en/about/" title="">About</a><a class="menu-item" href="https://www.linkedin.com/in/liansongye" title="Linkedin" rel="noopener noreffer" target="_blank"><i class='fab fa-linkedin-in fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/en/2023-8-27-iterm2/" selected>English</option><option value="/2023-8-27-iterm2/">简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Common configuration of iTerm2 -- iTerm2&#43;ZSH the best terminal tool</h1><h2 class="single-subtitle">iTerm2 Tools</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-category">included in <a href="/en/categories/technology-classification/"><i class="far fa-folder fa-fw"></i>Technology Classification</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-27 21:08:00">2023-08-27 21:08:00</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1962 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;10 minutes&nbsp;<span id="busuanzi_container_page_pv">
+                    <i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;次阅读量</span>
+                </span>
+            </div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2023-8-27-iterm2/featured-image.png"
+        data-srcset="/en/2023-8-27-iterm2/featured-image.png, /en/2023-8-27-iterm2/featured-image.png 1.5x, /en/2023-8-27-iterm2/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2023-8-27-iterm2/featured-image.png"
+        title="iTerm2 Tools" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-background">1 background</a></li>
+    <li><a href="#2-system-environment">2 System environment</a></li>
+    <li><a href="#3-installation-manual">3 Installation Manual</a></li>
+    <li><a href="#4-supplements">4 Supplements</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="1-background">1 background</h2>
+<p>As a programmer, there are too many opportunities to use terminal tools every day. A good terminal tool can greatly improve development efficiency and improve mood🐶.</p>
+<br>
+<p>Maybe some companies have self-developed terminal tools internally, but for ordinary users, I personally think that iTerm2 + ZSH is the best combined tool. This article summarizes my personal experience when using it, and also refers to the Internet. some documents.</p>
+<br>
+<h2 id="2-system-environment">2 System environment</h2>
+<p>My computer is a MAC, the configuration is as follows:</p>
+<blockquote>
+<p><code>chip: Apple M1 Pro</code></p>
+<p><code>OS: Ventura 13.4</code></p>
+</blockquote>
+<br>
+<h2 id="3-installation-manual">3 Installation Manual</h2>
+<p>In fact, I basically followed the two links below to install and configure.</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/550022490" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/550022490</a></li>
+<li><a href="https://www.jianshu.com/p/40a13bf42f44" target="_blank" rel="noopener noreffer">https://www.jianshu.com/p/40a13bf42f44</a></li>
+</ul>
+<br>
+<p>The final effect is this:</p>
+<img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/WX20230827-191733.png" style="zoom:200%;" />
+<p><code>Basically install ZSH, configure iTerm2 theme, set colors, fonts, configure VIM editor and so on. </code>
+<br></p>
+<p>The steps follow these two links, so I won&rsquo;t go into details.</p>
+<br>
+<h2 id="4-supplements">4 Supplements</h2>
+<blockquote>
+<p><strong><code>PicGo Image Bed Tool</code></strong></p>
+</blockquote>
+<p>This can be said to be a necessary artifact for writing markdown. I used <code>ipic</code> before, and I was severely cheated. It was uploaded to Weibo by default, but later Weibo was banned. Before All uploaded pictures cannot be accessed. So this time I chose the PicGo image bed tool, which supports a variety of image tables. I used the <code>github</code> image bed and the free CDN acceleration tool of <code>jsDelivr</code>, which is very easy to use.</p>
+<br>
+<p><code>The reference link for configuration is as follows</code>: <a href="https://zhuanlan.zhihu.com/p/353775844" target="_blank" rel="noopener noreffer">https://zhuanlan.zhihu.com/p/353775844</a></p>
+<br>
+<p><code>Also record a use of the PicGO image bed tool, there may be a problem with the installation package damage when installed on a mac, you can run this command on the terminal</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo xattr -d com.apple.quarantine <span class="s2">&#34;/Applications/PicGo.app&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br>
+<blockquote>
+<p><strong><code>My iTerm2 Configuration File</code></strong></p>
+</blockquote>
+<p>The following can be byte copied and imported directly.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span><span class="lnt">202
+</span><span class="lnt">203
+</span><span class="lnt">204
+</span><span class="lnt">205
+</span><span class="lnt">206
+</span><span class="lnt">207
+</span><span class="lnt">208
+</span><span class="lnt">209
+</span><span class="lnt">210
+</span><span class="lnt">211
+</span><span class="lnt">212
+</span><span class="lnt">213
+</span><span class="lnt">214
+</span><span class="lnt">215
+</span><span class="lnt">216
+</span><span class="lnt">217
+</span><span class="lnt">218
+</span><span class="lnt">219
+</span><span class="lnt">220
+</span><span class="lnt">221
+</span><span class="lnt">222
+</span><span class="lnt">223
+</span><span class="lnt">224
+</span><span class="lnt">225
+</span><span class="lnt">226
+</span><span class="lnt">227
+</span><span class="lnt">228
+</span><span class="lnt">229
+</span><span class="lnt">230
+</span><span class="lnt">231
+</span><span class="lnt">232
+</span><span class="lnt">233
+</span><span class="lnt">234
+</span><span class="lnt">235
+</span><span class="lnt">236
+</span><span class="lnt">237
+</span><span class="lnt">238
+</span><span class="lnt">239
+</span><span class="lnt">240
+</span><span class="lnt">241
+</span><span class="lnt">242
+</span><span class="lnt">243
+</span><span class="lnt">244
+</span><span class="lnt">245
+</span><span class="lnt">246
+</span><span class="lnt">247
+</span><span class="lnt">248
+</span><span class="lnt">249
+</span><span class="lnt">250
+</span><span class="lnt">251
+</span><span class="lnt">252
+</span><span class="lnt">253
+</span><span class="lnt">254
+</span><span class="lnt">255
+</span><span class="lnt">256
+</span><span class="lnt">257
+</span><span class="lnt">258
+</span><span class="lnt">259
+</span><span class="lnt">260
+</span><span class="lnt">261
+</span><span class="lnt">262
+</span><span class="lnt">263
+</span><span class="lnt">264
+</span><span class="lnt">265
+</span><span class="lnt">266
+</span><span class="lnt">267
+</span><span class="lnt">268
+</span><span class="lnt">269
+</span><span class="lnt">270
+</span><span class="lnt">271
+</span><span class="lnt">272
+</span><span class="lnt">273
+</span><span class="lnt">274
+</span><span class="lnt">275
+</span><span class="lnt">276
+</span><span class="lnt">277
+</span><span class="lnt">278
+</span><span class="lnt">279
+</span><span class="lnt">280
+</span><span class="lnt">281
+</span><span class="lnt">282
+</span><span class="lnt">283
+</span><span class="lnt">284
+</span><span class="lnt">285
+</span><span class="lnt">286
+</span><span class="lnt">287
+</span><span class="lnt">288
+</span><span class="lnt">289
+</span><span class="lnt">290
+</span><span class="lnt">291
+</span><span class="lnt">292
+</span><span class="lnt">293
+</span><span class="lnt">294
+</span><span class="lnt">295
+</span><span class="lnt">296
+</span><span class="lnt">297
+</span><span class="lnt">298
+</span><span class="lnt">299
+</span><span class="lnt">300
+</span><span class="lnt">301
+</span><span class="lnt">302
+</span><span class="lnt">303
+</span><span class="lnt">304
+</span><span class="lnt">305
+</span><span class="lnt">306
+</span><span class="lnt">307
+</span><span class="lnt">308
+</span><span class="lnt">309
+</span><span class="lnt">310
+</span><span class="lnt">311
+</span><span class="lnt">312
+</span><span class="lnt">313
+</span><span class="lnt">314
+</span><span class="lnt">315
+</span><span class="lnt">316
+</span><span class="lnt">317
+</span><span class="lnt">318
+</span><span class="lnt">319
+</span><span class="lnt">320
+</span><span class="lnt">321
+</span><span class="lnt">322
+</span><span class="lnt">323
+</span><span class="lnt">324
+</span><span class="lnt">325
+</span><span class="lnt">326
+</span><span class="lnt">327
+</span><span class="lnt">328
+</span><span class="lnt">329
+</span><span class="lnt">330
+</span><span class="lnt">331
+</span><span class="lnt">332
+</span><span class="lnt">333
+</span><span class="lnt">334
+</span><span class="lnt">335
+</span><span class="lnt">336
+</span><span class="lnt">337
+</span><span class="lnt">338
+</span><span class="lnt">339
+</span><span class="lnt">340
+</span><span class="lnt">341
+</span><span class="lnt">342
+</span><span class="lnt">343
+</span><span class="lnt">344
+</span><span class="lnt">345
+</span><span class="lnt">346
+</span><span class="lnt">347
+</span><span class="lnt">348
+</span><span class="lnt">349
+</span><span class="lnt">350
+</span><span class="lnt">351
+</span><span class="lnt">352
+</span><span class="lnt">353
+</span><span class="lnt">354
+</span><span class="lnt">355
+</span><span class="lnt">356
+</span><span class="lnt">357
+</span><span class="lnt">358
+</span><span class="lnt">359
+</span><span class="lnt">360
+</span><span class="lnt">361
+</span><span class="lnt">362
+</span><span class="lnt">363
+</span><span class="lnt">364
+</span><span class="lnt">365
+</span><span class="lnt">366
+</span><span class="lnt">367
+</span><span class="lnt">368
+</span><span class="lnt">369
+</span><span class="lnt">370
+</span><span class="lnt">371
+</span><span class="lnt">372
+</span><span class="lnt">373
+</span><span class="lnt">374
+</span><span class="lnt">375
+</span><span class="lnt">376
+</span><span class="lnt">377
+</span><span class="lnt">378
+</span><span class="lnt">379
+</span><span class="lnt">380
+</span><span class="lnt">381
+</span><span class="lnt">382
+</span><span class="lnt">383
+</span><span class="lnt">384
+</span><span class="lnt">385
+</span><span class="lnt">386
+</span><span class="lnt">387
+</span><span class="lnt">388
+</span><span class="lnt">389
+</span><span class="lnt">390
+</span><span class="lnt">391
+</span><span class="lnt">392
+</span><span class="lnt">393
+</span><span class="lnt">394
+</span><span class="lnt">395
+</span><span class="lnt">396
+</span><span class="lnt">397
+</span><span class="lnt">398
+</span><span class="lnt">399
+</span><span class="lnt">400
+</span><span class="lnt">401
+</span><span class="lnt">402
+</span><span class="lnt">403
+</span><span class="lnt">404
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ASCII Ligatures&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Working Directory&#34;</span> <span class="p">:</span> <span class="s2">&#34;\/Users\/bytedance&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Prompt Before Closing 2&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Selected Text Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.56244754791259766</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.47797361016273499</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.55732053518295288</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Rows&#34;</span> <span class="p">:</span> <span class="mi">43</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 11 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.49430075287818909</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.69710838794708252</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.1584954559803009</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Use Italic Font&#34;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Foreground Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.75921261310577393</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.61000990867614746</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.7630731463432312</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Right Option Key Sends&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Show Status Bar&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Character Encoding&#34;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Selection Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.21576285362243652</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.28167051076889038</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Mouse Reporting&#34;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 4 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.46265947818756104</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.12754884362220764</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.78231418132781982</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Non-ASCII Anti Aliased&#34;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Sync Title&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Disable Window Resizing&#34;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Description&#34;</span> <span class="p">:</span> <span class="s2">&#34;Default&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Close Sessions On End&#34;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Jobs to Ignore&#34;</span> <span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;rlogin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;ssh&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;slogin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;telnet&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Scrollback Lines&#34;</span> <span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Status Bar Layout&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;components&#34;</span> <span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;class&#34;</span> <span class="p">:</span> <span class="s2">&#34;iTermStatusBarCPUUtilizationComponent&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;configuration&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;knobs&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;base: priority&#34;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;base: compression resistance&#34;</span> <span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;layout advanced configuration dictionary value&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;auto-rainbow style&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;algorithm&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;remove empty components&#34;</span> <span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;class&#34;</span> <span class="p">:</span> <span class="s2">&#34;iTermStatusBarMemoryUtilizationComponent&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;configuration&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;knobs&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;base: priority&#34;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;base: compression resistance&#34;</span> <span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;layout advanced configuration dictionary value&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;auto-rainbow style&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;algorithm&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;remove empty components&#34;</span> <span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;advanced configuration&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;remove empty components&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;font&#34;</span> <span class="p">:</span> <span class="s2">&#34;.AppleSystemUIFont 12&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;algorithm&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;auto-rainbow style&#34;</span> <span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Brighten Bold Text&#34;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Flashing Bell&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Cursor Guide Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.70214027166366577</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Color Space&#34;</span> <span class="p">:</span> <span class="s2">&#34;sRGB&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Alpha Component&#34;</span> <span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.92681378126144409</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;BM Growl&#34;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 3 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.46751424670219421</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.64746475219726562</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.023484811186790466</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Use Non-ASCII Font&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Link Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.030515776947140694</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Color Space&#34;</span> <span class="p">:</span> <span class="s2">&#34;sRGB&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.62457275390625</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Alpha Component&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.32110351021536249</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Shortcut&#34;</span> <span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Background Image Location&#34;</span> <span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Bold Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.83450067043304443</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.70913255214691162</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.82687115669250488</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Unlimited Scrollback&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Custom Command&#34;</span> <span class="p">:</span> <span class="s2">&#34;No&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Title Components&#34;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Keyboard Map&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf700-0x260000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;6A&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0x37-0x40000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x1f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0x32-0x40000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf709-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[17;2~&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf70c-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[20;2~&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf729-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;2H&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf72b-0x40000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;5F&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf705-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;2Q&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf703-0x260000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;6C&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf700-0x220000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;2A&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf701-0x280000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x1b 0x1b 0x5b 0x42&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0x38-0x40000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x7f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0x33-0x40000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x1b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf703-0x220000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;2C&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf701-0x240000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;5B&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf70d-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[21;2~&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf702-0x260000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;6D&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf729-0x40000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;5H&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf706-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;2R&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0x34-0x40000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x1c&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf700-0x280000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x1b 0x1b 0x5b 0x41&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0x2d-0x40000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x1f&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf70e-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[23;2~&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf702-0x220000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;2D&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf703-0x280000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x1b 0x1b 0x5b 0x43&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf700-0x240000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;5A&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf707-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;2S&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf70a-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[18;2~&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0x35-0x40000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x1d&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf70f-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[24;2~&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf703-0x240000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;5C&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf701-0x260000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;6B&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf702-0x280000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x1b 0x1b 0x5b 0x44&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf72b-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;2F&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0x36-0x40000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;0x1e&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">11</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf708-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[15;2~&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf701-0x220000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;2B&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf70b-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[19;2~&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf702-0x240000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;5D&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;0xf704-0x20000&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;[1;2P&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Action&#34;</span> <span class="p">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 14 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.70167088508605957</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.62018769979476929</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 2 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.7455558180809021</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.42339208722114563</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.42409399151802063</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Send Code When Idle&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ASCII Anti Aliased&#34;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Tags&#34;</span> <span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 9 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.084504462778568268</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.95941102504730225</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.23225757479667664</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Use Bold Font&#34;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Silence Bell&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 12 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.55553519725799561</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.091996639966964722</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.78393226861953735</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Window Type&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Use Bright Bold&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Cursor Text Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.15575926005840302</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.19370138645172119</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Default Bookmark&#34;</span> <span class="p">:</span> <span class="s2">&#34;No&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Cursor Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.29334646463394165</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.95475113391876221</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 1 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.10840655118227005</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.81926977634429932</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.14145714044570923</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span> <span class="p">:</span> <span class="s2">&#34;Default&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Blinking Cursor&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Guid&#34;</span> <span class="p">:</span> <span class="s2">&#34;8798F8B8-6F02-4D92-9C09-0970CA99189E&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Idle Code&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 10 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.93699550628662109</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.31744870543479919</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.51931029558181763</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 8 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.39142724871635437</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.53505516052246094</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Badge Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Color Space&#34;</span> <span class="p">:</span> <span class="s2">&#34;sRGB&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Alpha Component&#34;</span> <span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.14910030364990234</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ambiguous Double Width&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Cursor Type&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 0 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.15575926005840302</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.19370138645172119</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Blur&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Normal Font&#34;</span> <span class="p">:</span> <span class="s2">&#34;MesloLGLForPowerline-Regular 11&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Vertical Spacing&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Use Underline Color&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 7 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.89001238346099854</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.91611063480377197</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.79781103134155273</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Command&#34;</span> <span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Terminal Type&#34;</span> <span class="p">:</span> <span class="s2">&#34;xterm-256color&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Horizontal Spacing&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Option Key Sends&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Blink Allowed&#34;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Minimum Contrast&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 15 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.95794391632080078</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.98943418264389038</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.86405980587005615</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Unicode Version&#34;</span> <span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 6 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.57082360982894897</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.14679534733295441</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.52502274513244629</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Transparency&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Initial Text&#34;</span> <span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Background Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.11783610284328461</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.15170273184776306</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Screen&#34;</span> <span class="p">:</span> <span class="mi">-1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Non Ascii Font&#34;</span> <span class="p">:</span> <span class="s2">&#34;Monaco 12&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 13 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.30289158225059509</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.88624399900436401</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.55838865041732788</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Columns&#34;</span> <span class="p">:</span> <span class="mi">186</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Show Timestamps&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Visual Bell&#34;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Custom Directory&#34;</span> <span class="p">:</span> <span class="s2">&#34;No&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Thin Strokes&#34;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Ansi 5 Color&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Green Component&#34;</span> <span class="p">:</span> <span class="mf">0.10802463442087173</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Red Component&#34;</span> <span class="p">:</span> <span class="mf">0.77738940715789795</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Blue Component&#34;</span> <span class="p">:</span> <span class="mf">0.43516635894775391</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-08-27 21:08:00</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://yeliansong.github.io/en/2023-8-27-iterm2/" data-title="Common configuration of iTerm2 -- iTerm2&#43;ZSH the best terminal tool" data-hashtags="Tools，Technology Classification"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://yeliansong.github.io/en/2023-8-27-iterm2/" data-hashtag="Tools，Technology Classification"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://yeliansong.github.io/en/2023-8-27-iterm2/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="https://yeliansong.github.io/en/2023-8-27-iterm2/" data-title="Common configuration of iTerm2 -- iTerm2&#43;ZSH the best terminal tool" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://yeliansong.github.io/en/2023-8-27-iterm2/" data-title="Common configuration of iTerm2 -- iTerm2&#43;ZSH the best terminal tool"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://yeliansong.github.io/en/2023-8-27-iterm2/" data-title="Common configuration of iTerm2 -- iTerm2&#43;ZSH the best terminal tool"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/toolstechnology-classification/">Tools，Technology Classification</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/en/2023-8-17-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/" class="prev" rel="prev" title="计算机网络面试题总结"><i class="fas fa-angle-left fa-fw"></i>计算机网络面试题总结</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.117.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/en/" target="_blank">LIANSONG&#39;S Blog</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></br>
+                <span id="busuanzi_container_site_pv">
+                    访问量 <span id="busuanzi_value_site_pv"></span> 次
+                </span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                </span>
+                </br><script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2021;
+                        var startMonth = 3;
+                        var startDate = 27;
+                        var startHour = 19;
+                        var startMinute = 15;
+                        var startSecond = 11;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffDays + " 天 " + diffHours +
+                                " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        } else {
+                            
+                            document.getElementById("sitetime").innerHTML = "已安全运行 " + diffYears + " 年 " + diffDays +
+                                " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                    <span id="sitetime">载入运行时间...</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"yeliansong/liansong_hugo-blog-talk"}},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
