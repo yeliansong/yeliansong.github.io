@@ -4,7 +4,14 @@
         <link>https://yeliansong.github.io/posts/</link>
         <description>所有文章 | LIANSONG&#39;S Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
-            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 17 Aug 2023 17:32:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 27 Aug 2023 21:08:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>iTerm2 的常用配置 -- iTerm2&#43;ZSH 最好的终端工具</title>
+    <link>https://yeliansong.github.io/2023-8-27-iterm2/</link>
+    <pubDate>Sun, 27 Aug 2023 21:08:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2023-8-27-iterm2/</guid>
+    <description><![CDATA[1 背景 作为一名程序员，每天用终端工具的机会太多了，一个好的终端工具能很大程度提高开发效率，同时也能改善心情🐶。 可能一些公司是内部有自研的终端]]></description>
+</item><item>
     <title>计算机网络面试题总结</title>
     <link>https://yeliansong.github.io/2023-8-17-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</link>
     <pubDate>Thu, 17 Aug 2023 17:32:00 &#43;0800</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>https://yeliansong.github.io/2022-1-28-%E4%B8%80%E6%AC%A1%E7%94%B1inode-%E5%BC%95%E5%8F%91%E7%9A%84%E6%83%A8%E6%A1%88%E7%88%86%E8%82%9D%E5%9B%9B%E5%B0%8F%E6%97%B6%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86inode/</guid>
     <description><![CDATA[1 背景 一次在做程序包变更时，程序包已经更新到最新版本，需要重启进程，就一直重启不成功。查看启动的错误日志，发现是一直在创建文件时不成功，当时]]></description>
-</item><item>
-    <title>wxpy&#43;图灵机器人微信聊天机器人--附源代码</title>
-    <link>https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/</link>
-    <pubDate>Mon, 28 Mar 2022 19:14:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://yeliansong.github.io/2022-01-27-wxpy-%E5%9B%BE%E7%81%B5%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA-%E9%99%84%E6%BA%90%E4%BB%A3%E7%A0%81/</guid>
-    <description><![CDATA[1 背景 看到很多小伙伴用微信玩聊天机器人，能自动回复，看着还挺像模像样的，心里痒痒，也想着自己做个聊天机器人玩玩，初步想法是能每天定时给女朋友]]></description>
 </item></channel>
 </rss>
