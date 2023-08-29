@@ -7,18 +7,24 @@ I have always been interested in the issue of eating, but now there are too many
 
 As a programmer who lacks exercise every day, physical health is really important. As we grow older, various physical problems are more or less exposed, such as fatty liver, bulging belly, Obesity and more. And many times we don't pay much attention to diet, and it's not that we don't pay attention to it. The main reason is that we don't know anything about scientific eating habits, so we usually eat whatever we catch. This article is also after I read this book, I will refine some knowledge points in it, so that friends who don't have time to read the whole book can quickly grasp the knowledge points in the book.
 
+<br>
+
 # About the Author
 
 Makita Zenji (Makita Zenji), Japanese, President of AGE Makita Specialist Hospital, Diabetes Specialist, Doctor of Medicine.
 
+<br>
 
-# 16 lies about diet
+
+## 16 lies about diet
 
 <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/a2umlb.jpg" style="zoom:200%;" />
 
 I haven't listed all 16 lies. Some of them are related to Japanese eating habits. We have no reference value here, so ignore them.
 
 Like most people may think that low fat is good, our body gets fat because we eat too much fat; and a balanced diet feels that we can control our body; weight loss will reduce muscle mass, etc. These can be said to be fake news, later you will learn what makes us fat, losing weight does not make muscles less and so on.
+
+<br>
 
 # Optimum intake of the three major nutrients
 
@@ -28,11 +34,15 @@ The three major nutrients are: carbohydrates, lipids and proteins.
 - **Lipids are the components that make up cell membranes**
 - **Protein is an essential component of muscle and bone**
 
+<br>
+
 For the ingestion of these three, and the possible consequences of each ingestion, you can see the figure below.
 
 <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/gggg.png" style="zoom:200%;" />
 
 Looking at this picture can be extracted: **Be sure to reduce carbohydrate intake, and the settings can be replaced by lipids and proteins. For lipids, you should eat good lipids, eat more unsaturated fatty acid foods, and use less saturated fatty acid foods as much as possible. **
+
+<br>
 
 # Eat various ingredients
 
@@ -46,6 +56,8 @@ Looking at this picture can be extracted: **Be sure to reduce carbohydrate intak
 This picture lists some of the foods that should be used frequently and can replace carbohydrates.
 
 Fish and other meat should be taken alternately, and the intake of chicken should be more, the amount of pork should be moderate, and beef should be used occasionally.
+
+<br>
 
 # Ultimate body conditioning
 
@@ -61,6 +73,8 @@ Fish and other meat should be taken alternately, and the intake of chicken shoul
 - **Cod liver oil is liquid fat extracted from the liver of cod, shark and other fish, rich in vitamin A, vitamin D, minerals and other high-quality ingredients**
 - **Iron pot cooking improves anemia**
 - **Facial massager increases wrinkles**
+
+<br>
 
 # Epilogue
 

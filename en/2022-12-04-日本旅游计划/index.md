@@ -15,6 +15,8 @@
 - [ ] Print the vaccine certificate and submit the information to the website of the Japanese immigration government
 - [ ] Exchange money
 
+<br>
+
 ## 2 Wishlist
 
 ❤️ **Hot springs**
@@ -33,6 +35,7 @@
 
 ❤️ Experience Homestay
 
+<br>
 
 ## 3 Local temperature
 
@@ -42,6 +45,7 @@
 
 ☁️ Nara: 7-19 degrees Celsius
 
+<br>
 
 ## 4 Requirements for entering Japan and Singapore
 
@@ -52,6 +56,8 @@
 - ### **Singapore Entry:**
 
    Proof of vaccination and submission of Singapore Arrival Card and Electronic Health Declaration [https://eservices.ica.gov.sg/sgarrivalcard/](https://eservices.ica.gov.sg/sgarrivalcard/)
+
+<br>
 
 ## 5 City Profile
 
@@ -85,6 +91,8 @@
 
    7) **Diyuan**: a bustling neighborhood in Kyoto, where maiko and geisha haunt, a good place for nightlife
 
+<br>
+
 ### **NARA:**
 
 - Overview: The history is longer than the thousand-year-old capital Kyoto, the birthplace of Japanese civilization, and the sign is the deer
@@ -92,6 +100,8 @@
 - Attractions:
 
    1) **Nara Park: **Includes buildings such as Todaiji Temple, Kofukuji Temple, and Kasuga Taisha, which contain many valuable historical and cultural heritages. Feed the cute deer
+
+<br>
 
 ### **Osaka:**
 
@@ -109,7 +119,7 @@
 
    5) **Tianbaoshan Ferris Wheel: **The tallest Ferris wheel in Japan, you can see the night view of Japan at night
 
-  
+  <br>
 
 ## 6 Specific itinerary
 
@@ -126,6 +136,8 @@ November 14th 18:30 Osaka Kansai Airport —— 00:30am SIN
 - Buy icoca card. Get out of Kansai Airport, buy an icoca card from the machine at the subway station opposite, you can use it directly on the subway bus
 - Take the Haruka JR line from Kansai Airport to kyoto station for about 80 minutes
 
+<br>
+
 #### **Day2:**
 
 **Time: November 7th**
@@ -138,6 +150,8 @@ The place where I live is near kyoto station, this place **Kyoto Prefecture 600-
 - Tofukuji Temple, about 2 hours
 - Sanjusangendo, about 1 hour
 - Eat and drink at the Nishiki Market in the evening. Actually, you don’t have to go, because I live nearby the next day, so you can go to Kamogawa instead
+
+<br>
 
 #### **Day3:**
 
@@ -152,7 +166,9 @@ Move the luggage from the B&B to the hotel, the hotel is near Nijo Castle
 - If you have time in the afternoon, you can visit the Kyoto Museum, Nijo Imperial Palace, etc.
 - There are a lot of food near the hotel where you stay at night
 
-####Day4:
+<br>
+
+### Day4:
 
 Time: November 9
 
@@ -164,7 +180,9 @@ Go to the scene to buy tickets, buy the transparent windows of compartment 5, ch
 
 You can ride from Sagano to Kamegang. After arriving, there is nothing to do in the surrounding areas. Take the subway directly to Sagano Station, and you can follow the road to Tenryuji Temple, Bamboo Forest, Nonomiya Shrine, Togetsukyo Bridge, and Arashiyama Park. There is a Fengfengzhiyu hot spring in Arashiyama Park, you can experience it. Togetsukyo is a pretty good place, you can spend some time playing around.
 
-####Day5:
+<br>
+
+### Day5:
 
 Time: November 10
 
@@ -172,6 +190,8 @@ Pack your luggage and store it in the hotel, you can use the morning time to go 
 
 - Golden Pavilion Temple, Silver Pavilion Temple
 - Back near the hotel, have something to eat, ready to go to Nara
+
+<br>
 
 #### Day6:
 
@@ -182,6 +202,8 @@ I would like to emphasize that the place I made my reservation is very good. It 
 - Shoot deer in Nara Park in the morning
 - Visit Todaiji Temple, go all the way to Kasuga Taisha, then go to Isui Garden, have something to eat at noon, and then go back to Nara Park in the afternoon
 
+<br>
+
 #### Day7:
 
 Time: November 12
@@ -190,17 +212,23 @@ Return to Osaka from Nara in the morning. In the afternoon, you can consider sle
 
 [https://solaniwa.com/zh-cn/explore/inemuri/](https://solaniwa.com/zh-cn/explore/inemuri/)
 
+<br>
+
 #### Day8:
 
 Time: November 13
 
 Visit the Four Tennoji Temples, Tentong Pavilion, Shinsekai, Osaka Aquarium Kaiyukan, and ride the Ferris wheel at night
 
-####Day9:
+<br>
+
+### Day9:
 
 Time: November 14
 
 On the last day, you can consider shopping, sorting things, and preparing for the return trip
+
+<br>
 
 ## 7 JAPAN TRANSPORTATION
 
@@ -242,80 +270,80 @@ Hisashi
 
 <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/Untitled%201.png" alt="Untitled 1" style="zoom:200%;" />
 
-
+<br>
 
 ## 9 other
 
 - **Osaka tour:**
 
-Osaka travel pass, two days or one day
+`Osaka travel pass, two days or one day`
 
-Buy for two days, buy vista osaka 100 cheaper
+`Buy for two days, buy vista osaka 100 cheaper`
 
-More than 40 other attractions are free
+`More than 40 other attractions are free`
 
-There are also some store discounts
+`There are also some store discounts`
 
-osaka metro purchase
+`osaka metro purchase`
 
-Dalton dig water sightseeing boat
+`Dalton dig water sightseeing boat`
 
-wonder cruise
+`wonder cruise`
 
-Sailboat Santa Maria Evening Cruise
+`Sailboat Santa Maria Evening Cruise`
 
-Okawa Cherry Blossom Cruise Daytime
+`Okawa Cherry Blossom Cruise Daytime`
 
-Osaka Castle Imperial Ship
+`Osaka Castle Imperial Ship`
 
-Sky Garden Observatory Meitian Sky Building
+`Sky Garden Observatory Meitian Sky Building`
 
-Sky Art Museum
+`Sky Art Museum`
 
-Tempozan Ferris Wheel
+`Tempozan Ferris Wheel`
 
-Castle Tower
+`Castle Tower`
 
-Tsutenkaku
+`Tsutenkaku`
 
-Shitennoji
+`Shitennoji`
 
-osaka wheel
+`osaka wheel`
 
-Santa Maria + Tempozan Ferris Wheel from 3:00 pm until ticket exchange
+`Santa Maria + Tempozan Ferris Wheel from 3:00 pm until ticket exchange`
 
-Nakanoshima Water Cruise + Shitennoji + Osaka Castle Park
+`Nakanoshima Water Cruise + Shitennoji + Osaka Castle Park`
 
-Dotonbori Water Cruise 11:00
+`Dotonbori Water Cruise 11:00`
 
-Can be arranged together when the morning arrives
+`Can be arranged together when the morning arrives`
 
-Umeda Sky Building Observatory 9:30
+`Umeda Sky Building Observatory 9:30`
 
-Sky Art Museum
+`Sky Art Museum`
 
-ninja trick house discount
+`ninja trick house discount`
 
-
+<br>
 
 - **Things to buy:**
 
-City doctor
+`City doctor`
 
-Ya Meng
+`Ya Meng`
 
-liquor 
+`liquor` 
 
-The fabric softener that smells good when washing clothes
+`The fabric softener that smells good when washing clothes`
 
-ebisu toothbrush
+`ebisu toothbrush`
 
-strong wakamoto digestive enzymes
+`strong wakamoto digestive enzymes`
 
-the public organic lipstick
+`the public organic lipstick`
 
-fragrance
+`fragrance`
 
-lion king toothpaste
+`lion king toothpaste`
 
-Incomparably
+`Incomparably`

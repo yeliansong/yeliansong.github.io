@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://yeliansong.github.io/en/categories/</loc><lastmod>2023-08-27T21:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://yeliansong.github.io/en/categories/</loc><lastmod>2023-08-29T13:42:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://yeliansong.github.io/categories/"
@@ -10,6 +10,44 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://yeliansong.github.io/en/categories/"
+                    /></url><url>
+            <loc>https://yeliansong.github.io/en/</loc><lastmod>2023-08-29T13:42:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://yeliansong.github.io/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://yeliansong.github.io/en/"
+                    /></url><url>
+            <loc>https://yeliansong.github.io/en/posts/</loc><lastmod>2023-08-29T13:42:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://yeliansong.github.io/posts/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://yeliansong.github.io/en/posts/"
+                    /></url><url>
+            <loc>https://yeliansong.github.io/en/categories/reading-extract/</loc><lastmod>2023-08-29T13:42:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yeliansong.github.io/en/tags/</loc><lastmod>2023-08-29T13:42:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://yeliansong.github.io/tags/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://yeliansong.github.io/en/tags/"
+                    /></url><url>
+            <loc>https://yeliansong.github.io/en/tags/wereadreading-extract/</loc><lastmod>2023-08-29T13:42:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://yeliansong.github.io/en/2023-08-29-%E6%9C%88%E4%BA%AE%E5%92%8C%E5%85%AD%E4%BE%BF%E5%A3%AB----%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E6%91%98%E5%BD%95/</loc><lastmod>2023-08-29T13:42:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-cn"
+                        href="https://yeliansong.github.io/2023-08-29-%E6%9C%88%E4%BA%AE%E5%92%8C%E5%85%AD%E4%BE%BF%E5%A3%AB----%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E6%91%98%E5%BD%95/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="en"
+                    href="https://yeliansong.github.io/en/2023-08-29-%E6%9C%88%E4%BA%AE%E5%92%8C%E5%85%AD%E4%BE%BF%E5%A3%AB----%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E6%91%98%E5%BD%95/"
                     /></url><url>
             <loc>https://yeliansong.github.io/en/2023-8-27-iterm2/</loc><lastmod>2023-08-27T21:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
@@ -19,33 +57,6 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://yeliansong.github.io/en/2023-8-27-iterm2/"
-                    /></url><url>
-            <loc>https://yeliansong.github.io/en/</loc><lastmod>2023-08-27T21:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://yeliansong.github.io/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://yeliansong.github.io/en/"
-                    /></url><url>
-            <loc>https://yeliansong.github.io/en/posts/</loc><lastmod>2023-08-27T21:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://yeliansong.github.io/posts/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://yeliansong.github.io/en/posts/"
-                    /></url><url>
-            <loc>https://yeliansong.github.io/en/tags/</loc><lastmod>2023-08-27T21:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://yeliansong.github.io/tags/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://yeliansong.github.io/en/tags/"
                     /></url><url>
             <loc>https://yeliansong.github.io/en/categories/technology-classification/</loc><lastmod>2023-08-27T21:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://yeliansong.github.io/en/tags/toolstechnology-classification/</loc><lastmod>2023-08-27T21:08:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -84,24 +95,6 @@
                     rel="alternate"
                     hreflang="en"
                     href="https://yeliansong.github.io/en/2023-7-15-%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C----%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E6%91%98%E5%BD%95/"
-                    /></url><url>
-            <loc>https://yeliansong.github.io/en/tags/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E8%AF%BB%E4%B9%A6%E6%91%98%E5%BD%95/</loc><lastmod>2023-07-15T15:21:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://yeliansong.github.io/tags/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E8%AF%BB%E4%B9%A6%E6%91%98%E5%BD%95/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://yeliansong.github.io/en/tags/%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E8%AF%BB%E4%B9%A6%E6%91%98%E5%BD%95/"
-                    /></url><url>
-            <loc>https://yeliansong.github.io/en/categories/%E8%AF%BB%E4%B9%A6%E6%91%98%E5%BD%95/</loc><lastmod>2023-07-15T15:21:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
-                        rel="alternate"
-                        hreflang="zh-cn"
-                        href="https://yeliansong.github.io/categories/%E8%AF%BB%E4%B9%A6%E6%91%98%E5%BD%95/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="en"
-                    href="https://yeliansong.github.io/en/categories/%E8%AF%BB%E4%B9%A6%E6%91%98%E5%BD%95/"
                     /></url><url>
             <loc>https://yeliansong.github.io/en/tags/skills-certificate/</loc><lastmod>2023-05-13T10:23:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://yeliansong.github.io/en/categories/skills-certificate/</loc><lastmod>2023-05-13T10:23:00&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

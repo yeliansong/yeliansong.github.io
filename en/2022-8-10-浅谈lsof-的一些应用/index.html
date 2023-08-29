@@ -141,27 +141,25 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#1-linux-everything-is-a-file">1 Linux everything is a file</a></li>
+    <li><a href="#2-common-options-of-lsof-command">2 Common options of lsof command</a></li>
+    <li><a href="#3-some-simple-applications">3 Some simple applications</a>
       <ul>
-        <li><a href="#1-linux-everything-is-a-file">1 Linux everything is a file</a></li>
-        <li><a href="#2-common-options-of-lsof-command">2 Common options of lsof command</a></li>
-        <li><a href="#3-some-simple-applications">3 Some simple applications</a>
-          <ul>
-            <li><a href="#31-check-which-processes-have-opened-a-file">3.1 <strong>Check which processes have opened a file</strong></a></li>
-            <li><a href="#32-view-all-files-opened-by-a-process">3.2 <strong>View all files opened by a process</strong></a></li>
-            <li><a href="#33-view-files-opened-by-ipv4-and-ipv6">3.3 <strong>View files opened by ipv4 and ipv6</strong></a></li>
-            <li><a href="#34-list-the-files-related-to-the-port">3.4 <strong>List the files related to the port</strong></a></li>
-          </ul>
-        </li>
-        <li><a href="#4-a-specific-practice">4 A specific practice</a></li>
-        <li><a href="#5-summary">5 Summary</a></li>
+        <li><a href="#31-check-which-processes-have-opened-a-file">3.1 <strong>Check which processes have opened a file</strong></a></li>
+        <li><a href="#32-view-all-files-opened-by-a-process">3.2 <strong>View all files opened by a process</strong></a></li>
+        <li><a href="#33-view-files-opened-by-ipv4-and-ipv6">3.3 <strong>View files opened by ipv4 and ipv6</strong></a></li>
+        <li><a href="#34-list-the-files-related-to-the-port">3.4 <strong>List the files related to the port</strong></a></li>
       </ul>
     </li>
+    <li><a href="#4-a-specific-practice">4 A specific practice</a></li>
+    <li><a href="#5-summary">5 Summary</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="1-linux-everything-is-a-file">1 Linux everything is a file</h3>
+            </div><div class="content" id="content"><h2 id="1-linux-everything-is-a-file">1 Linux everything is a file</h2>
 <p>In a Linux system, everything is a file. Files provides access not only to file data stored to disk, but also to network connections and hardware. The problem is that everything is a file, so how to view and manage these open files through commands. You can use the lsof command. Not only can you view the files and directories opened by the process, but you can also view the socket information such as the port the process listens to.</p>
-<h3 id="2-common-options-of-lsof-command">2 Common options of lsof command</h3>
+<br>
+<h2 id="2-common-options-of-lsof-command">2 Common options of lsof command</h2>
+<blockquote>
 <p><strong>-a</strong> Indicates an AND relationship between other options<br>
 <strong>-c</strong> <process name> output the files opened by the specified process<br>
 <strong>-d</strong> <file descriptor> list the processes that occupy the file number<br>
@@ -176,17 +174,19 @@
 <strong>-U</strong> output opened UNIX domain socket files<br>
 <strong>-h</strong> display help information<br>
 <strong>-v</strong> Display version information</p>
-<h3 id="3-some-simple-applications">3 Some simple applications</h3>
+</blockquote>
+<br>
+<h2 id="3-some-simple-applications">3 Some simple applications</h2>
 <p>I won’t list all the application scenarios here, and you can search according to your specific needs. What you need to remember is that you can think of using the lsof command when it comes to files. List some simple application scenarios to deepen the use of commands.</p>
-<h4 id="31-check-which-processes-have-opened-a-file">3.1 <strong>Check which processes have opened a file</strong></h4>
+<h3 id="31-check-which-processes-have-opened-a-file">3.1 <strong>Check which processes have opened a file</strong></h3>
 <p>This should be used frequently. In windows, for example, if you want to close a certain file, you can’t close it. The reason is that this file is used by many processes at the same time. If you want to close it, you can’t close it. You can only close it first. All the processes that are using the file should be killed. At this time, lsof can be used.</p>
 <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/06973eb2b4514ad5af77075630136bad~tplv-k3u1fbpfcp-zoom-1.image" style="zoom:200%;" />
 <p>+d is an operation for folders, and if you need to kill all process ids, you can use awk to list the pid numbers and then kill them.</p>
-<h4 id="32-view-all-files-opened-by-a-process">3.2 <strong>View all files opened by a process</strong></h4>
+<h3 id="32-view-all-files-opened-by-a-process">3.2 <strong>View all files opened by a process</strong></h3>
 <p>This sometimes needs to be used, what operations a certain process has done, and which files have been opened.
 <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/8b897ce13cf04690ac6a4cdbaf9ee9f6~tplv-k3u1fbpfcp-zoom-1.image" style="zoom:200%;" /></p>
 <p>Use lsof -p + pid to see which files the process has open.</p>
-<h4 id="33-view-files-opened-by-ipv4-and-ipv6">3.3 <strong>View files opened by ipv4 and ipv6</strong></h4>
+<h3 id="33-view-files-opened-by-ipv4-and-ipv6">3.3 <strong>View files opened by ipv4 and ipv6</strong></h3>
 <p>Network-related file operations are also used a lot, so to locate some problems, you need to use lsof to view some network-related operations on files. lsof -i is to view the operations of ipv4 and v6 on files.
 <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/fa82058ffef840d1aec4fe97c3fbedcd~tplv-k3u1fbpfcp-zoom-1.image" style="zoom:200%;" />
 Of course, if you need to see ipv4 or ipv6 separately, you can directly specify lsof -i ipv4/ipv6</p>
@@ -200,12 +200,14 @@ Of course, if you need to see ipv4 or ipv6 separately, you can directly specify 
 </span></span><span class="line"><span class="cl">$ sudo lsof -i 6
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="34-list-the-files-related-to-the-port">3.4 <strong>List the files related to the port</strong></h4>
+</div><h3 id="34-list-the-files-related-to-the-port">3.4 <strong>List the files related to the port</strong></h3>
 <p>This is used a lot, and you often need to check the files used by the relevant ports, such as port 22 or something. Use lsof -i:port.
 <img src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/2b7aa57bcd6c40bcb9e41ebdadf690cb~tplv-k3u1fbpfcp-zoom-1.image" style="zoom:200%;" /></p>
-<h3 id="4-a-specific-practice">4 A specific practice</h3>
+<br>
+<h2 id="4-a-specific-practice">4 A specific practice</h2>
 <p>I have encountered a case before, that is, using df -h and du -sh / a certain folder, and found that the disk space occupied by the two displays is very different, because df -h is the statistical folder space in the disk , including this folder may have been deleted or referenced elsewhere, but du counts the actual size of the current folder, so it may be that a certain folder counted by df -h is larger than du -sh. I encountered this situation at the time, and the difference between the two is still very large. How to solve this problem, you can use lsof | grep delete to find the folder occupied by the delete process, and then kill these processes.</p>
-<h3 id="5-summary">5 Summary</h3>
+<br>
+<h2 id="5-summary">5 Summary</h2>
 <p>That&rsquo;s all about the main uses of lsof, and there are many other uses, which can be oriented according to the needs of daily work.</p>
 <p>You can refer to: <a href="https://www.cnblogs.com/sparkdev/p/10271351.html" target="_blank" rel="noopener noreffer">https://www.cnblogs.com/sparkdev/p/10271351.html</a></p>
 </div><div class="post-footer" id="post-footer">
