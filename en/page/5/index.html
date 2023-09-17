@@ -114,6 +114,20 @@
         alt="/images/avatar.png"
         title="/images/avatar.png" /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/yeliansong" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-brands fa-github"></i></a><a href="https://www.linkedin.com/in/liansongye" title="LinkedIn" target="_blank" rel="noopener noreffer me"><i class="fab fa-linkedin fa-fw"></i></a><a href="https://www.youtube.com/@xiaoye_SG/featured" title="YouTube" target="_blank" rel="noopener noreffer me"><i class="fab fa-youtube fa-fw"></i></a><a href="https://space.bilibili.com/454920574" title="bilibili" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/bilibili.min.svg"></i></a><a href="https://www.ixigua.com/home/63234784387?list_entrance=homepage" title="xigua" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/xigua.min.svg"></i></a><a href="https://www.douyin.com/" title="douyin" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/douyin.min.svg"></i></a><a href="https://www.toutiao.com/c/user/token/MS4wLjABAAAAiQNzwXGZR5Lgz2vkJpiKTn1ntKLBCSmsgnGaaH17X-M/?source=list&amp;log_from=77c2e023ca8f9_1691937728627" title="toutiao" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/toutiao.min.svg"></i></a><a href="https://juejin.cn/user/3659627025959112" title="juejin" target="_blank" rel="noopener noreffer me"><i data-svg-src="/svg/icons/juejin.min.svg"></i></a><a href="mailto:ylsccnu@hotmail.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="/en/index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
+            <a href="/en/2020-05-11-k8s-command/"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/en/2020-05-11-k8s-command/featured-image.png"
+        data-srcset="/en/2020-05-11-k8s-command/featured-image.png, /en/2020-05-11-k8s-command/featured-image.png 1.5x, /en/2020-05-11-k8s-command/featured-image.png 2x"
+        data-sizes="auto"
+        alt="/en/2020-05-11-k8s-command/featured-image.png"
+        title="Certification K8S Adminstration Examination" /></a>
+        </div><h1 class="single-title" itemprop="name headline">
+        <a href="/en/2020-05-11-k8s-command/">K8S common commands</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-05-04 09:31:00">2020-05-04 09:31:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/cka-examination/"><i class="far fa-folder fa-fw"></i>CKA Examination</a></span></div><div class="content">1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 #查看所有namespace的pods运行情况 kubectl get pods --all-namespaces #查看具体pods，记得后边跟namespace名字哦 kubectl get pods kubernetes-dashboard-76479d66bb-nj8wr --namespace=kube-system # 查看pods具体信息 kubectl get pods -o wide kubernetes-dashboard-76479d66bb-nj8wr --namespace=kube-system # 查看集群健康状态 kubectl get cs # 获取所有deployment kubectl get deployment --all-namespaces # 列出该 namespace 中的所有 pod 包括未初始化的 kubectl get pods --include-uninitialized # 查看deployment() kubectl get deployment nginx-app # 查看rc和servers kubectl get rc,services # 查看pods结构信息（重点，通过这个看日志分析错误） # 对控制器和服务，node同样有效 kubectl describe pods xxxxpodsname --namespace=xxxnamespace # 其他控制器类似吧，就是kubectl get 控制器 控制器具体名称 # 查看pod日志 kubectl logs $POD_NAME # 查看pod变量 kubectl exec my-nginx-5j8ok -- printenv | grep SERVICE # 集群 kubectl get cs # 集群健康情况 kubectl cluster-info # 集群核心组件运行情况 kubectl get namespaces # 表空间名 kubectl version # 版本 kubectl api-versions # API kubectl get events # 查看事件 kubectl get nodes //获取全部节点 kubectl delete node k8s2 //删除节点 kubectl rollout status deploy nginx-test # 创建 kubectl create -f .</div><div class="post-footer">
+        <a href="/en/2020-05-11-k8s-command/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/cka-examination/">CKA Examination</a>,&nbsp;<a href="/en/tags/k8s/">K8S</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/en/2019-10-19-cka-%E8%80%83%E5%89%8D%E8%B5%84%E6%96%99/"><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -202,21 +216,6 @@ Recreate Update
 This is very clumsy way to update. Destory V1 application then create V2 application.</div><div class="post-footer">
         <a href="/en/2020-4-22-k8s-deployment-strategies/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/k8s/">K8S</a>,&nbsp;<a href="/en/tags/microservice/">microservice</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
-            <a href="/en/2020-3-21-c-learning-notes/"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/en/2020-3-21-c-learning-notes/featured-image.png"
-        data-srcset="/en/2020-3-21-c-learning-notes/featured-image.png, /en/2020-3-21-c-learning-notes/featured-image.png 1.5x, /en/2020-3-21-c-learning-notes/featured-image.png 2x"
-        data-sizes="auto"
-        alt="/en/2020-3-21-c-learning-notes/featured-image.png"
-        title="技术笔记" /></a>
-        </div><h1 class="single-title" itemprop="name headline">
-        <a href="/en/2020-3-21-c-learning-notes/">C&#43;&#43; Learning Notes</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/en/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Liansong</a></span>&nbsp;<span class="post-publish">published on <time datetime="2020-03-21 09:14:00">2020-03-21 09:14:00</time></span>&nbsp;<span class="post-category">included in <a href="/en/categories/%E6%8A%80%E6%9C%AF%E5%BD%92%E7%B1%BB/"><i class="far fa-folder fa-fw"></i>技术归类</a></span></div><div class="content">C++ Learning Notes. 1. Knowledge Map. Architecture Program Language classification.
-Generic Programming</div><div class="post-footer">
-        <a href="/en/2020-3-21-c-learning-notes/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E6%8A%80%E6%9C%AF%E5%BD%92%E7%B1%BB/">编程语言、技术归类</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="/en/">1</a>
