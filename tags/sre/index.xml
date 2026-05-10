@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>SRE - 标签 - LIANSONG&#39;S Blog</title>
+        <link>https://yeliansong.github.io/tags/sre/</link>
+        <description>SRE - 标签 - LIANSONG&#39;S Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</managingEditor>
+            <webMaster>ylsccnu@hotmail.com (LIANSONG&#39;S Blog)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 10 May 2026 15:55:00 &#43;0800</lastBuildDate><atom:link href="https://yeliansong.github.io/tags/sre/" rel="self" type="application/rss+xml" /><item>
+    <title>SRE / DevOps 技术笔记索引</title>
+    <link>https://yeliansong.github.io/2026-05-10-sre-devops-notes-index/</link>
+    <pubDate>Sun, 10 May 2026 15:55:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://yeliansong.github.io/2026-05-10-sre-devops-notes-index/</guid>
+    <description><![CDATA[这篇文章是本站技术内容的索引页，方便按照主题快速找到相关笔记。部分文章写得比较早，阅读时建议结合当下的软件版本和官方文档验证细节。 Kubernetes 与容器 Kubernetes]]></description>
+</item></channel>
+</rss>
