@@ -161,7 +161,7 @@ def article_page(item: dict) -> str:
     tags = "".join(f"<span>{html.escape(tag)}</span>" for tag in item.get("tags", []))
     tag_row = f'<div class="article-tags">{tags}</div>' if tags else ""
     hero = f'''<main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>{item['date'].year}</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">{item['topic_en']} / {item['date'].isoformat()}</p><h1>{html.escape(item['title'])}</h1><p class="dek">{html.escape(item['excerpt'])}</p>{tag_row}</header>{content}
+<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / {item['date'].isoformat()}</p><h1>{html.escape(item['title'])}</h1><p class="dek">{html.escape(item['excerpt'])}</p><p class="article-category">分类 · {html.escape(item['topic'])}</p>{tag_row}</header>{content}
 <div class="article-end"><span>END</span><a href="/posts/">继续阅读 →</a></div></article></main>'''
     return shell(item["title"], item["excerpt"], hero, "article-page")
 
@@ -206,7 +206,7 @@ def build():
         summary_source = re.sub(r"^#{1,6}\s+.*$", "", md, flags=re.M)
         quoted_summary = re.search(r"^>\s*(.+)$", md, re.M)
         summary = metadata.get("summary") or (plain(quoted_summary.group(1)) if quoted_summary else plain(summary_source)[:145].rstrip("，。； ") + "。")
-        tags = [x.strip() for x in re.split(r"[,，、]", metadata.get("tags", "")) if x.strip()]
+        tags = [x.strip() for x in re.split(r"[,，、]", metadata.get("tags", "")) if x.strip()] or [category]
         url = str(path.parent.relative_to(ROOT))
         item = {"path": path, "md": md, "title": title, "date": get_date(path), "topic": category, "topic_en": category_en, "tags": tags, "excerpt": summary, "url": url}
         items.append(item)

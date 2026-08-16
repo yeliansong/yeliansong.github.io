@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2020</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">Systems / 2020-11-07</p><h1>Prometheus + Grafana</h1><p class="dek">中文是普罗米修斯，光听名字就感觉很有范，是很厉害的东西。让我来说说普罗米修斯的故事，他是雅典神话中的人物，传说就是他捏造了人形，雅典娜给每个人形赋予了灵魂。宙斯是禁止人类用火，这哥们看到人类处于困苦中，就从阿波罗手里盗取了火，因此触犯了宙斯，之后宙斯就将他关在高加索山的悬崖上，并且每天放出。</p></header>
+<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2020-11-07</p><h1>Prometheus + Grafana</h1><p class="dek">中文是普罗米修斯，光听名字就感觉很有范，是很厉害的东西。让我来说说普罗米修斯的故事，他是雅典神话中的人物，传说就是他捏造了人形，雅典娜给每个人形赋予了灵魂。宙斯是禁止人类用火，这哥们看到人类处于困苦中，就从阿波罗手里盗取了火，因此触犯了宙斯，之后宙斯就将他关在高加索山的悬崖上，并且每天放出。</p><p class="article-category">分类 · 系统与运维</p><div class="article-tags"><span>系统与运维</span></div></header>
 <h3 id="1-背景介绍">1. 背景介绍</h3>
 <h4 id="1-1-prometheus">1.1 Prometheus</h4>
 <p>中文是普罗米修斯，光听名字就感觉很有范，是很厉害的东西。让我来说说普罗米修斯的故事，他是雅典神话中的人物，传说就是他捏造了人形，雅典娜给每个人形赋予了灵魂。宙斯是禁止人类用火，这哥们看到人类处于困苦中，就从阿波罗手里盗取了火，因此触犯了宙斯，之后宙斯就将他关在高加索山的悬崖上，并且每天放出一只恶鹰去啄他的肝，又让他的肝每天都能长出来，让他承受各种痛苦。这神话还挺有意思，所以可以看到普罗米修斯是人类守护神，他来承受各种苦难 ，守护人类。所以今天说的这个东西也是这个功能，是一个性能监控工具，他是基于时间序列的一套开源的监控&amp;报警用 Go语言写的一套系统。</p>

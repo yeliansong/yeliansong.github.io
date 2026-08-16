@@ -26,7 +26,7 @@ jobs:
             --wiki-token Z32cwpqSdiyhmSkLTnVlmP4zgUd \
             --slug 2026-08-16-daily-reflections \
             --category "工作与生活" \
-            --tags "工作, 生活, 反思" \
+            --tags "工作, 生活" \
             --summary "不定期更新工作&生活中的一些反思和心得"
           python scripts/rebuild_site.py
       - name: Publish update

@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>如何编写 YAML · 叶连松</title><meta name="description" content="好的，让我们分析一下这个 YAML 示例。 它使用缩进来表示图层。 每一层都是相互依赖、相互调用的。每个key的含义。 apiVersion：这是当前配置版本。 Kind：创建的资源类型。 元数据：资源元数据。 规格：部署的规格。 选择器：用于选择哪个模板。 模板：定义Pod信息。 所以。">
-<meta property="og:title" content="如何编写 YAML"><meta property="og:description" content="好的，让我们分析一下这个 YAML 示例。 它使用缩进来表示图层。 每一层都是相互依赖、相互调用的。每个key的含义。 apiVersion：这是当前配置版本。 Kind：创建的资源类型。 元数据：资源元数据。 规格：部署的规格。 选择器：用于选择哪个模板。 模板：定义Pod信息。 所以。"><meta property="og:type" content="article">
+<title>如何编写 YAML · 叶连松</title><meta name="description" content="yaml">
+<meta property="og:title" content="如何编写 YAML"><meta property="og:description" content="yaml"><meta property="og:type" content="article">
 <link rel="stylesheet" href="/css/blog.css"><script defer src="/js/blog.js"></script></head>
 <body class="article-page"><header class="topbar"><a class="wordmark identity" href="/" aria-label="Liansong Ye's blog"><span class="identity-mark">LY</span><span class="identity-copy"><b>LIANSONG YE</b><small>WORK / LIFE / BOOKS</small></span></a>
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2020</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">Tools / 2020-04-08</p><h1>如何编写 YAML</h1><p class="dek">好的，让我们分析一下这个 YAML 示例。 它使用缩进来表示图层。 每一层都是相互依赖、相互调用的。每个key的含义。 apiVersion：这是当前配置版本。 Kind：创建的资源类型。 元数据：资源元数据。 规格：部署的规格。 选择器：用于选择哪个模板。 模板：定义Pod信息。 所以。</p></header>
+<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2020-04-08</p><h1>如何编写 YAML</h1><p class="dek">yaml</p><p class="article-category">分类 · 工具与编程</p><div class="article-tags"><span>工具与编程</span></div></header>
 <h3 id="1-如何编写yaml">1.如何编写YAML</h3>
 <blockquote>```yaml<br>apiVersion: apps/v1<br>kind: Deployment<br>metadata:<br>name: nginx-deploymnet<br>spec:<br>replicas: 3<br>selector:<br>matchLabels:<br>app: web_server<br>template:<br>metadata:<br>labels:<br>app: web_server<br>spec:<br>containers:<br>- name: nginx<br>image: nginx:1.7.9<br>```</blockquote>
 <p>好的，让我们分析一下这个 YAML 示例。 它使用缩进来表示图层。 每一层都是相互依赖、相互调用的。每个key的含义。</p>

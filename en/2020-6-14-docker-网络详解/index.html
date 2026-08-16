@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2020</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">Cloud Native / 2020-06-14</p><h1>Detailed explanation of Docker network</h1><p class="dek">We know that the core of Docker is resource isolation. Docker is equivalent to a process running on the Host, but how do these processes run inde。</p></header>
+<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2020-06-14</p><h1>Detailed explanation of Docker network</h1><p class="dek">We know that the core of Docker is resource isolation. Docker is equivalent to a process running on the Host, but how do these processes run inde。</p><p class="article-category">分类 · 云原生</p><div class="article-tags"><span>云原生</span></div></header>
 <p>We know that the core of Docker is resource isolation. Docker is equivalent to a process running on the Host, but how do these processes run independently without interfering with each other? This is about Docker's CGroup and Namespace.</p>
 <p>The full name of CGroup is Control Group, which is used to set the limit of CPU, memory and IO resources used by the process. So CGroup is equivalent to resource control. Docker's CGroup configuration is placed in the configuration file under the path of /sys/fs/cgroup/. Through these configuration files, the resource configuration of the Docker process is set.</p>
 <p>Namespace implements Docker resource isolation, corresponding to 6 resources: Mount, UTS, IPC, PID, Network and User.</p>
