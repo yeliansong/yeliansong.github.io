@@ -156,12 +156,14 @@ def shell(title: str, description: str, body: str, page_class="", lang="zh-CN") 
 def article_page(item: dict) -> str:
     content = markdown(item["md"])
     content = re.sub(r"<h1[^>]*>.*?</h1>", "", content, count=1, flags=re.S)
-    escaped_excerpt = re.escape(html.escape(item["excerpt"]))
-    content = re.sub(rf"^\s*<(?:p|blockquote)>{escaped_excerpt}</(?:p|blockquote)>\s*", "", content, count=1)
+    if item.get("has_summary"):
+        escaped_excerpt = re.escape(html.escape(item["excerpt"]))
+        content = re.sub(rf"^\s*<(?:p|blockquote)>{escaped_excerpt}</(?:p|blockquote)>\s*", "", content, count=1)
     tags = "".join(f"<span>{html.escape(tag)}</span>" for tag in item.get("tags", []))
     tag_row = f'<div class="article-tags">{tags}</div>' if tags else ""
+    dek = f'<p class="dek">{html.escape(item["excerpt"])}</p>' if item.get("has_summary") else ""
     hero = f'''<main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>{item['date'].year}</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / {item['date'].isoformat()}</p><h1>{html.escape(item['title'])}</h1><p class="dek">{html.escape(item['excerpt'])}</p><p class="article-category">分类 · {html.escape(item['topic'])}</p>{tag_row}</header>{content}
+<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / {item['date'].isoformat()}</p><h1>{html.escape(item['title'])}</h1>{dek}<p class="article-category">分类 · {html.escape(item['topic'])}</p>{tag_row}</header>{content}
 <div class="article-end"><span>END</span><a href="/posts/">继续阅读 →</a></div></article></main>'''
     return shell(item["title"], item["excerpt"], hero, "article-page")
 
@@ -208,7 +210,7 @@ def build():
         summary = metadata.get("summary") or (plain(quoted_summary.group(1)) if quoted_summary else plain(summary_source)[:145].rstrip("，。； ") + "。")
         tags = [x.strip() for x in re.split(r"[,，、]", metadata.get("tags", "")) if x.strip()] or [category]
         url = str(path.parent.relative_to(ROOT))
-        item = {"path": path, "md": md, "title": title, "date": get_date(path), "topic": category, "topic_en": category_en, "tags": tags, "excerpt": summary, "url": url}
+        item = {"path": path, "md": md, "title": title, "date": get_date(path), "topic": category, "topic_en": category_en, "tags": tags, "excerpt": summary, "has_summary": bool(metadata.get("summary")), "url": url}
         items.append(item)
         path.with_name("index.html").write_text(clean_output(article_page(item)), encoding="utf-8")
     zh_items = sorted([x for x in items if not x["url"].startswith("en/")], key=lambda x: x["date"], reverse=True)

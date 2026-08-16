@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2020</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2020-04-14</p><h1>Volume</h1><p class="dek">yaml</p><p class="article-category">分类 · 云原生</p><div class="article-tags"><span>云原生</span></div></header>
+<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2020-04-14</p><h1>Volume</h1><p class="article-category">分类 · 云原生</p><div class="article-tags"><span>云原生</span></div></header>
 <h3 id="1-emptydir">1.emptyDir</h3>
 <p>这是卷的基础。 生命周期取决于Pod。 当相关 Pod 被删除时，该卷也会被删除。 所以我们可以将其视为Pod的路径。 Pod 的所有容器共享这个 voiume。 让我们展示如何设置音量配置。</p>
 <blockquote>```yaml<br>apiVersion: v1<br>kind: Pod<br>metadata:<br>name: producer-consumer<br>spec:<br>containers:<br>- image: busybox<br>name: producer<br>volumeMounts:<br>- mountPath: /producer_dir<br>name: shared-volume<br>args:<br>- /bin/sh<br>- -c<br>- echo "hello world" &gt; /producer_dir/hello; sleep 30000<br><br>- image: busybox<br>name: consumer<br>volumeMounts:<br>- mountPath: /consumer_dir<br>name: shared-volume<br>args:<br>- /bin/sh<br>- -c<br>- cat /consumer_dir/hello; sleep 30000<br><br>volumes:<br>- name: shared-volume<br>emptyDir: {}<br>```</blockquote>

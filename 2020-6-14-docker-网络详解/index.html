@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2020</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2020-06-14</p><h1>Docker网络详解</h1><p class="dek">我们知道，Docker的核心是资源隔离，Docker相当于是运行在Host 主机上的一个进程，但是这些进程是如何实现彼此的互不干扰，独立运行呢？这个就要说到Docker的CGroup 和 Namespace了。 CGroup全称是Control Group，是用来设置进程使用CPU，内存和。</p><p class="article-category">分类 · 云原生</p><div class="article-tags"><span>云原生</span></div></header>
+<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2020-06-14</p><h1>Docker网络详解</h1><p class="article-category">分类 · 云原生</p><div class="article-tags"><span>云原生</span></div></header>
 <p>我们知道，Docker的核心是资源隔离，Docker相当于是运行在Host 主机上的一个进程，但是这些进程是如何实现彼此的互不干扰，独立运行呢？这个就要说到Docker的CGroup 和 Namespace了。</p>
 <p>CGroup全称是Control Group，是用来设置进程使用CPU，内存和IO资源的限额。所以CGroup相当于是用来做资源的控制。Docker的CGroup配置是放在 /sys/fs/cgroup/路径下配置文件里，通过这些配置文件，来设置Docker进程的资源配置。</p>
 <p>Namespace是实现Docker的资源隔离，分别对应了6种资源： Mount， UTS， IPC， PID，Network和 User。</p>
