@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Sync one Feishu document into this static blog without third-party packages."""
 from __future__ import annotations
-import argparse, datetime as dt, json, os, re, urllib.parse, urllib.request
+import argparse, datetime as dt, json, os, re, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -10,8 +10,20 @@ def request(url: str, data=None, token=None):
     headers = {"Content-Type": "application/json; charset=utf-8"}
     if token: headers["Authorization"] = f"Bearer {token}"
     body = json.dumps(data).encode() if data else None
-    with urllib.request.urlopen(urllib.request.Request(url, body, headers), timeout=30) as r:
-        payload = json.load(r)
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, body, headers), timeout=30) as r:
+            payload = json.load(r)
+    except urllib.error.HTTPError as error:
+        # Lark returns useful API error details in the response body even for
+        # HTTP 4xx responses. Surface them in Actions instead of a bare 400.
+        try:
+            payload = json.load(error)
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            raise RuntimeError(f"Lark API HTTP {error.code}: {error.reason}") from error
+        raise RuntimeError(
+            f"Lark API error {payload.get('code', error.code)}: "
+            f"{payload.get('msg', error.reason)}"
+        ) from error
     if payload.get("code", 0) != 0:
         raise RuntimeError(payload.get("msg", "Feishu API error"))
     return payload
@@ -25,7 +37,9 @@ def tenant_token(platform: str):
     return payload["tenant_access_token"]
 
 def resolve_wiki_document(wiki_token: str, token: str, platform: str) -> str:
-    query = urllib.parse.urlencode({"token": wiki_token})
+    # Tokens copied from /wiki/<token> URLs must explicitly be identified as
+    # Wiki node tokens. Otherwise Lark responds with HTTP 400.
+    query = urllib.parse.urlencode({"token": wiki_token, "obj_type": "wiki"})
     url = f"{api_base(platform)}/open-apis/wiki/v2/spaces/get_node?{query}"
     node = request(url, token=token)["data"]["node"]
     if node.get("obj_type") != "docx":
