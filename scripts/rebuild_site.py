@@ -156,6 +156,8 @@ def shell(title: str, description: str, body: str, page_class="", lang="zh-CN") 
 def article_page(item: dict) -> str:
     content = markdown(item["md"])
     content = re.sub(r"<h1[^>]*>.*?</h1>", "", content, count=1, flags=re.S)
+    escaped_excerpt = re.escape(html.escape(item["excerpt"]))
+    content = re.sub(rf"^\s*<(?:p|blockquote)>{escaped_excerpt}</(?:p|blockquote)>\s*", "", content, count=1)
     tags = "".join(f"<span>{html.escape(tag)}</span>" for tag in item.get("tags", []))
     tag_row = f'<div class="article-tags">{tags}</div>' if tags else ""
     hero = f'''<main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>{item['date'].year}</span></aside>
