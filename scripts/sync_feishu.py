@@ -26,8 +26,8 @@ def document_text(document_id: str, token: str) -> str:
     return request(url, token=token)["data"]["content"]
 
 def slugify(value: str) -> str:
-    ascii_slug = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
-    return ascii_slug or dt.date.today().isoformat()
+    readable_slug = re.sub(r"[^a-z0-9\u4e00-\u9fff]+", "-", value.lower()).strip("-")
+    return readable_slug or "untitled"
 
 def inline_md(text: str) -> str:
     text = re.sub(r"\n{3,}", "\n\n", text.strip())
