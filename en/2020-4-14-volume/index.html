@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2020</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">Cloud Native / 2020.04.14</p><h1>Volume</h1></header>
+<article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#cloud-native">Cloud Native</a> / 2020.04.14</p><h1>Volume</h1></header>
 <h3 id="1-emptydir">1. emptyDir</h3>
 <p>It's the basis of Volume. The life cycle depends on the Pod. The volume will be removed when the related Pod was removed. So we can think of it as the path of the Pod. All the containers of the pod share this voiume. Let's show how to setup the volume configure.</p>
 <blockquote>```yaml<br>apiVersion: v1<br>kind: Pod<br>metadata:<br>name: producer-consumer<br>spec:<br>containers:<br>- image: busybox<br>name: producer<br>volumeMounts:<br>- mountPath: /producer_dir<br>name: shared-volume<br>args:<br>- /bin/sh<br>- -c<br>- echo "hello world" &gt; /producer_dir/hello; sleep 30000<br><br>- image: busybox<br>name: consumer<br>volumeMounts:<br>- mountPath: /consumer_dir<br>name: shared-volume<br>args:<br>- /bin/sh<br>- -c<br>- cat /consumer_dir/hello; sleep 30000<br><br>volumes:<br>- name: shared-volume<br>emptyDir: {}<br>```</blockquote>

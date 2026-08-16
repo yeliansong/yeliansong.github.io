@@ -128,6 +128,10 @@ def get_date(path: Path) -> dt.date:
     return dt.date(2020, 1, 1)
 
 
+def anchor_slug(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+
 def topic(title: str, path: str) -> tuple[str, str]:
     text = (title + " " + path).lower()
     if any(x in text for x in ["日本", "旅游", "旅行", "三体", "月亮和六便士", "平凡的世界", "健康", "住房"]):
@@ -161,7 +165,7 @@ def article_page(item: dict) -> str:
         content = re.sub(rf"^\s*<(?:p|blockquote)>{escaped_excerpt}</(?:p|blockquote)>\s*", "", content, count=1)
     dek = f'<p class="dek">{html.escape(item["excerpt"])}</p>' if item.get("has_summary") else ""
     hero = f'''<main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>{item['date'].year}</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">{html.escape(item['topic_en'])} / {item['date'].strftime('%Y.%m.%d')}</p><h1>{html.escape(item['title'])}</h1>{dek}</header>{content}
+<article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#{anchor_slug(item['topic_en'])}">{html.escape(item['topic_en'])}</a> / {item['date'].strftime('%Y.%m.%d')}</p><h1>{html.escape(item['title'])}</h1>{dek}</header>{content}
 <div class="article-end"><span>END</span><a href="/posts/">继续阅读 →</a></div></article></main>'''
     return shell(item["title"], item["excerpt"], hero, "article-page")
 
@@ -219,7 +223,7 @@ def build():
 
     groups = {}
     for item in zh_items: groups.setdefault(item["topic"], []).append(item)
-    topic_blocks = "".join(f'''<section class="topic-block"><div><span>{i:02d}</span><h2>{html.escape(name)}</h2><p>{len(group)} 篇文章</p></div><div>{cards(group)}</div></section>''' for i,(name,group) in enumerate(groups.items(),1))
+    topic_blocks = "".join(f'''<section class="topic-block" id="{anchor_slug(group[0]['topic_en'])}"><div><span>{i:02d}</span><h2>{html.escape(name)}</h2><p>{len(group)} 篇文章</p></div><div>{cards(group)}</div></section>''' for i,(name,group) in enumerate(groups.items(),1))
     topics_body = f'''<main class="topics"><header class="listing-head"><p class="kicker">TOPICS / 主题</p><h1>沿着兴趣，<br><em>建立自己的知识地图。</em></h1></header>{topic_blocks}</main>'''
     for folder in ["categories", "tags"]:
         (ROOT/folder).mkdir(exist_ok=True); (ROOT/folder/"index.html").write_text(clean_output(shell("主题", "按主题浏览文章", topics_body, "topics-page")), encoding="utf-8")

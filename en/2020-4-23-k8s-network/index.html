@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2020</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">Cloud Native / 2020.04.23</p><h1>K8S Network</h1></header>
+<article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#cloud-native">Cloud Native</a> / 2020.04.23</p><h1>K8S Network</h1></header>
 <p>K8S network is divided into 3 levels. From inside to outside, there are 3 types: <strong>1) Container Network. 2) Intra-Cluster Network. 3) External Cluster Network.</strong> Below is the details,</p>
 <h3 id="1-container-network">1. Container Network</h3>
 <p>Docker networking is limited within the host itself. By default, it creates a virtual bridge named docker0 and for each container it allocates a virtual ethane which get attached to the bridge docker0. So, in Docker two containers can communicate with each other if they resident on the same host.</p>

@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2019</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">Cloud Native / 2019.09.11</p><h1>四、Deploy managed POD by copy mechanism</h1></header>
+<article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#cloud-native">Cloud Native</a> / 2019.09.11</p><h1>四、Deploy managed POD by copy mechanism</h1></header>
 <h3 id="1-survival-probe">1. Survival Probe</h3>
 <p>Why come up with such a profound word? We know that if a container program in the POD crashes, kubenetes will restart the program, but the problem is, if it is not a crash, such as a deadlock, or throwing an exception, etc., what to do at this time, kubenetes does not know Whether your container is normal or not, you need to use a probe at this time. In fact, the reason is very simple, that is, use a probe to detect it from time to time to see if it is normal.</p>
 <p>Three kinds of probes: 1) HTTP GET probe, which is used to check whether the network is normal. 2) The TCP socket probe is similar, it is to establish a TCP connection, if it succeeds, it is normal. 3) The Exec probe is to execute any command in the container, and if it returns normally, it is successful.</p>

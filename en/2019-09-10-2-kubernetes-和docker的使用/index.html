@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2019</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">Cloud Native / 2019.09.10</p><h1>二、The use of Kubernetes and Docker</h1></header>
+<article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#cloud-native">Cloud Native</a> / 2019.09.10</p><h1>二、The use of Kubernetes and Docker</h1></header>
 <h3 id="1-understanding-docker-images-file-systems-and-containers">1. Understanding Docker images, file systems and containers</h3>
 <p>The image of the container is a file after packaging and compiling the container. The packaging image depends on the Dockerfile file. The From line defines the starting content of the image, which is the basic image for construction. The process of building the image is to upload the entire directory of files to the Docker guardian During the process, Docker will first pull the basic image from the basic image warehouse, and then the packaging of the image is a layered structure, with the basic image as a layer, and then each command will be used as a new layer, layer by layer , the whole is a joint file system.</p>
 <figure><img loading="lazy" src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g6ur4dnruaj30dt07w75q.jpg" /></figure>
