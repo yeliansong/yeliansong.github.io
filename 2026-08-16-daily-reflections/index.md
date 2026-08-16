@@ -1,5 +1,5 @@
 ---
-category: 工作与生活
+category: 个人成长
 tags: 工作, 生活
 summary: 不定期更新工作&生活中的一些反思和心得
 ---

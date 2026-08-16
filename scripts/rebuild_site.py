@@ -206,7 +206,7 @@ def build():
         title = get_title(md, path.parent.name)
         inferred_category, inferred_category_en = topic(title, str(rel))
         category = metadata.get("category", inferred_category)
-        category_en = "Work & Life" if category == "工作与生活" else inferred_category_en
+        category_en = "Personal Growth" if category == "个人成长" else inferred_category_en
         summary_source = re.sub(r"^#{1,6}\s+.*$", "", md, flags=re.M)
         quoted_summary = re.search(r"^>\s*(.+)$", md, re.M)
         summary = metadata.get("summary") or (plain(quoted_summary.group(1)) if quoted_summary else plain(summary_source)[:145].rstrip("，。； ") + "。")
