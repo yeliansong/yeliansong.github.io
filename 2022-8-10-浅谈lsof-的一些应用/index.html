@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2022</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">2022-08-10</p><h1>浅谈 lsof 的一些使用</h1><div class="article-tags"><span>系统与运维</span></div></header>
+<article class="prose"><header class="article-head"><p class="kicker">Systems / 2022.08.10</p><h1>浅谈 lsof 的一些使用</h1></header>
 <h2 id="1-linux-一切皆文件">1 Linux 一切皆文件</h2>
 <p>在Linux 系统中，一切皆文件。通过文件不仅可以查看存储到磁盘中的文件数据，还可以访问网络连接和硬件。问题来了，竟然一切皆是文件，那怎么通过命令方式查看及管理这些打开的文件呢。可以用lsof 命令。不仅可以查看进程打开的文件、目录，还可以查看进程监听的端口等socket 信息。</p>
 <h2 id="2-lsof-命令的常用选项">2 lsof 命令的常用选项</h2>

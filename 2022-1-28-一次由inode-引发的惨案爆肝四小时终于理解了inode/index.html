@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2022</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">2022-01-28</p><h1>一次由iNode 引发的惨案，爆肝四小时终于理解了iNode</h1><div class="article-tags"><span>系统与运维</span></div></header>
+<article class="prose"><header class="article-head"><p class="kicker">Systems / 2022.01.28</p><h1>一次由iNode 引发的惨案，爆肝四小时终于理解了iNode</h1></header>
 <h2 id="1-背景">1 背景</h2>
 <p>一次在做程序包变更时，程序包已经更新到最新版本，需要重启进程，就一直重启不成功。查看启动的错误日志，发现是一直在创建文件时不成功，当时想法是机器磁盘可能满了，查看磁盘使用，发现正常，瞬时就懵逼了，一直想不到是啥问题。突然想到之前有了解过Linux 系统有inode 一说，中文译名是：索引节点。创建的每一个文件都有一个inode，这个inode是用来记录文件的基础信息，这个节点资源也是有限的，马上去查了下，发现inode占用已经100% 了，这完犊子了，马上清理，问题解决。这篇就来说说这个吧。</p>
 <figure><img loading="lazy" src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images/5c8980c1815a4eb0ae95789acf79f895~tplv-k3u1fbpfcp-zoom-1.image" /></figure>

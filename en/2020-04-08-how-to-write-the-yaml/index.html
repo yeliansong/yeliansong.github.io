@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2020</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">2020-04-08</p><h1>How to write YAML</h1><div class="article-tags"><span>工具与编程</span></div></header>
+<article class="prose"><header class="article-head"><p class="kicker">Tools / 2020.04.08</p><h1>How to write YAML</h1></header>
 <h3 id="1-how-to-write-the-yaml">1. How to write the YAML</h3>
 <blockquote>```yaml<br>apiVersion: apps/v1<br>kind: Deployment<br>metadata:<br>name: nginx-deploymnet<br>spec:<br>replicas: 3<br>selector:<br>matchLabels:<br>app: web_server<br>template:<br>metadata:<br>labels:<br>app: web_server<br>spec:<br>containers:<br>- name: nginx<br>image: nginx:1.7.9<br>```</blockquote>
 <p>Okay, Let us analysis this YAML sample. It used the indentation to represent the layer. Every layer was dependent and called each other.The meaning of every key.</p>
