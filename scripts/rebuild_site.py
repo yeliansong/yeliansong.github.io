@@ -163,7 +163,7 @@ def article_page(item: dict) -> str:
     if item.get("has_summary"):
         escaped_excerpt = re.escape(html.escape(item["excerpt"]))
         content = re.sub(rf"^\s*<(?:p|blockquote)>{escaped_excerpt}</(?:p|blockquote)>\s*", "", content, count=1)
-    dek = f'<p class="dek">{html.escape(item["excerpt"])}</p>' if item.get("has_summary") else ""
+    dek = f'<blockquote class="dek">{html.escape(item["excerpt"])}</blockquote>' if item.get("has_summary") else ""
     hero = f'''<main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>{item['date'].year}</span></aside>
 <article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#{anchor_slug(item['topic_en'])}">{html.escape(item['topic_en'])}</a> / {item['date'].strftime('%Y.%m.%d')}</p><h1>{html.escape(item['title'])}</h1>{dek}</header>{content}
 <div class="article-end"><span>END</span><a href="/posts/">继续阅读 →</a></div></article></main>'''
