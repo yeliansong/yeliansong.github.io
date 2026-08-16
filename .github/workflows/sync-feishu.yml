@@ -1,0 +1,31 @@
+name: Sync Feishu article
+on:
+  workflow_dispatch:
+    inputs:
+      document_id:
+        description: Feishu document ID (the token in its URL)
+        required: true
+      slug:
+        description: Optional URL slug
+        required: false
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Import document and render page
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+        run: python scripts/sync_feishu.py --document-id "${{ inputs.document_id }}" --slug "${{ inputs.slug }}"
+      - name: Commit article
+        run: |
+          git config user.name "blog-publisher[bot]"
+          git config user.email "blog-publisher[bot]@users.noreply.github.com"
+          git add .
+          git diff --cached --quiet || git commit -m "content: sync Feishu article"
+          git push
