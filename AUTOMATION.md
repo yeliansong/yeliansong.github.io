@@ -7,7 +7,9 @@
 3. 在 GitHub 仓库 `Settings → Secrets and variables → Actions` 新增 `FEISHU_APP_ID` 和 `FEISHU_APP_SECRET`。
 4. 打开 GitHub Actions 的 **Sync Feishu article**，点击 **Run workflow**，填入 document ID。
 
-流水线会保留一份 `index.md` 内容源，并生成 GitHub Pages 可直接访问的 `index.html`。建议飞书首行为 `# 文章标题`，正文使用标题、段落、列表和代码块。
+流水线会保留一份 `index.md` 内容源，调用全站生成器创建文章页并更新文章归档。建议飞书第一行直接写文章标题，正文使用普通段落；需要明确层级时，可以直接输入 `## 二级标题`、`### 三级标题`、`- 列表` 和 Markdown 代码块。
+
+当前同步使用飞书“获取文档纯文本内容”接口，因此文字内容可以自动发布，但飞书中直接粘贴的图片不会被同步。含图片的文章请先使用公开图床 URL，以 Markdown 图片语法插入，或发布前在仓库中补充图片。
 
 ## 每周文章机制
 

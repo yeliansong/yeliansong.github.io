@@ -21,7 +21,9 @@ jobs:
         env:
           FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
           FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
-        run: python scripts/sync_feishu.py --document-id "${{ inputs.document_id }}" --slug "${{ inputs.slug }}"
+        run: |
+          python scripts/sync_feishu.py --document-id "${{ inputs.document_id }}" --slug "${{ inputs.slug }}"
+          python scripts/rebuild_site.py
       - name: Commit article
         run: |
           git config user.name "blog-publisher[bot]"
