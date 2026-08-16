@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2019</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2019-09-12</p><h1>六、卷-将磁盘挂载到容器</h1><p class="article-category">分类 · 云原生</p><div class="article-tags"><span>云原生</span></div></header>
+<article class="prose"><header class="article-head"><p class="kicker">2019-09-12</p><h1>六、卷-将磁盘挂载到容器</h1><div class="article-tags"><span>云原生</span></div></header>
 <h3 id="1-卷-volume">1. 卷（volume）</h3>
 <p>终于等到你了，卷，volume。 也是kubernetes很重要的一个组件啊。不对，应该不能说是k8s的一个组件，应该说是属于POD中的一个组成部分。</p>
 <p>卷是用来解决什么问题呢？POD其实相当于一个逻辑主机，每个POD可能有多个容器，这些容器呢，我们知道其实就相当于逻辑主机的进程，这些进程可以共享CPU，RAM，网络等，但是呢，每个容器是由自己的文件系统的，这些系统是相互隔离的，有没办法让这些容器共享文件系统呢？你想这个场景，比如POD里的一个容器挂了，然后重新起一个，但是起的这个呢依旧用之前那个的文件系统资源，怎么解决这个问题，你必须要用卷吗，相当于用共享的这个文件系统。</p>

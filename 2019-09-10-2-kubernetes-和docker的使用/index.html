@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2019</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2019-09-10</p><h1>二、Kubernetes 和 Docker的使用</h1><p class="article-category">分类 · 云原生</p><div class="article-tags"><span>云原生</span></div></header>
+<article class="prose"><header class="article-head"><p class="kicker">2019-09-10</p><h1>二、Kubernetes 和 Docker的使用</h1><div class="article-tags"><span>云原生</span></div></header>
 <h3 id="1-理解docker镜像-文件系统和容器">1. 理解Docker镜像,文件系统和容器</h3>
 <p>容器的镜像就是打包编译容器后的一个文件，打包镜像是依赖Dockerfile文件，From行定义了镜像的起始内容，也就是构建的基础镜像，镜像的构建过程是将整个目录的文件上传到Docker守护进程中，Docker会先从基础镜像仓库中拉取基础镜像，然后镜像的打包是一个分层的结构，基础镜像作为一层，然后每一条命令会作为一个新的分层，一层一层叠加，整个就是一个联合文件系统。</p>
 <figure><img loading="lazy" src="https://cdn.jsdelivr.net/gh/yeliansong/github-blog-PIC/blog-images006y8mN6gy1g6ur4dnruaj30dt07w75q.jpg" /></figure>

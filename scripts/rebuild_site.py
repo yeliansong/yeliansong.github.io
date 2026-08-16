@@ -163,7 +163,7 @@ def article_page(item: dict) -> str:
     tag_row = f'<div class="article-tags">{tags}</div>' if tags else ""
     dek = f'<p class="dek">{html.escape(item["excerpt"])}</p>' if item.get("has_summary") else ""
     hero = f'''<main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>{item['date'].year}</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / {item['date'].isoformat()}</p><h1>{html.escape(item['title'])}</h1>{dek}<p class="article-category">分类 · {html.escape(item['topic'])}</p>{tag_row}</header>{content}
+<article class="prose"><header class="article-head"><p class="kicker">{item['date'].isoformat()}</p><h1>{html.escape(item['title'])}</h1>{dek}{tag_row}</header>{content}
 <div class="article-end"><span>END</span><a href="/posts/">继续阅读 →</a></div></article></main>'''
     return shell(item["title"], item["excerpt"], hero, "article-page")
 

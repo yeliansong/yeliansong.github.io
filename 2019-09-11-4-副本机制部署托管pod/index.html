@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2019</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2019-09-11</p><h1>四、副本机制部署托管POD</h1><p class="article-category">分类 · 云原生</p><div class="article-tags"><span>云原生</span></div></header>
+<article class="prose"><header class="article-head"><p class="kicker">2019-09-11</p><h1>四、副本机制部署托管POD</h1><div class="article-tags"><span>云原生</span></div></header>
 <h3 id="1-存活探针">1. 存活探针</h3>
 <p>为啥要搞出这么一个高深的词？我们知道POD里如果有容器程序崩溃了，kubenetes 会重新启动程序，但是问题来了，如果不是崩溃的情况呢，比如死锁了，或者抛了异常等等，这个时候咋整，kubenetes也不知道你的容器是否正常，这个时候就要用到探针了。其实道理很简单，就是用一个探针时不时地探测下，看是否正常。</p>
 <p>三种探针：1）HTTP GET探针，就是用来检查网络是否正常。2）TCP套接字探针，也差不多，就是建立TCP连接，如果成功了就是正常的。3）Exec探针，就是在容器内执行任意命令，如果返回正常就是成功的。</p>

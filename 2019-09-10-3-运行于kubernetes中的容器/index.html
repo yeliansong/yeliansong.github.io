@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2019</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2019-09-10</p><h1>三、运行于Kubernetes中的容器</h1><p class="article-category">分类 · 云原生</p><div class="article-tags"><span>云原生</span></div></header>
+<article class="prose"><header class="article-head"><p class="kicker">2019-09-10</p><h1>三、运行于Kubernetes中的容器</h1><div class="article-tags"><span>云原生</span></div></header>
 <h3 id="1-为啥要搞出pod">1. 为啥要搞出POD</h3>
 <p>我们知道，POD是Kubernetes管理的最小单位，为啥Kubernetes不直接管理container，要管理POD呢？这是有原因的，我们知道，container是单一进程的，啥意思呢，就是container的设计思想就是每个container只运行一个进程， 如果用枯bernetes直接去管理这些container，肯定是错综复杂，所以就搞出了POD这个东西，来实现容器间的资源和网络隔离，在同一个POD下的所有容器共享网络和系统资源，但是呢，一个POD内的所有容器肯定是逻辑业务密切结合的一个整体，他们肯定是有很强的联系。每一个container可以用端口来进行区分。</p>
 <h3 id="2-怎么规划pod中的容器">2. 怎么规划POD中的容器</h3>

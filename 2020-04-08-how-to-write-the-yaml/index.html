@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2020</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">ARTICLE / 2020-04-08</p><h1>如何编写 YAML</h1><p class="article-category">分类 · 工具与编程</p><div class="article-tags"><span>工具与编程</span></div></header>
+<article class="prose"><header class="article-head"><p class="kicker">2020-04-08</p><h1>如何编写 YAML</h1><div class="article-tags"><span>工具与编程</span></div></header>
 <h3 id="1-如何编写yaml">1.如何编写YAML</h3>
 <blockquote>```yaml<br>apiVersion: apps/v1<br>kind: Deployment<br>metadata:<br>name: nginx-deploymnet<br>spec:<br>replicas: 3<br>selector:<br>matchLabels:<br>app: web_server<br>template:<br>metadata:<br>labels:<br>app: web_server<br>spec:<br>containers:<br>- name: nginx<br>image: nginx:1.7.9<br>```</blockquote>
 <p>好的，让我们分析一下这个 YAML 示例。 它使用缩进来表示图层。 每一层都是相互依赖、相互调用的。每个key的含义。</p>
