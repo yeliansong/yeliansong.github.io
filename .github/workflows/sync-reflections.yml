@@ -1,0 +1,35 @@
+name: Sync daily reflections
+on:
+  workflow_dispatch:
+  schedule:
+    # Sunday 09:00 Asia/Singapore (01:00 UTC)
+    - cron: '0 1 * * 0'
+permissions:
+  contents: write
+concurrency:
+  group: sync-daily-reflections
+  cancel-in-progress: true
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Sync Lark Wiki diary
+        env:
+          FEISHU_APP_ID: ${{ secrets.LARK_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
+        run: |
+          python scripts/sync_feishu.py \
+            --platform lark \
+            --wiki-token Z32cwpqSdiyhmSkLTnVlmP4zgUd \
+            --slug 2026-08-16-daily-reflections
+          python scripts/rebuild_site.py
+      - name: Publish update
+        run: |
+          git config user.name "blog-publisher[bot]"
+          git config user.email "blog-publisher[bot]@users.noreply.github.com"
+          git add .
+          git diff --cached --quiet || git commit -m "content: sync daily reflections"
+          git push
