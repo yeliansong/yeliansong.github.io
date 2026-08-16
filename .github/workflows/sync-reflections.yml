@@ -24,7 +24,9 @@ jobs:
           python scripts/sync_feishu.py \
             --platform lark \
             --wiki-token Z32cwpqSdiyhmSkLTnVlmP4zgUd \
-            --slug 2026-08-16-daily-reflections
+            --slug 2026-08-16-daily-reflections \
+            --category "工作与生活" \
+            --tags "工作, 生活, 反思"
           python scripts/rebuild_site.py
       - name: Publish update
         run: |

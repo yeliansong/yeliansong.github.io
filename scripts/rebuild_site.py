@@ -103,6 +103,18 @@ def plain(md: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
+def front_matter(md: str) -> tuple[dict[str, str], str]:
+    match = re.match(r"^---\s*\n(.*?)\n---\s*\n?", md, re.S)
+    if not match:
+        return {}, md
+    metadata = {}
+    for line in match.group(1).splitlines():
+        if ":" in line:
+            key, value = line.split(":", 1)
+            metadata[key.strip().lower()] = value.strip()
+    return metadata, md[match.end():]
+
+
 def get_title(md: str, fallback: str) -> str:
     match = re.search(r"^#\s+(.+)$", md, re.M)
     return match.group(1).strip() if match else fallback
@@ -144,8 +156,10 @@ def shell(title: str, description: str, body: str, page_class="", lang="zh-CN") 
 def article_page(item: dict) -> str:
     content = markdown(item["md"])
     content = re.sub(r"<h1[^>]*>.*?</h1>", "", content, count=1, flags=re.S)
+    tags = "".join(f"<span>{html.escape(tag)}</span>" for tag in item.get("tags", []))
+    tag_row = f'<div class="article-tags">{tags}</div>' if tags else ""
     hero = f'''<main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>{item['date'].year}</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker">{item['topic_en']} / {item['date'].isoformat()}</p><h1>{html.escape(item['title'])}</h1><p class="dek">{html.escape(item['excerpt'])}</p></header>{content}
+<article class="prose"><header class="article-head"><p class="kicker">{item['topic_en']} / {item['date'].isoformat()}</p><h1>{html.escape(item['title'])}</h1><p class="dek">{html.escape(item['excerpt'])}</p>{tag_row}</header>{content}
 <div class="article-end"><span>END</span><a href="/posts/">继续阅读 →</a></div></article></main>'''
     return shell(item["title"], item["excerpt"], hero, "article-page")
 
@@ -181,13 +195,18 @@ def build():
     for path in ROOT.rglob("index.md"):
         rel = path.relative_to(ROOT)
         if any(part in SKIP_PARTS for part in rel.parts) or rel.parts[0] in {"about", "start"}: continue
-        md = path.read_text(encoding="utf-8", errors="replace")
+        raw_md = path.read_text(encoding="utf-8", errors="replace")
+        metadata, md = front_matter(raw_md)
         title = get_title(md, path.parent.name)
-        category, category_en = topic(title, str(rel))
+        inferred_category, inferred_category_en = topic(title, str(rel))
+        category = metadata.get("category", inferred_category)
+        category_en = "Work & Life" if category == "工作与生活" else inferred_category_en
         summary_source = re.sub(r"^#{1,6}\s+.*$", "", md, flags=re.M)
-        summary = plain(summary_source)[:145].rstrip("，。； ") + "。"
+        quoted_summary = re.search(r"^>\s*(.+)$", md, re.M)
+        summary = metadata.get("summary") or (plain(quoted_summary.group(1)) if quoted_summary else plain(summary_source)[:145].rstrip("，。； ") + "。")
+        tags = [x.strip() for x in re.split(r"[,，、]", metadata.get("tags", "")) if x.strip()]
         url = str(path.parent.relative_to(ROOT))
-        item = {"path": path, "md": md, "title": title, "date": get_date(path), "topic": category, "topic_en": category_en, "excerpt": summary, "url": url}
+        item = {"path": path, "md": md, "title": title, "date": get_date(path), "topic": category, "topic_en": category_en, "tags": tags, "excerpt": summary, "url": url}
         items.append(item)
         path.with_name("index.html").write_text(clean_output(article_page(item)), encoding="utf-8")
     zh_items = sorted([x for x in items if not x["url"].startswith("en/")], key=lambda x: x["date"], reverse=True)

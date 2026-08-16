@@ -56,7 +56,7 @@ def block_text(value: dict) -> str:
         parts.append(f"[{content}]({link})" if link else content)
     return "".join(parts).strip()
 
-def document_markdown(document_id: str, token: str, platform: str) -> tuple[str, str]:
+def document_markdown(document_id: str, token: str, platform: str) -> tuple[str, str, dict[str, str]]:
     blocks, page_token = [], None
     while True:
         params = {"page_size": 500}
@@ -66,14 +66,25 @@ def document_markdown(document_id: str, token: str, platform: str) -> tuple[str,
         blocks.extend(data.get("items", []))
         if not data.get("has_more"): break
         page_token = data["page_token"]
-    title, lines = "未命名文章", []
+    title, lines, metadata = "未命名文章", [], {}
+
+    def add_text(value: str, prefix: str = ""):
+        if not value:
+            return
+        match = re.match(r"^(分类|标签|摘要|category|tags|summary)\s*[:：]\s*(.+)$", value, re.I)
+        if match:
+            keys = {"分类": "category", "标签": "tags", "摘要": "summary"}
+            metadata[keys.get(match.group(1).lower(), match.group(1).lower())] = match.group(2).strip()
+            return
+        lines.append(prefix + value)
+
     for block in blocks:
         kind = block.get("block_type")
         if kind == 1:
             title = block_text(block.get("page", {})) or title
         elif kind == 2:
             value = block_text(block.get("text", {}))
-            if value: lines.append(value)
+            add_text(value)
         elif 3 <= kind <= 11:
             level = min(kind - 2, 6)
             value = block_text(block.get(f"heading{kind - 2}", {}))
@@ -89,12 +100,12 @@ def document_markdown(document_id: str, token: str, platform: str) -> tuple[str,
             if value: lines.append(f"```\n{value}\n```")
         elif kind == 15:
             value = block_text(block.get("quote", {}))
-            if value: lines.append(f"> {value}")
+            add_text(value, "> ")
         elif kind == 22:
             lines.append("---")
         elif kind == 27:
             lines.append("<!-- Lark image: pending media sync -->")
-    return title, "\n\n".join(lines).strip()
+    return title, "\n\n".join(lines).strip(), metadata
 
 def slugify(value: str) -> str:
     readable_slug = re.sub(r"[^a-z0-9\u4e00-\u9fff]+", "-", value.lower()).strip("-")
@@ -105,14 +116,19 @@ def inline_md(text: str) -> str:
     return text
 
 def main():
-    p=argparse.ArgumentParser(); p.add_argument("--document-id", default=os.getenv("FEISHU_DOCUMENT_ID")); p.add_argument("--wiki-token"); p.add_argument("--platform", choices=["feishu","lark"], default="feishu"); p.add_argument("--slug"); p.add_argument("--draft", action="store_true"); args=p.parse_args()
+    p=argparse.ArgumentParser(); p.add_argument("--document-id", default=os.getenv("FEISHU_DOCUMENT_ID")); p.add_argument("--wiki-token"); p.add_argument("--platform", choices=["feishu","lark"], default="feishu"); p.add_argument("--slug"); p.add_argument("--category"); p.add_argument("--tags"); p.add_argument("--summary"); p.add_argument("--draft", action="store_true"); args=p.parse_args()
     if not args.document_id and not args.wiki_token: raise SystemExit("Missing --document-id, --wiki-token, or FEISHU_DOCUMENT_ID")
     token=tenant_token(args.platform)
     document_id=resolve_wiki_document(args.wiki_token, token, args.platform) if args.wiki_token else args.document_id
-    title, body=document_markdown(document_id, token, args.platform)
+    title, body, metadata=document_markdown(document_id, token, args.platform)
+    for key, value in {"category": args.category, "tags": args.tags, "summary": args.summary}.items():
+        if value and key not in metadata: metadata[key] = value
     slug=args.slug or f"{dt.date.today().isoformat()}-{slugify(title)}"
     target=ROOT / ("drafts" if args.draft else slug); target.mkdir(parents=True, exist_ok=True)
-    markdown_content=f"# {title}\n\n{body}\n"
+    front_matter = ""
+    if metadata:
+        front_matter = "---\n" + "\n".join(f"{key}: {value}" for key, value in metadata.items()) + "\n---\n\n"
+    markdown_content=f"{front_matter}# {title}\n\n{body}\n"
     (target/"index.md").write_text(markdown_content, encoding="utf-8")
     print(target.relative_to(ROOT))
 if __name__ == "__main__": main()
