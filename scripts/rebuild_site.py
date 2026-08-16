@@ -134,6 +134,8 @@ def anchor_slug(value: str) -> str:
 
 def topic(title: str, path: str) -> tuple[str, str]:
     text = (title + " " + path).lower()
+    if any(x in text for x in ["人工智能", "大模型", "llm", "agent", "prompt", "生成式 ai", "ai ", " ai", "mcp"]):
+        return "进击的 AI", "AI"
     if any(x in text for x in ["日本", "旅游", "旅行", "三体", "月亮和六便士", "平凡的世界", "健康", "住房"]):
         return "生活与阅读", "Life"
     if any(x in text for x in ["k8s", "kubernetes", "docker", "容器", "pod", "deployment", "configmap", "secret", "volume", "cka"]):
@@ -206,7 +208,9 @@ def build():
         title = get_title(md, path.parent.name)
         inferred_category, inferred_category_en = topic(title, str(rel))
         category = metadata.get("category", inferred_category)
-        category_en = "Personal Growth" if category == "个人成长" else inferred_category_en
+        if category == "个人成长": category_en = "Personal Growth"
+        elif category == "进击的 AI": category_en = "AI"
+        else: category_en = inferred_category_en
         summary_source = re.sub(r"^#{1,6}\s+.*$", "", md, flags=re.M)
         quoted_summary = re.search(r"^>\s*(.+)$", md, re.M)
         summary = metadata.get("summary") or (plain(quoted_summary.group(1)) if quoted_summary else plain(summary_source)[:145].rstrip("，。； ") + "。")
@@ -221,9 +225,9 @@ def build():
     posts = intro + cards(zh_items) + "</section></main>"
     (ROOT/"posts").mkdir(exist_ok=True); (ROOT/"posts/index.html").write_text(clean_output(shell("所有文章", "叶连松的全部文章", posts, "listing-page")), encoding="utf-8")
 
-    groups = {}
+    groups = {"进击的 AI": []}
     for item in zh_items: groups.setdefault(item["topic"], []).append(item)
-    topic_blocks = "".join(f'''<section class="topic-block" id="{anchor_slug(group[0]['topic_en'])}"><div><span>{i:02d}</span><h2>{html.escape(name)}</h2><p>{len(group)} 篇文章</p></div><div>{cards(group)}</div></section>''' for i,(name,group) in enumerate(groups.items(),1))
+    topic_blocks = "".join(f'''<section class="topic-block" id="{anchor_slug(group[0]['topic_en'] if group else 'AI')}"><div><span>{i:02d}</span><h2>{html.escape(name)}</h2><p>{len(group)} 篇文章</p></div><div>{cards(group)}</div></section>''' for i,(name,group) in enumerate(groups.items(),1))
     topics_body = f'''<main class="topics"><header class="listing-head"><p class="kicker">TOPICS / 主题</p><h1>沿着兴趣，<br><em>建立自己的知识地图。</em></h1></header>{topic_blocks}</main>'''
     for folder in ["categories", "tags"]:
         (ROOT/folder).mkdir(exist_ok=True); (ROOT/folder/"index.html").write_text(clean_output(shell("主题", "按主题浏览文章", topics_body, "topics-page")), encoding="utf-8")
