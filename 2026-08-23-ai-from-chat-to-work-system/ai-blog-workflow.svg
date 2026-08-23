@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">AI 改造个人 Blog 的流程</title>
+  <desc id="desc">从提出目标、协作改造、飞书写作到自动发布的四步流程</desc>
+  <rect width="1200" height="560" fill="#e9e6de"/>
+  <text x="70" y="82" fill="#12130f" font-family="Arial, PingFang SC, sans-serif" font-size="26" font-weight="700">AI × PERSONAL BLOG</text>
+  <text x="70" y="116" fill="#6b6d65" font-family="Arial, PingFang SC, sans-serif" font-size="16">从一次次具体反馈，到一条可以长期运行的写作链路</text>
+  <g font-family="Arial, PingFang SC, sans-serif">
+    <g transform="translate(70 175)"><rect width="225" height="205" rx="4" fill="#f3f0e9" stroke="#12130f"/><text x="24" y="38" fill="#63820d" font-size="15" font-weight="700">01 / DEFINE</text><text x="24" y="88" fill="#12130f" font-size="26" font-weight="700">明确目标</text><text x="24" y="127" fill="#6b6d65" font-size="16">更简洁的页面</text><text x="24" y="155" fill="#6b6d65" font-size="16">更顺手的更新方式</text></g>
+    <path d="M310 278h45" stroke="#12130f" stroke-width="2"/><path d="m347 270 10 8-10 8" fill="none" stroke="#12130f" stroke-width="2"/>
+    <g transform="translate(370 175)"><rect width="225" height="205" rx="4" fill="#f3f0e9" stroke="#12130f"/><text x="24" y="38" fill="#63820d" font-size="15" font-weight="700">02 / BUILD</text><text x="24" y="88" fill="#12130f" font-size="26" font-weight="700">AI 协作改造</text><text x="24" y="127" fill="#6b6d65" font-size="16">设计 · 代码 · 调试</text><text x="24" y="155" fill="#6b6d65" font-size="16">截图反馈，持续修改</text></g>
+    <path d="M610 278h45" stroke="#12130f" stroke-width="2"/><path d="m647 270 10 8-10 8" fill="none" stroke="#12130f" stroke-width="2"/>
+    <g transform="translate(670 175)"><rect width="225" height="205" rx="4" fill="#f3f0e9" stroke="#12130f"/><text x="24" y="38" fill="#63820d" font-size="15" font-weight="700">03 / WRITE</text><text x="24" y="88" fill="#12130f" font-size="26" font-weight="700">飞书写作</text><text x="24" y="127" fill="#6b6d65" font-size="16">Lark API 读取文档</text><text x="24" y="155" fill="#6b6d65" font-size="16">转换正文与格式</text></g>
+    <path d="M910 278h45" stroke="#12130f" stroke-width="2"/><path d="m947 270 10 8-10 8" fill="none" stroke="#12130f" stroke-width="2"/>
+    <g transform="translate(970 175)"><rect width="160" height="205" rx="4" fill="#bdec36" stroke="#12130f"/><text x="20" y="38" fill="#12130f" font-size="15" font-weight="700">04 / SHIP</text><text x="20" y="88" fill="#12130f" font-size="26" font-weight="700">自动发布</text><text x="20" y="127" fill="#12130f" font-size="15">GitHub Actions</text><text x="20" y="155" fill="#12130f" font-size="15">GitHub Pages</text></g>
+  </g>
+  <path d="M482 406c0 62-125 67-125 5" fill="none" stroke="#63820d" stroke-width="2" stroke-dasharray="6 7"/>
+  <text x="365" y="464" fill="#63820d" font-family="Arial, PingFang SC, sans-serif" font-size="15" font-weight="700">人的判断与反馈</text>
+  <text x="70" y="515" fill="#6b6d65" font-family="Arial, PingFang SC, sans-serif" font-size="14">AI 负责快速执行，人负责方向、事实和最终判断。</text>
+</svg>
