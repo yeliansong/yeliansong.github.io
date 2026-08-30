@@ -496,18 +496,6 @@
     "url": "2019-10-19-cka-考前资料"
   },
   {
-    "title": "八、从应用访问POD元数据及其他资源",
-    "date": "2019-09-16",
-    "topic": "云原生",
-    "topic_en": "Cloud Native",
-    "tags": [
-      "云原生"
-    ],
-    "excerpt": "说实话，这章看的也是云里雾里的，感觉和环境变量配置差不多。我的理解是，Downward API 是用来给POD或容器的元数据进行配置，环境变量呢，是用来定义一些常规的变量参数。Downward API支持环境变量和文件两种方式，更加灵活。 其实这一节主要就是讲，怎么使用Kubernetes。",
-    "has_summary": false,
-    "url": "2019-09-16-8-从应用访问pod元数据及其他资源"
-  },
-  {
     "title": "九、Deployment声明式升级应用",
     "date": "2019-09-16",
     "topic": "云原生",
@@ -518,6 +506,18 @@
     "excerpt": "先来看一个案例，这种情况怎么处理： POD现在用的是V1版本，现在有一个V2版本，怎么把V2版本替换到V1版本？有三种方式： [ ] 删除旧版本POD，是用新版本POD替换 这种方法比较暴力，就是直接修改V1的配置模板为V2，然后删除V1的POD，这个时候V2的模板会检测，没有POD，会重。",
     "has_summary": false,
     "url": "2019-09-16-9-deployment声明式升级应用"
+  },
+  {
+    "title": "八、从应用访问POD元数据及其他资源",
+    "date": "2019-09-16",
+    "topic": "云原生",
+    "topic_en": "Cloud Native",
+    "tags": [
+      "云原生"
+    ],
+    "excerpt": "说实话，这章看的也是云里雾里的，感觉和环境变量配置差不多。我的理解是，Downward API 是用来给POD或容器的元数据进行配置，环境变量呢，是用来定义一些常规的变量参数。Downward API支持环境变量和文件两种方式，更加灵活。 其实这一节主要就是讲，怎么使用Kubernetes。",
+    "has_summary": false,
+    "url": "2019-09-16-8-从应用访问pod元数据及其他资源"
   },
   {
     "title": "七、ConfigMap 和 Secret配置应用程序",
@@ -580,18 +580,6 @@
     "url": "2019-09-10-1一kubernetes的介绍"
   },
   {
-    "title": "二、Kubernetes 和 Docker的使用",
-    "date": "2019-09-10",
-    "topic": "云原生",
-    "topic_en": "Cloud Native",
-    "tags": [
-      "云原生"
-    ],
-    "excerpt": "容器的镜像就是打包编译容器后的一个文件，打包镜像是依赖Dockerfile文件，From行定义了镜像的起始内容，也就是构建的基础镜像，镜像的构建过程是将整个目录的文件上传到Docker守护进程中，Docker会先从基础镜像仓库中拉取基础镜像，然后镜像的打包是一个分层的结构，基础镜像作为一层。",
-    "has_summary": false,
-    "url": "2019-09-10-2-kubernetes-和docker的使用"
-  },
-  {
     "title": "三、运行于Kubernetes中的容器",
     "date": "2019-09-10",
     "topic": "云原生",
@@ -602,5 +590,17 @@
     "excerpt": "我们知道，POD是Kubernetes管理的最小单位，为啥Kubernetes不直接管理container，要管理POD呢？这是有原因的，我们知道，container是单一进程的，啥意思呢，就是container的设计思想就是每个container只运行一个进程， 如果用枯bernetes。",
     "has_summary": false,
     "url": "2019-09-10-3-运行于kubernetes中的容器"
+  },
+  {
+    "title": "二、Kubernetes 和 Docker的使用",
+    "date": "2019-09-10",
+    "topic": "云原生",
+    "topic_en": "Cloud Native",
+    "tags": [
+      "云原生"
+    ],
+    "excerpt": "容器的镜像就是打包编译容器后的一个文件，打包镜像是依赖Dockerfile文件，From行定义了镜像的起始内容，也就是构建的基础镜像，镜像的构建过程是将整个目录的文件上传到Docker守护进程中，Docker会先从基础镜像仓库中拉取基础镜像，然后镜像的打包是一个分层的结构，基础镜像作为一层。",
+    "has_summary": false,
+    "url": "2019-09-10-2-kubernetes-和docker的使用"
   }
 ]
