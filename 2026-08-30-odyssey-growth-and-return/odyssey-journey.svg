@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 720" role="img" aria-labelledby="title desc">
+  <title id="title">《奥德赛》：离开、迷失与回归</title>
+  <desc id="desc">从特洛伊出发，经过海洋、诱惑与失去，最终回到伊萨卡的概念旅程。</desc>
+  <rect width="1440" height="720" fill="#11110f"/>
+  <path d="M90 495 C240 405 320 570 470 480 S700 385 835 480 S1060 560 1350 420" fill="none" stroke="#c7ff2f" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 20"/>
+  <circle cx="105" cy="485" r="18" fill="#c7ff2f"/><circle cx="1350" cy="420" r="18" fill="#c7ff2f"/>
+  <g fill="#f2eee6" font-family="Arial, 'Noto Sans SC', sans-serif">
+    <text x="88" y="90" font-size="22" letter-spacing="5" fill="#c7ff2f">THE LONG WAY HOME</text>
+    <text x="86" y="170" font-size="66" font-weight="700">离开不是故事的终点，</text>
+    <text x="86" y="250" font-size="66" font-weight="700">知道为何回来才是。</text>
+    <text x="82" y="555" font-size="24" font-weight="700">特洛伊</text><text x="82" y="589" font-size="17" fill="#8b8b83">荣耀与出发</text>
+    <text x="393" y="405" font-size="24" font-weight="700">海洋</text><text x="393" y="439" font-size="17" fill="#8b8b83">未知与失控</text>
+    <text x="676" y="548" font-size="24" font-weight="700">诱惑</text><text x="676" y="582" font-size="17" fill="#8b8b83">欲望与遗忘</text>
+    <text x="938" y="404" font-size="24" font-weight="700">失去</text><text x="938" y="438" font-size="17" fill="#8b8b83">选择的代价</text>
+    <text x="1272" y="492" font-size="24" font-weight="700">伊萨卡</text><text x="1238" y="526" font-size="17" fill="#8b8b83">责任与回归</text>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 760" role="img" aria-labelledby="title desc">
+  <title id="title">两种成长叙事视角</title>
+  <desc id="desc">《奥德赛》侧重选择、代价和回归，《西游记》侧重同行、磨合和共同目标。</desc>
+  <rect width="1440" height="760" fill="#f2eee6"/>
+  <line x1="720" y1="80" x2="720" y2="680" stroke="#c8c3b9" stroke-width="2"/>
+  <g font-family="Arial, 'Noto Sans SC', sans-serif" fill="#11110f">
+    <text x="70" y="78" font-size="19" letter-spacing="4" font-weight="700" fill="#608000">01 / INNER JOURNEY</text>
+    <text x="70" y="160" font-size="56" font-weight="700">《奥德赛》</text>
+    <text x="70" y="212" font-size="23" fill="#6f7068">一个人如何经历选择，承担代价，重新回家</text>
+    <g font-size="31" font-weight="700"><text x="112" y="342">证明自己</text><text x="112" y="442">面对诱惑</text><text x="112" y="542">承担后果</text><text x="112" y="642">理解回归</text></g>
+    <g fill="#608000"><circle cx="82" cy="332" r="9"/><circle cx="82" cy="432" r="9"/><circle cx="82" cy="532" r="9"/><circle cx="82" cy="632" r="9"/></g>
+    <text x="790" y="78" font-size="19" letter-spacing="4" font-weight="700" fill="#608000">02 / SHARED JOURNEY</text>
+    <text x="790" y="160" font-size="56" font-weight="700">《西游记》</text>
+    <text x="790" y="212" font-size="23" fill="#6f7068">一群人如何彼此磨合，共同抵达目标</text>
+    <g font-size="31" font-weight="700"><text x="832" y="342">性格碰撞</text><text x="832" y="442">互相协作</text><text x="832" y="542">克服困难</text><text x="832" y="642">完成取经</text></g>
+    <g fill="#608000"><circle cx="802" cy="332" r="9"/><circle cx="802" cy="432" r="9"/><circle cx="802" cy="532" r="9"/><circle cx="802" cy="632" r="9"/></g>
+  </g>
+</svg>
