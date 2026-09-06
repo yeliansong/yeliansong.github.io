@@ -558,6 +558,18 @@
     "url": "2019-09-12-6-卷-将磁盘挂载到容器"
   },
   {
+    "title": "四、副本机制部署托管POD",
+    "date": "2019-09-11",
+    "topic": "云原生",
+    "topic_en": "Cloud Native",
+    "tags": [
+      "云原生"
+    ],
+    "excerpt": "为啥要搞出这么一个高深的词？我们知道POD里如果有容器程序崩溃了，kubenetes 会重新启动程序，但是问题来了，如果不是崩溃的情况呢，比如死锁了，或者抛了异常等等，这个时候咋整，kubenetes也不知道你的容器是否正常，这个时候就要用到探针了。其实道理很简单，就是用一个探针时不时地探。",
+    "has_summary": false,
+    "url": "2019-09-11-4-副本机制部署托管pod"
+  },
+  {
     "title": "五、POD的服务与通信",
     "date": "2019-09-11",
     "topic": "云原生",
@@ -570,16 +582,16 @@
     "url": "2019-09-11-5-pod的服务与通信"
   },
   {
-    "title": "四、副本机制部署托管POD",
-    "date": "2019-09-11",
+    "title": "二、Kubernetes 和 Docker的使用",
+    "date": "2019-09-10",
     "topic": "云原生",
     "topic_en": "Cloud Native",
     "tags": [
       "云原生"
     ],
-    "excerpt": "为啥要搞出这么一个高深的词？我们知道POD里如果有容器程序崩溃了，kubenetes 会重新启动程序，但是问题来了，如果不是崩溃的情况呢，比如死锁了，或者抛了异常等等，这个时候咋整，kubenetes也不知道你的容器是否正常，这个时候就要用到探针了。其实道理很简单，就是用一个探针时不时地探。",
+    "excerpt": "容器的镜像就是打包编译容器后的一个文件，打包镜像是依赖Dockerfile文件，From行定义了镜像的起始内容，也就是构建的基础镜像，镜像的构建过程是将整个目录的文件上传到Docker守护进程中，Docker会先从基础镜像仓库中拉取基础镜像，然后镜像的打包是一个分层的结构，基础镜像作为一层。",
     "has_summary": false,
-    "url": "2019-09-11-4-副本机制部署托管pod"
+    "url": "2019-09-10-2-kubernetes-和docker的使用"
   },
   {
     "title": "一、Kubernetes的介绍",
@@ -604,17 +616,5 @@
     "excerpt": "我们知道，POD是Kubernetes管理的最小单位，为啥Kubernetes不直接管理container，要管理POD呢？这是有原因的，我们知道，container是单一进程的，啥意思呢，就是container的设计思想就是每个container只运行一个进程， 如果用枯bernetes。",
     "has_summary": false,
     "url": "2019-09-10-3-运行于kubernetes中的容器"
-  },
-  {
-    "title": "二、Kubernetes 和 Docker的使用",
-    "date": "2019-09-10",
-    "topic": "云原生",
-    "topic_en": "Cloud Native",
-    "tags": [
-      "云原生"
-    ],
-    "excerpt": "容器的镜像就是打包编译容器后的一个文件，打包镜像是依赖Dockerfile文件，From行定义了镜像的起始内容，也就是构建的基础镜像，镜像的构建过程是将整个目录的文件上传到Docker守护进程中，Docker会先从基础镜像仓库中拉取基础镜像，然后镜像的打包是一个分层的结构，基础镜像作为一层。",
-    "has_summary": false,
-    "url": "2019-09-10-2-kubernetes-和docker的使用"
   }
 ]
