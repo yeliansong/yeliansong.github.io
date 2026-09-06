@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">从旁观到形成判断的认知循环</title>
+  <desc id="desc">走到现场、主动询问、记录事实、形成假设、做出行动、观察反馈，然后再次回到现场。</desc>
+  <rect width="1200" height="620" rx="22" fill="#e8ff9a"/>
+  <g fill="none" stroke="#171812" stroke-width="3">
+    <path d="M190 310H320M480 310H610M770 310H900"/>
+    <path d="M970 390C930 510 260 520 220 390" stroke-dasharray="10 10"/>
+  </g>
+  <g fill="#171812">
+    <path d="M320 310l-16-10v20zM610 310l-16-10v20zM900 310l-16-10v20zM220 390l-5 20 20-7z"/>
+  </g>
+  <g font-family="Inter, PingFang SC, sans-serif" fill="#171812">
+    <text x="70" y="80" font-size="22" font-weight="700" letter-spacing="4">FROM REALITY TO JUDGMENT</text>
+    <text x="70" y="125" font-size="42" font-weight="800">认知不是直线，而是一次次回到现实</text>
+    <g text-anchor="middle">
+      <circle cx="130" cy="310" r="62" fill="#f3f0e9" stroke="#171812" stroke-width="3"/>
+      <text x="130" y="305" font-size="24" font-weight="700">走到现场</text><text x="130" y="338" font-size="15">观察 / 询问</text>
+      <circle cx="400" cy="310" r="62" fill="#f3f0e9" stroke="#171812" stroke-width="3"/>
+      <text x="400" y="305" font-size="24" font-weight="700">记录事实</text><text x="400" y="338" font-size="15">减少记忆偏差</text>
+      <circle cx="690" cy="310" r="62" fill="#f3f0e9" stroke="#171812" stroke-width="3"/>
+      <text x="690" y="305" font-size="24" font-weight="700">形成假设</text><text x="690" y="338" font-size="15">解释真实问题</text>
+      <circle cx="980" cy="310" r="62" fill="#171812"/>
+      <text x="980" y="305" font-size="24" font-weight="700" fill="#e8ff9a">行动验证</text><text x="980" y="338" font-size="15" fill="#e8ff9a">结果成为反馈</text>
+    </g>
+    <text x="600" y="540" text-anchor="middle" font-size="18">现实 → 判断 → 行动 → 反馈 → 更接近现实</text>
+  </g>
+</svg>
