@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">屠龙身上四种彼此连接的特质</title>
+  <desc id="desc">好奇、行动、诊断和理解共同指向清醒。</desc>
+  <rect width="1200" height="720" rx="24" fill="#171812"/>
+  <g fill="none" stroke="#bdec36" stroke-width="3" opacity=".8">
+    <path d="M315 210L515 325M885 210L685 325M315 510L515 395M885 510L685 395"/>
+  </g>
+  <g font-family="Inter, PingFang SC, sans-serif">
+    <text x="62" y="70" fill="#bdec36" font-size="18" font-weight="700" letter-spacing="4">A WAY OF SEEING AND DOING</text>
+    <text x="62" y="117" fill="#f3f0e9" font-size="38" font-weight="800">清醒不是一种姿态，而是一套持续运转的能力</text>
+    <circle cx="600" cy="360" r="115" fill="#bdec36"/>
+    <text x="600" y="350" fill="#171812" text-anchor="middle" font-size="50" font-weight="900">清醒</text>
+    <text x="600" y="392" fill="#171812" text-anchor="middle" font-size="17">让判断始终贴近现实</text>
+    <g fill="#f3f0e9" text-anchor="middle">
+      <circle cx="250" cy="190" r="104" fill="#292b23" stroke="#f3f0e9" stroke-width="2"/>
+      <text x="250" y="180" font-size="32" font-weight="800">好奇</text>
+      <text x="250" y="217" font-size="16" fill="#b9bbb1">主动靠近陌生的人与事</text>
+      <circle cx="950" cy="190" r="104" fill="#292b23" stroke="#f3f0e9" stroke-width="2"/>
+      <text x="950" y="180" font-size="32" font-weight="800">行动</text>
+      <text x="950" y="217" font-size="16" fill="#b9bbb1">把想法变成真实动作</text>
+      <circle cx="250" cy="530" r="104" fill="#292b23" stroke="#f3f0e9" stroke-width="2"/>
+      <text x="250" y="520" font-size="32" font-weight="800">理解</text>
+      <text x="250" y="557" font-size="16" fill="#b9bbb1">看见具体的人和处境</text>
+      <circle cx="950" cy="530" r="104" fill="#292b23" stroke="#f3f0e9" stroke-width="2"/>
+      <text x="950" y="520" font-size="32" font-weight="800">诊断</text>
+      <text x="950" y="557" font-size="16" fill="#b9bbb1">根据结果修正判断</text>
+    </g>
+    <text x="600" y="665" fill="#85887e" text-anchor="middle" font-size="16" letter-spacing="2">CURIOSITY · ACTION · DIAGNOSIS · EMPATHY</text>
+  </g>
+</svg>
