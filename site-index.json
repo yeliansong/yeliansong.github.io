@@ -318,18 +318,6 @@
     "url": "2020-5-30-http-详解"
   },
   {
-    "title": "Nginx",
-    "date": "2020-05-25",
-    "topic": "系统与运维",
-    "topic_en": "Systems",
-    "tags": [
-      "系统与运维"
-    ],
-    "excerpt": "从Google搜索结果来看，Nginx是一个免费、开源、高性能的HTTP服务器和反向代理，同时也是一个IMAP/POP3代理服务器。 Nginx 以其高性能、稳定性、丰富的功能集、简单的配置和低资源消耗而闻名。 Nginx 最多支持 50000 个并发应用程序。 转发代理是客户端和目标服务。",
-    "has_summary": false,
-    "url": "2020-05-25-nginx"
-  },
-  {
     "title": "CKA 证书",
     "date": "2020-05-25",
     "topic": "云原生",
@@ -340,6 +328,18 @@
     "excerpt": "You can access this link to verify the certification. Certification Verification Tool。",
     "has_summary": false,
     "url": "2020-5-25-cka"
+  },
+  {
+    "title": "Nginx",
+    "date": "2020-05-25",
+    "topic": "系统与运维",
+    "topic_en": "Systems",
+    "tags": [
+      "系统与运维"
+    ],
+    "excerpt": "从Google搜索结果来看，Nginx是一个免费、开源、高性能的HTTP服务器和反向代理，同时也是一个IMAP/POP3代理服务器。 Nginx 以其高性能、稳定性、丰富的功能集、简单的配置和低资源消耗而闻名。 Nginx 最多支持 50000 个并发应用程序。 转发代理是客户端和目标服务。",
+    "has_summary": false,
+    "url": "2020-05-25-nginx"
   },
   {
     "title": "K8S 常用命令",
@@ -558,6 +558,18 @@
     "url": "2019-09-12-6-卷-将磁盘挂载到容器"
   },
   {
+    "title": "五、POD的服务与通信",
+    "date": "2019-09-11",
+    "topic": "云原生",
+    "topic_en": "Cloud Native",
+    "tags": [
+      "云原生"
+    ],
+    "excerpt": "服务其实很好理解了，你想想看，一组相同的POD，你怎么管理，你需要知道他们的所有IP吗，然后再去一一进行手动配置连接？显然不需要的，怎么解决这个问题呢，就用服务，服务其实就是相当于一个路由的功能。 看看这个，前端有3个POD，还有一个Backend，怎么使整个系统正常运行呢，使用服务。三个。",
+    "has_summary": false,
+    "url": "2019-09-11-5-pod的服务与通信"
+  },
+  {
     "title": "四、副本机制部署托管POD",
     "date": "2019-09-11",
     "topic": "云原生",
@@ -570,16 +582,16 @@
     "url": "2019-09-11-4-副本机制部署托管pod"
   },
   {
-    "title": "五、POD的服务与通信",
-    "date": "2019-09-11",
+    "title": "三、运行于Kubernetes中的容器",
+    "date": "2019-09-10",
     "topic": "云原生",
     "topic_en": "Cloud Native",
     "tags": [
       "云原生"
     ],
-    "excerpt": "服务其实很好理解了，你想想看，一组相同的POD，你怎么管理，你需要知道他们的所有IP吗，然后再去一一进行手动配置连接？显然不需要的，怎么解决这个问题呢，就用服务，服务其实就是相当于一个路由的功能。 看看这个，前端有3个POD，还有一个Backend，怎么使整个系统正常运行呢，使用服务。三个。",
+    "excerpt": "我们知道，POD是Kubernetes管理的最小单位，为啥Kubernetes不直接管理container，要管理POD呢？这是有原因的，我们知道，container是单一进程的，啥意思呢，就是container的设计思想就是每个container只运行一个进程， 如果用枯bernetes。",
     "has_summary": false,
-    "url": "2019-09-11-5-pod的服务与通信"
+    "url": "2019-09-10-3-运行于kubernetes中的容器"
   },
   {
     "title": "二、Kubernetes 和 Docker的使用",
@@ -604,17 +616,5 @@
     "excerpt": "单体应用的弊端：以单进程或几个进程的方式运行于几台服务器，部署的周期长，运维和开发脱节，开发人员完成开发后打包成一个整体给运维部署。 模块间没有解耦，修改一个模块，要把整体进行打包部署。 微服务的优势：模块间实现解耦，缩短部署周期，单个模块可以实现独立的开发，部署，升级，伸缩。缩短部署时间。",
     "has_summary": false,
     "url": "2019-09-10-1一kubernetes的介绍"
-  },
-  {
-    "title": "三、运行于Kubernetes中的容器",
-    "date": "2019-09-10",
-    "topic": "云原生",
-    "topic_en": "Cloud Native",
-    "tags": [
-      "云原生"
-    ],
-    "excerpt": "我们知道，POD是Kubernetes管理的最小单位，为啥Kubernetes不直接管理container，要管理POD呢？这是有原因的，我们知道，container是单一进程的，啥意思呢，就是container的设计思想就是每个container只运行一个进程， 如果用枯bernetes。",
-    "has_summary": false,
-    "url": "2019-09-10-3-运行于kubernetes中的容器"
   }
 ]
