@@ -1,0 +1,110 @@
+Collecting Pillow
+  Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Downloading pillow-12.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 40.5 MB/s  0:00:00
+Installing collected packages: Pillow
+Successfully installed Pillow-12.3.0
+2026-10-11-yunnan-travel
+Optimizing image: lark-image-01.jpg
+Optimizing image: lark-image-02.jpg
+Optimizing image: lark-image-03.jpg
+Optimizing image: lark-image-04.jpg
+Optimizing image: lark-image-05.jpg
+Optimizing image: lark-image-06.jpg
+Optimizing image: lark-image-07.jpg
+Optimizing image: lark-image-08.jpg
+Optimizing image: lark-image-09.jpg
+Optimizing image: lark-image-10.jpg
+Optimizing image: lark-image-11.jpg
+Optimizing image: lark-image-12.jpg
+Optimizing image: lark-image-13.jpg
+Optimizing image: lark-image-14.jpg
+Optimizing image: lark-image-15.jpg
+Optimizing image: lark-image-16.jpg
+Optimizing image: lark-image-17.jpg
+Optimizing image: lark-image-18.jpg
+Optimizing image: lark-image-19.jpg
+Optimizing image: lark-image-20.jpg
+Optimizing image: lark-image-21.jpg
+Optimizing image: lark-image-22.jpg
+Optimizing image: lark-image-23.jpg
+Optimizing image: lark-image-24.jpg
+Optimizing image: lark-image-25.jpg
+Optimizing image: lark-image-26.jpg
+Optimizing image: lark-image-27.jpg
+Optimizing image: lark-image-28.jpg
+Optimizing image: lark-image-29.jpg
+Optimizing image: lark-image-30.jpg
+Optimizing image: lark-image-31.jpg
+Optimizing image: lark-image-32.jpg
+Optimizing image: lark-image-33.jpg
+Optimizing image: lark-image-34.jpg
+Optimizing image: lark-image-35.jpg
+Optimizing image: lark-image-36.jpg
+Optimizing image: lark-image-37.jpg
+Optimizing image: lark-image-38.jpg
+Optimizing image: lark-image-39.jpg
+Optimizing image: lark-image-40.jpg
+Optimizing image: lark-image-41.jpg
+Optimizing image: lark-image-42.jpg
+Optimizing image: lark-image-43.jpg
+Optimizing image: lark-image-44.jpg
+Optimizing image: lark-image-45.jpg
+Optimizing image: lark-image-46.jpg
+Optimizing image: lark-image-47.jpg
+Optimizing image: lark-image-48.jpg
+Optimizing image: lark-image-49.jpg
+Optimizing image: lark-image-50.jpg
+Optimizing image: lark-image-51.jpg
+Optimizing image: lark-image-52.jpg
+Optimizing image: lark-image-53.jpg
+Optimizing image: lark-image-54.jpg
+Optimizing image: lark-image-55.jpg
+Optimizing image: lark-image-56.jpg
+Optimizing image: lark-image-57.jpg
+Optimizing image: lark-image-58.jpg
+Optimizing image: lark-image-59.jpg
+Optimizing image: lark-image-60.jpg
+Optimizing image: lark-image-61.jpg
+Optimizing image: lark-image-62.jpg
+Optimizing image: lark-image-63.jpg
+Optimizing image: lark-image-64.jpg
+Optimizing image: lark-image-65.jpg
+Optimizing image: lark-image-66.jpg
+Optimizing image: lark-image-67.jpg
+Optimizing image: lark-image-68.jpg
+Optimizing image: lark-image-69.jpg
+Optimizing image: lark-image-70.jpg
+Optimizing image: lark-image-71.jpg
+Optimizing image: lark-image-72.jpg
+Optimizing image: lark-image-73.jpg
+Optimizing image: lark-image-74.jpg
+Optimizing image: lark-image-75.jpg
+Optimizing image: lark-image-76.jpg
+Optimizing image: lark-image-77.jpg
+Optimizing image: lark-image-78.jpg
+Optimizing image: lark-image-79.jpg
+Optimizing image: lark-image-80.jpg
+Optimizing image: lark-image-81.jpg
+Optimizing image: lark-image-82.jpg
+Optimizing image: lark-image-83.jpg
+Optimizing image: lark-image-84.jpg
+Optimizing image: lark-image-85.jpg
+Optimizing image: lark-image-86.jpg
+Optimizing image: lark-image-87.jpg
+Optimizing video: lark-video-01.mp4
+Traceback (most recent call last):
+  File "/home/runner/work/yeliansong.github.io/yeliansong.github.io/scripts/optimize_media.py", line 50, in <module>
+    main()
+  File "/home/runner/work/yeliansong.github.io/yeliansong.github.io/scripts/optimize_media.py", line 46, in main
+    optimize_video(path)
+  File "/home/runner/work/yeliansong.github.io/yeliansong.github.io/scripts/optimize_media.py", line 24, in optimize_video
+    subprocess.run(
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
