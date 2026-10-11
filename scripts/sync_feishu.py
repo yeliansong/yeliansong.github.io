@@ -29,7 +29,7 @@ def request(url: str, data=None, token=None):
     return payload
 
 def download_media(file_token: str, target: Path, token: str, platform: str):
-    """Download one image referenced by a Docx block."""
+    """Download one image or file referenced by a Docx block."""
     url = f"{api_base(platform)}/open-apis/drive/v1/medias/{urllib.parse.quote(file_token)}/download"
     req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
     try:
@@ -77,6 +77,7 @@ def document_markdown(document_id: str, token: str, platform: str) -> tuple[str,
         if not data.get("has_more"): break
         page_token = data["page_token"]
     title, lines, metadata, media = "未命名文章", [], {}, []
+    image_count = video_count = file_count = 0
 
     def add_text(value: str, prefix: str = ""):
         if not value:
@@ -89,6 +90,8 @@ def document_markdown(document_id: str, token: str, platform: str) -> tuple[str,
         lines.append(prefix + value)
 
     for block in blocks:
+        # Counters remain local to this conversion so repeated syncs keep the
+        # same stable media filenames and produce reviewable diffs.
         kind = block.get("block_type")
         if kind == 1:
             title = block_text(block.get("page", {})) or title
@@ -113,10 +116,33 @@ def document_markdown(document_id: str, token: str, platform: str) -> tuple[str,
             add_text(value, "> ")
         elif kind == 22:
             lines.append("---")
+        elif kind == 23:
+            file_data = block.get("file", {})
+            file_token = file_data.get("token")
+            original_name = file_data.get("name", "")
+            if file_token:
+                suffix = Path(original_name).suffix.lower()
+                if suffix in {".mp4", ".mov", ".m4v", ".webm"}:
+                    video_count += 1
+                    filename = f"lark-video-{video_count:02d}.mp4"
+                    media.append((filename, file_token))
+                    lines.append(
+                        f'<video controls preload="metadata" playsinline title="旅行视频 {video_count}">\n'
+                        f'<source src="{filename}">\n'
+                        "你的浏览器暂不支持视频播放。\n"
+                        "</video>"
+                    )
+                else:
+                    file_count += 1
+                    safe_suffix = suffix if re.fullmatch(r"\.[a-z0-9]{1,8}", suffix) else ""
+                    filename = f"lark-file-{file_count:02d}{safe_suffix}"
+                    media.append((filename, file_token))
+                    lines.append(f"[{original_name or '下载附件'}]({filename})")
         elif kind == 27:
             file_token = block.get("image", {}).get("token")
             if file_token:
-                filename = f"lark-image-{len(media) + 1:02d}.jpg"
+                image_count += 1
+                filename = f"lark-image-{image_count:02d}.jpg"
                 media.append((filename, file_token))
                 lines.append(f"![旅行照片]({filename})")
     return title, "\n\n".join(lines).strip(), metadata, media
