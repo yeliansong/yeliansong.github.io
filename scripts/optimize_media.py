@@ -8,6 +8,7 @@ import subprocess
 from pathlib import Path
 
 from PIL import Image, ImageOps
+from imageio_ffmpeg import get_ffmpeg_exe
 
 
 def optimize_image(path: Path) -> None:
@@ -23,7 +24,7 @@ def optimize_video(path: Path) -> None:
     target = path.with_name(path.stem + ".optimized.mp4")
     subprocess.run(
         [
-            "ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(path),
+            get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error", "-y", "-i", str(path),
             "-map_metadata", "-1", "-vf", "scale='min(1280,iw)':-2",
             "-c:v", "libx264", "-preset", "medium", "-crf", "28",
             "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(target),

@@ -21,7 +21,7 @@ jobs:
         run: |
           set -o pipefail
           exec > >(tee media-sync.log) 2>&1
-          pip install Pillow
+          pip install Pillow imageio-ffmpeg
           python scripts/sync_feishu.py \
             --platform lark \
             --wiki-token DUsMwFJgYiyCylkSssylYojCg4b \
@@ -42,6 +42,7 @@ jobs:
       - name: Publish update
         if: steps.import.outcome == 'success'
         run: |
+          rm -f media-sync.log
           git config user.name "blog-publisher[bot]"
           git config user.email "blog-publisher[bot]@users.noreply.github.com"
           git add .
