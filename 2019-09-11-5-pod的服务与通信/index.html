@@ -6,7 +6,7 @@
 <body class="article-page"><header class="topbar"><a class="wordmark identity" href="/" aria-label="Liansong Ye's blog"><span class="identity-mark">LY</span><span class="identity-copy"><b>LIANSONG YE</b><small>WORK / LIFE / BOOKS</small></span></a>
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
-<main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2019</span></aside>
+<main class="article-layout"><aside class="article-rail"><a class="article-back" href="/posts/">← 全部文章</a><nav class="article-toc" aria-label="文章目录"><b>文章目录</b><a class="toc-level-3" href="#1-服务与端口">1. 服务与端口</a><a class="toc-level-3" href="#2-服务发现">2. 服务发现</a><a class="toc-level-3" href="#3-endpoint">3. Endpoint</a><a class="toc-level-3" href="#4-服务暴露给外部客户端的方法">4. 服务暴露给外部客户端的方法</a><a class="toc-level-3" href="#5-就绪探针">5. 就绪探针</a></nav><span class="article-year">2019</span></aside>
 <article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#cloud-native">Cloud Native</a> / 2019.09.11</p><h1>五、POD的服务与通信</h1></header>
 <h3 id="1-服务与端口">1. 服务与端口</h3>
 <p>服务其实很好理解了，你想想看，一组相同的POD，你怎么管理，你需要知道他们的所有IP吗，然后再去一一进行手动配置连接？显然不需要的，怎么解决这个问题呢，就用服务，服务其实就是相当于一个路由的功能。</p>

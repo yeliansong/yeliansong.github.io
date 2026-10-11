@@ -6,7 +6,7 @@
 <body class="article-page"><header class="topbar"><a class="wordmark identity" href="/" aria-label="Liansong Ye's blog"><span class="identity-mark">LY</span><span class="identity-copy"><b>LIANSONG YE</b><small>WORK / LIFE / BOOKS</small></span></a>
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
-<main class="article-layout"><aside class="article-rail"><a href="/posts/">← 全部文章</a><span>2019</span></aside>
+<main class="article-layout"><aside class="article-rail"><a class="article-back" href="/posts/">← 全部文章</a><nav class="article-toc" aria-label="文章目录"><b>文章目录</b><a class="toc-level-3" href="#1-survival-probe">1. Survival Probe</a><a class="toc-level-3" href="#2-replicationcontroller">2. ReplicationController</a><a class="toc-level-3" href="#3-daemonset">3. DaemonSet</a><a class="toc-level-3" href="#4-job">4. JOB</a></nav><span class="article-year">2019</span></aside>
 <article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#cloud-native">Cloud Native</a> / 2019.09.11</p><h1>四、Deploy managed POD by copy mechanism</h1></header>
 <h3 id="1-survival-probe">1. Survival Probe</h3>
 <p>Why come up with such a profound word? We know that if a container program in the POD crashes, kubenetes will restart the program, but the problem is, if it is not a crash, such as a deadlock, or throwing an exception, etc., what to do at this time, kubenetes does not know Whether your container is normal or not, you need to use a probe at this time. In fact, the reason is very simple, that is, use a probe to detect it from time to time to see if it is normal.</p>
