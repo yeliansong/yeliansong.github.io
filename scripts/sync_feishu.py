@@ -28,6 +28,16 @@ def request(url: str, data=None, token=None):
         raise RuntimeError(payload.get("msg", "Feishu API error"))
     return payload
 
+def download_media(file_token: str, target: Path, token: str, platform: str):
+    """Download one image referenced by a Docx block."""
+    url = f"{api_base(platform)}/open-apis/drive/v1/medias/{urllib.parse.quote(file_token)}/download"
+    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as response:
+            target.write_bytes(response.read())
+    except urllib.error.HTTPError as error:
+        raise RuntimeError(f"Unable to download Lark image {file_token}: HTTP {error.code}") from error
+
 def api_base(platform: str) -> str:
     return "https://open.larksuite.com" if platform == "lark" else "https://open.feishu.cn"
 
@@ -56,7 +66,7 @@ def block_text(value: dict) -> str:
         parts.append(f"[{content}]({link})" if link else content)
     return "".join(parts).strip()
 
-def document_markdown(document_id: str, token: str, platform: str) -> tuple[str, str, dict[str, str]]:
+def document_markdown(document_id: str, token: str, platform: str) -> tuple[str, str, dict[str, str], list[tuple[str, str]]]:
     blocks, page_token = [], None
     while True:
         params = {"page_size": 500}
@@ -66,7 +76,7 @@ def document_markdown(document_id: str, token: str, platform: str) -> tuple[str,
         blocks.extend(data.get("items", []))
         if not data.get("has_more"): break
         page_token = data["page_token"]
-    title, lines, metadata = "未命名文章", [], {}
+    title, lines, metadata, media = "未命名文章", [], {}, []
 
     def add_text(value: str, prefix: str = ""):
         if not value:
@@ -104,8 +114,12 @@ def document_markdown(document_id: str, token: str, platform: str) -> tuple[str,
         elif kind == 22:
             lines.append("---")
         elif kind == 27:
-            lines.append("<!-- Lark image: pending media sync -->")
-    return title, "\n\n".join(lines).strip(), metadata
+            file_token = block.get("image", {}).get("token")
+            if file_token:
+                filename = f"lark-image-{len(media) + 1:02d}.jpg"
+                media.append((filename, file_token))
+                lines.append(f"![旅行照片]({filename})")
+    return title, "\n\n".join(lines).strip(), metadata, media
 
 def slugify(value: str) -> str:
     readable_slug = re.sub(r"[^a-z0-9\u4e00-\u9fff]+", "-", value.lower()).strip("-")
@@ -120,7 +134,7 @@ def main():
     if not args.document_id and not args.wiki_token: raise SystemExit("Missing --document-id, --wiki-token, or FEISHU_DOCUMENT_ID")
     token=tenant_token(args.platform)
     document_id=resolve_wiki_document(args.wiki_token, token, args.platform) if args.wiki_token else args.document_id
-    title, body, metadata=document_markdown(document_id, token, args.platform)
+    title, body, metadata, media=document_markdown(document_id, token, args.platform)
     for key, value in {"category": args.category, "tags": args.tags, "summary": args.summary}.items():
         if value and key not in metadata: metadata[key] = value
     slug=args.slug or f"{dt.date.today().isoformat()}-{slugify(title)}"
@@ -130,5 +144,7 @@ def main():
         front_matter = "---\n" + "\n".join(f"{key}: {value}" for key, value in metadata.items()) + "\n---\n\n"
     markdown_content=f"{front_matter}# {title}\n\n{body}\n"
     (target/"index.md").write_text(markdown_content, encoding="utf-8")
+    for filename, file_token in media:
+        download_media(file_token, target / filename, token, args.platform)
     print(target.relative_to(ROOT))
 if __name__ == "__main__": main()

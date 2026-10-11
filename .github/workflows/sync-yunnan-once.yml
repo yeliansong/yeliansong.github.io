@@ -1,0 +1,33 @@
+name: Import Yunnan travel article once
+on:
+  push:
+    paths:
+      - '.github/workflows/sync-yunnan-once.yml'
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Import Yunnan travel article and its images
+        env:
+          FEISHU_APP_ID: ${{ secrets.LARK_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
+        run: |
+          python scripts/sync_feishu.py \
+            --platform lark \
+            --wiki-token DUsMwFJgYiyCylkSssylYojCg4b \
+            --slug 2026-10-11-yunnan-travel \
+            --category "生活与阅读" \
+            --tags "旅行, 云南, 生活"
+          python scripts/rebuild_site.py
+      - name: Publish imported article
+        run: |
+          git config user.name "blog-publisher[bot]"
+          git config user.email "blog-publisher[bot]@users.noreply.github.com"
+          git add .
+          git diff --cached --quiet || git commit -m "content: import Yunnan travel article"
+          git push
