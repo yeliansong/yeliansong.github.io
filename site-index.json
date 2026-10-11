@@ -332,18 +332,6 @@
     "url": "2020-5-30-http-详解"
   },
   {
-    "title": "CKA 证书",
-    "date": "2020-05-25",
-    "topic": "云原生",
-    "topic_en": "Cloud Native",
-    "tags": [
-      "云原生"
-    ],
-    "excerpt": "You can access this link to verify the certification. Certification Verification Tool。",
-    "has_summary": false,
-    "url": "2020-5-25-cka"
-  },
-  {
     "title": "Nginx",
     "date": "2020-05-25",
     "topic": "系统与运维",
@@ -354,6 +342,18 @@
     "excerpt": "从Google搜索结果来看，Nginx是一个免费、开源、高性能的HTTP服务器和反向代理，同时也是一个IMAP/POP3代理服务器。 Nginx 以其高性能、稳定性、丰富的功能集、简单的配置和低资源消耗而闻名。 Nginx 最多支持 50000 个并发应用程序。 转发代理是客户端和目标服务。",
     "has_summary": false,
     "url": "2020-05-25-nginx"
+  },
+  {
+    "title": "CKA 证书",
+    "date": "2020-05-25",
+    "topic": "云原生",
+    "topic_en": "Cloud Native",
+    "tags": [
+      "云原生"
+    ],
+    "excerpt": "You can access this link to verify the certification. Certification Verification Tool。",
+    "has_summary": false,
+    "url": "2020-5-25-cka"
   },
   {
     "title": "K8S 常用命令",
@@ -596,6 +596,18 @@
     "url": "2019-09-11-4-副本机制部署托管pod"
   },
   {
+    "title": "一、Kubernetes的介绍",
+    "date": "2019-09-10",
+    "topic": "云原生",
+    "topic_en": "Cloud Native",
+    "tags": [
+      "云原生"
+    ],
+    "excerpt": "单体应用的弊端：以单进程或几个进程的方式运行于几台服务器，部署的周期长，运维和开发脱节，开发人员完成开发后打包成一个整体给运维部署。 模块间没有解耦，修改一个模块，要把整体进行打包部署。 微服务的优势：模块间实现解耦，缩短部署周期，单个模块可以实现独立的开发，部署，升级，伸缩。缩短部署时间。",
+    "has_summary": false,
+    "url": "2019-09-10-1一kubernetes的介绍"
+  },
+  {
     "title": "三、运行于Kubernetes中的容器",
     "date": "2019-09-10",
     "topic": "云原生",
@@ -618,17 +630,5 @@
     "excerpt": "容器的镜像就是打包编译容器后的一个文件，打包镜像是依赖Dockerfile文件，From行定义了镜像的起始内容，也就是构建的基础镜像，镜像的构建过程是将整个目录的文件上传到Docker守护进程中，Docker会先从基础镜像仓库中拉取基础镜像，然后镜像的打包是一个分层的结构，基础镜像作为一层。",
     "has_summary": false,
     "url": "2019-09-10-2-kubernetes-和docker的使用"
-  },
-  {
-    "title": "一、Kubernetes的介绍",
-    "date": "2019-09-10",
-    "topic": "云原生",
-    "topic_en": "Cloud Native",
-    "tags": [
-      "云原生"
-    ],
-    "excerpt": "单体应用的弊端：以单进程或几个进程的方式运行于几台服务器，部署的周期长，运维和开发脱节，开发人员完成开发后打包成一个整体给运维部署。 模块间没有解耦，修改一个模块，要把整体进行打包部署。 微服务的优势：模块间实现解耦，缩短部署周期，单个模块可以实现独立的开发，部署，升级，伸缩。缩短部署时间。",
-    "has_summary": false,
-    "url": "2019-09-10-1一kubernetes的介绍"
   }
 ]

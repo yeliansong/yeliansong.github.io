@@ -163,7 +163,7 @@ def shell(title: str, description: str, body: str, page_class="", lang="zh-CN") 
 <footer class="site-footer"><div><b>LIANSONG YE</b><p>记录工作、生活与读书。</p></div><div class="footer-network"><div><span>CONNECT</span><nav><a href="https://github.com/yeliansong">GitHub</a><a href="https://www.linkedin.com/in/liansongye">LinkedIn</a><a href="mailto:ylsccnu@hotmail.com">Email</a></nav></div><div><span>ELSEWHERE</span><nav><a href="https://www.youtube.com/@xiaoye_SG/featured">YouTube</a><a href="https://space.bilibili.com/454920574">Bilibili</a><a href="https://juejin.cn/user/3659627025959112">掘金</a></nav></div></div><small>© 2026 · Keep writing.</small></footer></body></html>'''
 
 
-def article_toc(md: str) -> str:
+def article_toc(md: str, extra_class: str = "") -> str:
     headings = []
     for match in re.finditer(r"^(#{2,3})\s+(.+)$", md, re.M):
         level = len(match.group(1))
@@ -175,7 +175,8 @@ def article_toc(md: str) -> str:
         f'<a class="toc-level-{level}" href="#{anchor}">{html.escape(label)}</a>'
         for level, label, anchor in headings
     )
-    return f'<nav class="article-toc" aria-label="文章目录"><b>文章目录</b>{links}</nav>'
+    classes = "article-toc" + (f" {extra_class}" if extra_class else "")
+    return f'<nav class="{classes}" aria-label="文章目录"><b>文章目录</b>{links}</nav>'
 
 
 def article_page(item: dict) -> str:
@@ -185,9 +186,10 @@ def article_page(item: dict) -> str:
         escaped_excerpt = re.escape(html.escape(item["excerpt"]))
         content = re.sub(rf"^\s*<(?:p|blockquote)>{escaped_excerpt}</(?:p|blockquote)>\s*", "", content, count=1)
     dek = f'<blockquote class="dek">{html.escape(item["excerpt"])}</blockquote>' if item.get("has_summary") else ""
-    toc = article_toc(item["md"])
+    toc = article_toc(item["md"], "article-toc-desktop")
+    mobile_toc = article_toc(item["md"], "article-toc-mobile")
     hero = f'''<main class="article-layout"><aside class="article-rail"><a class="article-back" href="/posts/">← 全部文章</a>{toc}<span class="article-year">{item['date'].year}</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#{anchor_slug(item['topic_en'])}">{html.escape(item['topic_en'])}</a> / {item['date'].strftime('%Y.%m.%d')}</p><h1>{html.escape(item['title'])}</h1>{dek}</header>{content}
+<article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#{anchor_slug(item['topic_en'])}">{html.escape(item['topic_en'])}</a> / {item['date'].strftime('%Y.%m.%d')}</p><h1>{html.escape(item['title'])}</h1>{dek}</header>{mobile_toc}{content}
 <div class="article-end"><span>END</span><a href="/posts/">继续阅读 →</a></div></article></main>'''
     return shell(item["title"], item["excerpt"], hero, "article-page")
 
