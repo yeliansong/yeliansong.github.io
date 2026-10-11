@@ -186,9 +186,8 @@ def article_page(item: dict) -> str:
         escaped_excerpt = re.escape(html.escape(item["excerpt"]))
         content = re.sub(rf"^\s*<(?:p|blockquote)>{escaped_excerpt}</(?:p|blockquote)>\s*", "", content, count=1)
     dek = f'<blockquote class="dek">{html.escape(item["excerpt"])}</blockquote>' if item.get("has_summary") else ""
-    toc = article_toc(item["md"], "article-toc-desktop")
     mobile_toc = article_toc(item["md"], "article-toc-mobile")
-    hero = f'''<main class="article-layout"><aside class="article-rail"><a class="article-back" href="/posts/">← 全部文章</a>{toc}<span class="article-year">{item['date'].year}</span></aside>
+    hero = f'''<main class="article-layout"><aside class="article-rail"><a class="article-back" href="/posts/">← 全部文章</a><span class="article-year">{item['date'].year}</span></aside>
 <article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#{anchor_slug(item['topic_en'])}">{html.escape(item['topic_en'])}</a> / {item['date'].strftime('%Y.%m.%d')}</p><h1>{html.escape(item['title'])}</h1>{dek}</header>{mobile_toc}{content}
 <div class="article-end"><span>END</span><a href="/posts/">继续阅读 →</a></div></article></main>'''
     return shell(item["title"], item["excerpt"], hero, "article-page")

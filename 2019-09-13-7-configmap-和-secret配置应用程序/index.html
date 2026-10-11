@@ -6,7 +6,7 @@
 <body class="article-page"><header class="topbar"><a class="wordmark identity" href="/" aria-label="Liansong Ye's blog"><span class="identity-mark">LY</span><span class="identity-copy"><b>LIANSONG YE</b><small>WORK / LIFE / BOOKS</small></span></a>
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
-<main class="article-layout"><aside class="article-rail"><a class="article-back" href="/posts/">← 全部文章</a><nav class="article-toc article-toc-desktop" aria-label="文章目录"><b>文章目录</b><a class="toc-level-3" href="#1-容器命令行参数的配置">1. 容器命令行参数的配置</a><a class="toc-level-3" href="#2-pod-环境变量的常规操作">2. POD 环境变量的常规操作</a><a class="toc-level-3" href="#3-configmap">3. ConfigMap</a><a class="toc-level-3" href="#4-secert-配置文件">4. secert 配置文件</a></nav><span class="article-year">2019</span></aside>
+<main class="article-layout"><aside class="article-rail"><a class="article-back" href="/posts/">← 全部文章</a><span class="article-year">2019</span></aside>
 <article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#cloud-native">Cloud Native</a> / 2019.09.13</p><h1>七、ConfigMap 和 Secret配置应用程序</h1></header><nav class="article-toc article-toc-mobile" aria-label="文章目录"><b>文章目录</b><a class="toc-level-3" href="#1-容器命令行参数的配置">1. 容器命令行参数的配置</a><a class="toc-level-3" href="#2-pod-环境变量的常规操作">2. POD 环境变量的常规操作</a><a class="toc-level-3" href="#3-configmap">3. ConfigMap</a><a class="toc-level-3" href="#4-secert-配置文件">4. secert 配置文件</a></nav>
 <h3 id="1-容器命令行参数的配置">1. 容器命令行参数的配置</h3>
 <p>Docker 使用命令行参数是通过在Dockerfile 中定义Entrypoint 和CMD来实现，但是有个问题啊，这个是打包到镜像里的。先来看看这两个的区别吧。</p>
