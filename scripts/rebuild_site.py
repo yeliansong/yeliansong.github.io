@@ -210,6 +210,7 @@ def build():
         category = metadata.get("category", inferred_category)
         if category == "个人成长": category_en = "Personal Growth"
         elif category == "进击的 AI": category_en = "AI"
+        elif category == "生活与阅读": category_en = "Life"
         else: category_en = inferred_category_en
         summary_source = re.sub(r"^#{1,6}\s+.*$", "", md, flags=re.M)
         quoted_summary = re.search(r"^>\s*(.+)$", md, re.M)
