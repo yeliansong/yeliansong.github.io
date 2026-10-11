@@ -13,10 +13,14 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - name: Import latest Lark article
+        id: import
+        continue-on-error: true
         env:
           FEISHU_APP_ID: ${{ secrets.LARK_APP_ID }}
           FEISHU_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
         run: |
+          set -o pipefail
+          exec > >(tee media-sync.log) 2>&1
           pip install Pillow
           python scripts/sync_feishu.py \
             --platform lark \
@@ -27,7 +31,16 @@ jobs:
             --summary "十天里从昆明、大理、丽江走到香格里拉，风景之外，一个人的旅行也把我带回了对生活、年龄与幸福的重新思考。"
           python scripts/optimize_media.py 2026-10-11-yunnan-travel
           python scripts/rebuild_site.py
+      - name: Save media diagnostic
+        if: steps.import.outcome == 'failure'
+        run: |
+          git config user.name "blog-publisher[bot]"
+          git config user.email "blog-publisher[bot]@users.noreply.github.com"
+          git add media-sync.log
+          git commit -m "ci: save Yunnan media diagnostic"
+          git push
       - name: Publish update
+        if: steps.import.outcome == 'success'
         run: |
           git config user.name "blog-publisher[bot]"
           git config user.email "blog-publisher[bot]@users.noreply.github.com"

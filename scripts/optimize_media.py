@@ -11,6 +11,7 @@ from PIL import Image, ImageOps
 
 
 def optimize_image(path: Path) -> None:
+    print(f"Optimizing image: {path.name}", flush=True)
     with Image.open(path) as source:
         image = ImageOps.exif_transpose(source).convert("RGB")
         image.thumbnail((1600, 1600), Image.Resampling.LANCZOS)
@@ -18,6 +19,7 @@ def optimize_image(path: Path) -> None:
 
 
 def optimize_video(path: Path) -> None:
+    print(f"Optimizing video: {path.name}", flush=True)
     target = path.with_name(path.stem + ".optimized.mp4")
     subprocess.run(
         [
