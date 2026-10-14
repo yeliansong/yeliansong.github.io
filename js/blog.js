@@ -27,4 +27,30 @@
     sections.forEach(section => observer.observe(section));
     setActive(sections[0].id);
   }
+  const articleImages = [...document.querySelectorAll('.prose img')];
+  if (articleImages.length) {
+    const lightbox = document.createElement('button');
+    lightbox.className = 'image-lightbox';
+    lightbox.type = 'button';
+    lightbox.setAttribute('aria-label', '关闭图片预览');
+    lightbox.innerHTML = '<img alt="">';
+    document.body.append(lightbox);
+    const preview = lightbox.querySelector('img');
+    const close = () => {
+      lightbox.classList.remove('open');
+      body.classList.remove('lightbox-open');
+      preview.removeAttribute('src');
+    };
+    articleImages.forEach(img => {
+      img.classList.add('zoomable-image');
+      img.addEventListener('click', () => {
+        preview.src = img.currentSrc || img.src;
+        preview.alt = img.alt || '文章图片预览';
+        lightbox.classList.add('open');
+        body.classList.add('lightbox-open');
+      });
+    });
+    lightbox.addEventListener('click', close);
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') close(); });
+  }
 })();
