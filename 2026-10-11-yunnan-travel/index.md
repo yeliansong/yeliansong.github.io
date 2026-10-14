@@ -54,6 +54,11 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 ![旅行照片](lark-image-06.jpg)
 
+<video controls preload="metadata" playsinline title="旅行视频 1">
+<source src="lark-video-01.mp4">
+你的浏览器暂不支持视频播放。
+</video>
+
 这里其实也有一件比较有意思的事情，那些在网上看到的网红唱歌很好听原来是假唱，他们后面是有一个音响的设备播放，自己是在对口型，也挺有意思的。还有拍照服务的那些大妈，手段也是多啊，看到两个年轻情侣，应该在上大学，一大妈向那个女生推销拍照，学生也没啥防范意识，问价格，大妈说10元一张，估计他们也没多想，就拍一两张10-20 块钱也能接受，没想到那大妈精准拿捏人性，拍照期间情绪价值给足，那个女生沉浸其中拍了非常多，早就忘了价格的事情，男生似乎有所察觉，但也不好扫兴，估计最后付钱时候就恍然大悟了，哈哈哈，果然社会是最好的老师。
 
 随后到了傍晚，坐车去到翠湖公园，这个也是网上推荐比较多的，不过到了后天已经黑了，此时饥肠辘辘，也不知道吃啥，偶遇一家粉店，人非常多，过去瞅了瞅，是我爱吃的粉，这个是豆花粉，没有吃过，想着点一碗尝尝，果然味道是相当不错。
@@ -84,8 +89,8 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 ![旅行照片](lark-image-11.jpg)
 
-<video controls preload="metadata" playsinline title="旅行视频 1">
-<source src="lark-video-01.mp4">
+<video controls preload="metadata" playsinline title="旅行视频 2">
+<source src="lark-video-02.mp4">
 你的浏览器暂不支持视频播放。
 </video>
 
@@ -131,6 +136,16 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 ![旅行照片](lark-image-22.jpg)
 
+<video controls preload="metadata" playsinline title="旅行视频 3">
+<source src="lark-video-03.mp4">
+你的浏览器暂不支持视频播放。
+</video>
+
+<video controls preload="metadata" playsinline title="旅行视频 4">
+<source src="lark-video-04.mp4">
+你的浏览器暂不支持视频播放。
+</video>
+
 #### 苍山
 
 苍山是在10月4日去的，为什么没有10月3日的原因是一件尴尬的事情。10月2日在游玩洱海的时候接到工作上的紧急处理的电话，没办法只能赶紧早点回去一趟，然后工作事情一直处理到10月3日的早上2点，所以10月3日起的就比较晚，随后去到苍山索道那边，已经中午了，而且到了后天气已经开始在下濛濛小雨，我判断此时上山视野肯定不好，而且也不会玩的好，所以决定就不去了，去了附近的景点 三胜塔。
@@ -161,6 +176,8 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 ![旅行照片](lark-image-34.jpg)
 
+![旅行照片](lark-image-35.jpg)
+
 ### 丽江
 
 从苍山下来后，下午1点半就从大理坐大巴去往丽江。
@@ -169,16 +186,21 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 但实话实说，丽江古城给我的感受其实是比大理古城好的，可能是不抱期待时候结果更会让你惊喜。
 
-![旅行照片](lark-image-35.jpg)
-
 ![旅行照片](lark-image-36.jpg)
 
 ![旅行照片](lark-image-37.jpg)
 
 ![旅行照片](lark-image-38.jpg)
 
-<video controls preload="metadata" playsinline title="旅行视频 2">
-<source src="lark-video-02.mp4">
+![旅行照片](lark-image-39.jpg)
+
+<video controls preload="metadata" playsinline title="旅行视频 5">
+<source src="lark-video-05.mp4">
+你的浏览器暂不支持视频播放。
+</video>
+
+<video controls preload="metadata" playsinline title="旅行视频 6">
+<source src="lark-video-06.mp4">
 你的浏览器暂不支持视频播放。
 </video>
 
@@ -194,8 +216,6 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 来到虎跳峡，更是让我震撼到不知道如何来形容，峡谷里的水流非常的湍急，而且水流击打岩壁的声音非常的澎湃，气势如虹。我独自默默的驻足良久，仿佛自己也和峡谷融为一体。
 
-![旅行照片](lark-image-39.jpg)
-
 ![旅行照片](lark-image-40.jpg)
 
 ![旅行照片](lark-image-41.jpg)
@@ -204,8 +224,10 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 ![旅行照片](lark-image-43.jpg)
 
-<video controls preload="metadata" playsinline title="旅行视频 3">
-<source src="lark-video-03.mp4">
+![旅行照片](lark-image-44.jpg)
+
+<video controls preload="metadata" playsinline title="旅行视频 7">
+<source src="lark-video-07.mp4">
 你的浏览器暂不支持视频播放。
 </video>
 
@@ -219,13 +241,11 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 酒店收拾一番后，我第一反应就是想吃一顿牦牛火锅，出租车司机推荐了一个，于是就赶紧前往。要说感受，其实是感受一般，我还是更喜欢老北京火锅，涮着牛羊肉和芝麻酱，那才叫绝。
 
-![旅行照片](lark-image-44.jpg)
+![旅行照片](lark-image-45.jpg)
 
 吃完后天还未全黑，步行在古城溜达，顺便去转经筒。
 
 远远看到世界最大的转经筒，还是挺震撼的，沿着小龟山往上爬，一路高原反应越来越强烈，有一些不适。但当看到转经筒时，还是挺震撼的，这么多的人绕着转经筒祈福。
-
-![旅行照片](lark-image-45.jpg)
 
 ![旅行照片](lark-image-46.jpg)
 
@@ -233,8 +253,15 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 ![旅行照片](lark-image-48.jpg)
 
-<video controls preload="metadata" playsinline title="旅行视频 4">
-<source src="lark-video-04.mp4">
+![旅行照片](lark-image-49.jpg)
+
+<video controls preload="metadata" playsinline title="旅行视频 8">
+<source src="lark-video-08.mp4">
+你的浏览器暂不支持视频播放。
+</video>
+
+<video controls preload="metadata" playsinline title="旅行视频 9">
+<source src="lark-video-09.mp4">
 你的浏览器暂不支持视频播放。
 </video>
 
@@ -245,8 +272,6 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 早上起的很早，骑着租的电动车，一路就往纳帕海骑了。我导航的位置是到高山植物园，大概10公里，一路上车还是挺多的，我骑的比较慢，印象中骑了好久才到，一路上能看到纳帕海的一些景色，群山、草原、牧马，景色也是相当的绝。
 
 到了高山植物园，人不多，我在天空之门看纳帕海，景色是真的绝了，我能想到的词就是天水一色，天空湛蓝，水面清澈，还有一片绿色的草原，这真的是人间仙境。
-
-![旅行照片](lark-image-49.jpg)
 
 ![旅行照片](lark-image-50.jpg)
 
@@ -268,8 +293,10 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 ![旅行照片](lark-image-59.jpg)
 
-<video controls preload="metadata" playsinline title="旅行视频 5">
-<source src="lark-video-05.mp4">
+![旅行照片](lark-image-60.jpg)
+
+<video controls preload="metadata" playsinline title="旅行视频 10">
+<source src="lark-video-10.mp4">
 你的浏览器暂不支持视频播放。
 </video>
 
@@ -281,13 +308,13 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 说实话体验感没有很好，毕竟对文化这些不太懂，但让我萌生了了解藏传佛教背景的一些东西，也让我去了解了很多关于藏区的历史，其实也让我对信仰这个祛魅了，当了解了更多关于藏区的一些历史后，这里我就不评论了，放一些图片就行。
 
-![旅行照片](lark-image-60.jpg)
-
 ![旅行照片](lark-image-61.jpg)
 
 ![旅行照片](lark-image-62.jpg)
 
 ![旅行照片](lark-image-63.jpg)
+
+![旅行照片](lark-image-64.jpg)
 
 #### 无底湖
 
@@ -296,8 +323,6 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 坐大巴到无底湖要3小时，海拔也是一路在攀升，还有一长段山路崎岖，让人感受确实不好。但到了后，才发现一些都值得了。同行路上遇到一位19岁的小伙子，给旅途也增添了不一样的色彩，19岁太年轻了，我在想我的19岁在干什么，哈哈哈。
 
 无底湖的湖面和徒步路线的绿野仙踪最让我痴迷，太美了。同行的小伙子用他的单反给我拍了一些照片，一路聊了聊年轻人的想法也甚是有趣，我没有把自己代入老登啊，只是想找回久违的那种青春感。
-
-![旅行照片](lark-image-64.jpg)
 
 ![旅行照片](lark-image-65.jpg)
 
@@ -329,8 +354,10 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 
 ![旅行照片](lark-image-79.jpg)
 
-<video controls preload="metadata" playsinline title="旅行视频 6">
-<source src="lark-video-06.mp4">
+![旅行照片](lark-image-80.jpg)
+
+<video controls preload="metadata" playsinline title="旅行视频 11">
+<source src="lark-video-11.mp4">
 你的浏览器暂不支持视频播放。
 </video>
 
@@ -339,8 +366,6 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 普达措公园是最后一天的行程，10月9日。
 
 我租了电动车，一路从酒店骑到普达措公园，30公里，大概一小时。路上还是比较好奇的，到了景区后人不多，普达措公园给我的感觉就是很中规中矩，没有特别出色的景色，当时也没有特别不好的。它更像是一碗牛肉面，不能说非常好吃，但也能享受一番。
-
-![旅行照片](lark-image-80.jpg)
 
 ![旅行照片](lark-image-81.jpg)
 
@@ -355,6 +380,13 @@ summary: 十天里从昆明、大理、丽江走到香格里拉，风景之外�
 ![旅行照片](lark-image-86.jpg)
 
 ![旅行照片](lark-image-87.jpg)
+
+![旅行照片](lark-image-88.jpg)
+
+<video controls preload="metadata" playsinline title="旅行视频 12">
+<source src="lark-video-12.mp4">
+你的浏览器暂不支持视频播放。
+</video>
 
 从普达措回到酒店，已经是傍晚，而距离这次旅游也接近尾声了。
 
