@@ -7,7 +7,7 @@
 <nav><a href="/posts/">文章</a><a href="/categories/">主题</a><a href="/about/">关于</a></nav>
 <button class="theme-toggle" type="button" aria-label="切换明暗模式">◐</button></header>
 <main class="article-layout"><aside class="article-rail"><a class="article-back" href="/posts/">← 全部文章</a><span class="article-year">2020</span></aside>
-<article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#systems">Systems</a> / 2020.12.13</p><h1>Linux 问题定位及性能优化</h1></header><nav class="article-toc article-toc-mobile" aria-label="文章目录"><b>文章目录</b><a class="toc-level-3" href="#1-1-平均负载和cpu利用率">1.1  平均负载和CPU利用率</a><a class="toc-level-3" href="#1-2-实例分析">1.2 实例分析</a><a class="toc-level-3" href="#2-cpu上下文切换">2. CPU上下文切换</a><a class="toc-level-3" href="#3-不可中断和僵尸进程">3. 不可中断和僵尸进程</a><a class="toc-level-3" href="#4-分析cpu的性能指标">4. 分析CPU的性能指标</a><a class="toc-level-3" href="#5-工具">5. 工具</a></nav>
+<article class="prose"><header class="article-head"><p class="kicker"><a href="/categories/#systems">Systems</a> / 2020.12.13</p><h1>Linux 问题定位及性能优化</h1></header><nav class="article-toc article-toc-inline" aria-label="文章目录"><b>文章目录</b><a class="toc-level-3" href="#1-1-平均负载和cpu利用率">1.1  平均负载和CPU利用率</a><a class="toc-level-3" href="#1-2-实例分析">1.2 实例分析</a><a class="toc-level-3" href="#2-cpu上下文切换">2. CPU上下文切换</a><a class="toc-level-3" href="#3-不可中断和僵尸进程">3. 不可中断和僵尸进程</a><a class="toc-level-3" href="#4-分析cpu的性能指标">4. 分析CPU的性能指标</a><a class="toc-level-3" href="#5-工具">5. 工具</a></nav>
 <h3 id="1-1-平均负载和cpu利用率">1.1  平均负载和CPU利用率</h3>
 <p>这两个通常是衡量系统当前性能的关键指标，但是不能只究一个而放弃另外一个，要两者一起来查看分析。</p>
 <p><em><strong>平均负载：是指单位时间内，系统的运行状态和不可中断状态进程的个数</strong></em>。</p>
