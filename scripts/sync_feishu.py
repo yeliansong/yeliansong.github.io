@@ -170,6 +170,11 @@ def main():
         front_matter = "---\n" + "\n".join(f"{key}: {value}" for key, value in metadata.items()) + "\n---\n\n"
     markdown_content=f"{front_matter}# {title}\n\n{body}\n"
     (target/"index.md").write_text(markdown_content, encoding="utf-8")
+    expected_media = {filename for filename, _ in media}
+    for pattern in ("lark-image-*", "lark-video-*", "lark-file-*"):
+        for old_media in target.glob(pattern):
+            if old_media.name not in expected_media:
+                old_media.unlink()
     for filename, file_token in media:
         download_media(file_token, target / filename, token, args.platform)
     print(target.relative_to(ROOT))
